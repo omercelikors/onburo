@@ -5,18 +5,18 @@
     {{--
     <link rel="shortcut icon" href="{{ asset('css/img/logo.png') }}"> --}}
     <title>@yield('title')</title>
-    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" >
     <meta charset="utf-8">
     <meta name="description" content="@yield('description')">
     <meta name="author" content="@yield('author')">
     <meta name="keywords" content="@yield('keywords')">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @yield('css')
     {{-- root css --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
-    @yield('css')
 </head>
 
 <body>

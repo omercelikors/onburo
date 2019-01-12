@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
 <main class="container-fluid mt-3">
     <div class="card">
@@ -15,87 +14,20 @@
                     <table class="my-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Adı</th>
-                                <th>Soyadı</th>
                                 <th>Kur Tipi</th>
                                 <th>Kur Vakti</th>
                                 <th>Kur Öğretmeni</th>
-                                <th>Kitap</th>
+                                <th>İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>gessf</td>
-                                <td>eedfsed</td>
                                 <td>sdefsef</td>
                                 <td>sfdesf</td>
                                 <td>sgffg</td>
                                 <td>agfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>sessf</td>
-                                <td>sedfsed</td>
-                                <td>edefsef</td>
-                                <td>zfdesf</td>
-                                <td>sgffg</td>
-                                <td>sgfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>gessf</td>
-                                <td>eedfsed</td>
-                                <td>sdefsef</td>
-                                <td>sfdesf</td>
-                                <td>sgffg</td>
-                                <td>agfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>sessf</td>
-                                <td>sedfsed</td>
-                                <td>edefsef</td>
-                                <td>zfdesf</td>
-                                <td>sgffg</td>
-                                <td>sgfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>gessf</td>
-                                <td>eedfsed</td>
-                                <td>sdefsef</td>
-                                <td>sfdesf</td>
-                                <td>sgffg</td>
-                                <td>agfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>sessf</td>
-                                <td>sedfsed</td>
-                                <td>edefsef</td>
-                                <td>zfdesf</td>
-                                <td>sgffg</td>
-                                <td>sgfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>gessf</td>
-                                <td>eedfsed</td>
-                                <td>sdefsef</td>
-                                <td>sfdesf</td>
-                                <td>sgffg</td>
-                                <td>agfsferd</td>
-                                <td>sgfsgf</td>
-                            </tr>
-                            <tr>
-                                <td>sessf</td>
-                                <td>sedfsed</td>
-                                <td>edefsef</td>
-                                <td>zfdesf</td>
-                                <td>sgffg</td>
-                                <td>sgfsferd</td>
-                                <td>sgfsgf</td>
+                                <td><button class="btn btn-primary mx-2">Düzenle</button><button class="btn btn-primary">Sil</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -108,37 +40,37 @@
 @section('js')
 <script src="{{ asset('js/extensions/tablesort.js') }}"></script>
 <script>
-     var filtersConfig = {
+    var filtersConfig = {
         base_path: 'tablefilter/',
         state: {
-          types: ['hash'],
-          filters: true,
-          page_number: true,
-          page_length: true,
-          sort: true
+            types: ['hash'],
+            filters: true,
+            page_number: true,
+            page_length: true,
+            sort: true
         },
         paging: {
-          results_per_page: ['Records: ', [10,25,50,100]]
+            results_per_page: ['Records: ', [10, 25, 50, 100]]
         },
         alternate_rows: true,
         btn_reset: true,
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_0: 'multiple',
+        col_0: 'select',
         col_1: 'select',
-        col_2: 'checklist',
+        col_2: 'select',
         col_widths: [
-            '280px', '250px', '150px',
+            '280px', '100px', '100px',
             '250px', '250px', '150px',
-            '150px'
+            '200px'
         ],
         col_types: [
             'string', 'string', 'string',
             'string', 'string', 'string',
             'string'
         ],
-        extensions:[{
+        extensions: [{
             name: 'sort'
         }]
     };
@@ -153,13 +85,21 @@
     document.querySelector('.nextPage').style.cursor = "pointer";
     document.querySelector('.lastPage').style.cursor = "pointer";
     document.querySelector('.reset').style.cursor = "pointer";
-
-    /* document.querySelector('.firstPage').value = "|<";
-    document.querySelector('.previousPage').value = "<";
-    document.querySelector('.nextPage').value = ">";
-    document.querySelector('.lastPage').value = ">|";
-    document.querySelector('.reset').value = "Yeni"; */
+    document.querySelector('.loader').innerHTML = "Yükleniyor...";
+    document.querySelector('select option').innerHTML = "Temizle";
+    document.querySelector('.fltrow td:last-child').style.display = "none";
+    document.querySelector('.helpCont').innerHTML ="Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
 </script>
+<style>
+    .helpFooter {
+        display: none;
+        visibility: hidden;
+    }
+
+    select {
+        cursor: pointer;
+    }
+</style>
 @endsection
 @section('css')
 <link href="{{ asset('css/extensions/tablefilter.css') }}" rel="stylesheet">
