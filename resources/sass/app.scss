@@ -1,0 +1,37 @@
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar {
+    background-color: #24AFE0;
+
+    .fas {
+        color: white;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .dropdown-menu {
+        min-width: 40px;
+        width: 120px;
+        height: 30px;
+    }
+}
+
+.fa-plus-circle{
+    font-size: 25px;
+}
+
+//tablefilter custom
+caption {
+    caption-side: top;
+}
