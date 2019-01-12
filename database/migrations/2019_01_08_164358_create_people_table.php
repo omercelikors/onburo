@@ -17,7 +17,6 @@ class CreatePeopleTable extends Migration
             $table->increments('id');
             $table->integer('classroom_id')->nullable();
             $table->string('name', 200);
-            $table->string('surname', 200);
             $table->enum('status', ['Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı']);
             $table->dateTime('birthdate');
             $table->string('telephone');
@@ -33,11 +32,10 @@ class CreatePeopleTable extends Migration
             $table->string('university_department')->nullable();
             $table->enum('relative_university_status', ['Evet','Hayır'])->nullable();
             $table->string('relative_name', 200)->nullable();
-            $table->string('relative_surname', 200)->nullable();
             $table->string('relative_telephone')->nullable();
             $table->enum('children_status', ['Evet','Hayır'])->nullable();
             $table->integer('children_number')->nullable();
-            $table->string('children_age_range')->nullable();
+            $table->enum('children_age_range', ['0-10 Yaş','10-20 Yaş','20-30 Yaş'])->nullable();
             $table->enum('online_lesson_status', ['Evet','Hayır'])->nullable();
             $table->enum('citizenship_status', ['Evet','Hayır'])->nullable();
             $table->enum('home_status', ['Evet','Hayır'])->nullable();
