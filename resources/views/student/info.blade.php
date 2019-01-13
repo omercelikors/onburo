@@ -20,7 +20,7 @@
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
                                 <th>Sınıf Öğretmeni</th>
-                                <th>Milliyeti</th>
+                                <th>Borç Miktarı</th>
                                 <th>Kitap Durumu</th>
                                 <th>İşlem</th>
                             </tr>
@@ -32,10 +32,10 @@
                                 <td>{{ $student->classroom->course_type }}</td>
                                 <td>{{ $student->classroom->time }}</td>
                                 <td>{{ $student->classroom->starting_date }}</td>
-                                <td>sgffg</td>
-                                <td>agfsferd</td>
-                                <td>sgffg</td>
-                                <td>agfsferd</td>
+                                <td>{{ $student->classroom->end_date }}</td>
+                                <td>{{ App\Person::find($student->classroom->teacher_id)->name }}</td>
+                                <td>{{ $student->payment->remaining_amount }}</td>
+                                <td>{{ $student->book_status }}</td>
                                 <td><button class="btn btn-primary mx-2">Düzenle</button><button class="btn btn-warning">Sil</button></td>
                                 @endforeach
                             </tr>

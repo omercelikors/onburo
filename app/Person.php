@@ -18,6 +18,6 @@ class Person extends Model
 
     public function payment()
     {
-        return $this->hasMany('App\Payment');
+        return $this->hasOne('App\Payment');
     }
 }

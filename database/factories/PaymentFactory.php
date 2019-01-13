@@ -10,8 +10,8 @@ $students=App\Person::whereNotNull('classroom_id')->get();
 foreach ($students as $student){
     $students_id[]=$student->id;
 }
-$random_array_id = array_rand($students_id);
-$random_student_id = $students_id[$random_array_id];
+
+$random_student_id =$faker ->unique()-> randomElement($students_id);
     return [
         'person_id'=>$random_student_id,
         'debt_amount'=>$debt_amount, 
