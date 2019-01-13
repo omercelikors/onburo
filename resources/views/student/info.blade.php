@@ -17,7 +17,11 @@
                                 <th>Adı</th>
                                 <th>Kur Tipi</th>
                                 <th>Kur Vakti</th>
-                                <th>Kur Öğretmeni</th>
+                                <th>Başlangıç Tarihi</th>
+                                <th>Bitiş Tarihi</th>
+                                <th>Sınıf Öğretmeni</th>
+                                <th>Milliyeti</th>
+                                <th>Kitap Durumu</th>
                                 <th>İşlem</th>
                             </tr>
                         </thead>
@@ -25,6 +29,10 @@
                             <tr>
                                 <td>sdefsef</td>
                                 <td>sfdesf</td>
+                                <td>sgffg</td>
+                                <td>agfsferd</td>
+                                <td>sgffg</td>
+                                <td>agfsferd</td>
                                 <td>sgffg</td>
                                 <td>agfsferd</td>
                                 <td><button class="btn btn-primary mx-2">Düzenle</button><button class="btn btn-primary">Sil</button></td>
@@ -57,18 +65,19 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_0: 'select',
         col_1: 'select',
         col_2: 'select',
+        col_5: 'select',
+        col_7: 'select',
         col_widths: [
-            '280px', '100px', '100px',
-            '250px', '250px', '150px',
-            '200px'
+            '200px', '100px', '120px',
+            '190px', '190px', '200px',
+            '200px', '100px', '160px'
         ],
         col_types: [
             'string', 'string', 'string',
-            'string', 'string', 'string',
-            'string'
+            'date', 'date', 'string',
+            'string', 'string', 'string'
         ],
         extensions: [{
             name: 'sort'
@@ -86,7 +95,7 @@
     document.querySelector('.lastPage').style.cursor = "pointer";
     document.querySelector('.reset').style.cursor = "pointer";
     document.querySelector('.loader').innerHTML = "Yükleniyor...";
-    document.querySelector('select option').innerHTML = "Temizle";
+    // document.querySelector('select option').innerHTML = "Temizle";
     document.querySelector('.fltrow td:last-child').style.display = "none";
     document.querySelector('.helpCont').innerHTML ="Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
 </script>

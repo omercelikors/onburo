@@ -8,9 +8,20 @@ $factory->define(App\Person::class, function (Faker $faker) {
     $sexValues = ['Erkek','Kız'];
     $maritalValues = ['Evli','Bekar'];
     $children_age_rangeValues = ['yaş 0-10','yaş 10-20', 'yaş 20-30']; */
+    $status = $faker ->randomElement($array = array ('Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı'));
+    
+    if ($status=="Öğrenci"){
+        
+        $classroom_id = $faker -> unique()->numberBetween($min = 1, $max = 50);
+        
+    } else {
+        $classroom_id = null;
+    }
+
     return [
+        'classroom_id' => $classroom_id,
         'name' => $faker->name,
-        'status' => $faker ->randomElement($array = array ('Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı')),
+        'status' => $status,
         'birthdate' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'telephone' => $faker->tollFreePhoneNumber,
         'e_mail' => $faker->email,
