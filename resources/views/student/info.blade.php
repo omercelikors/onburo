@@ -26,16 +26,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($students as $student)
                             <tr>
-                                <td>sdefsef</td>
-                                <td>sfdesf</td>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->classroom->course_type }}</td>
+                                <td>{{ $student->classroom->time }}</td>
+                                <td>{{ $student->classroom->starting_date }}</td>
                                 <td>sgffg</td>
                                 <td>agfsferd</td>
                                 <td>sgffg</td>
                                 <td>agfsferd</td>
-                                <td>sgffg</td>
-                                <td>agfsferd</td>
-                                <td><button class="btn btn-primary mx-2">Düzenle</button><button class="btn btn-primary">Sil</button></td>
+                                <td><button class="btn btn-primary mx-2">Düzenle</button><button class="btn btn-warning">Sil</button></td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>

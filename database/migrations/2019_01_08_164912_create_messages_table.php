@@ -16,7 +16,7 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('person_id');
-            $table->enum('message_type', ['SMS','E-posta']);
+            $table->enum('message_type', ['SMS','E-posta','SMS ve E-posta']);
             $table->string('text');
             $table->dateTime('sended_date');
             $table->timestamps();

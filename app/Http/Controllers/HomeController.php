@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Person;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->hasAnyRole('admin|recorder'))
+        if(Auth::user()->hasAnyRole('recorder'))
         {
-            return view('student.info');
+            $students = Person::whereNotNull('classroom_id')->get();
+            return view('student.info')->with('students',$students);
         }
     }
 }

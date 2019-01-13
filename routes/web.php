@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-    Route::group(['middleware' => ['role:admin|recorder']], function () {
+    Route::group(['middleware' => ['role:recorder']], function () {
         Route::get('/home', 'HomeController@index')->name('home');
     });
 
