@@ -52,46 +52,49 @@
 @endsection
 @section('js')
 <script>
-        function student_delete(student_id, delete_row) {
-            
-            swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this student!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        //send project id to be deleted from databese
-                        axios.get('/api/student-delete', {
-                                params: {
-                                    id: student_id
-                                }
-                            })
-                            .then(function (response) {
-                                console.log(response);
-                                // delete student from table
-                                var row = delete_row.parentNode.parentNode.parentNode;
-                                var rowindex = row.rowIndex;
-                                document.getElementById("student-table").deleteRow(rowindex - 2);
-                                swal("Poof! Student has been deleted!", {
-                                    icon: "success",
-                                });
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                                swal("Student cannot be deleted!");
-                            })
-                            .then(function () {
-    
+    function student_delete(student_id, delete_row) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this student!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    //send project id to be deleted from databese
+                    axios.get('/api/student-delete', {
+                            params: {
+                                id: student_id
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response);
+                            swal({
+                                title: "Good job!",
+                                text: "Student has been deleted!",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false,
                             });
-                    } else {
-                        swal("Student is safe!");
-                    }
-                });
-        }
-    </script>
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 2000);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            swal("Student cannot be deleted!");
+                        })
+                        .then(function () {
+
+                        });
+                } else {
+                    swal("Student is safe!");
+                }
+            });
+    }
+</script>
 <script src="{{ asset('js/extensions/tablesort.js') }}"></script>
 <script>
     var filtersConfig = {

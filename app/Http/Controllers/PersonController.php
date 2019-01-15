@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Person;
 use Debugbar;
+use Auth;
 class PersonController extends Controller
 {
     public function student_register (){
