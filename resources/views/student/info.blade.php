@@ -6,12 +6,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i>
+                    <a href="{{ route('student_register') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-12 table-responsive">
-                    <table class="my-table table table-striped">
+                    <table id="student-table" class="student-table table table-striped">
                         <thead>
                             <tr>
                                 <th>Adı</th>
@@ -33,10 +33,13 @@
                                 <td>{{ $student->classroom->time }}</td>
                                 <td>{{ $student->classroom->starting_date }}</td>
                                 <td>{{ $student->classroom->end_date }}</td>
-                                <td>{{ App\Person::find($student->classroom->teacher_id)->name }}</td>
+                                <td>{{ $student->teacher()->name }}</td>
                                 <td>{{ $student->payment->remaining_amount }}</td>
                                 <td>{{ $student->book_status }}</td>
-                                <td><button class="btn btn-primary mx-2">Düzenle</button><button class="btn btn-warning">Sil</button></td>
+                                <form action="{{ route('student_edit', ['student_id' => $student->id]) }}" method="GET">
+                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                            onclick="student_delete({{ $student->id }}, this)" class="btn btn-danger">Sil</button></td>
+                                </form>
                                 @endforeach
                             </tr>
                         </tbody>
@@ -48,6 +51,47 @@
 </main>
 @endsection
 @section('js')
+<script>
+        function student_delete(student_id, delete_row) {
+            
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this student!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        //send project id to be deleted from databese
+                        axios.get('/api/student-delete', {
+                                params: {
+                                    id: student_id
+                                }
+                            })
+                            .then(function (response) {
+                                console.log(response);
+                                // delete student from table
+                                var row = delete_row.parentNode.parentNode.parentNode;
+                                var rowindex = row.rowIndex;
+                                document.getElementById("student-table").deleteRow(rowindex - 2);
+                                swal("Poof! Student has been deleted!", {
+                                    icon: "success",
+                                });
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                                swal("Student cannot be deleted!");
+                            })
+                            .then(function () {
+    
+                            });
+                    } else {
+                        swal("Student is safe!");
+                    }
+                });
+        }
+    </script>
 <script src="{{ asset('js/extensions/tablesort.js') }}"></script>
 <script>
     var filtersConfig = {
@@ -85,7 +129,7 @@
             name: 'sort'
         }]
     };
-    var tf = new TableFilter(document.querySelector('.my-table'), filtersConfig);
+    var tf = new TableFilter(document.querySelector('.student-table'), filtersConfig);
     tf.init();
     document.querySelector('.tot span:nth-child(1)').innerHTML = "Satır ";
     document.querySelector('.mdiv span:nth-child(3)').innerHTML = "Sayfa ";
@@ -99,8 +143,10 @@
     document.querySelector('.loader').innerHTML = "Yükleniyor...";
     // document.querySelector('select option').innerHTML = "Temizle";
     document.querySelector('.fltrow td:last-child').style.display = "none";
-    document.querySelector('.helpCont').innerHTML ="Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
+    document.querySelector('.helpCont').innerHTML =
+        "Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
 </script>
+
 <style>
     .helpFooter {
         display: none;

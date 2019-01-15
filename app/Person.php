@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
@@ -19,5 +20,9 @@ class Person extends Model
     public function payment()
     {
         return $this->hasOne('App\Payment');
+    }
+
+    public function teacher(){
+        return Person::find($this->classroom->teacher_id);
     }
 }
