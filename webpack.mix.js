@@ -14,11 +14,9 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
 
-   // tablefilter extension js
+   // tablefilter extension
    .js('resources/js/extensions/tablesort.js', 'public/js/extensions')
-   // tablefilter extension css
    .copy('resources/css/extensions/tablefilter.css', 'public/css/extensions')
-   // tablefilter extension images
    .copy('resources/img/extensions/blank.png', 'public/img/extensions')
    .copy('resources/img/extensions/btn_clear_filters.png', 'public/img/extensions')
    .copy('resources/img/extensions/btn_first_page.gif', 'public/img/extensions')
@@ -26,5 +24,9 @@ mix.js('resources/js/app.js', 'public/js')
    .copy('resources/img/extensions/btn_next_page.gif', 'public/img/extensions')
    .copy('resources/img/extensions/btn_previous_page.gif', 'public/img/extensions')
    .copy('resources/img/extensions/upsimple.png', 'public/img/extensions')
-   .copy('resources/img/extensions/downsimple.png', 'public/img/extensions');
-   
+   .copy('resources/img/extensions/downsimple.png', 'public/img/extensions')
+
+   // country dropdown extension
+   .js('resources/js/extensions/gettext.js', 'public/js/extensions')
+   .js('resources/js/extensions/geodatasource-cr.js', 'public/js/extensions')
+   .copy('resources/text/extensions/en.po', 'public/text/extensions/');

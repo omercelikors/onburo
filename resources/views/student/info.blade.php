@@ -38,7 +38,7 @@
                                 <td>{{ $student->book_status }}</td>
                                 <form action="{{ route('student_edit', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
-                                            onclick="student_delete({{ $student->id }}, this)" class="btn btn-danger">Sil</button></td>
+                                            onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach
                             </tr>
@@ -51,50 +51,7 @@
 </main>
 @endsection
 @section('js')
-<script>
-    function student_delete(student_id, delete_row) {
 
-        swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this student!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    //send project id to be deleted from databese
-                    axios.get('/api/student-delete', {
-                            params: {
-                                id: student_id
-                            }
-                        })
-                        .then(function (response) {
-                            console.log(response);
-                            swal({
-                                title: "Good job!",
-                                text: "Student has been deleted!",
-                                icon: "success",
-                                timer: 2000,
-                                buttons: false,
-                            });
-                            setTimeout(function () {
-                                location.reload(true);
-                            }, 2000);
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                            swal("Student cannot be deleted!");
-                        })
-                        .then(function () {
-
-                        });
-                } else {
-                    swal("Student is safe!");
-                }
-            });
-    }
-</script>
 <script src="{{ asset('js/extensions/tablesort.js') }}"></script>
 <script>
     var filtersConfig = {
@@ -149,7 +106,46 @@
     document.querySelector('.helpCont').innerHTML =
         "Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
 </script>
-
+<script>
+    function student_delete(student_id) {
+        swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this student!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    //send project id to be deleted from databese
+                    axios.get('/api/student-delete', {
+                            params: {
+                                id: student_id
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response);
+                            swal({
+                                title: "Good job!",
+                                text: "Student has been deleted!",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false,
+                            });
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 2000);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            swal("Student cannot be deleted!");
+                        });
+                } else {
+                    swal("Student is safe!");
+                }
+            });
+    }
+</script>
 <style>
     .helpFooter {
         display: none;

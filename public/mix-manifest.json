@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/extensions/geodatasource-cr.js": "/js/extensions/geodatasource-cr.js",
+    "/js/extensions/gettext.js": "/js/extensions/gettext.js",
     "/js/extensions/tablesort.js": "/js/extensions/tablesort.js",
     "/css/extensions/tablefilter.css": "/css/extensions/tablefilter.css",
     "/img/extensions/blank.png": "/img/extensions/blank.png",
@@ -10,5 +12,6 @@
     "/img/extensions/btn_next_page.gif": "/img/extensions/btn_next_page.gif",
     "/img/extensions/btn_previous_page.gif": "/img/extensions/btn_previous_page.gif",
     "/img/extensions/upsimple.png": "/img/extensions/upsimple.png",
-    "/img/extensions/downsimple.png": "/img/extensions/downsimple.png"
+    "/img/extensions/downsimple.png": "/img/extensions/downsimple.png",
+    "/text/extensions/en.po": "/text/extensions/en.po"
 }

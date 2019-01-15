@@ -46,14 +46,8 @@
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="col-2">
                         <div class="form-group">
-                            <label for="classrooms">Milliyet:</label>
-                            <select class="form-control" id="nationality">
-                                <option></option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
+                            <label for="classrooms">Ülke:</label>
+                            <select class="form-control gds-cr gds-countryflag"  data-language="en"></select>
                         </div>
                     </div>
                     <div class="col-3">
@@ -460,6 +454,9 @@
 @endsection
 
 @section('js')
+{{-- country dropdown js --}}
+<script src="{{ asset('js/extensions/geodatasource-cr.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/extensions/gettext.js') }}"></script>
 <script>
     var today = new Date();
     var dd = today.getDate();
@@ -480,4 +477,9 @@
     document.getElementById("installment5_date").setAttribute("min", today);
     document.getElementById("installment6_date").setAttribute("min", today);
 </script>
+@endsection
+
+@section('css')
+{{-- country dropdown --}}
+<link rel="gettext" type="application/x-po" href="{{ asset('text/extensions/en.po') }}">
 @endsection
