@@ -17,7 +17,6 @@ mix.js('resources/js/app.js', 'public/js')
    // tablefilter extension
    .js('resources/js/extensions/tablesort.js', 'public/js/extensions')
    .copy('resources/css/extensions/tablefilter.css', 'public/css/extensions')
-   .copy('resources/img/extensions/blank.png', 'public/img/extensions')
    .copy('resources/img/extensions/btn_clear_filters.png', 'public/img/extensions')
    .copy('resources/img/extensions/btn_first_page.gif', 'public/img/extensions')
    .copy('resources/img/extensions/btn_last_page.gif', 'public/img/extensions')
@@ -27,6 +26,7 @@ mix.js('resources/js/app.js', 'public/js')
    .copy('resources/img/extensions/downsimple.png', 'public/img/extensions')
 
    // country dropdown extension
-   .js('resources/js/extensions/gettext.js', 'public/js/extensions')
-   .js('resources/js/extensions/geodatasource-cr.js', 'public/js/extensions')
-   .copy('resources/text/extensions/en.po', 'public/text/extensions/');
+   .js('resources/js/extensions/bootstrap-formhelpers.min.js', 'public/js/extensions')
+   .js('resources/js/extensions/bootstrap-formhelpers-countries.en_US.js', 'public/js/extensions')
+   .js('resources/js/extensions/bootstrap-formhelpers-languages.en_US.js', 'public/js/extensions')
+   .copy('resources/css/extensions/bootstrap-formhelpers.min.css', 'public/css/extensions');

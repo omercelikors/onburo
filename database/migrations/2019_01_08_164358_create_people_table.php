@@ -21,7 +21,7 @@ class CreatePeopleTable extends Migration
             $table->dateTime('birthdate');
             $table->string('telephone');
             $table->string('e_mail');
-            $table->string('nationality');
+            $table->string('country');
             $table->string('language')->nullable();
             $table->enum('book_status', ['Evet','Hayır']);
             $table->string('note')->nullable();

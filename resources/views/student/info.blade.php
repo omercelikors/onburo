@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('student_register') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
+                    <a href="{{ route('student_register_show') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
                 </div>
             </div>
             <div class="row mt-3">
@@ -36,7 +36,7 @@
                                 <td>{{ $student->teacher()->name }}</td>
                                 <td>{{ $student->payment->remaining_amount }}</td>
                                 <td>{{ $student->book_status }}</td>
-                                <form action="{{ route('student_edit', ['student_id' => $student->id]) }}" method="GET">
+                                <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>

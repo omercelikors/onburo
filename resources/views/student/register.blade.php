@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <main class="container-fluid mt-3">
-    <form method="POST">
+    <form method="POST" action="{{ route('student_register') }}">
+        @csrf
         <div class="card my-3">
             <div class="card-header">Öğrenci Kayıt</div>
             <div class="card-body">
@@ -9,45 +10,39 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="name">*Adı:</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-group">
                             <label for="email">*E-posta Adresi:</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email" name="email">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="telephone">*Telefon:</label>
-                            <input type="number" class="form-control" id="telephone">
+                            <input type="number" class="form-control" id="telephone" name="telephone">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="birthdate">*Doğum Tarihi:</label>
-                            <input type="date" class="form-control" id="birthdate">
+                            <input type="date" class="form-control" id="birthdate" name="birthdate">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
-                            <label for="classrooms">*Konuştuğu Diller:</label>
-                            <select class="form-control" id="nationality">
-                                <option></option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
+                            <label for="language">*Konuştuğu Diller:</label>
+                            <select class="form-control input-medium bfh-languages" data-language="US" multiple name="language"></select>
                         </div>
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="col-2">
                         <div class="form-group">
-                            <label for="classrooms">Ülke:</label>
-                            <select class="form-control gds-cr gds-countryflag"  data-language="en"></select>
+                            <label for="country">Ülke:</label>
+                            <select class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
                         </div>
                     </div>
                     <div class="col-3">
@@ -56,39 +51,39 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="course_type">A1
+                                <input type="radio" class="form-check-input" name="course_type" name="course_type_A1">A1
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="course_type">A2
+                                <input type="radio" class="form-check-input" name="course_type" name="course_type_A2">A2
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="course_type">B1
+                                <input type="radio" class="form-check-input" name="course_type" name="course_type_B1">B1
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="course_type">B2
+                                <input type="radio" class="form-check-input" name="course_type" name="course_type_B2">B2
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="course_type">C1
+                                <input type="radio" class="form-check-input" name="course_type" name="course_type_C1">C1
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="course_type">C1+
+                                <input type="radio" class="form-check-input" name="course_type" name="course_type_C1+">C1+
                             </label>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="classrooms">*Sınıflar:</label>
-                            <select class="form-control" id="classrooms">
+                            <select class="form-control" id="classrooms" name="classrooms">
                                 <option></option>
                                 <option>1</option>
                                 <option>2</option>
@@ -103,12 +98,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="book_status">Evet
+                                <input type="radio" class="form-check-input" name="book_status" name="book_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="book_status">Hayır
+                                <input type="radio" class="form-check-input" name="book_status" name="book_status_no">Hayır
                             </label>
                         </div>
                     </div>
@@ -117,7 +112,7 @@
                             <label>Not:</label>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" rows="2" id="note"></textarea>
+                            <textarea class="form-control" rows="2" id="note" name="note"></textarea>
                         </div>
                     </div>
                 </div>
@@ -139,12 +134,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status">Erkek
+                                <input type="radio" class="form-check-input" name="sex_status" name="sex_status_man">Erkek
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status">Kız
+                                <input type="radio" class="form-check-input" name="sex_status" name="sex_status_girl">Kız
                             </label>
                         </div>
                     </div>
@@ -154,12 +149,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status">Evli
+                                <input type="radio" class="form-check-input" name="marital_status_married">Evli
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status">Bekar
+                                <input type="radio" class="form-check-input" name="marital_status_bachelor">Bekar
                             </label>
                         </div>
                     </div>
@@ -169,19 +164,19 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status">Evet
+                                <input type="radio" class="form-check-input" name="university_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status">Hayır
+                                <input type="radio" class="form-check-input" name="university_status_no">Hayır
                             </label>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="university_department">Üniversite Bölümü:</label>
-                            <input type="text" class="form-control" id="university_department">
+                            <input type="text" class="form-control" id="university_department" name="university_department">
                         </div>
                     </div>
                     <div class="col-2">
@@ -190,12 +185,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="relative_university_status">Evet
+                                <input type="radio" class="form-check-input" name="relative_university_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="relative_university_status">Hayır
+                                <input type="radio" class="form-check-input" name="relative_university_status_no">Hayır
                             </label>
                         </div>
                     </div>
@@ -204,13 +199,13 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="relative_name">Yakın İsmi:</label>
-                            <input type="text" class="form-control" id="relative_name">
+                            <input type="text" class="form-control" id="relative_name" name="relative_name">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="relative_telephone">Yakın Telefonu:</label>
-                            <input type="number" class="form-control" id="relative_telephone">
+                            <input type="number" class="form-control" id="relative_telephone" name="relative_telephone">
                         </div>
                     </div>
                     <div class="col-2">
@@ -219,25 +214,25 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="children_status">Evet
+                                <input type="radio" class="form-check-input" name="children_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="children_status">Hayır
+                                <input type="radio" class="form-check-input" name="children_status_no">Hayır
                             </label>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="children_number">Çocuk Sayısı:</label>
-                            <input type="number" class="form-control" id="children_number">
+                            <input type="number" class="form-control" id="children_number" name="children_number">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="children_age_range">Çocuk Yaş Aralığı:</label>
-                            <select class="form-control" id="children_age_range">
+                            <select class="form-control" id="children_age_range" name="children_age_range">
                                 <option></option>
                                 <option>0-10 Yaş</option>
                                 <option>10-20 Yaş</option>
@@ -253,12 +248,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="online_lesson_status">Evet
+                                <input type="radio" class="form-check-input" name="online_lesson_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="online_lesson_status">Hayır
+                                <input type="radio" class="form-check-input" name="online_lesson_status_no">Hayır
                             </label>
                         </div>
                     </div>
@@ -268,12 +263,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="citizenship_status">Evet
+                                <input type="radio" class="form-check-input" name="citizenship_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="citizenship_status">Hayır
+                                <input type="radio" class="form-check-input" name="citizenship_status_no">Hayır
                             </label>
                         </div>
                     </div>
@@ -283,25 +278,25 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="home_status">Evet
+                                <input type="radio" class="form-check-input" name="home_status_yes">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="home_status">Hayır
+                                <input type="radio" class="form-check-input" name="home_status_no">Hayır
                             </label>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="heard_by">Duyduğu Yer:</label>
-                            <input type="text" class="form-control" id="heard_by">
+                            <input type="text" class="form-control" id="heard_by" name="heard_by">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="demanded_education">Talep Edilen Eğitimler:</label>
-                            <input type="text" class="form-control" id="demanded_education">
+                            <input type="text" class="form-control" id="demanded_education" name="demanded_education">
                         </div>
                     </div>
                 </div>
@@ -331,31 +326,31 @@
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="currency_unit">Türk Lirası
+                                    <input type="radio" class="form-check-input" name="currency_unit_tl">Türk Lirası
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="currency_unit">Dolar
+                                    <input type="radio" class="form-check-input" name="currency_unit_usd">Dolar
                                 </label>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="debt_amount">Ödenecek Miktar:</label>
-                                <input type="text" class="form-control" id="debt_amount">
+                                <input type="text" class="form-control" id="debt_amount" name="debt_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="paid_amount">Ödenen Miktar:</label>
-                                <input type="text" class="form-control" id="paid_amount">
+                                <input type="text" class="form-control" id="paid_amount" name="paid_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="remaining_amount">Kalan Miktar:</label>
-                                <input type="text" class="form-control" id="remaining_amount" disabled>
+                                <input type="text" class="form-control" id="remaining_amount" disabled name="remaining_amount">
                             </div>
                         </div>
                     </div>
@@ -363,25 +358,25 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                <input type="text" class="form-control" id="installment1_amount">
+                                <input type="text" class="form-control" id="installment1_amount" name="installment1_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment1_date">Taksit-1 Tarihi:</label>
-                                <input type="date" class="form-control" id="installment1_date">
+                                <input type="date" class="form-control" id="installment1_date" name="installment1_date">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                <input type="text" class="form-control" id="installment2_amount">
+                                <input type="text" class="form-control" id="installment2_amount" name="installment2_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment2_date">Taksit-2 Tarihi:</label>
-                                <input type="date" class="form-control" id="installment2_date">
+                                <input type="date" class="form-control" id="installment2_date" name="installment2_date">
                             </div>
                         </div>
                     </div>
@@ -389,25 +384,25 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                <input type="text" class="form-control" id="installment3_amount">
+                                <input type="text" class="form-control" id="installment3_amount" name="installment3_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment3_date">Taksit-3 Tarihi:</label>
-                                <input type="date" class="form-control" id="installment3_date">
+                                <input type="date" class="form-control" id="installment3_date" name="installment3_date">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                <input type="text" class="form-control" id="installment4_amount">
+                                <input type="text" class="form-control" id="installment4_amount" name="installment4_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment4_date">Taksit-4 Tarihi:</label>
-                                <input type="date" class="form-control" id="installment4_date">
+                                <input type="date" class="form-control" id="installment4_date" name="installment4_date">
                             </div>
                         </div>
                     </div>
@@ -415,25 +410,25 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                <input type="text" class="form-control" id="installment5_amount">
+                                <input type="text" class="form-control" id="installment5_amount" name="installment5_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment5_date">Taksit-5 Tarihi:</label>
-                                <input type="date" class="form-control" id="installment5_date">
+                                <input type="date" class="form-control" id="installment5_date" name="installment5_date">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                <input type="text" class="form-control" id="installment6_amount">
+                                <input type="text" class="form-control" id="installment6_amount" name="installment6_amount">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="installment6_date">Taksit-6 Tarihi:</label>
-                                <input type="date" class="form-control" id="installment6_date">
+                                <input type="date" class="form-control" id="installment6_date" name="installment6_date">
                             </div>
                         </div>
                     </div>
@@ -455,8 +450,15 @@
 
 @section('js')
 {{-- country dropdown js --}}
-<script src="{{ asset('js/extensions/geodatasource-cr.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/extensions/gettext.js') }}"></script>
+<script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
+<script src="{{ asset('js/extensions/bootstrap-formhelpers-countries.en_US.js') }}"></script>
+<script src="{{ asset('js/extensions/bootstrap-formhelpers-languages.en_US.js') }}"></script>
+<script>
+    $( function() {
+        $(".bfh-countries option:nth-child(1)").attr("selected", "selected");
+    });
+</script>
+{{-- disabled past or future for dates  --}}
 <script>
     var today = new Date();
     var dd = today.getDate();
@@ -481,5 +483,5 @@
 
 @section('css')
 {{-- country dropdown --}}
-<link rel="gettext" type="application/x-po" href="{{ asset('text/extensions/en.po') }}">
+<link rel="stylesheet" href="{{ asset('css/extensions/bootstrap-formhelpers.min.css') }}">
 @endsection

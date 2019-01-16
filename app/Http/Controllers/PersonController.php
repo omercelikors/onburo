@@ -8,11 +8,11 @@ use Debugbar;
 use Auth;
 class PersonController extends Controller
 {
-    public function student_register (){
+    public function student_register_show (){
         return view('student.register');
     }
 
-    public function student_edit ($student_id){
+    public function student_edit_show ($student_id){
         $student= Person::find($student_id);
         return view('student.edit')->with('student',$student);
     }
@@ -27,5 +27,9 @@ class PersonController extends Controller
         } else {
         return "fail";
         }
+    }
+
+    public function student_register () {
+
     }
 }
