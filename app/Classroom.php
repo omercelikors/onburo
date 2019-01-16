@@ -10,4 +10,5 @@ class Classroom extends Model
     {
         return $this->hasMany('App\Person');
     }
+
 }

@@ -19,7 +19,7 @@ class CreatePeopleTable extends Migration
             $table->string('name', 200);
             $table->enum('status', ['Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı']);
             $table->dateTime('birthdate');
-            $table->string('telephone');
+            $table->integer('telephone');
             $table->string('e_mail');
             $table->string('country');
             $table->string('language')->nullable();
