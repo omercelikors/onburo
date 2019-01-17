@@ -34,8 +34,7 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="language">*Konuştuğu Diller:</label>
-                            <select class="form-control input-medium bfh-languages" data-language="US" name="language"
-                                multiple></select>
+                            <select class="form-control input-medium bfh-languages" data-language="US" name="language" multiple></select>
                         </div>
                     </div>
                 </div>
@@ -86,7 +85,7 @@
                             <label for="classrooms">*Sınıflar:</label>
                             <select class="form-control" id="classrooms" name="classrooms">
                                 @foreach ($classrooms as $classroom)
-                                <option>{{ $classroom->time }} / {{ $classroom->starting_date }} / {{
+                                <option value="{{ $classroom->id }}">{{ $classroom->time }} / {{ $classroom->starting_date }} / {{
                                     $classroom->end_date }} / {{ App\Person::find($classroom->teacher_id)->name }}</option>
                                 @endforeach
                             </select>
@@ -114,11 +113,6 @@
                         <div class="form-group">
                             <textarea class="form-control" rows="2" id="note" name="note"></textarea>
                         </div>
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-12 d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#payment_modal">Ödeme</button>
                     </div>
                 </div>
             </div>
@@ -307,139 +301,6 @@
                 <button class="btn btn-primary" type="submit">Kaydet</button>
             </div>
         </div>
-        <!-- The Payment Modal -->
-        <div class="modal" id="payment_modal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Ödeme</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-3">
-                                <div>
-                                    <label>Para Birimi:</label>
-                                </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="currency_unit_tl">Türk
-                                        Lirası
-                                    </label>
-                                </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="currency_unit_usd">Dolar
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="debt_amount">Ödenecek Miktar:</label>
-                                    <input type="text" class="form-control" id="debt_amount" name="debt_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="paid_amount">Ödenen Miktar:</label>
-                                    <input type="text" class="form-control" id="paid_amount" name="paid_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="remaining_amount">Kalan Miktar:</label>
-                                    <input type="text" class="form-control" id="remaining_amount" disabled name="remaining_amount">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment1_amount" name="installment1_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment1_date">Taksit-1 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment1_date" name="installment1_date">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment2_amount" name="installment2_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment2_date">Taksit-2 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment2_date" name="installment2_date">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment3_amount" name="installment3_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment3_date">Taksit-3 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment3_date" name="installment3_date">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment4_amount" name="installment4_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment4_date">Taksit-4 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment4_date" name="installment4_date">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment5_amount" name="installment5_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment5_date">Taksit-5 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment5_date" name="installment5_date">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment6_amount" name="installment6_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="installment6_date">Taksit-6 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment6_date" name="installment6_date">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </form>
 </main>
 @endsection
@@ -468,110 +329,84 @@
     }
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("birthdate").setAttribute("max", today);
-    document.getElementById("installment1_date").setAttribute("min", today);
-    document.getElementById("installment2_date").setAttribute("min", today);
-    document.getElementById("installment3_date").setAttribute("min", today);
-    document.getElementById("installment4_date").setAttribute("min", today);
-    document.getElementById("installment5_date").setAttribute("min", today);
-    document.getElementById("installment6_date").setAttribute("min", today);
 </script>
 {{-- classrooms dropdown filter --}}
 <script type="text/javascript">
+classroom={};
+classrooms=[];
+@foreach($classrooms as $classroom)
+    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date }}", end_date:"{{ $classroom->end_date }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
+    classrooms.push(classroom);
+@endforeach
+console.log(classrooms[4].course_type);
+
+
     function filter (course_type){
         document.getElementById("classrooms").options.length=0;
+        select = document.getElementById('classrooms');
         if(course_type=="A1"){
-            a1_courses = [
-            @foreach($a1_courses as $a1_course)
-            ["{{ $a1_course->time }} / ", "{{ $a1_course->starting_date }} / ", "{{ $a1_course->end_date }} / ", "{{ App\Person::find($a1_course->teacher_id)->name }}"],
-            @endforeach
-            ];
-            select = document.getElementById('classrooms');
-            for (i = 0; i< a1_courses.length; i++){
-                console.log(a1_courses[i]);
-                var opt = document.createElement('option');
-                opt.value = a1_courses[i];
-                opt.innerHTML = a1_courses[i].join("");
-                select.appendChild(opt);
+            for (i = 0; i< classrooms.length; i++){
+                if(classrooms[i].course_type=="A1"){
+                    var opt = document.createElement('option');
+                    opt.value = classrooms[i].id;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    select.appendChild(opt);
+                }
             }
         }
 
         if(course_type=="A2"){
-            a2_courses = [
-            @foreach($a2_courses as $a2_course)
-            ["{{ $a2_course->time }} / ", "{{ $a2_course->starting_date }} / ", "{{ $a2_course->end_date }} / ", "{{ App\Person::find($a2_course->teacher_id)->name }}"],
-            @endforeach
-            ];
-            select = document.getElementById('classrooms');
-            for (i = 0; i< a2_courses.length; i++){
-                console.log(a2_courses[i]);
-                var opt = document.createElement('option');
-                opt.value = a2_courses[i];
-                opt.innerHTML = a2_courses[i].join("");
-                select.appendChild(opt);
+            for (i = 0; i< classrooms.length; i++){
+                if(classrooms[i].course_type=="A2"){
+                    var opt = document.createElement('option');
+                    opt.value = classrooms[i].id;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    select.appendChild(opt);
+                }
             }
         }
 
         if(course_type=="B1"){
-            b1_courses = [
-            @foreach($b1_courses as $b1_course)
-            ["{{ $b1_course->time }} / ", "{{ $b1_course->starting_date }} / ", "{{ $b1_course->end_date }} / ", "{{ App\Person::find($b1_course->teacher_id)->name }}"],
-            @endforeach
-            ];
-            select = document.getElementById('classrooms');
-            for (i = 0; i< b1_courses.length; i++){
-                console.log(b1_courses[i]);
-                var opt = document.createElement('option');
-                opt.value = b1_courses[i];
-                opt.innerHTML = b1_courses[i].join("");
-                select.appendChild(opt);
+            for (i = 0; i< classrooms.length; i++){
+                if(classrooms[i].course_type=="B1"){
+                    var opt = document.createElement('option');
+                    opt.value = classrooms[i].id;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    select.appendChild(opt);
+                }
             }
         }
 
         if(course_type=="B2"){
-            b2_courses = [
-            @foreach($b2_courses as $b2_course)
-            ["{{ $b2_course->time }} / ", "{{ $b2_course->starting_date }} / ", "{{ $b2_course->end_date }} / ", "{{ App\Person::find($b2_course->teacher_id)->name }}"],
-            @endforeach
-            ];
-            select = document.getElementById('classrooms');
-            for (i = 0; i< b2_courses.length; i++){
-                console.log(b2_courses[i]);
-                var opt = document.createElement('option');
-                opt.value = b2_courses[i];
-                opt.innerHTML = b2_courses[i].join("");
-                select.appendChild(opt);
+            for (i = 0; i< classrooms.length; i++){
+                if(classrooms[i].course_type=="B2"){
+                    var opt = document.createElement('option');
+                    opt.value = classrooms[i].id;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    select.appendChild(opt);
+                }
             }
         }
 
         if(course_type=="C1"){
-            c1_courses = [
-            @foreach($c1_courses as $c1_course)
-            ["{{ $c1_course->time }} / ", "{{ $c1_course->starting_date }} / ", "{{ $c1_course->end_date }} / ", "{{ App\Person::find($c1_course->teacher_id)->name }}"],
-            @endforeach
-            ];
-            select = document.getElementById('classrooms');
-            for (i = 0; i< c1_courses.length; i++){
-                console.log(c1_courses[i]);
-                var opt = document.createElement('option');
-                opt.value = c1_courses[i];
-                opt.innerHTML = c1_courses[i].join("");
-                select.appendChild(opt);
+            for (i = 0; i< classrooms.length; i++){
+                if(classrooms[i].course_type=="C1"){
+                    var opt = document.createElement('option');
+                    opt.value = classrooms[i].id;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    select.appendChild(opt);
+                }
             }
         }
 
         if(course_type=="C1+"){
-            c1_plus_courses = [
-            @foreach($c1_plus_courses as $c1_plus_course)
-            ["{{ $c1_plus_course->time }} / ", "{{ $c1_plus_course->starting_date }} / ", "{{ $c1_plus_course->end_date }} / ", "{{ App\Person::find($c1_plus_course->teacher_id)->name }}"],
-            @endforeach
-            ];
-            select = document.getElementById('classrooms');
-            for (i = 0; i< c1_plus_courses.length; i++){
-                console.log(c1_plus_courses[i]);
-                var opt = document.createElement('option');
-                opt.value = c1_plus_courses[i];
-                opt.innerHTML = c1_plus_courses[i].join("");
-                select.appendChild(opt);
+            for (i = 0; i< classrooms.length; i++){
+                if(classrooms[i].course_type=="C1+"){
+                    var opt = document.createElement('option');
+                    opt.value = classrooms[i].id;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    select.appendChild(opt);
+                }
             }
         }
     }

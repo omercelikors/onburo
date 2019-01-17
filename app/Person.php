@@ -19,7 +19,7 @@ class Person extends Model
 
     public function payment()
     {
-        return $this->hasOne('App\Payment');
+        return $this->hasMany('App\Payment');
     }
 
     public function teacher(){

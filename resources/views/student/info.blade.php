@@ -20,7 +20,7 @@
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
                                 <th>Sınıf Öğretmeni</th>
-                                <th>Borç Miktarı</th>
+                                <th>Ülke</th>
                                 <th>Kitap Durumu</th>
                                 <th>İşlem</th>
                             </tr>
@@ -34,7 +34,7 @@
                                 <td>{{ $student->classroom->starting_date }}</td>
                                 <td>{{ $student->classroom->end_date }}</td>
                                 <td>{{ $student->teacher()->name }}</td>
-                                <td>{{ $student->payment->remaining_amount }}</td>
+                                <td>{{ $student->country }}</td>
                                 <td>{{ $student->book_status }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -83,7 +83,7 @@
         col_types: [
             'string', 'string', 'string',
             'date', 'date', 'string',
-            'string', 'string', 'string'
+            'string', 'string', 'string',
         ],
         extensions: [{
             name: 'sort'
@@ -109,11 +109,12 @@
 <script>
     function student_delete(student_id) {
         swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this student!",
+                title: "Emin misiniz?",
+                text: "Öğrenci silindiğinde tekrar geri getiremezsiniz!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
+                buttons: ["Hayır", "Evet"],
             })
             .then((willDelete) => {
                 if (willDelete) {
@@ -126,8 +127,8 @@
                         .then(function (response) {
                             console.log(response);
                             swal({
-                                title: "Good job!",
-                                text: "Student has been deleted!",
+                                title: "Başarılı!",
+                                text: "Öğrenci silindi!",
                                 icon: "success",
                                 timer: 2000,
                                 buttons: false,
@@ -138,10 +139,17 @@
                         })
                         .catch(function (error) {
                             console.log(error);
-                            swal("Student cannot be deleted!");
+                            swal({
+                                text: "Öğrenci bir hatadan dolayı silinemedi!",
+                                button: "Evet",
+                            });
                         });
                 } else {
-                    swal("Student is safe!");
+                    swal({
+                        text: "Öğrenci silinmedi!",
+                        button: "Evet",
+                    });
+
                 }
             });
     }

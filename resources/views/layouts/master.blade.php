@@ -34,13 +34,16 @@
                     <a class="nav-link" href="#">ÖĞRETMEN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SINIF</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">ADAY ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ŞİRKET ÇALIŞANI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SINIF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ÖDEME</a>
                 </li>
                 @endrole
                 @role('admin|recorder')

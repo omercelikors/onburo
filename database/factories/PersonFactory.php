@@ -14,7 +14,7 @@ $factory->define(App\Person::class, function (Faker $faker) {
         'name' => $faker->name,
         'status' => $status,
         'birthdate' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'telephone' => $faker->randomDigit,
+        'telephone' => $faker->text($maxNbChars = 10),
         'e_mail' => $faker->email,
         'country' => $faker->country,
         'language' => $faker->optional()->languageCode,

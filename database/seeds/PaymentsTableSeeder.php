@@ -11,7 +11,6 @@ class PaymentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $students=App\Person::whereNotNull('classroom_id')->get();
-        factory(App\Payment::class, $students->count())->create();
+        factory(App\Payment::class, 50)->create();
     }
 }

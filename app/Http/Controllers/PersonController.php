@@ -10,14 +10,8 @@ use Auth;
 class PersonController extends Controller
 {
     public function student_register_show (){
-        $a1_courses=Classroom::where('course_type','A1')->get();
-        $a2_courses=Classroom::where('course_type','A2')->get();
-        $b1_courses=Classroom::where('course_type','B1')->get();
-        $b2_courses=Classroom::where('course_type','B2')->get();
-        $c1_courses=Classroom::where('course_type','C1')->get();
-        $c1_plus_courses=Classroom::where('course_type','C1+')->get();
         $classrooms=Classroom::all();
-        return view('student.register')->with('classrooms',$classrooms)->with('a1_courses',$a1_courses)->with('a2_courses',$a2_courses)->with('b1_courses',$b1_courses)->with('b2_courses',$b2_courses)->with('c1_courses',$c1_courses)->with('c1_plus_courses',$c1_plus_courses);
+        return view('student.register')->with('classrooms',$classrooms);
     }
 
     public function student_edit_show ($student_id){
@@ -39,22 +33,29 @@ class PersonController extends Controller
 
     public function student_register (Request $request) {
         $student_name=$request->input('name');
-        $student_e_mail=$request->input('e_mail');
-        $student_telephone=$request->input('telephone');
         $student_birthdate=$request->input('birthdate');
+        $student_telephone=$request->input('telephone');
+        $student_e_mail=$request->input('e_mail');
         $student_country=$request->input('country');
+        $student_language=$request->input('language');
         $student_book_status=$request->input('book_status');
+        $student_note=$request->input('note');
         $student_registration_by=Auth::user()->name;
+        $student_classroom=$request->input('classrooms');
 
-        $student_control=new Person;
-        $student_control->name=$student_name;
-        $student_control->e_mail=$student_e_mail;
-        $student_control->telephone=$student_telephone;
-        $student_control->birthdate=$student_birthdate;
-        $student_control->country=$student_country;
-        $student_control->book_status=$student_book_status;
-        $student_control->registration_by=$student_registration_by;
-        $student_control->save();
+        $student_register=new Person;
+        $student_register->name=$student_name;
+        $student_register->status="Öğrenci";
+        $student_register->birthdate=$student_birthdate;
+        $student_register->telephone=$student_telephone;
+        $student_register->e_mail=$student_e_mail;
+        $student_register->country=$student_country;
+        $student_register->language=$student_language;
+        $student_register->book_status=$student_book_status;
+        $student_register->note=$student_note;
+        $student_register->registration_by=$student_registration_by;
+        $student_register->classroom_id=$student_classroom;
+        $student_register->save();
         return redirect()->back();
 
 
