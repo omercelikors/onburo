@@ -27,6 +27,4 @@ mix.js('resources/js/app.js', 'public/js')
 
    // country dropdown extension
    .js('resources/js/extensions/bootstrap-formhelpers.min.js', 'public/js/extensions')
-   .js('resources/js/extensions/bootstrap-formhelpers-countries.en_US.js', 'public/js/extensions')
-   .js('resources/js/extensions/bootstrap-formhelpers-languages.en_US.js', 'public/js/extensions')
    .copy('resources/css/extensions/bootstrap-formhelpers.min.css', 'public/css/extensions');

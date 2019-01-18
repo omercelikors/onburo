@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         if(Auth::user()->hasAnyRole('recorder'))
         {
-            $students = Person::whereNotNull('classroom_id')->get();
+            $students = Person::where('status','Öğrenci')->get();
             return view('student.info')->with('students',$students);
         }
     }

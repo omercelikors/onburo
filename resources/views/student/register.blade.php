@@ -33,8 +33,8 @@
                     </div>
                     <div class="col-2">
                         <div class="form-group">
-                            <label for="language">*Konuştuğu Diller:</label>
-                            <select class="form-control input-medium bfh-languages" data-language="US" name="language" multiple></select>
+                            <label for="languages">*Konuştuğu Diller:</label>
+                            <select class="form-control input-medium bfh-languages" data-language="US" name="languages[]" multiple></select>
                         </div>
                     </div>
                 </div>
@@ -128,12 +128,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status" name="sex_status_man">Erkek
+                                <input type="radio" class="form-check-input" value="Erkek" name="sex_status">Erkek
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sex_status" name="sex_status_girl">Kız
+                                <input type="radio" class="form-check-input" value="Kız" name="sex_status">Kız
                             </label>
                         </div>
                     </div>
@@ -143,12 +143,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="marital_status_married">Evli
+                                <input type="radio" class="form-check-input" value="Evli" name="marital_status">Evli
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="marital_status_bachelor">Bekar
+                                <input type="radio" class="form-check-input" value="Bekar" name="marital_status">Bekar
                             </label>
                         </div>
                     </div>
@@ -158,12 +158,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="university_status_yes">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="university_status">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="university_status_no">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="university_status">Hayır
                             </label>
                         </div>
                     </div>
@@ -179,12 +179,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="relative_university_status_yes">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="relative_university_status">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="relative_university_status_no">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="relative_university_status">Hayır
                             </label>
                         </div>
                     </div>
@@ -208,12 +208,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="children_status_yes">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="children_status">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="children_status_no">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="children_status">Hayır
                             </label>
                         </div>
                     </div>
@@ -226,11 +226,11 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="children_age_range">Çocuk Yaş Aralığı:</label>
-                            <select class="form-control" id="children_age_range" name="children_age_range">
+                            <select class="form-control" id="children_age_range" name="children_age_range_status">
                                 <option></option>
-                                <option>0-10 Yaş</option>
-                                <option>10-20 Yaş</option>
-                                <option>20-30 Yaş</option>
+                                <option value="0-10 Yaş">0-10 Yaş</option>
+                                <option value="10-20 Yaş">10-20 Yaş</option>
+                                <option value="20-30 Yaş">20-30 Yaş</option>
                             </select>
                         </div>
                     </div>
@@ -242,12 +242,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="online_lesson_status_yes">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="online_lesson_status">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="online_lesson_status_no">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="online_lesson_status">Hayır
                             </label>
                         </div>
                     </div>
@@ -257,12 +257,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="citizenship_status_yes">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="citizenship_status">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="citizenship_status_no">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="citizenship_status">Hayır
                             </label>
                         </div>
                     </div>
@@ -272,12 +272,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="home_status_yes">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="home_status">Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="home_status_no">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="home_status">Hayır
                             </label>
                         </div>
                     </div>
@@ -308,8 +308,6 @@
 @section('js')
 {{-- country dropdown js --}}
 <script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
-<script src="{{ asset('js/extensions/bootstrap-formhelpers-countries.en_US.js') }}"></script>
-<script src="{{ asset('js/extensions/bootstrap-formhelpers-languages.en_US.js') }}"></script>
 <script>
     $(function () {
         $(".bfh-countries option:nth-child(1)").attr("selected", "selected");

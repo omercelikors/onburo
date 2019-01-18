@@ -21,12 +21,12 @@ class CreatePeopleTable extends Migration
             $table->dateTime('birthdate');
             $table->string('telephone');
             $table->string('e_mail');
-            $table->string('country');
-            $table->string('language')->nullable();
+            $table->string('country')->nullable();
+            $table->string('languages');
             $table->enum('book_status', ['Evet','Hayır']);
             $table->string('note')->nullable();
             $table->string('registration_by');
-            $table->enum('sex', ['Erkek','Kız'])->nullable();
+            $table->enum('sex_status', ['Erkek','Kız'])->nullable();
             $table->enum('marital_status', ['Evli','Bekar'])->nullable();
             $table->enum('university_status', ['Evet','Hayır'])->nullable();
             $table->string('university_department')->nullable();
@@ -35,7 +35,7 @@ class CreatePeopleTable extends Migration
             $table->string('relative_telephone')->nullable();
             $table->enum('children_status', ['Evet','Hayır'])->nullable();
             $table->integer('children_number')->nullable();
-            $table->enum('children_age_range', ['0-10 Yaş','10-20 Yaş','20-30 Yaş'])->nullable();
+            $table->enum('children_age_range_status', ['0-10 Yaş','10-20 Yaş','20-30 Yaş'])->nullable();
             $table->enum('online_lesson_status', ['Evet','Hayır'])->nullable();
             $table->enum('citizenship_status', ['Evet','Hayır'])->nullable();
             $table->enum('home_status', ['Evet','Hayır'])->nullable();

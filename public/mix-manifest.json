@@ -1,8 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/extensions/bootstrap-formhelpers-countries.en_US.js": "/js/extensions/bootstrap-formhelpers-countries.en_US.js",
-    "/js/extensions/bootstrap-formhelpers-languages.en_US.js": "/js/extensions/bootstrap-formhelpers-languages.en_US.js",
     "/js/extensions/bootstrap-formhelpers.min.js": "/js/extensions/bootstrap-formhelpers.min.js",
     "/js/extensions/tablesort.js": "/js/extensions/tablesort.js",
     "/css/extensions/tablefilter.css": "/css/extensions/tablefilter.css",
