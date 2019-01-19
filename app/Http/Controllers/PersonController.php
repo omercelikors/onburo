@@ -16,7 +16,9 @@ class PersonController extends Controller
 
     public function student_edit_show ($student_id){
         $student= Person::find($student_id);
-        return view('student.edit')->with('student',$student);
+        $classrooms=Classroom::all();
+        $formatted_date = date('Y-m-d' , strtotime($student->birthdate));
+        return view('student.edit')->with('student',$student)->with('classrooms',$classrooms)->with('formatted_date',$formatted_date);
     }
 
     public function student_delete(Request $request)
@@ -88,13 +90,38 @@ class PersonController extends Controller
         $student_register->demanded_education=$student_demanded_education;
         $student_register->save();
         return redirect()->back();
+    }
 
-
-        /* $student_course_type_A1=$request->input('course_type_A1');
-        $student_course_type_A2=$request->input('course_type_A2');
-        $student_course_type_B1=$request->input('course_type_B1');
-        $student_course_type_B2=$request->input('course_type_B2');
-        $student_course_type_C1=$request->input('course_type_C1');
-        $student_course_type_C1_plus=$request->input('course_type_C1+'); */
+    public function student_edit_register(Request $request){
+        $student_id=$request->input('student_id');
+        $student=Person::find($student_id);
+        $student->name=$request->input('name');
+        $student->birthdate=$request->input('birthdate');
+        $student->telephone=$request->input('telephone');
+        $student->e_mail=$request->input('e_mail');
+        $student->country=$request->input('country');
+        $student_languages=$request->input('languages');
+        $student->languages = implode(',', $student_languages);
+        $student->book_status=$request->input('book_status');
+        $student->note=$request->input('note');
+        $student->registration_by=Auth::user()->name;
+        $student->classroom_id=$request->input('classrooms');
+        $student->sex_status=$request->input('sex_status');
+        $student->marital_status=$request->input('marital_status');
+        $student->university_status=$request->input('university_status');
+        $student->university_department=$request->input('university_department');
+        $student->relative_university_status=$request->input('relative_university_status');
+        $student->relative_name=$request->input('relative_name');
+        $student->relative_telephone=$request->input('relative_telephone');
+        $student->children_status=$request->input('children_status');
+        $student->children_number=$request->input('children_number');
+        $student->children_age_range_status=$request->input('children_age_range_status');
+        $student->online_lesson_status=$request->input('online_lesson_status');
+        $student->citizenship_status=$request->input('citizenship_status');
+        $student->home_status=$request->input('home_status');
+        $student->heard_by=$request->input('heard_by');
+        $student->demanded_education=$request->input('demanded_education');
+        $student->save();
+        return redirect()->back();
     }
 }

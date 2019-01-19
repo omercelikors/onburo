@@ -7,88 +7,91 @@
             <div class="card-header">Öğrenci Kayıt</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="name">*Adı:</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                        </div>
-                    </div>
                     <div class="col-3">
                         <div class="form-group">
+                            <label for="name">*Adı:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
                             <label for="email">*E-posta Adresi:</label>
-                            <input type="email" class="form-control" id="email" name="e_mail">
+                            <input type="email" class="form-control" id="email" name="e_mail" required>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="telephone">*Telefon:</label>
-                            <input type="number" class="form-control" id="telephone" name="telephone">
+                            <input type="number" class="form-control" id="telephone" name="telephone" required>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
                             <label for="birthdate">*Doğum Tarihi:</label>
-                            <input type="date" class="form-control" id="birthdate" name="birthdate">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="languages">*Konuştuğu Diller:</label>
-                            <select class="form-control input-medium bfh-languages" data-language="US" name="languages[]" multiple></select>
+                            <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                         </div>
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
+                    <div class="col-3">
+                        <div>
+                            <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
+                        </div>
+                        <div class="form-check-inline mr-1">
+                            <label class="form-check-label">
+                                <input onclick="filter('A1')" type="radio" class="form-check-input" name="course_type">A1
+                            </label>
+                        </div>
+                        <div class="form-check-inline mr-1">
+                            <label class="form-check-label">
+                                <input onclick="filter('A2')" type="radio" class="form-check-input" name="course_type">A2
+                            </label>
+                        </div>
+                        <div class="form-check-inline mr-1">
+                            <label class="form-check-label">
+                                <input onclick="filter('B1')" type="radio" class="form-check-input" name="course_type">B1
+                            </label>
+                        </div>
+                        <div class="form-check-inline mr-1">
+                            <label class="form-check-label">
+                                <input onclick="filter('B2')" type="radio" class="form-check-input" name="course_type">B2
+                            </label>
+                        </div>
+                        <div class="form-check-inline mr-1">
+                            <label class="form-check-label">
+                                <input onclick="filter('C1')" type="radio" class="form-check-input" name="course_type">C1
+                            </label>
+                        </div>
+                        <div class="form-check-inline mr-1">
+                            <label class="form-check-label">
+                                <input onclick="filter('C1+')" type="radio" class="form-check-input" name="course_type">C1+
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input onclick="filter('All')" type="radio" id="all" class="form-check-input" name="course_type">All
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="classrooms">*Sınıflar:</label>
+                            <select class="form-control" id="classrooms" name="classrooms" required></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2 d-flex justify-content-center">
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="country">Ülke:</label>
                             <select class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div>
-                            <label>*Kur Tipi:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('A1')" type="radio" class="form-check-input" name="course_type">A1</input>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('A2')" type="radio" class="form-check-input" name="course_type">A2
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('B1')" type="radio" class="form-check-input" name="course_type">B1
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('B2')" type="radio" class="form-check-input" name="course_type">B2
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('C1')" type="radio" class="form-check-input" name="course_type">C1
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('C1+')" type="radio" class="form-check-input" name="course_type">C1+
-                            </label>
-                        </div>
-                    </div>
                     <div class="col-2">
                         <div class="form-group">
-                            <label for="classrooms">*Sınıflar:</label>
-                            <select class="form-control" id="classrooms" name="classrooms">
-                                @foreach ($classrooms as $classroom)
-                                <option value="{{ $classroom->id }}">{{ $classroom->time }} / {{ $classroom->starting_date }} / {{
-                                    $classroom->end_date }} / {{ App\Person::find($classroom->teacher_id)->name }}</option>
-                                @endforeach
-                            </select>
+                            <label for="languages">*Konuştuğu Diller:</label>
+                            <select class="form-control input-medium bfh-languages" data-language="US" name="languages[]"
+                                multiple required></select>
                         </div>
                     </div>
                     <div class="col-2">
@@ -97,12 +100,12 @@
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="book_status">Evet
+                                <input type="radio" class="form-check-input" value="Evet" name="book_status" required>Evet
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="book_status">Hayır
+                                <input type="radio" class="form-check-input" value="Hayır" name="book_status" required>Hayır
                             </label>
                         </div>
                     </div>
@@ -308,12 +311,7 @@
 @section('js')
 {{-- country dropdown js --}}
 <script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
-<script>
-    $(function () {
-        $(".bfh-countries option:nth-child(1)").attr("selected", "selected");
-    });
-</script>
-{{-- disabled past or future for dates --}}
+{{-- disabled future dates for "birthdate field" --}}
 <script>
     var today = new Date();
     var dd = today.getDate();
@@ -328,19 +326,21 @@
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("birthdate").setAttribute("max", today);
 </script>
-{{-- classrooms dropdown filter --}}
+{{-- classrooms dropdown filter according to "course types" --}}
 <script type="text/javascript">
+//all classrooms were received "classrooms array object"
 classroom={};
 classrooms=[];
 @foreach($classrooms as $classroom)
     classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date }}", end_date:"{{ $classroom->end_date }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
     classrooms.push(classroom);
 @endforeach
-console.log(classrooms[4].course_type);
-
-
+// when page load, "all" course types had been clicked
+var all = document.getElementById('all');
+all.click();
+// when clicked course type radio button, classrooms were filtered according to course types
     function filter (course_type){
-        document.getElementById("classrooms").options.length=0;
+        document.getElementById("classrooms").options.length=1;
         select = document.getElementById('classrooms');
         if(course_type=="A1"){
             for (i = 0; i< classrooms.length; i++){
@@ -405,6 +405,15 @@ console.log(classrooms[4].course_type);
                     opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
                     select.appendChild(opt);
                 }
+            }
+        }
+
+        if(course_type=="All"){
+            for (i = 0; i< classrooms.length; i++){
+                var opt = document.createElement('option');
+                opt.value = classrooms[i].id;
+                opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                select.appendChild(opt);
             }
         }
     }
