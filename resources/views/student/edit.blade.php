@@ -91,7 +91,7 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="languages">*Konuştuğu Diller:</label>
-                            <select class="form-control input-medium bfh-languages" data-language="US" name="languages[]"
+                            <select id="languages" class="form-control input-medium bfh-languages" data-language="US" name="languages[]"
                                 multiple required></select>
                         </div>
                     </div>
@@ -436,6 +436,21 @@ if("{{ $student->classroom->course_type }}"=="A1"){
             }
         }
     }
+</script>
+{{-- language dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    student_language="{{ $student->languages }}";
+    student_language_array=student_language.split(",")
+        $(document).ready(function () {
+            languages_option_length = document.getElementById("languages").options.length;
+            for (i = 0; i < languages_option_length; i++) {
+                for(z = 0; z < student_language_array.length; z++){
+                    if (document.getElementById("languages").options[i].value == student_language_array[z]) {
+                        document.getElementById("languages").options[i].setAttribute('selected', true);
+                    }
+                }
+            }
+        });
 </script>
 {{-- country dropdown is having "selected attirubute" according to value coming --}}
 <script>
