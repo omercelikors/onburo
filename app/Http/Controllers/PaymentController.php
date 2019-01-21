@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Payment;
 use Debugbar;
 use Auth;
+use App\Person;
 class PaymentController extends Controller
 {
     public function payment_info_show (){
@@ -30,6 +31,12 @@ class PaymentController extends Controller
     }
 
     public function payment_register_show (){
-        return view('payment.register');
+        $students=Person::where('status','Öğrenci')->get();
+        return view('payment.register')->with('students',$students);
+    }
+
+    public function payment_register (Request $request){
+        
+        return redirect()->back();
     }
 }
