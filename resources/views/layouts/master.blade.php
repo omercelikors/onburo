@@ -43,7 +43,7 @@
                     <a class="nav-link" href="#">SINIF</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ÖDEME</a>
+                    <a class="nav-link" href="{{ route('payment_show') }}">ÖDEME</a>
                 </li>
                 @endrole
                 @role('admin|recorder')
