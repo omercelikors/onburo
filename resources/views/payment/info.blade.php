@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('student_register_show') }}"><span class="float-right">Yeni Ödeme</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
+                    <a href="{{ route('payment_register_show') }}"><span class="float-right">Yeni Ödeme</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
                 </div>
             </div>
             <div class="row mt-3">
@@ -32,24 +32,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($payments as $payment)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
-                                            onclick="payment_delete()" class="btn btn-danger">Sil</button></td>
+                                <td>{{ $payment->person->name }}</td>
+                                <td>{{ $payment->total_remaining_amount }} {{ $payment->currency_unit }}</td>
+                                <td>@if(isset($payment->installment1_remaining_amount)){{ $payment->installment1_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
+                                <td>{{ $payment->date_format(1) }}</td>
+                                <td>@if(isset($payment->installment2_remaining_amount)){{ $payment->installment2_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
+                                <td>{{ $payment->date_format(2) }}</td>
+                                <td>@if(isset($payment->installment3_remaining_amount)){{ $payment->installment3_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
+                                <td>{{ $payment->date_format(3) }}</td>
+                                <td>@if(isset($payment->installment4_remaining_amount)){{ $payment->installment4_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
+                                <td>{{ $payment->date_format(4) }}</td>
+                                <td>@if(isset($payment->installment5_remaining_amount)){{ $payment->installment5_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
+                                <td>{{ $payment->date_format(5) }}</td>
+                                <td>@if(isset($payment->installment6_remaining_amount)){{ $payment->installment6_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
+                                <td>{{ $payment->date_format(6) }}</td>
+                                <form action="{{ route('payment_edit_show', ['payment_id' => $payment->id]) }}" method="GET">
+                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                            onclick="payment_delete({{ $payment->id }})" class="btn btn-danger">Sil</button></td>
+                                </form>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -80,9 +84,9 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '200px', '90px', '90px', '90px', '90px',
-            '90px', '90px', '90px', '90px', '90px',
-            '90px', '90px', '90px', '90px', '170px'
+            '200px', '90px', '90px', '100px', '90px',
+            '100px', '90px', '100px', '90px', '100px',
+            '90px', '100px', '90px', '100px', '170px'
         ],
         col_types: [
             'string', 'number', 'number', 'date', 'number',
@@ -111,10 +115,10 @@
     $(".flt option:nth-child(1)").text("Temizle");
 </script>
 <script>
-    function student_delete(payment_id) {
+    function payment_delete(payment_id) {
         swal({
                 title: "Emin misiniz?",
-                text: "Öğrenci silindiğinde tekrar geri getiremezsiniz!",
+                text: "Ödeme silindiğinde tekrar geri getiremezsiniz!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -132,7 +136,7 @@
                             console.log(response);
                             swal({
                                 title: "Başarılı!",
-                                text: "Öğrenci silindi!",
+                                text: "Ödeme silindi!",
                                 icon: "success",
                                 timer: 2000,
                                 buttons: false,
@@ -144,13 +148,13 @@
                         .catch(function (error) {
                             console.log(error);
                             swal({
-                                text: "Öğrenci bir hatadan dolayı silinemedi!",
+                                text: "Ödeme bir hatadan dolayı silinemedi!",
                                 button: "Evet",
                             });
                         });
                 } else {
                     swal({
-                        text: "Öğrenci silinmedi!",
+                        text: "Ödeme silinmedi!",
                         button: "Evet",
                     });
 
