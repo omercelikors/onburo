@@ -18,41 +18,60 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <div>
-                            <label>*Para Birimi:</label>
+                </div>
+                <div class="row my-2 d-flex justify-content-center">
+                    <fieldset class="col-8 mr-2">
+                        <legend style="width:12%;">Borç Bilgileri</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-3">
+                                <div>
+                                    <label>*Para Birimi:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input id="turkish_lira" type="radio" class="form-check-input" value="Türk Lirası"
+                                            name="currency_unit">Türk
+                                        Lirası
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input id="dolar" type="radio" class="form-check-input" value="Dolar" name="currency_unit">Dolar
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="debt_amount">*Borç Miktarı:</label>
+                                    <input type="number" class="form-control" id="debt_amount" name="debt_amount">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="paid_amount">*Ödenen Miktar:</label>
+                                    <input type="number" class="form-control" id="paid_amount" name="paid_amount">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="total_remaining_amount">Toplam Kalan Miktar:</label>
+                                    <input type="number" class="form-control" id="remaining_amount" name="total_remaining_amount"
+                                        readonly>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input id="turkish_lira" type="radio" class="form-check-input" value="Türk Lirası" name="currency_unit">Türk
-                                Lirası
-                            </label>
+                    </fieldset>
+                    <fieldset class="col-3">
+                        <legend style="width:73%;">Taksit Hesaplama Yardımcısı</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="form-group">
+                                <label for="calculator">Kalan Taksit Miktarı:</label>
+                                <input id="calculator" type="number" class="form-control" readonly>
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input id="dolar" type="radio" class="form-check-input" value="Dolar" name="currency_unit">Dolar
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="debt_amount">*Ödenecek Miktar:</label>
-                            <input type="number" class="form-control" id="debt_amount" name="debt_amount">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="paid_amount">*Ödenen Miktar:</label>
-                            <input type="number" class="form-control" id="paid_amount" name="paid_amount">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="remaining_amount">Kalan Miktar:</label>
-                            <input type="number" class="form-control" id="remaining_amount" name="remaining_amount"
-                                disabled>
-                        </div>
-                    </div>
+                    </fieldset>
+                </div>
+                <div class="row my-2 d-flex justify-content-center">
                     <div class="col-2">
                         <div class="form-group">
                             <label for="installment_number">Taksit Sayısı:</label>
@@ -69,99 +88,131 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                            <input type="text" class="form-control" id="installment1_amount" name="installment1_amount"
-                                disabled>
+                    <fieldset class="col-4 mr-4">
+                        <legend style="width:15%;">Taksit-1</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment1_amount">Taksit-1 Miktarı:</label>
+                                    <input type="text" class="form-control" id="installment1_amount" name="installment1_amount"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment1_date">Taksit-1 Tarihi:</label>
+                                    <input type="date" class="form-control" id="installment1_date" name="installment1_date"
+                                        readonly>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment1_date">Taksit-1 Tarihi:</label>
-                            <input type="date" class="form-control" id="installment1_date" name="installment1_date"
-                                disabled>
+                    </fieldset>
+                    <fieldset class="col-4">
+                        <legend style="width:15%;">Taksit-2</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment2_amount">Taksit-2 Miktarı:</label>
+                                    <input type="text" class="form-control" id="installment2_amount" name="installment2_amount"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment2_date">Taksit-2 Tarihi:</label>
+                                    <input type="date" class="form-control" id="installment2_date" name="installment2_date"
+                                        readonly>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                            <input type="text" class="form-control" id="installment2_amount" name="installment2_amount"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment2_date">Taksit-2 Tarihi:</label>
-                            <input type="date" class="form-control" id="installment2_date" name="installment2_date"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                            <input type="text" class="form-control" id="installment3_amount" name="installment3_amount"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment3_date">Taksit-3 Tarihi:</label>
-                            <input type="date" class="form-control" id="installment3_date" name="installment3_date"
-                                disabled>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                            <input type="text" class="form-control" id="installment4_amount" name="installment4_amount"
-                                disabled>
+                    <fieldset class="col-4 mr-4">
+                        <legend style="width:15%;">Taksit-3</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment3_amount">Taksit-3 Miktarı:</label>
+                                    <input type="text" class="form-control" id="installment3_amount" name="installment3_amount"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment3_date">Taksit-3 Tarihi:</label>
+                                    <input type="date" class="form-control" id="installment3_date" name="installment3_date"
+                                        readonly>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment4_date">Taksit-4 Tarihi:</label>
-                            <input type="date" class="form-control" id="installment4_date" name="installment4_date"
-                                disabled>
+                    </fieldset>
+                    <fieldset class="col-4">
+                        <legend style="width:15%;">Taksit-4</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment4_amount">Taksit-4 Miktarı:</label>
+                                    <input type="text" class="form-control" id="installment4_amount" name="installment4_amount"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment4_date">Taksit-4 Tarihi:</label>
+                                    <input type="date" class="form-control" id="installment4_date" name="installment4_date"
+                                        readonly>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                            <input type="text" class="form-control" id="installment5_amount" name="installment5_amount"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment5_date">Taksit-5 Tarihi:</label>
-                            <input type="date" class="form-control" id="installment5_date" name="installment5_date"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                            <input type="text" class="form-control" id="installment6_amount" name="installment6_amount"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="installment6_date">Taksit-6 Tarihi:</label>
-                            <input type="date" class="form-control" id="installment6_date" name="installment6_date"
-                                disabled>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <fieldset>
-                            <legend>Taksit Heaplama:</legend>
-                            Taksit Kalan: <input id="calculator" type="number" disabled>
-                        </fieldset>
+                    <fieldset class="col-4 mr-4">
+                        <legend style="width:15%;">Taksit-5</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment5_amount">Taksit-5 Miktarı:</label>
+                                    <input type="text" class="form-control" id="installment5_amount" name="installment5_amount"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment5_date">Taksit-5 Tarihi:</label>
+                                    <input type="date" class="form-control" id="installment5_date" name="installment5_date"
+                                        readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="col-4">
+                        <legend style="width:15%;">Taksit-6</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment6_amount">Taksit-6 Miktarı:</label>
+                                    <input type="text" class="form-control" id="installment6_amount" name="installment6_amount"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="installment6_date">Taksit-6 Tarihi:</label>
+                                    <input type="date" class="form-control" id="installment6_date" name="installment6_date"
+                                        readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="row my-2 d-flex justify-content-center">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="note">Not:</label>
+                            <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -222,24 +273,24 @@
         installment6_date=document.getElementById('installment6_date').value;
         calculator.value=remaining_amount.value-installment1_amount-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
         if(installment_number==""){
-            $('#installment1_amount').attr("disabled", true);
-            $('#installment2_amount').attr("disabled", true);
-            $('#installment3_amount').attr("disabled", true);
-            $('#installment4_amount').attr("disabled", true);
-            $('#installment5_amount').attr("disabled", true);
-            $('#installment6_amount').attr("disabled", true);
+            $('#installment1_amount').attr("readonly", true);
+            $('#installment2_amount').attr("readonly", true);
+            $('#installment3_amount').attr("readonly", true);
+            $('#installment4_amount').attr("readonly", true);
+            $('#installment5_amount').attr("readonly", true);
+            $('#installment6_amount').attr("readonly", true);
             document.getElementById("installment1_amount").value = "";
             document.getElementById("installment2_amount").value = "";
             document.getElementById("installment3_amount").value = "";
             document.getElementById("installment4_amount").value = "";
             document.getElementById("installment5_amount").value = "";
             document.getElementById("installment6_amount").value = "";
-            $('#installment1_date').attr("disabled", true);
-            $('#installment2_date').attr("disabled", true);
-            $('#installment3_date').attr("disabled", true);
-            $('#installment4_date').attr("disabled", true);
-            $('#installment5_date').attr("disabled", true);
-            $('#installment6_date').attr("disabled", true);
+            $('#installment1_date').attr("readonly", true);
+            $('#installment2_date').attr("readonly", true);
+            $('#installment3_date').attr("readonly", true);
+            $('#installment4_date').attr("readonly", true);
+            $('#installment5_date').attr("readonly", true);
+            $('#installment6_date').attr("readonly", true);
             document.getElementById("installment1_date").value = "";
             document.getElementById("installment2_date").value = "";
             document.getElementById("installment3_date").value = "";
@@ -253,47 +304,47 @@
             }
         }else if(installment_number==1){
             if(remaining_amount.value==0){
-                $('#installment1_amount').attr("disabled", true);
-                $('#installment2_amount').attr("disabled", true);
-                $('#installment3_amount').attr("disabled", true);
-                $('#installment4_amount').attr("disabled", true);
-                $('#installment5_amount').attr("disabled", true);
-                $('#installment6_amount').attr("disabled", true);
+                $('#installment1_amount').attr("readonly", true);
+                $('#installment2_amount').attr("readonly", true);
+                $('#installment3_amount').attr("readonly", true);
+                $('#installment4_amount').attr("readonly", true);
+                $('#installment5_amount').attr("readonly", true);
+                $('#installment6_amount').attr("readonly", true);
                 document.getElementById("installment_number").value = "";
                 document.getElementById("installment2_amount").value = "";
                 document.getElementById("installment3_amount").value = "";
                 document.getElementById("installment4_amount").value = "";
                 document.getElementById("installment5_amount").value = "";
                 document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("disabled", true);
-                $('#installment2_date').attr("disabled", true);
-                $('#installment3_date').attr("disabled", true);
-                $('#installment4_date').attr("disabled", true);
-                $('#installment5_date').attr("disabled", true);
-                $('#installment6_date').attr("disabled", true);
+                $('#installment1_date').attr("readonly", true);
+                $('#installment2_date').attr("readonly", true);
+                $('#installment3_date').attr("readonly", true);
+                $('#installment4_date').attr("readonly", true);
+                $('#installment5_date').attr("readonly", true);
+                $('#installment6_date').attr("readonly", true);
                 document.getElementById("installment2_date").value = "";
                 document.getElementById("installment3_date").value = "";
                 document.getElementById("installment4_date").value = "";
                 document.getElementById("installment5_date").value = "";
                 document.getElementById("installment6_date").value = "";
             } else{
-            $('#installment1_amount').attr("disabled", false);
-            $('#installment2_amount').attr("disabled", true);
-            $('#installment3_amount').attr("disabled", true);
-            $('#installment4_amount').attr("disabled", true);
-            $('#installment5_amount').attr("disabled", true);
-            $('#installment6_amount').attr("disabled", true);
+            $('#installment1_amount').attr("readonly", false);
+            $('#installment2_amount').attr("readonly", true);
+            $('#installment3_amount').attr("readonly", true);
+            $('#installment4_amount').attr("readonly", true);
+            $('#installment5_amount').attr("readonly", true);
+            $('#installment6_amount').attr("readonly", true);
             document.getElementById("installment2_amount").value = "";
             document.getElementById("installment3_amount").value = "";
             document.getElementById("installment4_amount").value = "";
             document.getElementById("installment5_amount").value = "";
             document.getElementById("installment6_amount").value = "";
-            $('#installment1_date').attr("disabled", false);
-            $('#installment2_date').attr("disabled", true);
-            $('#installment3_date').attr("disabled", true);
-            $('#installment4_date').attr("disabled", true);
-            $('#installment5_date').attr("disabled", true);
-            $('#installment6_date').attr("disabled", true);
+            $('#installment1_date').attr("readonly", false);
+            $('#installment2_date').attr("readonly", true);
+            $('#installment3_date').attr("readonly", true);
+            $('#installment4_date').attr("readonly", true);
+            $('#installment5_date').attr("readonly", true);
+            $('#installment6_date').attr("readonly", true);
             document.getElementById("installment2_date").value = "";
             document.getElementById("installment3_date").value = "";
             document.getElementById("installment4_date").value = "";
@@ -307,46 +358,46 @@
             }
         } else if(installment_number==2){
             if(remaining_amount.value==0){
-                $('#installment1_amount').attr("disabled", true);
-                $('#installment2_amount').attr("disabled", true);
-                $('#installment3_amount').attr("disabled", true);
-                $('#installment4_amount').attr("disabled", true);
-                $('#installment5_amount').attr("disabled", true);
-                $('#installment6_amount').attr("disabled", true);
+                $('#installment1_amount').attr("readonly", true);
+                $('#installment2_amount').attr("readonly", true);
+                $('#installment3_amount').attr("readonly", true);
+                $('#installment4_amount').attr("readonly", true);
+                $('#installment5_amount').attr("readonly", true);
+                $('#installment6_amount').attr("readonly", true);
                 document.getElementById("installment_number").value = "";
                 document.getElementById("installment2_amount").value = "";
                 document.getElementById("installment3_amount").value = "";
                 document.getElementById("installment4_amount").value = "";
                 document.getElementById("installment5_amount").value = "";
                 document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("disabled", true);
-                $('#installment2_date').attr("disabled", true);
-                $('#installment3_date').attr("disabled", true);
-                $('#installment4_date').attr("disabled", true);
-                $('#installment5_date').attr("disabled", true);
-                $('#installment6_date').attr("disabled", true);
+                $('#installment1_date').attr("readonly", true);
+                $('#installment2_date').attr("readonly", true);
+                $('#installment3_date').attr("readonly", true);
+                $('#installment4_date').attr("readonly", true);
+                $('#installment5_date').attr("readonly", true);
+                $('#installment6_date').attr("readonly", true);
                 document.getElementById("installment2_date").value = "";
                 document.getElementById("installment3_date").value = "";
                 document.getElementById("installment4_date").value = "";
                 document.getElementById("installment5_date").value = "";
                 document.getElementById("installment6_date").value = "";
             } else{
-            $('#installment1_amount').attr("disabled", false);
-            $('#installment2_amount').attr("disabled", false);
-            $('#installment3_amount').attr("disabled", true);
-            $('#installment4_amount').attr("disabled", true);
-            $('#installment5_amount').attr("disabled", true);
-            $('#installment6_amount').attr("disabled", true);
+            $('#installment1_amount').attr("readonly", false);
+            $('#installment2_amount').attr("readonly", false);
+            $('#installment3_amount').attr("readonly", true);
+            $('#installment4_amount').attr("readonly", true);
+            $('#installment5_amount').attr("readonly", true);
+            $('#installment6_amount').attr("readonly", true);
             document.getElementById("installment3_amount").value = "";
             document.getElementById("installment4_amount").value = "";
             document.getElementById("installment5_amount").value = "";
             document.getElementById("installment6_amount").value = "";
-            $('#installment1_date').attr("disabled", false);
-            $('#installment2_date').attr("disabled", false);
-            $('#installment3_date').attr("disabled", true);
-            $('#installment4_date').attr("disabled", true);
-            $('#installment5_date').attr("disabled", true);
-            $('#installment6_date').attr("disabled", true);
+            $('#installment1_date').attr("readonly", false);
+            $('#installment2_date').attr("readonly", false);
+            $('#installment3_date').attr("readonly", true);
+            $('#installment4_date').attr("readonly", true);
+            $('#installment5_date').attr("readonly", true);
+            $('#installment6_date').attr("readonly", true);
             document.getElementById("installment3_date").value = "";
             document.getElementById("installment4_date").value = "";
             document.getElementById("installment5_date").value = "";
@@ -359,45 +410,45 @@
             }
         } else if(installment_number==3){
             if(remaining_amount.value==0){
-                $('#installment1_amount').attr("disabled", true);
-                $('#installment2_amount').attr("disabled", true);
-                $('#installment3_amount').attr("disabled", true);
-                $('#installment4_amount').attr("disabled", true);
-                $('#installment5_amount').attr("disabled", true);
-                $('#installment6_amount').attr("disabled", true);
+                $('#installment1_amount').attr("readonly", true);
+                $('#installment2_amount').attr("readonly", true);
+                $('#installment3_amount').attr("readonly", true);
+                $('#installment4_amount').attr("readonly", true);
+                $('#installment5_amount').attr("readonly", true);
+                $('#installment6_amount').attr("readonly", true);
                 document.getElementById("installment_number").value = "";
                 document.getElementById("installment2_amount").value = "";
                 document.getElementById("installment3_amount").value = "";
                 document.getElementById("installment4_amount").value = "";
                 document.getElementById("installment5_amount").value = "";
                 document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("disabled", true);
-                $('#installment2_date').attr("disabled", true);
-                $('#installment3_date').attr("disabled", true);
-                $('#installment4_date').attr("disabled", true);
-                $('#installment5_date').attr("disabled", true);
-                $('#installment6_date').attr("disabled", true);
+                $('#installment1_date').attr("readonly", true);
+                $('#installment2_date').attr("readonly", true);
+                $('#installment3_date').attr("readonly", true);
+                $('#installment4_date').attr("readonly", true);
+                $('#installment5_date').attr("readonly", true);
+                $('#installment6_date').attr("readonly", true);
                 document.getElementById("installment2_date").value = "";
                 document.getElementById("installment3_date").value = "";
                 document.getElementById("installment4_date").value = "";
                 document.getElementById("installment5_date").value = "";
                 document.getElementById("installment6_date").value = "";
             } else{
-            $('#installment1_amount').attr("disabled", false);
-            $('#installment2_amount').attr("disabled", false);
-            $('#installment3_amount').attr("disabled", false);
-            $('#installment4_amount').attr("disabled", true);
-            $('#installment5_amount').attr("disabled", true);
-            $('#installment6_amount').attr("disabled", true);
+            $('#installment1_amount').attr("readonly", false);
+            $('#installment2_amount').attr("readonly", false);
+            $('#installment3_amount').attr("readonly", false);
+            $('#installment4_amount').attr("readonly", true);
+            $('#installment5_amount').attr("readonly", true);
+            $('#installment6_amount').attr("readonly", true);
             document.getElementById("installment4_amount").value = "";
             document.getElementById("installment5_amount").value = "";
             document.getElementById("installment6_amount").value = "";
-            $('#installment1_date').attr("disabled", false);
-            $('#installment2_date').attr("disabled", false);
-            $('#installment3_date').attr("disabled", false);
-            $('#installment4_date').attr("disabled", true);
-            $('#installment5_date').attr("disabled", true);
-            $('#installment6_date').attr("disabled", true);
+            $('#installment1_date').attr("readonly", false);
+            $('#installment2_date').attr("readonly", false);
+            $('#installment3_date').attr("readonly", false);
+            $('#installment4_date').attr("readonly", true);
+            $('#installment5_date').attr("readonly", true);
+            $('#installment6_date').attr("readonly", true);
             document.getElementById("installment4_date").value = "";
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
@@ -409,44 +460,44 @@
             }
         } else if (installment_number==4){
             if(remaining_amount.value==0){
-                $('#installment1_amount').attr("disabled", true);
-                $('#installment2_amount').attr("disabled", true);
-                $('#installment3_amount').attr("disabled", true);
-                $('#installment4_amount').attr("disabled", true);
-                $('#installment5_amount').attr("disabled", true);
-                $('#installment6_amount').attr("disabled", true);
+                $('#installment1_amount').attr("readonly", true);
+                $('#installment2_amount').attr("readonly", true);
+                $('#installment3_amount').attr("readonly", true);
+                $('#installment4_amount').attr("readonly", true);
+                $('#installment5_amount').attr("readonly", true);
+                $('#installment6_amount').attr("readonly", true);
                 document.getElementById("installment_number").value = "";
                 document.getElementById("installment2_amount").value = "";
                 document.getElementById("installment3_amount").value = "";
                 document.getElementById("installment4_amount").value = "";
                 document.getElementById("installment5_amount").value = "";
                 document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("disabled", true);
-                $('#installment2_date').attr("disabled", true);
-                $('#installment3_date').attr("disabled", true);
-                $('#installment4_date').attr("disabled", true);
-                $('#installment5_date').attr("disabled", true);
-                $('#installment6_date').attr("disabled", true);
+                $('#installment1_date').attr("readonly", true);
+                $('#installment2_date').attr("readonly", true);
+                $('#installment3_date').attr("readonly", true);
+                $('#installment4_date').attr("readonly", true);
+                $('#installment5_date').attr("readonly", true);
+                $('#installment6_date').attr("readonly", true);
                 document.getElementById("installment2_date").value = "";
                 document.getElementById("installment3_date").value = "";
                 document.getElementById("installment4_date").value = "";
                 document.getElementById("installment5_date").value = "";
                 document.getElementById("installment6_date").value = "";
             } else{
-            $('#installment1_amount').attr("disabled", false);
-            $('#installment2_amount').attr("disabled", false);
-            $('#installment3_amount').attr("disabled", false);
-            $('#installment4_amount').attr("disabled", false);
-            $('#installment5_amount').attr("disabled", true);
-            $('#installment6_amount').attr("disabled", true);
+            $('#installment1_amount').attr("readonly", false);
+            $('#installment2_amount').attr("readonly", false);
+            $('#installment3_amount').attr("readonly", false);
+            $('#installment4_amount').attr("readonly", false);
+            $('#installment5_amount').attr("readonly", true);
+            $('#installment6_amount').attr("readonly", true);
             document.getElementById("installment5_amount").value = "";
             document.getElementById("installment6_amount").value = "";
-            $('#installment1_date').attr("disabled", false);
-            $('#installment2_date').attr("disabled", false);
-            $('#installment3_date').attr("disabled", false);
-            $('#installment4_date').attr("disabled", false);
-            $('#installment5_date').attr("disabled", true);
-            $('#installment6_date').attr("disabled", true);
+            $('#installment1_date').attr("readonly", false);
+            $('#installment2_date').attr("readonly", false);
+            $('#installment3_date').attr("readonly", false);
+            $('#installment4_date').attr("readonly", false);
+            $('#installment5_date').attr("readonly", true);
+            $('#installment6_date').attr("readonly", true);
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
             }
@@ -457,43 +508,43 @@
             }
         } else if(installment_number==5){
             if(remaining_amount.value==0){
-                $('#installment1_amount').attr("disabled", true);
-                $('#installment2_amount').attr("disabled", true);
-                $('#installment3_amount').attr("disabled", true);
-                $('#installment4_amount').attr("disabled", true);
-                $('#installment5_amount').attr("disabled", true);
-                $('#installment6_amount').attr("disabled", true);
+                $('#installment1_amount').attr("readonly", true);
+                $('#installment2_amount').attr("readonly", true);
+                $('#installment3_amount').attr("readonly", true);
+                $('#installment4_amount').attr("readonly", true);
+                $('#installment5_amount').attr("readonly", true);
+                $('#installment6_amount').attr("readonly", true);
                 document.getElementById("installment_number").value = "";
                 document.getElementById("installment2_amount").value = "";
                 document.getElementById("installment3_amount").value = "";
                 document.getElementById("installment4_amount").value = "";
                 document.getElementById("installment5_amount").value = "";
                 document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("disabled", true);
-                $('#installment2_date').attr("disabled", true);
-                $('#installment3_date').attr("disabled", true);
-                $('#installment4_date').attr("disabled", true);
-                $('#installment5_date').attr("disabled", true);
-                $('#installment6_date').attr("disabled", true);
+                $('#installment1_date').attr("readonly", true);
+                $('#installment2_date').attr("readonly", true);
+                $('#installment3_date').attr("readonly", true);
+                $('#installment4_date').attr("readonly", true);
+                $('#installment5_date').attr("readonly", true);
+                $('#installment6_date').attr("readonly", true);
                 document.getElementById("installment2_date").value = "";
                 document.getElementById("installment3_date").value = "";
                 document.getElementById("installment4_date").value = "";
                 document.getElementById("installment5_date").value = "";
                 document.getElementById("installment6_date").value = "";
             } else{
-            $('#installment1_amount').attr("disabled", false);
-            $('#installment2_amount').attr("disabled", false);
-            $('#installment3_amount').attr("disabled", false);
-            $('#installment4_amount').attr("disabled", false);
-            $('#installment5_amount').attr("disabled", false);
-            $('#installment6_amount').attr("disabled", true);
+            $('#installment1_amount').attr("readonly", false);
+            $('#installment2_amount').attr("readonly", false);
+            $('#installment3_amount').attr("readonly", false);
+            $('#installment4_amount').attr("readonly", false);
+            $('#installment5_amount').attr("readonly", false);
+            $('#installment6_amount').attr("readonly", true);
             document.getElementById("installment6_amount").value = "";
-            $('#installment1_date').attr("disabled", false);
-            $('#installment2_date').attr("disabled", false);
-            $('#installment3_date').attr("disabled", false);
-            $('#installment4_date').attr("disabled", false);
-            $('#installment5_date').attr("disabled", false);
-            $('#installment6_date').attr("disabled", true);
+            $('#installment1_date').attr("readonly", false);
+            $('#installment2_date').attr("readonly", false);
+            $('#installment3_date').attr("readonly", false);
+            $('#installment4_date').attr("readonly", false);
+            $('#installment5_date').attr("readonly", false);
+            $('#installment6_date').attr("readonly", true);
             document.getElementById("installment6_date").value = "";
             }
             if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
@@ -503,42 +554,42 @@
             }
         } else {
             if(remaining_amount.value==0){
-                $('#installment1_amount').attr("disabled", true);
-                $('#installment2_amount').attr("disabled", true);
-                $('#installment3_amount').attr("disabled", true);
-                $('#installment4_amount').attr("disabled", true);
-                $('#installment5_amount').attr("disabled", true);
-                $('#installment6_amount').attr("disabled", true);
+                $('#installment1_amount').attr("readonly", true);
+                $('#installment2_amount').attr("readonly", true);
+                $('#installment3_amount').attr("readonly", true);
+                $('#installment4_amount').attr("readonly", true);
+                $('#installment5_amount').attr("readonly", true);
+                $('#installment6_amount').attr("readonly", true);
                 document.getElementById("installment_number").value = "";
                 document.getElementById("installment2_amount").value = "";
                 document.getElementById("installment3_amount").value = "";
                 document.getElementById("installment4_amount").value = "";
                 document.getElementById("installment5_amount").value = "";
                 document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("disabled", true);
-                $('#installment2_date').attr("disabled", true);
-                $('#installment3_date').attr("disabled", true);
-                $('#installment4_date').attr("disabled", true);
-                $('#installment5_date').attr("disabled", true);
-                $('#installment6_date').attr("disabled", true);
+                $('#installment1_date').attr("readonly", true);
+                $('#installment2_date').attr("readonly", true);
+                $('#installment3_date').attr("readonly", true);
+                $('#installment4_date').attr("readonly", true);
+                $('#installment5_date').attr("readonly", true);
+                $('#installment6_date').attr("readonly", true);
                 document.getElementById("installment2_date").value = "";
                 document.getElementById("installment3_date").value = "";
                 document.getElementById("installment4_date").value = "";
                 document.getElementById("installment5_date").value = "";
                 document.getElementById("installment6_date").value = "";
             } else{
-            $('#installment1_amount').attr("disabled", false);
-            $('#installment2_amount').attr("disabled", false);
-            $('#installment3_amount').attr("disabled", false);
-            $('#installment4_amount').attr("disabled", false);
-            $('#installment5_amount').attr("disabled", false);
-            $('#installment6_amount').attr("disabled", false);
-            $('#installment1_date').attr("disabled", false);
-            $('#installment2_date').attr("disabled", false);
-            $('#installment3_date').attr("disabled", false);
-            $('#installment4_date').attr("disabled", false);
-            $('#installment5_date').attr("disabled", false);
-            $('#installment6_date').attr("disabled", false);
+            $('#installment1_amount').attr("readonly", false);
+            $('#installment2_amount').attr("readonly", false);
+            $('#installment3_amount').attr("readonly", false);
+            $('#installment4_amount').attr("readonly", false);
+            $('#installment5_amount').attr("readonly", false);
+            $('#installment6_amount').attr("readonly", false);
+            $('#installment1_date').attr("readonly", false);
+            $('#installment2_date').attr("readonly", false);
+            $('#installment3_date').attr("readonly", false);
+            $('#installment4_date').attr("readonly", false);
+            $('#installment5_date').attr("readonly", false);
+            $('#installment6_date').attr("readonly", false);
             }
             if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && installment6_amount!="" && installment6_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
