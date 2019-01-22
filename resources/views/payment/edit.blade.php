@@ -3,6 +3,7 @@
 <main class="container-fluid mt-3">
     <form method="post" action="{{ route('payment_register') }}" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" class="form-control" name="payment_id" value="{{ $payment->id }}">
         <div class="card my-3">
             <div class="card-header">Ödeme Düzenle</div>
             <div class="card-body">
