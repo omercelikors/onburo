@@ -14,22 +14,19 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="name">*Adı:</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}"
-                                        required>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
-                                    <label for="email">*E-posta Adresi:</label>
-                                    <input type="email" class="form-control" id="email" name="e_mail" value="{{ $student->e_mail }}"
-                                        required>
+                                    <label for="e_mail">*E-posta Adresi:</label>
+                                    <input type="email" class="form-control" id="e_mail" name="e_mail" value="{{ $student->e_mail }}">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="telephone">*Telefon:</label>
-                                    <input type="number" class="form-control" id="telephone" name="telephone" value="{{ $student->telephone }}"
-                                        required>
+                                    <input type="number" class="form-control" id="telephone" name="telephone" value="{{ $student->telephone }}">
                                 </div>
                             </div>
                         </div>
@@ -37,15 +34,14 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="birthdate">*Doğum Tarihi:</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $formatted_date }}"
-                                        required>
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $formatted_date }}">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="languages">*Konuştuğu Diller:</label>
                                     <select id="languages" class="form-control input-medium bfh-languages"
-                                        data-language="US" name="languages[]" multiple required></select>
+                                        data-language="US" name="languages[]" multiple></select>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -112,7 +108,7 @@
                             <div class="col-7">
                                 <div class="form-group">
                                     <label for="classrooms">*Sınıflar:</label>
-                                    <select class="form-control" id="classrooms" name="classrooms" required></select>
+                                    <select class="form-control" id="classrooms" name="classrooms"></select>
                                 </div>
                             </div>
                         </div>
@@ -380,7 +376,7 @@
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit">Düzenle</button>
+                <button id="submit_button" class="btn btn-primary" type="submit">Düzenle</button>
             </div>
         </div>
     </form>
@@ -561,6 +557,24 @@ if("{{ $student->classroom->course_type }}"=="A1"){
                 }
             }
         });
+</script>
+{{-- mandatory fields --}}
+<script>
+    setInterval(function(){
+        name=document.getElementById('name').value;
+        e_mail=document.getElementById('e_mail').value;
+        telephone=document.getElementById('telephone').value;
+        birthdate=document.getElementById('birthdate').value;
+        languages=document.getElementById('languages').value;
+        classrooms_control=document.getElementById('classrooms').value;
+        book_status_yes=document.getElementById('book_status_yes');
+        book_status_no=document.getElementById('book_status_no');
+        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || classrooms_control=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
+            document.getElementById("submit_button").disabled=true;
+        } else {
+            document.getElementById("submit_button").disabled=false;
+        }
+    }, 1000);
 </script>
 @endsection
 
