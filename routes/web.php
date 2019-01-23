@@ -31,7 +31,7 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/payment-edit-show/{payment_id}', 'PaymentController@payment_edit_show')->name('payment_edit_show');
     
     Route::post('/payment-register', 'PaymentController@payment_register')->name('payment_register');
-    
+    Route::post('/payment-edit-register', 'PaymentController@payment_edit_register')->name('payment_edit_register');
     
     
 

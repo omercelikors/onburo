@@ -98,7 +98,7 @@ class PaymentController extends Controller
 
     public function payment_edit_register (Request $request){
         $payment_id=$request->input('payment_id');
-        $payment=Person::find($payment_id);
+        $payment=Payment::find($payment_id);
         $payment->currency_unit=$request->input('currency_unit');
         $payment->debt_amount=$request->input('debt_amount');
         $payment->paid_amount=$request->input('paid_amount');

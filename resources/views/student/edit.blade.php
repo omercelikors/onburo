@@ -8,118 +8,145 @@
             <div class="card-header">Öğrenci Düzenle</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="name">*Adı:</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}" required>
+                    <fieldset class="col-7">
+                        <legend style="width:14%;">Kişisel Bilgiler</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="name">*Adı:</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="email">*E-posta Adresi:</label>
+                                    <input type="email" class="form-control" id="email" name="e_mail" value="{{ $student->e_mail }}"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="telephone">*Telefon:</label>
+                                    <input type="number" class="form-control" id="telephone" name="telephone" value="{{ $student->telephone }}"
+                                        required>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="email">*E-posta Adresi:</label>
-                            <input type="email" class="form-control" id="email" name="e_mail" value="{{ $student->e_mail }}" required>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="birthdate">*Doğum Tarihi:</label>
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $formatted_date }}"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="languages">*Konuştuğu Diller:</label>
+                                    <select id="languages" class="form-control input-medium bfh-languages"
+                                        data-language="US" name="languages[]" multiple required></select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="country">Ülke:</label>
+                                    <select id="country" class="form-control input-medium bfh-countries" data-country="US"
+                                        name="country"></select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="telephone">*Telefon:</label>
-                            <input type="number" class="form-control" id="telephone" name="telephone" value="{{ $student->telephone }}"required>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="birthdate">*Doğum Tarihi:</label>
-                            <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $formatted_date }}" required>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-3">
-                        <div>
-                            <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
+                    <fieldset class="col-8">
+                        <legend style="width:7%;">Sınıflar</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-5">
+                                <div>
+                                    <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
+                                </div>
+                                <div class="form-check-inline mr-1">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('A1')" id="A1" type="radio" class="form-check-input"
+                                            name="course_type">A1
+                                    </label>
+                                </div>
+                                <div class="form-check-inline mr-1">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('A2')" id="A2" type="radio" class="form-check-input"
+                                            name="course_type">A2
+                                    </label>
+                                </div>
+                                <div class="form-check-inline mr-1">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('B1')" id="B1" type="radio" class="form-check-input"
+                                            name="course_type">B1
+                                    </label>
+                                </div>
+                                <div class="form-check-inline mr-1">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('B2')" id="B2" type="radio" class="form-check-input"
+                                            name="course_type">B2
+                                    </label>
+                                </div>
+                                <div class="form-check-inline mr-1">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('C1')" id="C1" type="radio" class="form-check-input"
+                                            name="course_type">C1
+                                    </label>
+                                </div>
+                                <div class="form-check-inline mr-1">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('C1+')" id="C1_plus" type="radio" class="form-check-input"
+                                            name="course_type">C1+
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input onclick="filter('All')" type="radio" id="all" class="form-check-input"
+                                            name="course_type">All
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <label for="classrooms">*Sınıflar:</label>
+                                    <select class="form-control" id="classrooms" name="classrooms" required></select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check-inline mr-1">
-                            <label class="form-check-label">
-                                <input onclick="filter('A1')" id="A1" type="radio" class="form-check-input" name="course_type">A1
-                            </label>
-                        </div>
-                        <div class="form-check-inline mr-1">
-                            <label class="form-check-label">
-                                <input onclick="filter('A2')" id="A2" type="radio" class="form-check-input" name="course_type">A2
-                            </label>
-                        </div>
-                        <div class="form-check-inline mr-1">
-                            <label class="form-check-label">
-                                <input onclick="filter('B1')" id="B1" type="radio" class="form-check-input" name="course_type">B1
-                            </label>
-                        </div>
-                        <div class="form-check-inline mr-1">
-                            <label class="form-check-label">
-                                <input onclick="filter('B2')" id="B2" type="radio" class="form-check-input" name="course_type">B2
-                            </label>
-                        </div>
-                        <div class="form-check-inline mr-1">
-                            <label class="form-check-label">
-                                <input onclick="filter('C1')" id="C1" type="radio" class="form-check-input" name="course_type">C1
-                            </label>
-                        </div>
-                        <div class="form-check-inline mr-1">
-                            <label class="form-check-label">
-                                <input onclick="filter('C1+')" id="C1_plus" type="radio" class="form-check-input" name="course_type">C1+
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input onclick="filter('All')" type="radio" id="all" class="form-check-input" name="course_type">All
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="classrooms">*Sınıflar:</label>
-                            <select class="form-control" id="classrooms" name="classrooms" required></select>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="country">Ülke:</label>
-                            <select id="country" class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
+                    <fieldset class="col-5">
+                        <legend style="width:10%;">Diğer</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-4">
+                                <div>
+                                    <label>*Kitap Durumu:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="book_status"
+                                            @if($student->book_status=="Evet")checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="book_status"
+                                            @if($student->book_status=="Hayır")checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="note">Not:</label>
+                                    <textarea class="form-control" rows="5" id="note" name="note">{{ $student->note }}</textarea>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="languages">*Konuştuğu Diller:</label>
-                            <select id="languages" class="form-control input-medium bfh-languages" data-language="US" name="languages[]"
-                                multiple required></select>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>*Kitap Durumu:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="book_status"
-                                    @if($student->book_status=="Evet")checked @endif>Evet
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="book_status"
-                                    @if($student->book_status=="Hayır")checked @endif>Hayır
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Not:</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="2" id="note" name="note">{{ $student->note }}</textarea>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
             </div>
         </div>
@@ -128,182 +155,232 @@
             <div class="card-header">Kişisel İletişim Dinamikleri Düzenle</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <div>
-                            <label>Cinsiyet:</label>
+                    <fieldset class="col-4 mr-2">
+                        <legend style="width:28%;">Cinsiyet-Evlilik</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-4">
+                                <div>
+                                    <label>Cinsiyet:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Erkek" name="sex_status"
+                                            @if($student->sex_status=="Erkek") checked @endif>Erkek
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Kız" name="sex_status"
+                                            @if($student->sex_status=="Kız") checked @endif>Kız
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div>
+                                    <label>Evlilik Durumu:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evli" name="marital_status"
+                                            @if($student->marital_status=="Evli") checked @endif>Evli
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Bekar" name="marital_status"
+                                            @if($student->marital_status=="Bekar") checked @endif>Bekar
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Erkek" name="sex_status" @if($student->sex_status=="Erkek") checked @endif>Erkek
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Kız" name="sex_status" @if($student->sex_status=="Kız") checked @endif>Kız
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Evlilik Durumu:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evli" name="marital_status" @if($student->marital_status=="Evli") checked @endif>Evli
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Bekar" name="marital_status" @if($student->marital_status=="Bekar") checked @endif>Bekar
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Üniversiteye Gitme Durumu:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="university_status" @if($student->university_status=="Evet") checked @endif>Evet
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="university_status" @if($student->university_status=="Hayır") checked @endif>Hayır
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="university_department">Üniversite Bölümü:</label>
-                            <input type="text" class="form-control" id="university_department" name="university_department" value="{{ $student->university_department }}">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Yakın Üniversite Durumu:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="relative_university_status" @if($student->relative_university_status=="Evet") checked @endif>Evet
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="relative_university_status" @if($student->relative_university_status=="Hayır") checked @endif>Hayır
-                            </label>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="relative_name">Yakın İsmi:</label>
-                            <input type="text" class="form-control" id="relative_name" name="relative_name" value="{{ $student->relative_name }}">
+                    <fieldset class="col-7">
+                        <legend style="width:20%;">Üniversite Bilgileri</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-3">
+                                <div>
+                                    <label>Üniversiteye Gitme Durumu:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="university_status"
+                                            @if($student->university_status=="Evet") checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="university_status"
+                                            @if($student->university_status=="Hayır") checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="university_department">Üniversite Bölümü:</label>
+                                    <input type="text" class="form-control" id="university_department" name="university_department"
+                                        value="{{ $student->university_department }}">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div>
+                                    <label>Yakın Üniversite Durumu:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="relative_university_status"
+                                            @if($student->relative_university_status=="Evet") checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="relative_university_status"
+                                            @if($student->relative_university_status=="Hayır") checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="relative_telephone">Yakın Telefonu:</label>
-                            <input type="number" class="form-control" id="relative_telephone" name="relative_telephone" value="{{ $student->relative_telephone }}">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Çocuk Durumu:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="children_status" @if($student->children_status=="Evet") checked @endif>Evet
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="children_status" @if($student->children_status=="Hayır") checked @endif>Hayır
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="children_number">Çocuk Sayısı:</label>
-                            <input type="number" class="form-control" id="children_number" name="children_number" value="{{ $student->children_number }}">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="children_age_range">Çocuk Yaş Aralığı:</label>
-                            <select class="form-control" id="children_age_range" name="children_age_range_status">
-                                <option value="0-10 Yaş">0-10 Yaş</option>
-                                <option value="10-20 Yaş">10-20 Yaş</option>
-                                <option value="20-30 Yaş">20-30 Yaş</option>
-                            </select>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
-                        <div>
-                            <label>Online Ders Durumu:</label>
+                    <fieldset class="col-4">
+                        <legend style="width:28%;">Yakın Bilgileri</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="relative_name">Yakın İsmi:</label>
+                                    <input type="text" class="form-control" id="relative_name" name="relative_name"
+                                        value="{{ $student->relative_name }}">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="relative_telephone">Yakın Telefonu:</label>
+                                    <input type="number" class="form-control" id="relative_telephone" name="relative_telephone"
+                                        value="{{ $student->relative_telephone }}">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="online_lesson_status" @if($student->online_lesson_status=="Evet") checked @endif>Evet
-                            </label>
+                    </fieldset>
+                </div>
+                <div class="row my-2 d-flex justify-content-center">
+                    <fieldset class="col-6">
+                        <legend style="width:20%;">Çocuk Bilgileri</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-3">
+                                <div>
+                                    <label>Çocuk Durumu:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="children_status"
+                                            @if($student->children_status=="Evet") checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="children_status"
+                                            @if($student->children_status=="Hayır") checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="children_number">Çocuk Sayısı:</label>
+                                    <input type="number" class="form-control" id="children_number" name="children_number"
+                                        value="{{ $student->children_number }}">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="children_age_range">Çocuk Yaş Aralığı:</label>
+                                    <select class="form-control" id="children_age_range" name="children_age_range_status">
+                                        <option value="0-10 Yaş">0-10 Yaş</option>
+                                        <option value="10-20 Yaş">10-20 Yaş</option>
+                                        <option value="20-30 Yaş">20-30 Yaş</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="online_lesson_status" @if($student->online_lesson_status=="Hayır") checked @endif>Hayır
-                            </label>
+                    </fieldset>
+                </div>
+                <div class="row my-2 d-flex justify-content-center">
+                    <fieldset class="col-11">
+                        <legend style="width:4%;">Diğer</legend>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-2">
+                                <div>
+                                    <label>Online Ders Durumu:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="online_lesson_status"
+                                            @if($student->online_lesson_status=="Evet") checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="online_lesson_status"
+                                            @if($student->online_lesson_status=="Hayır") checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div>
+                                    <label>Vatandaşlık İşlem Yardımı:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="citizenship_status"
+                                            @if($student->citizenship_status=="Evet") checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="citizenship_status"
+                                            @if($student->citizenship_status=="Hayır") checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div>
+                                    <label>Ev Yardımı:</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Evet" name="home_status"
+                                            @if($student->home_status=="Evet") checked @endif>Evet
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" value="Hayır" name="home_status"
+                                            @if($student->home_status=="Hayır") checked @endif>Hayır
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="heard_by">Duyduğu Yer:</label>
+                                    <input type="text" class="form-control" id="heard_by" name="heard_by" value="{{ $student->heard_by }}">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="demanded_education">Talep Edilen Eğitimler:</label>
+                                    <input type="text" class="form-control" id="demanded_education" name="demanded_education"
+                                        value="{{ $student->demanded_education }}">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Vatandaşlık İşlem Yardımı:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="citizenship_status" @if($student->citizenship_status=="Evet") checked @endif>Evet
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="citizenship_status" @if($student->citizenship_status=="Hayır") checked @endif>Hayır
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div>
-                            <label>Ev Yardımı:</label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Evet" name="home_status" @if($student->home_status=="Evet") checked @endif>Evet
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="Hayır" name="home_status" @if($student->home_status=="Hayır") checked @endif>Hayır
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="heard_by">Duyduğu Yer:</label>
-                            <input type="text" class="form-control" id="heard_by" name="heard_by" value="{{ $student->heard_by }}">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="demanded_education">Talep Edilen Eğitimler:</label>
-                            <input type="text" class="form-control" id="demanded_education" name="demanded_education" value="{{ $student->demanded_education }}">
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
             </div>
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit">Kaydet</button>
+                <button class="btn btn-primary" type="submit">Düzenle</button>
             </div>
         </div>
     </form>

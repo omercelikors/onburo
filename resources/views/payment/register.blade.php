@@ -43,13 +43,13 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="debt_amount">*Borç Miktarı:</label>
-                                    <input type="number" class="form-control" id="debt_amount" name="debt_amount">
+                                    <input type="number" class="form-control" id="debt_amount" min="0" step="0.01" name="debt_amount">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="paid_amount">*Ödenen Miktar:</label>
-                                    <input type="number" class="form-control" id="paid_amount" name="paid_amount">
+                                    <input type="number" class="form-control" id="paid_amount" min="0" step="0.01" name="paid_amount">
                                 </div>
                             </div>
                             <div class="col-3">
@@ -94,7 +94,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment1_amount" name="installment1_amount"
+                                    <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01" name="installment1_amount"
                                         readonly>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment2_amount" name="installment2_amount"
+                                    <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01" name="installment2_amount"
                                         readonly>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment3_amount" name="installment3_amount"
+                                    <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01" name="installment3_amount"
                                         readonly>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment4_amount" name="installment4_amount"
+                                    <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01" name="installment4_amount"
                                         readonly>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment5_amount" name="installment5_amount"
+                                    <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01" name="installment5_amount"
                                         readonly>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment6_amount" name="installment6_amount"
+                                    <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01" name="installment6_amount"
                                         readonly>
                                 </div>
                             </div>
