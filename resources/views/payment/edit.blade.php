@@ -367,12 +367,33 @@
        installment5_amount=document.getElementById('installment5_amount').value;
        installment6_amount=document.getElementById('installment6_amount').value;
 
+       installment1_paid_amount=document.getElementById('installment1_paid_amount').value;
+       installment2_paid_amount=document.getElementById('installment2_paid_amount').value;
+       installment3_paid_amount=document.getElementById('installment3_paid_amount').value;
+       installment4_paid_amount=document.getElementById('installment4_paid_amount').value;
+       installment5_paid_amount=document.getElementById('installment5_paid_amount').value;
+       installment6_paid_amount=document.getElementById('installment6_paid_amount').value;
+
+       installment1_remaining_amount=document.getElementById('installment1_remaining_amount');
+       installment2_remaining_amount=document.getElementById('installment2_remaining_amount');
+       installment3_remaining_amount=document.getElementById('installment3_remaining_amount');
+       installment4_remaining_amount=document.getElementById('installment4_remaining_amount');
+       installment5_remaining_amount=document.getElementById('installment5_remaining_amount');
+       installment6_remaining_amount=document.getElementById('installment6_remaining_amount');
+
        installment1_date=document.getElementById('installment1_date').value;
        installment2_date=document.getElementById('installment2_date').value;
        installment3_date=document.getElementById('installment3_date').value;
        installment4_date=document.getElementById('installment4_date').value;
        installment5_date=document.getElementById('installment5_date').value;
        installment6_date=document.getElementById('installment6_date').value;
+
+       installment1_remaining_amount.value=installment1_amount-installment1_paid_amount;
+       installment2_remaining_amount.value=installment2_amount-installment2_paid_amount;
+       installment3_remaining_amount.value=installment3_amount-installment3_paid_amount;
+       installment4_remaining_amount.value=installment4_amount-installment4_paid_amount;
+       installment5_remaining_amount.value=installment5_amount-installment5_paid_amount;
+       installment6_remaining_amount.value=installment6_amount-installment6_paid_amount;
     //    calculator.value=remaining_amount.value-installment1_amount-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
        if(installment_number==""){
            $('#installment1_amount').attr("readonly", true);
@@ -387,6 +408,12 @@
            document.getElementById("installment4_amount").value = "";
            document.getElementById("installment5_amount").value = "";
            document.getElementById("installment6_amount").value = "";
+           /* document.getElementById("installment1_remaining_amount").value = "";
+           document.getElementById("installment2_remaining_amount").value = "";
+           document.getElementById("installment3_remaining_amount").value = "";
+           document.getElementById("installment4_remaining_amount").value = "";
+           document.getElementById("installment5_remaining_amount").value = "";
+           document.getElementById("installment6_remaining_amount").value = ""; */
            $('#installment1_date').attr("readonly", true);
            $('#installment2_date').attr("readonly", true);
            $('#installment3_date').attr("readonly", true);
@@ -418,6 +445,11 @@
                document.getElementById("installment4_amount").value = "";
                document.getElementById("installment5_amount").value = "";
                document.getElementById("installment6_amount").value = "";
+               /* document.getElementById("installment2_remaining_amount").value = "";
+                document.getElementById("installment3_remaining_amount").value = "";
+                document.getElementById("installment4_remaining_amount").value = "";
+                document.getElementById("installment5_remaining_amount").value = "";
+            document.getElementById("installment6_remaining_amount").value = ""; */
                $('#installment1_date').attr("readonly", true);
                $('#installment2_date').attr("readonly", true);
                $('#installment3_date').attr("readonly", true);

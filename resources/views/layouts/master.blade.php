@@ -34,7 +34,7 @@
                     <a class="nav-link" href="#">ÖĞRETMEN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ADAY ÖĞRENCİ</a>
+                    <a class="nav-link" href="{{ route('candidate_student_info_show') }}">ADAY ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ŞİRKET ÇALIŞANI</a>

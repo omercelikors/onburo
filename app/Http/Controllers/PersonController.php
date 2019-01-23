@@ -125,4 +125,30 @@ class PersonController extends Controller
         $student->save();
         return redirect('/home');
     }
+
+    public function candidate_student_info_show (){
+        $candidate_students=Person::where('status','Aday Öğrenci')->get();
+        return view('candidate_student.info')->with('candidate_students',$candidate_students);
+    }
+
+    public function candidate_student_register_show (){
+        return view('candidate_student.register');
+    }
+
+    public function candidate_student_edit_show ($candidate_student_id){
+        $candidate_student= Person::find($candidate_student_id);
+        return view('candidate_student.edit')->with('candidate_student',$candidate_student);
+    }
+
+    public function candidate_student_delete(Request $request)
+    {
+        $candidate_student_id=$request->input('id');
+        $candidate_student = Person::find($candidate_student_id);
+        if(Auth::user()->hasRole('recorder')){
+            $candidate_student->delete();
+            return "success";
+        } else {
+        return "fail";
+        }
+    }
 }
