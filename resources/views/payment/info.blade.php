@@ -37,17 +37,17 @@
                                 <td>{{ $payment->person->name }}</td>
                                 <td>{{ $payment->total_remaining_amount }} {{ $payment->currency_unit }}</td>
                                 <td>@if(isset($payment->installment1_remaining_amount)){{ $payment->installment1_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
-                                <td>{{ $payment->date_format_1(1) }}</td>
+                                <td>{{ $payment->installment_date_format_1(1) }}</td>
                                 <td>@if(isset($payment->installment2_remaining_amount)){{ $payment->installment2_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
-                                <td>{{ $payment->date_format_1(2) }}</td>
+                                <td>{{ $payment->installment_date_format_1(2) }}</td>
                                 <td>@if(isset($payment->installment3_remaining_amount)){{ $payment->installment3_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
-                                <td>{{ $payment->date_format_1(3) }}</td>
+                                <td>{{ $payment->installment_date_format_1(3) }}</td>
                                 <td>@if(isset($payment->installment4_remaining_amount)){{ $payment->installment4_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
-                                <td>{{ $payment->date_format_1(4) }}</td>
+                                <td>{{ $payment->installment_date_format_1(4) }}</td>
                                 <td>@if(isset($payment->installment5_remaining_amount)){{ $payment->installment5_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
-                                <td>{{ $payment->date_format_1(5) }}</td>
+                                <td>{{ $payment->installment_date_format_1(5) }}</td>
                                 <td>@if(isset($payment->installment6_remaining_amount)){{ $payment->installment6_remaining_amount }} {{ $payment->currency_unit }}@endif</td>
-                                <td>{{ $payment->date_format_1(6) }}</td>
+                                <td>{{ $payment->installment_date_format_1(6) }}</td>
                                 <form action="{{ route('payment_edit_show', ['payment_id' => $payment->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="payment_delete({{ $payment->id }})" class="btn btn-danger">Sil</button></td>

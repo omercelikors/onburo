@@ -377,7 +377,7 @@
 classroom={};
 classrooms=[];
 @foreach($classrooms as $classroom)
-    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date }}", end_date:"{{ $classroom->end_date }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
+    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
     classrooms.push(classroom);
 @endforeach
 // when page load, "all" course types had been clicked

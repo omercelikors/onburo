@@ -31,8 +31,8 @@
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->classroom->course_type }}</td>
                                 <td>{{ $student->classroom->time }}</td>
-                                <td>{{ $student->classroom->starting_date }}</td>
-                                <td>{{ $student->classroom->end_date }}</td>
+                                <td>{{ $student->classroom->starting_date() }}</td>
+                                <td>{{ $student->classroom->end_date() }}</td>
                                 <td>{{ $student->teacher()->name }}</td>
                                 <td>{{ $student->country }}</td>
                                 <td>{{ $student->book_status }}</td>

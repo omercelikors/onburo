@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Person;
+use App\Payment;
 use App\Classroom;
 use Debugbar;
 use Auth;
@@ -17,8 +18,7 @@ class PersonController extends Controller
     public function student_edit_show ($student_id){
         $student= Person::find($student_id);
         $classrooms=Classroom::all();
-        $formatted_date = date('Y-m-d' , strtotime($student->birthdate));
-        return view('student.edit')->with('student',$student)->with('classrooms',$classrooms)->with('formatted_date',$formatted_date);
+        return view('student.edit')->with('student',$student)->with('classrooms',$classrooms);
     }
 
     public function student_delete(Request $request)
@@ -27,6 +27,7 @@ class PersonController extends Controller
         $student = Person::find($student_id);
         if(Auth::user()->hasRole('recorder')){
             $student->delete();
+            $student_payments=Payment::where('person_id',$student_id)->delete();
             return "success";
         } else {
         return "fail";
@@ -89,7 +90,7 @@ class PersonController extends Controller
         $student_register->heard_by=$student_heard_by;
         $student_register->demanded_education=$student_demanded_education;
         $student_register->save();
-        return redirect()->back();
+        return redirect('/home');
     }
 
     public function student_edit_register(Request $request){
@@ -122,6 +123,6 @@ class PersonController extends Controller
         $student->heard_by=$request->input('heard_by');
         $student->demanded_education=$request->input('demanded_education');
         $student->save();
-        return redirect()->back();
+        return redirect('/home');
     }
 }

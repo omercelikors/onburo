@@ -114,7 +114,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="installment1_date">Taksit-1 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment1_date" value="{{ $payment->date_format_2(1) }}"
+                                    <input type="date" class="form-control" id="installment1_date" value="{{ $payment->installment_date_format_2(1) }}"
                                         name="installment1_date">
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="installment2_date">Taksit-2 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment2_date" value="{{ $payment->date_format_2(2) }}"
+                                    <input type="date" class="form-control" id="installment2_date" value="{{ $payment->installment_date_format_2(2) }}"
                                         name="installment2_date">
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="installment2_date">Taksit-3 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment3_date" value="{{ $payment->date_format_2(3) }}"
+                                    <input type="date" class="form-control" id="installment3_date" value="{{ $payment->installment_date_format_2(3) }}"
                                         name="installment3_date">
                                 </div>
                             </div>
@@ -219,7 +219,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="installment4_date">Taksit-4 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment4_date" value="{{ $payment->date_format_2(4) }}"
+                                    <input type="date" class="form-control" id="installment4_date" value="{{ $payment->installment_date_format_2(4) }}"
                                         name="installment4_date">
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="installment5_date">Taksit-5 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment5_date" value="{{ $payment->date_format_2(5) }}"
+                                    <input type="date" class="form-control" id="installment5_date" value="{{ $payment->installment_date_format_2(5) }}"
                                         name="installment5_date">
                                 </div>
                             </div>
@@ -289,7 +289,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="installment6_date">Taksit-6 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment6_date" value="{{ $payment->date_format_2(6) }}"
+                                    <input type="date" class="form-control" id="installment6_date" value="{{ $payment->installment_date_format_2(6) }}"
                                         name="installment6_date">
                                 </div>
                             </div>
@@ -308,7 +308,7 @@
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button id="submit_button" class="btn btn-primary" type="submit" disabled>Düzenle</button>
+                <button id="submit_button" class="btn btn-primary" type="submit">Düzenle</button>
             </div>
         </div>
     </form>
@@ -355,9 +355,10 @@
        debt_amount=document.getElementById('debt_amount').value;
        paid_amount=document.getElementById('paid_amount').value;
        remaining_amount=document.getElementById('remaining_amount');
-       calculator=document.getElementById('calculator');
+    //    calculator=document.getElementById('calculator');
        calculated_remaining=debt_amount-paid_amount;
        remaining_amount.value=calculated_remaining;
+
        installment_number=document.getElementById('installment_number').value;
        installment1_amount=document.getElementById('installment1_amount').value;
        installment2_amount=document.getElementById('installment2_amount').value;
@@ -365,13 +366,14 @@
        installment4_amount=document.getElementById('installment4_amount').value;
        installment5_amount=document.getElementById('installment5_amount').value;
        installment6_amount=document.getElementById('installment6_amount').value;
+
        installment1_date=document.getElementById('installment1_date').value;
        installment2_date=document.getElementById('installment2_date').value;
        installment3_date=document.getElementById('installment3_date').value;
        installment4_date=document.getElementById('installment4_date').value;
        installment5_date=document.getElementById('installment5_date').value;
        installment6_date=document.getElementById('installment6_date').value;
-       calculator.value=remaining_amount.value-installment1_amount-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
+    //    calculator.value=remaining_amount.value-installment1_amount-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
        if(installment_number==""){
            $('#installment1_amount').attr("readonly", true);
            $('#installment2_amount').attr("readonly", true);

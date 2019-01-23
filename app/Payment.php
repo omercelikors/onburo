@@ -11,7 +11,7 @@ class Payment extends Model
         return $this->belongsTo('App\Person');
     }
 
-    public function date_format_1($reference)
+    public function installment_date_format_1($reference)
     {
         if($reference==1){
             if($this->installment1_date==null){
@@ -53,7 +53,7 @@ class Payment extends Model
         return $formatted_date;
     }
 
-    public function date_format_2($reference)
+    public function installment_date_format_2($reference)
     {
         if($reference==1){
             if($this->installment1_date==null){

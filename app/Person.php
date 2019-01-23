@@ -26,4 +26,8 @@ class Person extends Model
         return Person::find($this->classroom->teacher_id);
     }
 
+    public function birthdate(){
+        $formatted_date = date('Y-m-d' , strtotime($this->birthdate));
+        return $formatted_date;
+    }
 }

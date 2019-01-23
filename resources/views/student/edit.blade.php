@@ -34,7 +34,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="birthdate">*Doğum Tarihi:</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $formatted_date }}">
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $student->birthdate() }}">
                                 </div>
                             </div>
                             <div class="col-3">
@@ -407,7 +407,7 @@
 classroom={};
 classrooms=[];
 @foreach($classrooms as $classroom)
-    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date }}", end_date:"{{ $classroom->end_date }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
+    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
     classrooms.push(classroom);
 @endforeach
 // when page load, student's course type had been clicked

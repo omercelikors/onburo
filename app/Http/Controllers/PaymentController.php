@@ -93,7 +93,8 @@ class PaymentController extends Controller
 
         $payment_register->note= $note;
         $payment_register->save();
-        return redirect()->back();
+        return redirect('/payment-info-show');
+        
     }
 
     public function payment_edit_register (Request $request){
@@ -137,6 +138,6 @@ class PaymentController extends Controller
 
         $payment->note= $request->input('note');
         $payment->save();
-        return redirect()->back();
+        return redirect('/payment-info-show');
     }
 }

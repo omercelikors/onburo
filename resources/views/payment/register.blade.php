@@ -94,15 +94,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01" name="installment1_amount"
-                                        readonly>
+                                    <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01" name="installment1_amount">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment1_date">Taksit-1 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment1_date" name="installment1_date"
-                                        readonly>
+                                    <input type="date" class="form-control" id="installment1_date" name="installment1_date">
                                 </div>
                             </div>
                         </div>
@@ -113,15 +111,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01" name="installment2_amount"
-                                        readonly>
+                                    <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01" name="installment2_amount">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment2_date">Taksit-2 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment2_date" name="installment2_date"
-                                        readonly>
+                                    <input type="date" class="form-control" id="installment2_date" name="installment2_date">
                                 </div>
                             </div>
                         </div>
@@ -134,15 +130,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01" name="installment3_amount"
-                                        readonly>
+                                    <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01" name="installment3_amount">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment3_date">Taksit-3 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment3_date" name="installment3_date"
-                                        readonly>
+                                    <input type="date" class="form-control" id="installment3_date" name="installment3_date">
                                 </div>
                             </div>
                         </div>
@@ -153,15 +147,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01" name="installment4_amount"
-                                        readonly>
+                                    <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01" name="installment4_amount">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment4_date">Taksit-4 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment4_date" name="installment4_date"
-                                        readonly>
+                                    <input type="date" class="form-control" id="installment4_date" name="installment4_date">
                                 </div>
                             </div>
                         </div>
@@ -174,15 +166,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01" name="installment5_amount"
-                                        readonly>
+                                    <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01" name="installment5_amount">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment5_date">Taksit-5 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment5_date" name="installment5_date"
-                                        readonly>
+                                    <input type="date" class="form-control" id="installment5_date" name="installment5_date">
                                 </div>
                             </div>
                         </div>
@@ -193,15 +183,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01" name="installment6_amount"
-                                        readonly>
+                                    <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01" name="installment6_amount">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="installment6_date">Taksit-6 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment6_date" name="installment6_date"
-                                        readonly>
+                                    <input type="date" class="form-control" id="installment6_date" name="installment6_date">
                                 </div>
                             </div>
                         </div>
@@ -219,7 +207,7 @@
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button id="submit_button" class="btn btn-primary" type="submit" disabled>Kaydet</button>
+                <button id="submit_button" class="btn btn-primary" type="submit" >Kaydet</button>
             </div>
         </div>
     </form>
