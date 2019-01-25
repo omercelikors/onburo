@@ -40,7 +40,7 @@
                     <a class="nav-link" href="{{ route('company_employee_info_show') }}">ŞİRKET ÇALIŞANI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SINIF</a>
+                    <a class="nav-link" href="{{ route('classroom_info_show') }}">SINIF</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('payment_info_show') }}">ÖDEME</a>

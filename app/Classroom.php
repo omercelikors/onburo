@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use App\Classroom;
+use App\Person;
 use Illuminate\Database\Eloquent\Model;
 
 class Classroom extends Model
@@ -16,8 +17,29 @@ class Classroom extends Model
         return $formatted_date;
     }
 
-    public function end_date(){
-            $formatted_date = date('d-m-Y' , strtotime($this->end_date));
+    public function starting_date_2(){
+        $formatted_date = date('Y-m-d' , strtotime($this->starting_date));
         return $formatted_date;
+    }
+
+    public function end_date(){
+        $formatted_date = date('d-m-Y' , strtotime($this->end_date));
+        return $formatted_date;
+    }
+
+    public function end_date_2(){
+        $formatted_date = date('Y-m-d' , strtotime($this->end_date));
+        return $formatted_date;
+    }
+
+    public function teacher_name(){
+        $classroom = Classroom::find($this->id);
+        if(isset($classroom->teacher_id)){
+            $teacher_id=$classroom->teacher_id;
+            $teacher=Person::find($teacher_id);
+            return $teacher->name;
+        } else {
+            return null;
+        }
     }
 }

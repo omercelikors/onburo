@@ -7,7 +7,7 @@ $factory->define(App\Classroom::class, function (Faker $faker) {
     foreach($teachers as $teacher){
         $teachers_id[]=$teacher->id;
     }
-    $random_teacher_id=$faker ->randomElement($teachers_id);
+    $random_teacher_id=$faker ->optional()->randomElement($teachers_id);
     return [
         'teacher_id' => $random_teacher_id,
         'course_type' => $faker ->randomElement($array = array ('A1','A2','B1','B2','C1','C1+')),
