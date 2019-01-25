@@ -31,7 +31,7 @@
                     <a class="nav-link" href="{{ route('home') }}">ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ÖĞRETMEN</a>
+                    <a class="nav-link" href="{{ route('teacher_info_show') }}">ÖĞRETMEN</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('candidate_student_info_show') }}">ADAY ÖĞRENCİ</a>

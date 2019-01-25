@@ -248,4 +248,58 @@ class PersonController extends Controller
         return "fail";
         }
     }
+
+
+    public function teacher_info_show (){
+        $teachers=Person::where('status','Öğretmen')->get();
+        return view('teacher.info')->with('teachers',$teachers);
+    }
+
+    public function teacher_register_show (){
+        return view('teacher.register');
+    }
+
+    public function teacher_register (Request $request){
+        $teacher_name=$request->input('name');
+        $teacher_birthdate=$request->input('birthdate');
+        $teacher_telephone=$request->input('telephone');
+        $teacher_e_mail=$request->input('e_mail');
+
+        $teacher_register=new Person;
+        $teacher_register->name=$teacher_name;
+        $teacher_register->status="Öğretmen";
+        $teacher_register->birthdate=$teacher_birthdate;
+        $teacher_register->telephone=$teacher_telephone;
+        $teacher_register->e_mail=$teacher_e_mail;
+        $teacher_register->save();
+        return redirect('/teacher-info-show');
+    }
+
+    public function teacher_edit_show ($teacher_id){
+        $teacher= Person::find($teacher_id);
+        return view('teacher.edit')->with('teacher',$teacher);
+    }
+
+    public function teacher_edit_register (Request $request){
+        $teacher_id=$request->input('teacher_id');
+        $teacher=Person::find($teacher_id);
+        $teacher->name=$request->input('name');
+        $teacher->birthdate=$request->input('birthdate');
+        $teacher->telephone=$request->input('telephone');
+        $teacher->e_mail=$request->input('e_mail');
+        $teacher->save();
+        return redirect('/teacher-info-show');
+    }
+
+    public function teacher_delete(Request $request)
+    {
+        $teacher_id=$request->input('id');
+        $teacher = Person::find($teacher_id);
+        if(Auth::user()->hasRole('recorder')){
+            $teacher->delete();
+            return "success";
+        } else {
+        return "fail";
+        }
+    }
 }

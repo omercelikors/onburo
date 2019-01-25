@@ -43,8 +43,15 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/company-employee-edit-show/{company_employee_id}', 'PersonController@company_employee_edit_show')->name('company_employee_edit_show');
     Route::post('/company-employee-register', 'PersonController@company_employee_register')->name('company_employee_register');
     Route::post('/company-employee-edit-register', 'PersonController@company_employee_edit_register')->name('company_employee_edit_register');
+    //teachers
+    Route::get('/teacher-info-show', 'PersonController@teacher_info_show')->name('teacher_info_show');
+    Route::get('/teacher-register-show', 'PersonController@teacher_register_show')->name('teacher_register_show');
+    Route::get('/teacher-edit-show/{teacher_id}', 'PersonController@teacher_edit_show')->name('teacher_edit_show');
+    Route::post('/teacher-register', 'PersonController@teacher_register')->name('teacher_register');
+    Route::post('/teacher-edit-register', 'PersonController@teacher_edit_register')->name('teacher_edit_register');
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
+    Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');
     Route::get('/api/candidate-student-delete', 'PersonController@candidate_student_delete')->name('candidate_student_delete');
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
