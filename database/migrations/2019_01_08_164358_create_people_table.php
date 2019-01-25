@@ -22,10 +22,10 @@ class CreatePeopleTable extends Migration
             $table->string('telephone');
             $table->string('e_mail');
             $table->string('country')->nullable();
-            $table->string('languages');
-            $table->enum('book_status', ['Evet','Hayır']);
+            $table->string('languages')->nullable();
+            $table->enum('book_status', ['Evet','Hayır'])->nullable();
             $table->string('note')->nullable();
-            $table->string('registration_by');
+            $table->string('registration_by')->nullable();
             $table->enum('sex_status', ['Erkek','Kız'])->nullable();
             $table->enum('marital_status', ['Evli','Bekar'])->nullable();
             $table->enum('university_status', ['Evet','Hayır'])->nullable();

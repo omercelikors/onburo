@@ -37,7 +37,7 @@
                     <a class="nav-link" href="{{ route('candidate_student_info_show') }}">ADAY ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ŞİRKET ÇALIŞANI</a>
+                    <a class="nav-link" href="{{ route('company_employee_info_show') }}">ŞİRKET ÇALIŞANI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SINIF</a>

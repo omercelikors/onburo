@@ -135,9 +135,45 @@ class PersonController extends Controller
         return view('candidate_student.register');
     }
 
+    public function candidate_student_register (Request $request){
+        $candidate_student_name=$request->input('name');
+        $candidate_student_birthdate=$request->input('birthdate');
+        $candidate_student_telephone=$request->input('telephone');
+        $candidate_student_e_mail=$request->input('e_mail');
+        $candidate_student_country=$request->input('country');
+        $candidate_student_note=$request->input('note');
+        $candidate_student_demanded_education=$request->input('demanded_education');
+
+        $candidate_student_register=new Person;
+        $candidate_student_register->name=$candidate_student_name;
+        $candidate_student_register->status="Aday Öğrenci";
+        $candidate_student_register->birthdate=$candidate_student_birthdate;
+        $candidate_student_register->telephone=$candidate_student_telephone;
+        $candidate_student_register->e_mail=$candidate_student_e_mail;
+        $candidate_student_register->country=$candidate_student_country;
+        $candidate_student_register->note=$candidate_student_note;
+        $candidate_student_register->demanded_education=$candidate_student_demanded_education;
+        $candidate_student_register->save();
+        return redirect('/candidate-student-info-show');
+    }
+
     public function candidate_student_edit_show ($candidate_student_id){
         $candidate_student= Person::find($candidate_student_id);
         return view('candidate_student.edit')->with('candidate_student',$candidate_student);
+    }
+
+    public function candidate_student_edit_register (Request $request){
+        $candidate_student_id=$request->input('candidate_student_id');
+        $candidate_student=Person::find($candidate_student_id);
+        $candidate_student->name=$request->input('name');
+        $candidate_student->birthdate=$request->input('birthdate');
+        $candidate_student->telephone=$request->input('telephone');
+        $candidate_student->e_mail=$request->input('e_mail');
+        $candidate_student->country=$request->input('country');
+        $candidate_student->note=$request->input('note');
+        $candidate_student->demanded_education=$request->input('demanded_education');
+        $candidate_student->save();
+        return redirect('/candidate-student-info-show');
     }
 
     public function candidate_student_delete(Request $request)
@@ -146,6 +182,67 @@ class PersonController extends Controller
         $candidate_student = Person::find($candidate_student_id);
         if(Auth::user()->hasRole('recorder')){
             $candidate_student->delete();
+            return "success";
+        } else {
+        return "fail";
+        }
+    }
+
+
+
+
+
+
+    public function company_employee_info_show (){
+        $company_employees=Person::where('status','Şirket Çalışanı')->get();
+        return view('company_employee.info')->with('company_employees',$company_employees);
+    }
+
+    public function company_employee_register_show (){
+        return view('company_employee.register');
+    }
+
+    public function company_employee_register (Request $request){
+        $company_employee_name=$request->input('name');
+        $company_employee_birthdate=$request->input('birthdate');
+        $company_employee_telephone=$request->input('telephone');
+        $company_employee_e_mail=$request->input('e_mail');
+        $company_employee_note=$request->input('note');
+
+        $company_employee_register=new Person;
+        $company_employee_register->name=$company_employee_name;
+        $company_employee_register->status="Şirket Çalışanı";
+        $company_employee_register->birthdate=$company_employee_birthdate;
+        $company_employee_register->telephone=$company_employee_telephone;
+        $company_employee_register->e_mail=$company_employee_e_mail;
+        $company_employee_register->note=$company_employee_note;
+        $company_employee_register->save();
+        return redirect('/company-employee-info-show');
+    }
+
+    public function company_employee_edit_show ($company_employee_id){
+        $company_employee= Person::find($company_employee_id);
+        return view('company_employee.edit')->with('company_employee',$company_employee);
+    }
+
+    public function company_employee_edit_register (Request $request){
+        $company_employee_id=$request->input('company_employee_id');
+        $company_employee=Person::find($company_employee_id);
+        $company_employee->name=$request->input('name');
+        $company_employee->birthdate=$request->input('birthdate');
+        $company_employee->telephone=$request->input('telephone');
+        $company_employee->e_mail=$request->input('e_mail');
+        $company_employee->note=$request->input('note');
+        $company_employee->save();
+        return redirect('/company-employee-info-show');
+    }
+
+    public function company_employee_delete(Request $request)
+    {
+        $company_employee_id=$request->input('id');
+        $company_employee = Person::find($company_employee_id);
+        if(Auth::user()->hasRole('recorder')){
+            $company_employee->delete();
             return "success";
         } else {
         return "fail";

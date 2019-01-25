@@ -30,4 +30,9 @@ class Person extends Model
         $formatted_date = date('Y-m-d' , strtotime($this->birthdate));
         return $formatted_date;
     }
+
+    public function birthdate_2(){
+        $formatted_date = date('d-m-Y' , strtotime($this->birthdate));
+        return $formatted_date;
+    }
 }

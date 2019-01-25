@@ -1,11 +1,10 @@
 @extends('layouts.master')
 @section('content')
 <main class="container-fluid mt-3">
-    <form method="post" action="{{ route('candidate_student_edit_register') }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('company_employee_register') }}" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" class="form-control" name="candidate_student_id" value="{{ $candidate_student->id }}">
         <div class="card my-3">
-            <div class="card-header">Aday Öğrenci Düzenle</div>
+            <div class="card-header">Şirket Çalışanı Kayıt</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
                     <fieldset class="col-12">
@@ -14,31 +13,25 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="name">*Adı:</label>
-                                    <input type="text" class="form-control" value="{{ $candidate_student->name }}" id="name" name="name">
+                                    <input type="text" class="form-control" id="name" name="name">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="e_mail">*E-posta Adresi:</label>
-                                    <input type="email" class="form-control" id="e_mail" value="{{ $candidate_student->e_mail }}" name="e_mail">
+                                    <input type="email" class="form-control" id="e_mail" name="e_mail">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
                                     <label for="telephone">*Telefon:</label>
-                                    <input type="number" class="form-control" id="telephone" value="{{ $candidate_student->telephone }}"name="telephone">
+                                    <input type="number" class="form-control" id="telephone" name="telephone">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
                                     <label for="birthdate">*Doğum Tarihi:</label>
-                                    <input type="date" class="form-control" id="birthdate" value="{{ $candidate_student->birthdate() }}" name="birthdate">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="form-group">
-                                    <label for="country">Ülke:</label>
-                                    <select id="country" class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate">
                                 </div>
                             </div>
                     </fieldset>
@@ -47,16 +40,10 @@
                     <fieldset class="col-7">
                         <legend style="width:7%;">Diğer</legend>
                         <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="demanded_education">Talep Edilen Eğitimler:</label>
-                                    <input type="text" class="form-control" id="demanded_education" value="{{ $candidate_student->demanded_education }}" name="demanded_education">
-                                </div>
-                            </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="note">Not:</label>
-                                    <textarea class="form-control" rows="5" id="note" name="note">{{ $candidate_student->note }}</textarea>
+                                    <textarea class="form-control" rows="5" id="note" name="note"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +53,7 @@
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button id="submit_button" class="btn btn-primary" type="submit">Düzenle</button>
+                <button id="submit_button" class="btn btn-primary" type="submit">Kaydet</button>
             </div>
         </div>
     </form>
@@ -90,17 +77,6 @@
     }
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("birthdate").setAttribute("max", today);
-</script>
-{{-- country dropdown is having "selected attirubute" according to value coming --}}
-<script>
-    $(document).ready(function () {
-        country_length = document.getElementById("country").options.length;
-        for (i = 0; i < country_length; i++) {
-            if (document.getElementById("country").options[i].value == "{{ $candidate_student->country }}") {
-                document.getElementById("country").options[i].setAttribute('selected', true);
-            }
-        }
-    });
 </script>
 @endsection
 
