@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Person::class, function (Faker $faker) {
     $status = $faker ->randomElement($array = array ('Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı'));
     if ($status=="Öğrenci"){
-        $classroom_id = $faker -> numberBetween($min = 1, $max = 30);
+        $classroom_id = $faker ->optional()-> numberBetween($min = 1, $max = 30);
     } else {
         $classroom_id = null;
     }

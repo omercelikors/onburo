@@ -33,10 +33,8 @@ class Classroom extends Model
     }
 
     public function teacher_name(){
-        $classroom = Classroom::find($this->id);
-        if(isset($classroom->teacher_id)){
-            $teacher_id=$classroom->teacher_id;
-            $teacher=Person::find($teacher_id);
+        if(isset($this->teacher_id)){
+            $teacher=Person::find($this->teacher_id);
             return $teacher->name;
         } else {
             return null;

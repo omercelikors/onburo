@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
-                                    <label for="teacher_id">*Kur Öğretmeni:</label>
+                                    <label for="teacher_id">Kur Öğretmeni:</label>
                                     <select id="teacher_id" class="form-control" name="teacher_id">
                                             <option value=""></option>
                                             @foreach ($teachers as $teacher)
@@ -92,6 +92,20 @@
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("starting_date").setAttribute("min", today);
     document.getElementById("end_date").setAttribute("min", today);
+</script>
+{{-- mandatory fields --}}
+<script>
+    setInterval(function(){
+        course_type=document.getElementById('course_type').value;
+        starting_date=document.getElementById('starting_date').value;
+        end_date=document.getElementById('end_date').value;
+        time=document.getElementById('time').value;
+        if(course_type=="" || starting_date=="" || end_date=="" || time==""){
+            document.getElementById("submit_button").disabled=true;
+        } else {
+            document.getElementById("submit_button").disabled=false;
+        }
+    }, 1000);
 </script>
 @endsection
 

@@ -22,9 +22,15 @@ class Person extends Model
         return $this->hasMany('App\Payment');
     }
 
-    public function teacher(){
-        return Person::find($this->classroom->teacher_id);
-    }
+    /* public function teacher(){
+        if ( isset($this->classroom) ) {
+            $teacher=Person::find($this->classroom->teacher_id);
+            return $teacher->name;
+        } else{
+            return null;
+        }
+        
+    } */
 
     public function birthdate(){
         $formatted_date = date('Y-m-d' , strtotime($this->birthdate));

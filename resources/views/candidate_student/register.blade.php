@@ -90,6 +90,20 @@
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("birthdate").setAttribute("max", today);
 </script>
+{{-- mandatory fields --}}
+<script>
+    setInterval(function(){
+        name=document.getElementById('name').value;
+        e_mail=document.getElementById('e_mail').value;
+        telephone=document.getElementById('telephone').value;
+        birthdate=document.getElementById('birthdate').value;
+        if(name=="" || e_mail=="" || telephone=="" ||  birthdate==""){
+            document.getElementById("submit_button").disabled=true;
+        } else {
+            document.getElementById("submit_button").disabled=false;
+        }
+    }, 1000);
+</script>
 @endsection
 
 @section('css')

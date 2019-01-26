@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-7">
                                 <div class="form-group">
-                                    <label for="classrooms">*Sınıflar:</label>
+                                    <label for="classrooms">Sınıflar:</label>
                                     <select class="form-control" id="classrooms" name="classrooms"></select>
                                 </div>
                             </div>
@@ -406,10 +406,12 @@
 //all classrooms were received "classrooms array object"
 classroom={};
 classrooms=[];
+@if(isset($classrooms))
 @foreach($classrooms as $classroom)
-    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
+    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ $classroom->teacher_name() }}"};
     classrooms.push(classroom);
 @endforeach
+@if(isset($student->classroom))
 // when page load, student's course type had been clicked
 if("{{ $student->classroom->course_type }}"=="A1"){
     var A1 = document.getElementById('A1');
@@ -430,9 +432,10 @@ if("{{ $student->classroom->course_type }}"=="A1"){
     var C1_plus = document.getElementById('C1_plus');
     C1_plus.click();
 }
+@endif
 // when clicked course type radio button, classrooms were filtered according to course types
     function filter (course_type){
-        document.getElementById("classrooms").options.length=0;
+        document.getElementById("classrooms").options.length=1;
         select = document.getElementById('classrooms');
         if(course_type=="A1"){
             for (i = 0; i< classrooms.length; i++){
@@ -509,6 +512,7 @@ if("{{ $student->classroom->course_type }}"=="A1"){
             }
         }
     }
+@endif
 </script>
 {{-- language dropdown is having "selected attirubute" according to value coming --}}
 <script>
@@ -566,10 +570,9 @@ if("{{ $student->classroom->course_type }}"=="A1"){
         telephone=document.getElementById('telephone').value;
         birthdate=document.getElementById('birthdate').value;
         languages=document.getElementById('languages').value;
-        classrooms_control=document.getElementById('classrooms').value;
         book_status_yes=document.getElementById('book_status_yes');
         book_status_no=document.getElementById('book_status_no');
-        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || classrooms_control=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
+        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
             document.getElementById("submit_button").disabled=true;
         } else {
             document.getElementById("submit_button").disabled=false;

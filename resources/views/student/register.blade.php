@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-7">
                                 <div class="form-group">
-                                    <label for="classrooms">*Sınıflar:</label>
+                                    <label for="classrooms">Sınıflar:</label>
                                     <select class="form-control" id="classrooms" name="classrooms"></select>
                                 </div>
                             </div>
@@ -377,7 +377,7 @@
 classroom={};
 classrooms=[];
 @foreach($classrooms as $classroom)
-    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ App\Person::find($classroom->teacher_id)->name }}"};
+    classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ $classroom->teacher_name() }}"};
     classrooms.push(classroom);
 @endforeach
 // when page load, "all" course types had been clicked
@@ -471,10 +471,9 @@ all.click();
         telephone=document.getElementById('telephone').value;
         birthdate=document.getElementById('birthdate').value;
         languages=document.getElementById('languages').value;
-        classrooms_control=document.getElementById('classrooms').value;
         book_status_yes=document.getElementById('book_status_yes');
         book_status_no=document.getElementById('book_status_no');
-        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || classrooms_control=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
+        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
             document.getElementById("submit_button").disabled=true;
         } else {
             document.getElementById("submit_button").disabled=false;

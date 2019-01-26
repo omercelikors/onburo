@@ -29,11 +29,11 @@
                             @foreach ($students as $student)
                             <tr>
                                 <td>{{ $student->name }}</td>
-                                <td>{{ $student->classroom->course_type }}</td>
-                                <td>{{ $student->classroom->time }}</td>
-                                <td>{{ $student->classroom->starting_date() }}</td>
-                                <td>{{ $student->classroom->end_date() }}</td>
-                                <td>{{ $student->teacher()->name }}</td>
+                                <td>@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
+                                <td>@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
+                                <td>@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
+                                <td>@if(isset($student->classroom)){{ $student->classroom->end_date() }}@endif</td>
+                                <td>@if(isset($student->classroom)){{ $student->classroom->teacher_name() }}@endif</td>
                                 <td>{{ $student->country }}</td>
                                 <td>{{ $student->book_status }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
