@@ -55,6 +55,8 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/classroom-edit-show/{classroom_id}', 'ClassroomController@classroom_edit_show')->name('classroom_edit_show');
     Route::post('/classroom-register', 'ClassroomController@classroom_register')->name('classroom_register');
     Route::post('/classroom-edit-register', 'ClassroomController@classroom_edit_register')->name('classroom_edit_register');
+    //polling paper
+    Route::get('/polling-paper-show', 'PollingController@polling_paper_show')->name('polling_paper_show');
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');

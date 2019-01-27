@@ -31,19 +31,25 @@
                     <a class="nav-link" href="{{ route('home') }}">ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('payment_info_show') }}">ÖDEME</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('teacher_info_show') }}">ÖĞRETMEN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('classroom_info_show') }}">SINIF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('polling_paper_show') }}">YOKLAMA KAĞIDI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SMS VE E-POSTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('candidate_student_info_show') }}">ADAY ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('company_employee_info_show') }}">ŞİRKET ÇALIŞANI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('classroom_info_show') }}">SINIF</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('payment_info_show') }}">ÖDEME</a>
                 </li>
                 @endrole
                 @role('admin|recorder')

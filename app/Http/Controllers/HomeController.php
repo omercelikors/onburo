@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->hasAnyRole('recorder'))
+        if(Auth::user()->hasRole('recorder'))
         {
             $students = Person::where('status','Öğrenci')->get();
             return view('student.info')->with('students',$students);
