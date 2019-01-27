@@ -68,7 +68,7 @@
                         </div>
                     </fieldset>
                     <fieldset class="col-3">
-                        <legend style="width:73%;">Taksitlendirme Hesaplama Yardımcısı</legend>
+                        <legend style="width:73%;">Taksitlendirme Yardımcısı</legend>
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="form-group">
                                 <label for="calculator">Kalan Taksitlendirme Miktarı <small>(Bu değer 0 olmalıdır)</small>:</label>

@@ -28,5 +28,14 @@ class UsersTableSeeder extends Seeder
         ]);
 
         App\User::find(2)->assignRole('recorder');
+
+        DB::table('users')->insert([
+            'id' => 3,
+            'name' => "Test Deneme",
+            'email' => 'testdeneme@gmail.com',
+            'password' => bcrypt('123456'),
+        ]);
+
+        App\User::find(3)->assignRole('recorder');
     }
 }
