@@ -48,24 +48,24 @@
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
-                                    <label for="paid_amount">*Ödenen Miktar:</label>
+                                    <label for="paid_amount">*Peşin Ödenen Miktar:</label>
                                     <input type="number" class="form-control" id="paid_amount" min="0" step="0.01" name="paid_amount">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="total_remaining_amount">Toplam Kalan Miktar:</label>
-                                    <input type="number" class="form-control" id="remaining_amount" name="total_remaining_amount"
+                                    <input type="number" class="form-control" id="total_remaining_amount" name="total_remaining_amount"
                                         readonly>
                                 </div>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="col-3">
-                        <legend style="width:73%;">Taksit Hesaplama Yardımcısı</legend>
+                        <legend style="width:73%;">Taksitlendirme Hesaplama Yardımcısı</legend>
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="form-group">
-                                <label for="calculator">Kalan Taksit Miktarı:</label>
+                                <label for="calculator">Kalan Taksitlendirme Miktarı <small>(Bu değer 0 olmalıdır)</small>:</label>
                                 <input id="calculator" type="number" class="form-control" readonly>
                             </div>
                         </div>
@@ -242,10 +242,8 @@
         dolar=document.getElementById('dolar');
         debt_amount=document.getElementById('debt_amount').value;
         paid_amount=document.getElementById('paid_amount').value;
-        remaining_amount=document.getElementById('remaining_amount');
+        total_remaining_amount=document.getElementById('total_remaining_amount');
         calculator=document.getElementById('calculator');
-        calculated_remaining=debt_amount-paid_amount;
-        remaining_amount.value=calculated_remaining;
         installment_number=document.getElementById('installment_number').value;
         installment1_amount=document.getElementById('installment1_amount').value;
         installment2_amount=document.getElementById('installment2_amount').value;
@@ -259,8 +257,41 @@
         installment4_date=document.getElementById('installment4_date').value;
         installment5_date=document.getElementById('installment5_date').value;
         installment6_date=document.getElementById('installment6_date').value;
-        calculator.value=remaining_amount.value-installment1_amount-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
-        if(installment_number==""){
+        total_remaining_amount.value=debt_amount-paid_amount;
+        calculator.value=(debt_amount-paid_amount-installment1_amount)-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
+        
+        if(total_remaining_amount.value==0){
+            $('#installment1_amount').attr("readonly", true);
+            $('#installment2_amount').attr("readonly", true);
+            $('#installment3_amount').attr("readonly", true);
+            $('#installment4_amount').attr("readonly", true);
+            $('#installment5_amount').attr("readonly", true);
+            $('#installment6_amount').attr("readonly", true);
+            document.getElementById("installment_number").value = "";
+            document.getElementById("installment1_amount").value = "";
+            document.getElementById("installment2_amount").value = "";
+            document.getElementById("installment3_amount").value = "";
+            document.getElementById("installment4_amount").value = "";
+            document.getElementById("installment5_amount").value = "";
+            document.getElementById("installment6_amount").value = "";
+            $('#installment1_date').attr("readonly", true);
+            $('#installment2_date').attr("readonly", true);
+            $('#installment3_date').attr("readonly", true);
+            $('#installment4_date').attr("readonly", true);
+            $('#installment5_date').attr("readonly", true);
+            $('#installment6_date').attr("readonly", true);
+            document.getElementById("installment1_date").value = "";
+            document.getElementById("installment2_date").value = "";
+            document.getElementById("installment3_date").value = "";
+            document.getElementById("installment4_date").value = "";
+            document.getElementById("installment5_date").value = "";
+            document.getElementById("installment6_date").value = "";
+            if(name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value==0){
+                $('#submit_button').attr("disabled", false);
+            } else {
+                $('#submit_button').attr("disabled", true);
+            }
+        }else if(installment_number==""){
             $('#installment1_amount').attr("readonly", true);
             $('#installment2_amount').attr("readonly", true);
             $('#installment3_amount').attr("readonly", true);
@@ -285,37 +316,12 @@
             document.getElementById("installment4_date").value = "";
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
-            if(name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value==0){
+            if(name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
         }else if(installment_number==1){
-            if(remaining_amount.value==0){
-                $('#installment1_amount').attr("readonly", true);
-                $('#installment2_amount').attr("readonly", true);
-                $('#installment3_amount').attr("readonly", true);
-                $('#installment4_amount').attr("readonly", true);
-                $('#installment5_amount').attr("readonly", true);
-                $('#installment6_amount').attr("readonly", true);
-                document.getElementById("installment_number").value = "";
-                document.getElementById("installment2_amount").value = "";
-                document.getElementById("installment3_amount").value = "";
-                document.getElementById("installment4_amount").value = "";
-                document.getElementById("installment5_amount").value = "";
-                document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("readonly", true);
-                $('#installment2_date').attr("readonly", true);
-                $('#installment3_date').attr("readonly", true);
-                $('#installment4_date').attr("readonly", true);
-                $('#installment5_date').attr("readonly", true);
-                $('#installment6_date').attr("readonly", true);
-                document.getElementById("installment2_date").value = "";
-                document.getElementById("installment3_date").value = "";
-                document.getElementById("installment4_date").value = "";
-                document.getElementById("installment5_date").value = "";
-                document.getElementById("installment6_date").value = "";
-            } else{
             $('#installment1_amount').attr("readonly", false);
             $('#installment2_amount').attr("readonly", true);
             $('#installment3_amount').attr("readonly", true);
@@ -338,38 +344,12 @@
             document.getElementById("installment4_date").value = "";
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
-            }
-            if(installment1_amount!="" && installment1_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!=""  && remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!=""  && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
         } else if(installment_number==2){
-            if(remaining_amount.value==0){
-                $('#installment1_amount').attr("readonly", true);
-                $('#installment2_amount').attr("readonly", true);
-                $('#installment3_amount').attr("readonly", true);
-                $('#installment4_amount').attr("readonly", true);
-                $('#installment5_amount').attr("readonly", true);
-                $('#installment6_amount').attr("readonly", true);
-                document.getElementById("installment_number").value = "";
-                document.getElementById("installment2_amount").value = "";
-                document.getElementById("installment3_amount").value = "";
-                document.getElementById("installment4_amount").value = "";
-                document.getElementById("installment5_amount").value = "";
-                document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("readonly", true);
-                $('#installment2_date').attr("readonly", true);
-                $('#installment3_date').attr("readonly", true);
-                $('#installment4_date').attr("readonly", true);
-                $('#installment5_date').attr("readonly", true);
-                $('#installment6_date').attr("readonly", true);
-                document.getElementById("installment2_date").value = "";
-                document.getElementById("installment3_date").value = "";
-                document.getElementById("installment4_date").value = "";
-                document.getElementById("installment5_date").value = "";
-                document.getElementById("installment6_date").value = "";
-            } else{
             $('#installment1_amount').attr("readonly", false);
             $('#installment2_amount').attr("readonly", false);
             $('#installment3_amount').attr("readonly", true);
@@ -390,38 +370,12 @@
             document.getElementById("installment4_date").value = "";
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
-            }
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
         } else if(installment_number==3){
-            if(remaining_amount.value==0){
-                $('#installment1_amount').attr("readonly", true);
-                $('#installment2_amount').attr("readonly", true);
-                $('#installment3_amount').attr("readonly", true);
-                $('#installment4_amount').attr("readonly", true);
-                $('#installment5_amount').attr("readonly", true);
-                $('#installment6_amount').attr("readonly", true);
-                document.getElementById("installment_number").value = "";
-                document.getElementById("installment2_amount").value = "";
-                document.getElementById("installment3_amount").value = "";
-                document.getElementById("installment4_amount").value = "";
-                document.getElementById("installment5_amount").value = "";
-                document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("readonly", true);
-                $('#installment2_date').attr("readonly", true);
-                $('#installment3_date').attr("readonly", true);
-                $('#installment4_date').attr("readonly", true);
-                $('#installment5_date').attr("readonly", true);
-                $('#installment6_date').attr("readonly", true);
-                document.getElementById("installment2_date").value = "";
-                document.getElementById("installment3_date").value = "";
-                document.getElementById("installment4_date").value = "";
-                document.getElementById("installment5_date").value = "";
-                document.getElementById("installment6_date").value = "";
-            } else{
             $('#installment1_amount').attr("readonly", false);
             $('#installment2_amount').attr("readonly", false);
             $('#installment3_amount').attr("readonly", false);
@@ -440,38 +394,12 @@
             document.getElementById("installment4_date").value = "";
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
-            }
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
         } else if (installment_number==4){
-            if(remaining_amount.value==0){
-                $('#installment1_amount').attr("readonly", true);
-                $('#installment2_amount').attr("readonly", true);
-                $('#installment3_amount').attr("readonly", true);
-                $('#installment4_amount').attr("readonly", true);
-                $('#installment5_amount').attr("readonly", true);
-                $('#installment6_amount').attr("readonly", true);
-                document.getElementById("installment_number").value = "";
-                document.getElementById("installment2_amount").value = "";
-                document.getElementById("installment3_amount").value = "";
-                document.getElementById("installment4_amount").value = "";
-                document.getElementById("installment5_amount").value = "";
-                document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("readonly", true);
-                $('#installment2_date').attr("readonly", true);
-                $('#installment3_date').attr("readonly", true);
-                $('#installment4_date').attr("readonly", true);
-                $('#installment5_date').attr("readonly", true);
-                $('#installment6_date').attr("readonly", true);
-                document.getElementById("installment2_date").value = "";
-                document.getElementById("installment3_date").value = "";
-                document.getElementById("installment4_date").value = "";
-                document.getElementById("installment5_date").value = "";
-                document.getElementById("installment6_date").value = "";
-            } else{
             $('#installment1_amount').attr("readonly", false);
             $('#installment2_amount').attr("readonly", false);
             $('#installment3_amount').attr("readonly", false);
@@ -488,38 +416,12 @@
             $('#installment6_date').attr("readonly", true);
             document.getElementById("installment5_date").value = "";
             document.getElementById("installment6_date").value = "";
-            }
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
         } else if(installment_number==5){
-            if(remaining_amount.value==0){
-                $('#installment1_amount').attr("readonly", true);
-                $('#installment2_amount').attr("readonly", true);
-                $('#installment3_amount').attr("readonly", true);
-                $('#installment4_amount').attr("readonly", true);
-                $('#installment5_amount').attr("readonly", true);
-                $('#installment6_amount').attr("readonly", true);
-                document.getElementById("installment_number").value = "";
-                document.getElementById("installment2_amount").value = "";
-                document.getElementById("installment3_amount").value = "";
-                document.getElementById("installment4_amount").value = "";
-                document.getElementById("installment5_amount").value = "";
-                document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("readonly", true);
-                $('#installment2_date').attr("readonly", true);
-                $('#installment3_date').attr("readonly", true);
-                $('#installment4_date').attr("readonly", true);
-                $('#installment5_date').attr("readonly", true);
-                $('#installment6_date').attr("readonly", true);
-                document.getElementById("installment2_date").value = "";
-                document.getElementById("installment3_date").value = "";
-                document.getElementById("installment4_date").value = "";
-                document.getElementById("installment5_date").value = "";
-                document.getElementById("installment6_date").value = "";
-            } else{
             $('#installment1_amount').attr("readonly", false);
             $('#installment2_amount').attr("readonly", false);
             $('#installment3_amount').attr("readonly", false);
@@ -534,38 +436,12 @@
             $('#installment5_date').attr("readonly", false);
             $('#installment6_date').attr("readonly", true);
             document.getElementById("installment6_date").value = "";
-            }
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
-        } else {
-            if(remaining_amount.value==0){
-                $('#installment1_amount').attr("readonly", true);
-                $('#installment2_amount').attr("readonly", true);
-                $('#installment3_amount').attr("readonly", true);
-                $('#installment4_amount').attr("readonly", true);
-                $('#installment5_amount').attr("readonly", true);
-                $('#installment6_amount').attr("readonly", true);
-                document.getElementById("installment_number").value = "";
-                document.getElementById("installment2_amount").value = "";
-                document.getElementById("installment3_amount").value = "";
-                document.getElementById("installment4_amount").value = "";
-                document.getElementById("installment5_amount").value = "";
-                document.getElementById("installment6_amount").value = "";
-                $('#installment1_date').attr("readonly", true);
-                $('#installment2_date').attr("readonly", true);
-                $('#installment3_date').attr("readonly", true);
-                $('#installment4_date').attr("readonly", true);
-                $('#installment5_date').attr("readonly", true);
-                $('#installment6_date').attr("readonly", true);
-                document.getElementById("installment2_date").value = "";
-                document.getElementById("installment3_date").value = "";
-                document.getElementById("installment4_date").value = "";
-                document.getElementById("installment5_date").value = "";
-                document.getElementById("installment6_date").value = "";
-            } else{
+        } else if(installment_number==6) {
             $('#installment1_amount').attr("readonly", false);
             $('#installment2_amount').attr("readonly", false);
             $('#installment3_amount').attr("readonly", false);
@@ -578,8 +454,7 @@
             $('#installment4_date').attr("readonly", false);
             $('#installment5_date').attr("readonly", false);
             $('#installment6_date').attr("readonly", false);
-            }
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && installment6_amount!="" && installment6_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && installment6_amount!="" && installment6_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);

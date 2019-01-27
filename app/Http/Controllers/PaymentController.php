@@ -24,13 +24,11 @@ class PaymentController extends Controller
         if(Auth::user()->hasRole('recorder')){
             $payment_id=$request->input('id');
             $payment = Payment::find($payment_id);
-            if(Auth::user()->hasRole('recorder')){
-                $payment->delete();
-                return "success";
-            } else {
+            $payment->delete();
+            return "success";
+        } else {
             return "fail";
             }
-        }
     }
 
     public function payment_register_show (){
@@ -73,25 +71,30 @@ class PaymentController extends Controller
             $payment_register->debt_amount=$debt_amount;
             $payment_register->paid_amount=$paid_amount;
             $payment_register->total_remaining_amount=$total_remaining_amount;
-
             $payment_register->installment_number=$installment_number;
+
             $payment_register->installment1_amount=$installment1_amount;
-
+            $payment_register->installment1_remaining_amount=$installment1_amount;
             $payment_register->installment1_date=$installment1_date;
+
             $payment_register->installment2_amount=$installment2_amount;
-
+            $payment_register->installment2_remaining_amount=$installment2_amount;
             $payment_register->installment2_date=$installment2_date;
+
             $payment_register->installment3_amount=$installment3_amount;
-
+            $payment_register->installment3_remaining_amount=$installment3_amount;
             $payment_register->installment3_date=$installment3_date;
+
             $payment_register->installment4_amount=$installment4_amount;
-
+            $payment_register->installment4_remaining_amount=$installment4_amount;
             $payment_register->installment4_date=$installment4_date;
+            
             $payment_register->installment5_amount=$installment5_amount;
-
+            $payment_register->installment5_remaining_amount=$installment5_amount;
             $payment_register->installment5_date=$installment5_date;
+            
             $payment_register->installment6_amount=$installment6_amount;
-
+            $payment_register->installment6_remaining_amount=$installment6_amount;
             $payment_register->installment6_date=$installment6_date;
 
             $payment_register->note= $note;
