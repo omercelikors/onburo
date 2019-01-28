@@ -14,6 +14,8 @@
     @yield('css')
     {{-- root css --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- date time picker css --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
@@ -76,6 +78,9 @@
     @yield('content')
     {{-- root js --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    {{-- date time picker js --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.tr.min.js"></script>
     @yield('js')
 </body>
 

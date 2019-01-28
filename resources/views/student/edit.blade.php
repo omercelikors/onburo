@@ -14,19 +14,19 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="name">*Adı:</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}" required>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="e_mail">*E-posta Adresi:</label>
-                                    <input type="email" class="form-control" id="e_mail" name="e_mail" value="{{ $student->e_mail }}">
+                                    <input type="email" class="form-control" id="e_mail" name="e_mail" value="{{ $student->e_mail }}" required>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="telephone">*Telefon:</label>
-                                    <input type="number" class="form-control" id="telephone" name="telephone" value="{{ $student->telephone }}">
+                                    <input type="number" class="form-control" id="telephone" name="telephone" value="{{ $student->telephone }}" required>
                                 </div>
                             </div>
                         </div>
@@ -34,14 +34,14 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="birthdate">*Doğum Tarihi:</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $student->birthdate() }}">
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ $student->birthdate() }}" required>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="languages">*Konuştuğu Diller:</label>
                                     <select id="languages" class="form-control input-medium bfh-languages"
-                                        data-language="US" name="languages[]" multiple></select>
+                                        data-language="US" name="languages[]" multiple required></select>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -125,13 +125,13 @@
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" value="Evet" name="book_status"
-                                            @if($student->book_status=="Evet")checked @endif>Evet
+                                            @if($student->book_status=="Evet")checked @endif required>Evet
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" value="Hayır" name="book_status"
-                                            @if($student->book_status=="Hayır")checked @endif>Hayır
+                                            @if($student->book_status=="Hayır")checked @endif required>Hayır
                                     </label>
                                 </div>
                             </div>
@@ -562,23 +562,7 @@ if("{{ $student->classroom->course_type }}"=="A1"){
             }
         });
 </script>
-{{-- mandatory fields --}}
-<script>
-    setInterval(function(){
-        name=document.getElementById('name').value;
-        e_mail=document.getElementById('e_mail').value;
-        telephone=document.getElementById('telephone').value;
-        birthdate=document.getElementById('birthdate').value;
-        languages=document.getElementById('languages').value;
-        book_status_yes=document.getElementById('book_status_yes');
-        book_status_no=document.getElementById('book_status_no');
-        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
-            document.getElementById("submit_button").disabled=true;
-        } else {
-            document.getElementById("submit_button").disabled=false;
-        }
-    }, 1000);
-</script>
+
 @endsection
 
 @section('css')

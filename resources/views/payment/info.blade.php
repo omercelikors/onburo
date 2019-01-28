@@ -89,9 +89,9 @@
             '90px', '100px', '90px', '100px', '170px'
         ],
         col_types: [
-            'string', 'number', 'number', 'date', 'number',
-            'date', 'number', 'date', 'number', 'date',
-            'number', 'date', 'number', 'date', 'string',
+            'string', 'string', 'string', 'date', 'string',
+            'date', 'string', 'date', 'string', 'date',
+            'string', 'date', 'string', 'date', 'string',
         ],
         extensions: [{
             name: 'sort'

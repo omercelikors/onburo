@@ -13,34 +13,37 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="name">*Adı:</label>
-                                    <input type="text" class="form-control" id="name" name="name">
+                                    <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="e_mail">*E-posta Adresi:</label>
-                                    <input type="email" class="form-control" id="e_mail" name="e_mail">
+                                    <input type="email" class="form-control" id="e_mail" name="e_mail" required>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="telephone">*Telefon:</label>
-                                    <input type="number" class="form-control" id="telephone" name="telephone">
+                                    <input type="number" class="form-control" id="telephone" name="telephone" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="col-3">
-                                <div class="form-group">
-                                    <label for="birthdate">*Doğum Tarihi:</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate">
+                                <label for="birthdate">*Doğum Tarihi:</label>
+                                <div id="birthdate" class="input-group date" data-provide="datepicker">
+                                    <input  type="text" class="form-control" placeholder="gg/aa/yyyy">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="languages">*Konuştuğu Diller:</label>
-                                    <select id="languages" class="form-control input-medium bfh-languages" data-language="US" name="languages[]"
-                                        multiple></select>
+                                    <select id="languages" class="form-control input-medium bfh-languages"
+                                        data-language="US" name="languages[]" multiple required></select>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -116,12 +119,14 @@
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input type="radio" id="book_status_yes" class="form-check-input" value="Evet" name="book_status">Evet
+                                        <input type="radio" id="book_status_yes" class="form-check-input" value="Evet"
+                                            name="book_status" required>Evet
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input type="radio" id="book_status_no" class="form-check-input" value="Hayır" name="book_status">Hayır
+                                        <input type="radio" id="book_status_no" class="form-check-input" value="Hayır"
+                                            name="book_status" required>Hayır
                                     </label>
                                 </div>
                             </div>
@@ -357,7 +362,7 @@
 {{-- country dropdown js --}}
 <script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
 {{-- disabled future dates for "birthdate field" --}}
-<script>
+{{-- <script>
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
@@ -370,7 +375,7 @@
     }
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("birthdate").setAttribute("max", today);
-</script>
+</script> --}}
 {{-- classrooms dropdown filter according to "course types" --}}
 <script type="text/javascript">
 //all classrooms were received "classrooms array object"
@@ -463,22 +468,11 @@ all.click();
         }
     }
 </script>
-{{-- mandatory fields --}}
 <script>
-    setInterval(function(){
-        name=document.getElementById('name').value;
-        e_mail=document.getElementById('e_mail').value;
-        telephone=document.getElementById('telephone').value;
-        birthdate=document.getElementById('birthdate').value;
-        languages=document.getElementById('languages').value;
-        book_status_yes=document.getElementById('book_status_yes');
-        book_status_no=document.getElementById('book_status_no');
-        if(name=="" || e_mail=="" || telephone=="" ||  birthdate=="" || languages=="" || (book_status_yes.checked==false && book_status_no.checked==false)){
-            document.getElementById("submit_button").disabled=true;
-        } else {
-            document.getElementById("submit_button").disabled=false;
-        }
-    }, 1000);
+    $('#birthdate').datepicker({
+    format: 'dd/mm/yyyy',
+    language:'tr'
+ });
 </script>
 @endsection
 

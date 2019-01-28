@@ -27,4 +27,9 @@ mix.js('resources/js/app.js', 'public/js')
 
    // country dropdown extension
    .js('resources/js/extensions/bootstrap-formhelpers.min.js', 'public/js/extensions')
-   .copy('resources/css/extensions/bootstrap-formhelpers.min.css', 'public/css/extensions');
+   .copy('resources/css/extensions/bootstrap-formhelpers.min.css', 'public/css/extensions')
+
+   //date time picker extension
+   /* .js('resources/js/extensions/bootstrap-datepicker.js', 'public/js/extensions')
+   .js('resources/js/extensions/bootstrap-datepicker.tr.min.js', 'public/js/extensions')
+   .copy('resources/css/extensions/bootstrap-datepicker.standalone.min.css', 'public/css/extensions') */;
