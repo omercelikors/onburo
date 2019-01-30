@@ -22,7 +22,9 @@ class ClassroomController extends Controller
         if(Auth::user()->hasRole('recorder')){
             $course_type=$request->input('course_type');
             $course_starting_date=$request->input('starting_date');
+            $course_starting_date=date('Y-m-d H:i:s' , strtotime($course_starting_date));
             $course_end_date=$request->input('end_date');
+            $course_end_date=date('Y-m-d H:i:s' , strtotime($course_end_date));
             $course_time=$request->input('time');
             $course_teacher_id=$request->input('teacher_id');
             
@@ -48,8 +50,12 @@ class ClassroomController extends Controller
             $classroom_id=$request->input('classroom_id');
             $classroom=Classroom::find($classroom_id);
             $classroom->course_type=$request->input('course_type');
-            $classroom->starting_date=$request->input('starting_date');
-            $classroom->end_date=$request->input('end_date');
+            $classroom_starting_date=$request->input('starting_date');
+            $classroom_starting_date=date('Y-m-d H:i:s' , strtotime($classroom_starting_date));
+            $classroom->starting_date=$classroom_starting_date;
+            $classroom_end_date=$request->input('end_date');
+            $classroom_end_date=date('Y-m-d H:i:s' , strtotime($classroom_end_date));
+            $classroom->end_date=$classroom_end_date;
             $classroom->time=$request->input('time');
             $classroom->teacher_id=$request->input('teacher_id');
             $classroom->save();
