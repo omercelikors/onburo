@@ -23,7 +23,7 @@ class Person extends Model
     }
 
     public function birthdate(){
-        $formatted_date = date('Y-m-d' , strtotime($this->birthdate));
+        $formatted_date = date('d.m.Y' , strtotime($this->birthdate));
         return $formatted_date;
     }
 
