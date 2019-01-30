@@ -36,34 +36,48 @@ class PersonController extends Controller
     public function student_register (Request $request) {
         if(Auth::user()->hasRole('recorder')){
             $student_name=$request->input('name');
+            $student_surname=$request->input('surname');
             $student_birthdate=$request->input('birthdate');
+            $student_birthdate=date('Y-m-d H:i:s' , strtotime($student_birthdate));
             $student_telephone=$request->input('telephone');
             $student_e_mail=$request->input('e_mail');
             $student_country=$request->input('country');
             $student_languages=$request->input('languages');
             $student_languages = implode(',', $student_languages);
             $student_book_status=$request->input('book_status');
-            $student_note=$request->input('note');
+            $student_why_choose_us=$request->input('why_choose_us');
             $student_registration_by=Auth::user()->name;
-            $student_classroom=$request->input('classrooms');
+            $student_classroom_id=$request->input('classrooms');
+            /* if(isset($student_classroom_id)){
+                $student_course_type=Classroom::find($student_classroom_id)->course_type;
+            } */
+            
             $student_sex_status=$request->input('sex_status');
             $student_marital_status=$request->input('marital_status');
             $student_university_status=$request->input('university_status');
             $student_university_department=$request->input('university_department');
-            $student_relative_university_status=$request->input('relative_university_status');
-            $student_relative_name=$request->input('relative_name');
-            $student_relative_telephone=$request->input('relative_telephone');
+            $student_education_level_status=$request->input('education_level_status');
             $student_children_status=$request->input('children_status');
             $student_children_number=$request->input('children_number');
             $student_children_age_range_status=$request->input('children_age_range_status');
+            if(isset($student_children_age_range_status)){
+                $student_children_age_range_status = implode(',', $student_children_age_range_status);
+            }
+            $student_note=$request->input('note');
+            $student_relative_university_status=$request->input('relative_university_status');
+            $student_relative_name=$request->input('relative_name');
+            $student_relative_telephone=$request->input('relative_telephone');
+            $student_relative_education_level_status=$request->input('relative_education_level_status');
             $student_online_lesson_status=$request->input('online_lesson_status');
             $student_citizenship_status=$request->input('citizenship_status');
             $student_home_status=$request->input('home_status');
-            $student_heard_by=$request->input('heard_by');
-            $student_demanded_education=$request->input('demanded_education');
+            $student_heard_by_status=$request->input('heard_by_status');
+            $student_heard_by_other=$request->input('heard_by_other');
+            $student_demanded_education_status=$request->input('demanded_education_status');
 
             $student_register=new Person;
             $student_register->name=$student_name;
+            $student_register->surname=$student_surname;
             $student_register->status="Öğrenci";
             $student_register->birthdate=$student_birthdate;
             $student_register->telephone=$student_telephone;
@@ -71,24 +85,33 @@ class PersonController extends Controller
             $student_register->country=$student_country;
             $student_register->languages=$student_languages;
             $student_register->book_status=$student_book_status;
-            $student_register->note=$student_note;
+            $student_register->why_choose_us=$student_why_choose_us;
             $student_register->registration_by=$student_registration_by;
-            $student_register->classroom_id=$student_classroom;
+            $student_register->classroom_id=$student_classroom_id;
+            // $student_register->join_status="Aktif";
+            /* if(isset($student_course_type)){
+                $student_register->taken_courses->associate($student_course_type);
+            } */
+            
             $student_register->sex_status=$student_sex_status;
             $student_register->marital_status=$student_marital_status;
             $student_register->university_status=$student_university_status;
             $student_register->university_department=$student_university_department;
-            $student_register->relative_university_status=$student_relative_university_status;
-            $student_register->relative_name=$student_relative_name;
-            $student_register->relative_telephone=$student_relative_telephone;
+            $student_register->education_level_status=$student_education_level_status;
             $student_register->children_status=$student_children_status;
             $student_register->children_number= $student_children_number;
             $student_register->children_age_range_status=$student_children_age_range_status;
+            $student_register->note=$student_note;
+            $student_register->relative_university_status=$student_relative_university_status;
+            $student_register->relative_name=$student_relative_name;
+            $student_register->relative_telephone=$student_relative_telephone;
+            $student_register->relative_education_level_status=$student_relative_education_level_status;
             $student_register->online_lesson_status=$student_online_lesson_status;
             $student_register->citizenship_status=$student_citizenship_status;
             $student_register->home_status=$student_home_status;
-            $student_register->heard_by=$student_heard_by;
-            $student_register->demanded_education=$student_demanded_education;
+            $student_register->heard_by_status=$student_heard_by_status;
+            $student_register->heard_by_other=$student_heard_by_other;
+            $student_register->demanded_education_status=$student_demanded_education_status;
             $student_register->save();
             return redirect('/home');
         }
@@ -99,31 +122,43 @@ class PersonController extends Controller
             $student_id=$request->input('student_id');
             $student=Person::find($student_id);
             $student->name=$request->input('name');
-            $student->birthdate=$request->input('birthdate');
+            $student->surname=$request->input('surname');
+            $student_birthdate=$request->input('birthdate');
+            $student_birthdate=date('Y-m-d H:i:s' , strtotime($student_birthdate));
+            $student->birthdate=$student_birthdate;
             $student->telephone=$request->input('telephone');
             $student->e_mail=$request->input('e_mail');
             $student->country=$request->input('country');
             $student_languages=$request->input('languages');
             $student->languages = implode(',', $student_languages);
             $student->book_status=$request->input('book_status');
-            $student->note=$request->input('note');
+            $student->why_choose_us=$request->input('why_choose_us');
+            $student->why_abandon_us=$request->input('why_abandon_us');
             $student->registration_by=Auth::user()->name;
             $student->classroom_id=$request->input('classrooms');
+
             $student->sex_status=$request->input('sex_status');
             $student->marital_status=$request->input('marital_status');
             $student->university_status=$request->input('university_status');
             $student->university_department=$request->input('university_department');
+            $student->education_level_status=$request->input('education_level_status');
+            $student->children_status=$request->input('children_status');
+            $student->children_number=$request->input('children_number');
+            $student_children_age_range_status=$request->input('children_age_range_status');
+            if(isset($student_children_age_range_status)){
+                $student->children_age_range_status=implode(',', $student_children_age_range_status);
+            }
+            $student->note=$request->input('note');
             $student->relative_university_status=$request->input('relative_university_status');
             $student->relative_name=$request->input('relative_name');
             $student->relative_telephone=$request->input('relative_telephone');
-            $student->children_status=$request->input('children_status');
-            $student->children_number=$request->input('children_number');
-            $student->children_age_range_status=$request->input('children_age_range_status');
+            $student->relative_education_level_status=$request->input('relative_education_level_status');
             $student->online_lesson_status=$request->input('online_lesson_status');
             $student->citizenship_status=$request->input('citizenship_status');
             $student->home_status=$request->input('home_status');
-            $student->heard_by=$request->input('heard_by');
-            $student->demanded_education=$request->input('demanded_education');
+            $student->heard_by_status=$request->input('heard_by_status');
+            $student->heard_by_other=$request->input('heard_by_other');
+            $student->demanded_education_status=$request->input('demanded_education_status');
             $student->save();
             return redirect('/home');
         }

@@ -15,12 +15,14 @@
                         <thead>
                             <tr>
                                 <th>Adı</th>
+                                <th>Soyadı</th>
                                 <th>Kur Tipi</th>
                                 <th>Kur Vakti</th>
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
                                 <th>Sınıf Öğretmeni</th>
-                                <th>Ülke</th>
+                                <th>Katılım Durumu</th>
+                                <th>Aldığı Kurslar</th>
                                 <th>Kitap Durumu</th>
                                 <th>İşlem</th>
                             </tr>
@@ -29,12 +31,14 @@
                             @foreach ($students as $student)
                             <tr>
                                 <td>{{ $student->name }}</td>
+                                <td>{{ $student->surname }}</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->end_date() }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->teacher_name() }}@endif</td>
-                                <td>{{ $student->country }}</td>
+                                <td>{{ $student->join_status }}</td>
+                                <td>{{ $student->taken_courses }}</td>
                                 <td>{{ $student->book_status }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -71,19 +75,20 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_1: 'select',
         col_2: 'select',
-        col_5: 'select',
+        col_3: 'select',
         col_7: 'select',
         col_widths: [
-            '200px', '100px', '120px',
-            '190px', '190px', '200px',
-            '200px', '100px', '160px'
+            '200px', '200px', '75px',
+            '80px', '140px', '140px',
+            '200px', '90px', '90px',
+            '100px', '160px'
         ],
         col_types: [
-            'string', 'string', 'string',
-            'date', 'date', 'string',
-            'string', 'string', 'string',
+            'string', 'string','string',
+            'string', 'date',  'date',
+            'string', 'string','string',
+            'string', 'string'
         ],
         extensions: [{
             name: 'sort'

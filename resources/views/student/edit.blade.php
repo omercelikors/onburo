@@ -5,7 +5,7 @@
         @csrf
         <input type="hidden" class="form-control" name="student_id" value="{{ $student->id }}">
         <div class="card my-3">
-            <div class="card-header">Öğrenci Kayıt</div>
+            <div class="card-header">Öğrenci Düzenle</div>
             <div class="card-body">
 
                 <div class="row d-flex justify-content-center my-2">
@@ -57,7 +57,7 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="country">Ülke:</label>
-                                        <select class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
+                                        <select class="form-control input-medium bfh-countries" id="country" data-country="US" name="country"></select>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -81,8 +81,14 @@
                             <div class="row d-flex justify-content-center my-2">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="note">Neden bizi tercih etti?:</label>
-                                        <textarea class="form-control" rows="5" id="note" name="note">{{ $student->why_choose_us }}</textarea>
+                                        <label for="why_choose_us">Neden bizi tercih etti?:</label>
+                                        <textarea class="form-control" rows="5" id="why_choose_us" name="why_choose_us">{{ $student->why_choose_us }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="why_abandon_us">Neden bizden ayrılmak istiyor?:</label>
+                                        <textarea class="form-control" rows="5" id="why_abandon_us" name="why_abandon_us">{{ $student->why_abandon_us }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -235,8 +241,8 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="education_level">Almayı düşündüğü eğitim:</label>
-                                        <select class="form-control" id="education_level" name="education_level">
+                                        <label for="education_level_status">Almayı düşündüğü eğitim:</label>
+                                        <select class="form-control" id="education_level_status" name="education_level_status">
                                             <option></option>
                                             <option>Önlisans</option>
                                             <option>Lisans</option>
@@ -272,14 +278,14 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="children_age_range">Çocuk Yaş Aralığı:</label>
-                                        <select class="form-control" id="children_age_range" name="children_age_range_status"
+                                        <label for="children_age_range_status">Çocuk Yaş Aralığı:</label>
+                                        <select class="form-control" id="children_age_range_status" name="children_age_range_status[]"
                                             multiple>
                                             <option></option>
-                                            <option value="0-10 Yaş">0-10 Yaş</option>
-                                            <option value="10-20 Yaş">10-15 Yaş</option>
-                                            <option value="20-30 Yaş">15-20 Yaş</option>
-                                            <option value="20-30 Yaş">20 ve daha büyük</option>
+                                            <option>0-10 Yaş</option>
+                                            <option>10-15 Yaş</option>
+                                            <option>15-20 Yaş</option>
+                                            <option>20 ve daha büyük</option>
                                         </select>
                                     </div>
                                 </div>
@@ -331,8 +337,8 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="education_level">Almayı düşündüğü eğitim:</label>
-                                        <select class="form-control" id="relative_education_level" name="relative_education_level">
+                                        <label for="education_level_status">Almayı düşündüğü eğitim:</label>
+                                        <select class="form-control" id="relative_education_level_status" name="relative_education_level_status">
                                             <option></option>
                                             <option>Önlisans</option>
                                             <option>Lisans</option>
@@ -401,8 +407,8 @@
                             <div class="row my-4 d-flex justify-content-center">
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="heard_by">Bizi nereden duydu?:</label>
-                                        <select class="form-control" id="heard_by" name="heard_by">
+                                        <label for="heard_by_status">Bizi nereden duydu?:</label>
+                                        <select class="form-control" id="heard_by_status" name="heard_by_status">
                                             <option></option>
                                             <option>Google</option>
                                             <option>Instagram</option>
@@ -419,8 +425,8 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="demanded_education">Başka bir kurs istiyor mu?:</label>
-                                        <select class="form-control" id="demanded_education" name="demanded_education">
+                                        <label for="demanded_education_status">Başka bir kurs istiyor mu?:</label>
+                                        <select class="form-control" id="demanded_education_status" name="demanded_education_status">
                                             <option></option>
                                             <option>YÖS</option>
                                             <option>Online</option>
@@ -436,7 +442,7 @@
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button id="submit_button" class="btn btn-primary" type="submit">Kaydet</button>
+                <button id="submit_button" class="btn btn-primary" type="submit">Düzenle</button>
             </div>
         </div>
     </form>
@@ -596,6 +602,65 @@
             }
         });
 </script>
+{{-- education level status dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    $(document).ready(function () {
+        education_level_status_length = document.getElementById("education_level_status").options.length;
+        for (i = 0; i < education_level_status_length; i++) {
+            if (document.getElementById("education_level_status").options[i].value == "{{ $student->education_level_status }}") {
+                document.getElementById("education_level_status").options[i].setAttribute('selected', true);
+            }
+        }
+    });
+</script>
+{{-- relative education level status dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    $(document).ready(function () {
+        relative_education_level_status_length = document.getElementById("relative_education_level_status").options.length;
+        for (i = 0; i < relative_education_level_status_length; i++) {
+            if (document.getElementById("relative_education_level_status").options[i].value == "{{ $student->relative_education_level_status }}") {
+                document.getElementById("relative_education_level_status").options[i].setAttribute('selected', true);
+            }
+        }
+    });
+</script>
+{{-- heard by status dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    $(document).ready(function () {
+        heard_by_status_length = document.getElementById("heard_by_status").options.length;
+        for (i = 0; i < heard_by_status_length; i++) {
+            if (document.getElementById("heard_by_status").options[i].value == "{{ $student->heard_by_status }}") {
+                document.getElementById("heard_by_status").options[i].setAttribute('selected', true);
+            }
+        }
+    });
+</script>
+{{-- demanded education status dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    $(document).ready(function () {
+        demanded_education_status_length = document.getElementById("demanded_education_status").options.length;
+        for (i = 0; i < demanded_education_status_length; i++) {
+            if (document.getElementById("demanded_education_status").options[i].value == "{{ $student->demanded_education_status }}") {
+                document.getElementById("demanded_education_status").options[i].setAttribute('selected', true);
+            }
+        }
+    });
+</script>
+{{-- chidren age range status dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    children_age_range_status="{{ $student->children_age_range_status }}";
+    children_age_range_status_array=children_age_range_status.split(",")
+        $(document).ready(function () {
+            children_age_range_status_length = document.getElementById("children_age_range_status").options.length;
+            for (i = 0; i < children_age_range_status_length; i++) {
+                for(z = 0; z < children_age_range_status_array.length; z++){
+                    if (document.getElementById("children_age_range_status").options[i].value == children_age_range_status_array[z]) {
+                        document.getElementById("children_age_range_status").options[i].setAttribute('selected', true);
+                    }
+                }
+            }
+        });
+</script>
 {{-- country dropdown is having "selected attirubute" according to value coming --}}
 <script>
     $(document).ready(function () {
@@ -611,23 +676,12 @@
 <script>
     $(document).ready(function () {
         classrooms_length = document.getElementById("classrooms").options.length;
-        for (i = 0; i < country_length; i++) {
+        for (i = 0; i < classrooms_length; i++) {
             if (document.getElementById("classrooms").options[i].value == "{{ $student->classroom_id }}") {
                 document.getElementById("classrooms").options[i].setAttribute('selected', true);
             }
         }
     });
-</script>
-{{-- chidren age range dropdown is having "selected attirubute" according to value coming --}}
-<script>
-        $(document).ready(function () {
-            children_age_range_length = document.getElementById("children_age_range").options.length;
-            for (i = 0; i < children_age_range_length; i++) {
-                if (document.getElementById("children_age_range").options[i].value == "{{ $student->children_age_range_status }}") {
-                    document.getElementById("children_age_range").options[i].setAttribute('selected', true);
-                }
-            }
-        });
 </script>
 <script>
     university_status_yes=document.getElementById('university_status_yes');
@@ -643,43 +697,43 @@
 
         if(university_status_yes.checked==false && university_status_no.checked==false){
             $('#university_department').attr("disabled", true);
-            $('#education_level').attr("disabled", true);
+            $('#education_level_status').attr("disabled", true);
             $('#relative_university_status_yes').attr("disabled", true);
             $('#relative_university_status_no').attr("disabled", true);
             $('#relative_name').attr("disabled", true);
             $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level').attr("disabled", true);
+            $('#relative_education_level_status').attr("disabled", true);
         }else if(university_status_yes.checked==true){
             $('#university_department').attr("disabled", false);
-            $('#education_level').attr("disabled", false);
+            $('#education_level_status').attr("disabled", false);
             $('#relative_university_status_yes').attr("disabled", true);
             $('#relative_university_status_no').attr("disabled", true);
             $('#relative_name').attr("disabled", true);
             $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level').attr("disabled", true);
+            $('#relative_education_level_status').attr("disabled", true);
             relative_university_status_yes.checked=false;
             relative_university_status_no.checked=false;
             $('#relative_name').val("");
             $('#relative_telephone').val("");
-            $('#relative_education_level').val("");
+            $('#relative_education_level_status').val("");
         }else if(university_status_no.checked==true){
             $('#university_department').attr("disabled", true);
-            $('#education_level').attr("disabled", true);
+            $('#education_level_status').attr("disabled", true);
             $('#university_department').val("");
             $('#education_level').val("");
             $('#relative_university_status_yes').attr("disabled", false);
             $('#relative_university_status_no').attr("disabled", false);
             if(relative_university_status_yes.checked==true){
                 $('#university_department').attr("disabled", true);
-                $('#education_level').attr("disabled", true);
+                $('#education_level_status').attr("disabled", true);
                 $('#university_department').val("");
                 $('#education_level').val("");
                 $('#relative_name').attr("disabled", false);
                 $('#relative_telephone').attr("disabled", false);
-                $('#relative_education_level').attr("disabled", false);
+                $('#relative_education_level_status').attr("disabled", false);
             }else if(relative_university_status_no.checked==true){
                 $('#university_department').attr("disabled", true);
-                $('#education_level').attr("disabled", true);
+                $('#education_level_status').attr("disabled", true);
                 $('#university_department').val("");
                 $('#education_level').val("");
                 $('#relative_name').attr("disabled", true);
@@ -687,7 +741,7 @@
                 $('#relative_education_level').attr("disabled", true);
                 $('#relative_name').val("");
                 $('#relative_telephone').val("");
-                $('#relative_education_level').val("");
+                $('#relative_education_level_status').val("");
             }
         }
     }, 1000);
@@ -696,30 +750,30 @@
     children_status_yes=document.getElementById('children_status_yes');
     children_status_no=document.getElementById('children_status_no');
     children_number=document.getElementById('children_number');
-    children_age_range=document.getElementById('children_age_range');
+    children_age_range_status=document.getElementById('children_age_range_status');
     setInterval(function(){
 
         if(children_status_yes.checked==false && children_status_no.checked==false){
             $('#children_number').attr("disabled", true);
-            $('#children_age_range').attr("disabled", true);
+            $('#children_age_range_status').attr("disabled", true);
         }else if(children_status_yes.checked==true){
             $('#children_number').attr("disabled", false);
-            $('#children_age_range').attr("disabled", false);
+            $('#children_age_range_status').attr("disabled", false);
         }else if(children_status_no.checked==true){
             $('#children_number').attr("disabled", true);
-            $('#children_age_range').attr("disabled", true);
+            $('#children_age_range_status').attr("disabled", true);
             $('#children_number').val("");
-            $('#children_age_range').val("");
+            $('#children_age_range_status').val("");
         }
     }, 1000);
 </script>
 <script>
-    heard_by=document.getElementById('heard_by');
+    heard_by_status=document.getElementById('heard_by_status');
     heard_by_other=document.getElementById('heard_by_other');
     setInterval(function(){
-        if(heard_by.value=="Diğer"){
+        if(heard_by_status.value=="Diğer"){
             $('#heard_by_other').attr("disabled", false);
-        }else if(heard_by.value!="Diğer"){
+        }else if(heard_by_status.value!="Diğer"){
             $('#heard_by_other').attr("disabled", true);
             $('#heard_by_other').val("");
         }

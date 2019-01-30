@@ -19,15 +19,16 @@ class CreatePeopleTable extends Migration
             $table->string('name', 200);
             $table->string('surname', 200);
             $table->enum('status', ['Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı']);
-            $table->enum('current_join_status', ['Active','Passive']);
-            $table->string('taken_courses');
+            $table->enum('join_status', ['Aktif','Pasif'])->nullable();
+            $table->string('taken_courses')->nullable();
             $table->dateTime('birthdate');
             $table->string('telephone');
             $table->string('e_mail');
             $table->string('country')->nullable();
             $table->string('languages')->nullable();
             $table->enum('book_status', ['Evet','Hayır'])->nullable();
-            $table->string('why_cgoose_us')->nullable();
+            $table->string('why_choose_us')->nullable();
+            $table->string('why_abandon_us')->nullable();
             $table->string('registration_by')->nullable();
 
             $table->enum('sex_status', ['Erkek','Kız'])->nullable();
@@ -42,7 +43,7 @@ class CreatePeopleTable extends Migration
             $table->enum('relative_education_level_status', ['Önlisans','Lisans', 'Yüksek Lisans','Doktora'])->nullable();
             $table->enum('children_status', ['Evet','Hayır'])->nullable();
             $table->integer('children_number')->nullable();
-            $table->enum('children_age_range_status', ['0-10 Yaş','10-15 Yaş','15-20 Yaş','20 ve daha büyük'])->nullable();
+            $table->string('children_age_range_status')->nullable();
             $table->enum('online_lesson_status', ['Evet','Hayır'])->nullable();
             $table->enum('citizenship_status', ['Evet','Hayır'])->nullable();
             $table->enum('home_status', ['Evet','Hayır'])->nullable();

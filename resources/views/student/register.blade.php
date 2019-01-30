@@ -42,8 +42,7 @@
                                 <div class="col-3">
                                     <label for="birthdate">*Doğum Tarihi:</label>
                                     <div class="gj-margin-top-10">
-                                        <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.dd.yyyy"
-                                            required>
+                                        <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.dd.yyyy" required>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -80,8 +79,8 @@
                             <div class="row d-flex justify-content-center my-2">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="note">Neden bizi tercih etti?:</label>
-                                        <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+                                        <label for="why_choose_us">Neden bizi tercih etti?:</label>
+                                        <textarea class="form-control" rows="5" id="why_choose_us" name="why_choose_us"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -234,8 +233,8 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="education_level">Almayı düşündüğü eğitim:</label>
-                                        <select class="form-control" id="education_level" name="education_level">
+                                        <label for="education_level_status">Almayı düşündüğü eğitim:</label>
+                                        <select class="form-control" id="education_level_status" name="education_level_status">
                                             <option></option>
                                             <option>Önlisans</option>
                                             <option>Lisans</option>
@@ -271,14 +270,14 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="children_age_range">Çocuk Yaş Aralığı:</label>
-                                        <select class="form-control" id="children_age_range" name="children_age_range_status"
+                                        <label for="children_age_range_status">Çocuk Yaş Aralığı:</label>
+                                        <select class="form-control" id="children_age_range_status" name="children_age_range_status[]"
                                             multiple>
                                             <option></option>
-                                            <option value="0-10 Yaş">0-10 Yaş</option>
-                                            <option value="10-20 Yaş">10-15 Yaş</option>
-                                            <option value="20-30 Yaş">15-20 Yaş</option>
-                                            <option value="20-30 Yaş">20 ve daha büyük</option>
+                                            <option>0-10 Yaş</option>
+                                            <option>10-15 Yaş</option>
+                                            <option>15-20 Yaş</option>
+                                            <option>20 ve daha büyük</option>
                                         </select>
                                     </div>
                                 </div>
@@ -330,8 +329,8 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="education_level">Almayı düşündüğü eğitim:</label>
-                                        <select class="form-control" id="relative_education_level" name="relative_education_level">
+                                        <label for="relative_education_level_status">Almayı düşündüğü eğitim:</label>
+                                        <select class="form-control" id="relative_education_level_status" name="relative_education_level_status">
                                             <option></option>
                                             <option>Önlisans</option>
                                             <option>Lisans</option>
@@ -400,8 +399,8 @@
                             <div class="row my-4 d-flex justify-content-center">
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="heard_by">Bizi nereden duydu?:</label>
-                                        <select class="form-control" id="heard_by" name="heard_by">
+                                        <label for="heard_by_status">Bizi nereden duydu?:</label>
+                                        <select class="form-control" id="heard_by_status" name="heard_by_status">
                                             <option></option>
                                             <option>Google</option>
                                             <option>Instagram</option>
@@ -418,8 +417,8 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="demanded_education">Başka bir kurs istiyor mu?:</label>
-                                        <select class="form-control" id="demanded_education" name="demanded_education">
+                                        <label for="demanded_education_status">Başka bir kurs istiyor mu?:</label>
+                                        <select class="form-control" id="demanded_education_status" name="demanded_education_status">
                                             <option></option>
                                             <option>YÖS</option>
                                             <option>Online</option>
@@ -563,61 +562,61 @@
     university_status_yes=document.getElementById('university_status_yes');
     university_status_no=document.getElementById('university_status_no');
     university_department=document.getElementById('university_department');
-    education_level=document.getElementById('education_level');
+    education_level_status=document.getElementById('education_level_status');
     relative_university_status_yes=document.getElementById('relative_university_status_yes');
     relative_university_status_no=document.getElementById('relative_university_status_no');
     relative_name=document.getElementById('relative_name');
     relative_telephone=document.getElementById('relative_telephone');
-    relative_education_level=document.getElementById('relative_education_level');
+    relative_education_level_status=document.getElementById('relative_education_level_status');
     setInterval(function(){ 
 
         if(university_status_yes.checked==false && university_status_no.checked==false){
             $('#university_department').attr("disabled", true);
-            $('#education_level').attr("disabled", true);
+            $('#education_level_status').attr("disabled", true);
             $('#relative_university_status_yes').attr("disabled", true);
             $('#relative_university_status_no').attr("disabled", true);
             $('#relative_name').attr("disabled", true);
             $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level').attr("disabled", true);
+            $('#relative_education_level_status').attr("disabled", true);
         }else if(university_status_yes.checked==true){
             $('#university_department').attr("disabled", false);
-            $('#education_level').attr("disabled", false);
+            $('#education_level_status').attr("disabled", false);
             $('#relative_university_status_yes').attr("disabled", true);
             $('#relative_university_status_no').attr("disabled", true);
             $('#relative_name').attr("disabled", true);
             $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level').attr("disabled", true);
+            $('#relative_education_level_status').attr("disabled", true);
             relative_university_status_yes.checked=false;
             relative_university_status_no.checked=false;
             $('#relative_name').val("");
             $('#relative_telephone').val("");
-            $('#relative_education_level').val("");
+            $('#relative_education_level_status').val("");
         }else if(university_status_no.checked==true){
             $('#university_department').attr("disabled", true);
-            $('#education_level').attr("disabled", true);
+            $('#education_level_status').attr("disabled", true);
             $('#university_department').val("");
-            $('#education_level').val("");
+            $('#education_level_status').val("");
             $('#relative_university_status_yes').attr("disabled", false);
             $('#relative_university_status_no').attr("disabled", false);
             if(relative_university_status_yes.checked==true){
                 $('#university_department').attr("disabled", true);
-                $('#education_level').attr("disabled", true);
+                $('#education_level_status').attr("disabled", true);
                 $('#university_department').val("");
-                $('#education_level').val("");
+                $('#education_level_status').val("");
                 $('#relative_name').attr("disabled", false);
                 $('#relative_telephone').attr("disabled", false);
-                $('#relative_education_level').attr("disabled", false);
+                $('#relative_education_level_status').attr("disabled", false);
             }else if(relative_university_status_no.checked==true){
                 $('#university_department').attr("disabled", true);
-                $('#education_level').attr("disabled", true);
+                $('#education_level_status').attr("disabled", true);
                 $('#university_department').val("");
-                $('#education_level').val("");
+                $('#education_level_status').val("");
                 $('#relative_name').attr("disabled", true);
                 $('#relative_telephone').attr("disabled", true);
-                $('#relative_education_level').attr("disabled", true);
+                $('#relative_education_level_status').attr("disabled", true);
                 $('#relative_name').val("");
                 $('#relative_telephone').val("");
-                $('#relative_education_level').val("");
+                $('#relative_education_level_status').val("");
             }
         }
     }, 1000);
@@ -626,30 +625,30 @@
     children_status_yes=document.getElementById('children_status_yes');
     children_status_no=document.getElementById('children_status_no');
     children_number=document.getElementById('children_number');
-    children_age_range=document.getElementById('children_age_range');
+    children_age_range_status=document.getElementById('children_age_range_status');
     setInterval(function(){
 
         if(children_status_yes.checked==false && children_status_no.checked==false){
             $('#children_number').attr("disabled", true);
-            $('#children_age_range').attr("disabled", true);
+            $('#children_age_range_status').attr("disabled", true);
         }else if(children_status_yes.checked==true){
             $('#children_number').attr("disabled", false);
-            $('#children_age_range').attr("disabled", false);
+            $('#children_age_range_status').attr("disabled", false);
         }else if(children_status_no.checked==true){
             $('#children_number').attr("disabled", true);
-            $('#children_age_range').attr("disabled", true);
+            $('#children_age_range_status').attr("disabled", true);
             $('#children_number').val("");
-            $('#children_age_range').val("");
+            $('#children_age_range_status').val("");
         }
     }, 1000);
 </script>
 <script>
-    heard_by=document.getElementById('heard_by');
+    heard_by_status=document.getElementById('heard_by_status');
     heard_by_other=document.getElementById('heard_by_other');
     setInterval(function(){
-        if(heard_by.value=="Diğer"){
+        if(heard_by_status.value=="Diğer"){
             $('#heard_by_other').attr("disabled", false);
-        }else if(heard_by.value!="Diğer"){
+        }else if(heard_by_status.value!="Diğer"){
             $('#heard_by_other').attr("disabled", true);
             $('#heard_by_other').val("");
         }
