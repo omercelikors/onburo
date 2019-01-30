@@ -136,12 +136,12 @@
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('YOS')" type="radio" class="form-check-input" name="course_type">YÖS
+                                            <input onclick="filter('YOS')" id="YOS" type="radio" class="form-check-input" name="course_type">YÖS
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('Dıger')" type="radio" class="form-check-input" name="course_type">Diğer
+                                            <input onclick="filter('Diger')" id="Diger" type="radio" class="form-check-input" name="course_type">Diğer
                                         </label>
                                     </div>
                                     <div class="form-check-inline">
@@ -459,7 +459,7 @@
     classrooms=[];
     @if(isset($classrooms))
         @foreach($classrooms as $classroom)
-            classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ $classroom->teacher_name() }}"};
+            classroom={ id:"{{ $classroom->id }}", course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ $classroom->teacher_name() }}"};
             classrooms.push(classroom);
         @endforeach
     @if(isset($student->classroom))
@@ -479,9 +479,15 @@
         }else if ("{{ $student->classroom->course_type }}"=="C1"){
             var C1 = document.getElementById('C1');
             C1.click();
-        }else {
+        }else if ("{{ $student->classroom->course_type }}"=="C1+") {
             var C1_plus = document.getElementById('C1_plus');
             C1_plus.click();
+        }else if ("{{ $student->classroom->course_type }}"=="YÖS") {
+            var YOS = document.getElementById('YOS');
+            YOS.click();
+        }else if ("{{ $student->classroom->course_type }}"=="Diğer") {
+            var Diger = document.getElementById('Diger');
+            Diger.click();
         }
     @endif
 // when clicked course type radio button, classrooms were filtered according to course types
@@ -556,7 +562,7 @@
 
         if(course_type=="YOS"){
             for (i = 0; i< classrooms.length; i++){
-                if(classrooms[i].course_type=="YOS"){
+                if(classrooms[i].course_type=="YÖS"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
                     opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
@@ -567,7 +573,7 @@
 
         if(course_type=="Diger"){
             for (i = 0; i< classrooms.length; i++){
-                if(classrooms[i].course_type=="Diger"){
+                if(classrooms[i].course_type=="Diğer"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
                     opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
