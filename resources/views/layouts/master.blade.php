@@ -33,13 +33,13 @@
                     <a class="nav-link" href="{{ route('home') }}">ÖĞRENCİ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('payment_info_show') }}">ÖDEME</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('teacher_info_show') }}">ÖĞRETMEN</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('classroom_info_show') }}">SINIF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('payment_info_show') }}">ÖDEME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('create') }}">YOKLAMA KAĞIDI</a>

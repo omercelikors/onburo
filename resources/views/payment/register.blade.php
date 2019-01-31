@@ -10,66 +10,93 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="name">*Öğrenci Adı:</label>
-                            <select class="form-control" id="name" name="name">
+                            <select class="form-control" id="name" name="name" required>
                                 <option value=""></option>
                                 @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->name }}</option>
+                                <option value="{{ $student->id }}">{{ $student->name }} {{ $student->surname }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="paid_description">*Ödeme Açıklamsı:</label>
+                            <select id="paid_description" class="form-control" name="paid_description" required>
+                                <option></option>
+                                <option>A1</option>
+                                <option>A2</option>
+                                <option>B1</option>
+                                <option>B2</option>
+                                <option>C1</option>
+                                <option>C1+</option>
+                                <option>YÖS</option>
+                                <option>Diğer</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <fieldset class="col-8 mr-2">
-                        <legend style="width:12%;">Borç Bilgileri</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-3">
-                                <div>
-                                    <label>*Para Birimi:</label>
+                    <div class="card col-9 px-0 my-3 mx-2">
+                        <div class="card-header">Borç Bilgileri</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-3">
+                                    <div>
+                                        <label>*Para Birimi:</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input id="turkish_lira" type="radio" class="form-check-input" value="Türk Lirası"
+                                                name="currency_unit" required>Türk Lirası
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input id="dolar" type="radio" class="form-check-input" value="Dolar" name="currency_unit" required>Dolar
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input id="turkish_lira" type="radio" class="form-check-input" value="Türk Lirası"
-                                            name="currency_unit">Türk
-                                        Lirası
-                                    </label>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="debt_amount">*Borç Miktarı:</label>
+                                        <input type="number" class="form-control" id="debt_amount" min="0" step="0.01" name="debt_amount" required>
+                                    </div>
                                 </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input id="dolar" type="radio" class="form-check-input" value="Dolar" name="currency_unit">Dolar
-                                    </label>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="cash_paid_amount">*Peşin Ödenen Miktar:</label>
+                                        <input type="number" class="form-control" id="cash_paid_amount" min="0" step="0.01" name="cash_paid_amount" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="debt_amount">*Borç Miktarı:</label>
-                                    <input type="number" class="form-control" id="debt_amount" min="0" step="0.01" name="debt_amount">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="cash_paid_amount_date">*Peşin Ödeme Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="cash_paid_amount_date" name="cash_paid_amount_date" autocomplete="off" value="{{ $current_date }}" placeholder="gg.aa.yyyy" required>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="paid_amount">*Peşin Ödenen Miktar:</label>
-                                    <input type="number" class="form-control" id="paid_amount" min="0" step="0.01" name="paid_amount">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="total_remaining_amount">Toplam Kalan Miktar:</label>
-                                    <input type="number" class="form-control" id="total_remaining_amount" name="total_remaining_amount"
-                                        readonly>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="total_remaining_amount">Toplam Kalan Miktar:</label>
+                                        <input type="number" class="form-control" id="total_remaining_amount" name="total_remaining_amount"
+                                            readonly>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
-                    <fieldset class="col-3">
-                        <legend style="width:73%;">Taksitlendirme Yardımcısı</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="form-group">
-                                <label for="calculator">Kalan Taksitlendirme Miktarı <small>(Bu değer 0 olmalıdır)</small>:</label>
-                                <input id="calculator" type="number" class="form-control" readonly>
+                    </div>
+                    <div class="card col-2 px-0 my-3">
+                        <div class="card-header">Taksitlendirme Yardımcısı</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="form-group">
+                                    <label for="calculator">Kalan Taksitlendirme Miktarı:<br><small>(Bu değer 0 olmalıdır)</small></label>
+                                    <input id="calculator" type="number" class="form-control" readonly>
+                                </div>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="col-2">
@@ -88,112 +115,136 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <fieldset class="col-4 mr-4">
-                        <legend style="width:15%;">Taksit-1</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01" name="installment1_amount">
+                    <div class="card col-4 px-0 my-3 mx-3">
+                        <div class="card-header">Taksit-1</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment1_amount">Taksit-1 Miktarı:</label>
+                                        <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01" name="installment1_amount">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment1_date">Taksit-1 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment1_date" name="installment1_date">
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="col-4">
-                        <legend style="width:15%;">Taksit-2</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01" name="installment2_amount">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment2_date">Taksit-2 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment2_date" name="installment2_date">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment1_date">Taksit-1 Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="installment1_date" name="installment1_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
+                    <div class="card col-4 px-0 my-3 mx-3">
+                        <div class="card-header">Taksit-2</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment2_amount">Taksit-2 Miktarı:</label>
+                                        <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01" name="installment2_amount">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment2_date">Taksit-2 Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="installment2_date" name="installment2_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <fieldset class="col-4 mr-4">
-                        <legend style="width:15%;">Taksit-3</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01" name="installment3_amount">
+                    <div class="card col-4 px-0 my-3 mx-3">
+                        <div class="card-header">Taksit-3</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment3_amount">Taksit-3 Miktarı:</label>
+                                        <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01" name="installment3_amount">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment3_date">Taksit-3 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment3_date" name="installment3_date">
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="col-4">
-                        <legend style="width:15%;">Taksit-4</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01" name="installment4_amount">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment4_date">Taksit-4 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment4_date" name="installment4_date">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment3_date">Taksit-3 Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="installment3_date" name="installment3_date" class="all_installments" autocomplete="off" placeholder="gg.aa.yyyy">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
+                    <div class="card col-4 px-0 my-3 mx-3">
+                        <div class="card-header">Taksit-4</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment4_amount">Taksit-4 Miktarı:</label>
+                                        <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01" name="installment4_amount">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment4_date">Taksit-4 Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="installment4_date" name="installment4_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <fieldset class="col-4 mr-4">
-                        <legend style="width:15%;">Taksit-5</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01" name="installment5_amount">
+                    <div class="card col-4 px-0 my-3 mx-3">
+                        <div class="card-header">Taksit-5</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment5_amount">Taksit-5 Miktarı:</label>
+                                        <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01" name="installment5_amount">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment5_date">Taksit-5 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment5_date" name="installment5_date">
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="col-4">
-                        <legend style="width:15%;">Taksit-6</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                    <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01" name="installment6_amount">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="installment6_date">Taksit-6 Tarihi:</label>
-                                    <input type="date" class="form-control" id="installment6_date" name="installment6_date">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment5_date">Taksit-5 Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="installment5_date" name="installment5_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
+                    <div class="card col-4 px-0 my-3 mx-3">
+                        <div class="card-header">Taksit-6</div>
+                        <div class="card-body">
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment6_amount">Taksit-6 Miktarı:</label>
+                                        <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01" name="installment6_amount">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="installment6_date">Taksit-6 Tarihi:</label>
+                                        <div class="gj-margin-top-10">
+                                            <input id="installment6_date" name="installment6_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="col-4">
@@ -215,33 +266,57 @@
 @endsection
 
 @section('js')
-{{-- disabled past dates for "installments datefield" --}}
+{{-- date picker--}}
 <script>
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById("installment1_date").setAttribute("min", today);
-    document.getElementById("installment2_date").setAttribute("min", today);
-    document.getElementById("installment3_date").setAttribute("min", today);
-    document.getElementById("installment4_date").setAttribute("min", today);
-    document.getElementById("installment5_date").setAttribute("min", today);
-    document.getElementById("installment6_date").setAttribute("min", today);
+    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('#cash_paid_amount_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
+    $('#installment1_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
+    $('#installment2_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
+    $('#installment3_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
+    $('#installment4_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
+    $('#installment5_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
+    $('#installment6_date').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        minDate: today
+    });
 </script>
+
 <script>
      setInterval(function(){ 
-        name=document.getElementById('name').value;
-        turkish_lira=document.getElementById('turkish_lira');
-        dolar=document.getElementById('dolar');
-        debt_amount=document.getElementById('debt_amount').value;
-        paid_amount=document.getElementById('paid_amount').value;
+        debt_amount=document.getElementById('debt_amount');
+        cash_paid_amount=document.getElementById('cash_paid_amount');
         total_remaining_amount=document.getElementById('total_remaining_amount');
         calculator=document.getElementById('calculator');
         installment_number=document.getElementById('installment_number').value;
@@ -257,8 +332,8 @@
         installment4_date=document.getElementById('installment4_date').value;
         installment5_date=document.getElementById('installment5_date').value;
         installment6_date=document.getElementById('installment6_date').value;
-        total_remaining_amount.value=debt_amount-paid_amount;
-        calculator.value=(debt_amount-paid_amount-installment1_amount)-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
+        total_remaining_amount.value=debt_amount.value-cash_paid_amount.value;
+        calculator.value=debt_amount.value-cash_paid_amount.value-installment1_amount-installment2_amount-installment3_amount-installment4_amount-installment5_amount-installment6_amount;
         
         if(total_remaining_amount.value==0){
             $('#installment1_amount').attr("readonly", true);
@@ -267,26 +342,26 @@
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment_number").value = "";
-            document.getElementById("installment1_amount").value = "";
-            document.getElementById("installment2_amount").value = "";
-            document.getElementById("installment3_amount").value = "";
-            document.getElementById("installment4_amount").value = "";
-            document.getElementById("installment5_amount").value = "";
-            document.getElementById("installment6_amount").value = "";
+            $("#installment_number").val("");
+            $("#installment1_amount").val("");
+            $("#installment2_amount").val("");
+            $("#installment3_amount").val("");
+            $("#installment4_amount").val("");
+            $("#installment5_amount").val("");
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", true);
             $('#installment2_date').attr("readonly", true);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment1_date").value = "";
-            document.getElementById("installment2_date").value = "";
-            document.getElementById("installment3_date").value = "";
-            document.getElementById("installment4_date").value = "";
-            document.getElementById("installment5_date").value = "";
-            document.getElementById("installment6_date").value = "";
-            if(name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value==0){
+            $("#installment1_date").val("");
+            $("#installment2_date").val("");
+            $("#installment3_date").val("");
+            $("#installment4_date").val("");
+            $("#installment5_date").val("");
+            $("#installment6_date").val("");
+            if(total_remaining_amount.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -298,25 +373,25 @@
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment1_amount").value = "";
-            document.getElementById("installment2_amount").value = "";
-            document.getElementById("installment3_amount").value = "";
-            document.getElementById("installment4_amount").value = "";
-            document.getElementById("installment5_amount").value = "";
-            document.getElementById("installment6_amount").value = "";
+            $("#installment1_amount").val("");
+            $("#installment2_amount").val("");
+            $("#installment3_amount").val("");
+            $("#installment4_amount").val("");
+            $("#installment5_amount").val("");
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", true);
             $('#installment2_date').attr("readonly", true);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment1_date").value = "";
-            document.getElementById("installment2_date").value = "";
-            document.getElementById("installment3_date").value = "";
-            document.getElementById("installment4_date").value = "";
-            document.getElementById("installment5_date").value = "";
-            document.getElementById("installment6_date").value = "";
-            if(name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value==0){
+            $("#installment1_date").val("");
+            $("#installment2_date").val("");
+            $("#installment3_date").val("");
+            $("#installment4_date").val("");
+            $("#installment5_date").val("");
+            $("#installment6_date").val("");
+            if(total_remaining_amount.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -328,23 +403,23 @@
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment2_amount").value = "";
-            document.getElementById("installment3_amount").value = "";
-            document.getElementById("installment4_amount").value = "";
-            document.getElementById("installment5_amount").value = "";
-            document.getElementById("installment6_amount").value = "";
+            $("#installment2_amount").val("");
+            $("#installment3_amount").val("");
+            $("#installment4_amount").val("");
+            $("#installment5_amount").val("");
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", true);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment2_date").value = "";
-            document.getElementById("installment3_date").value = "";
-            document.getElementById("installment4_date").value = "";
-            document.getElementById("installment5_date").value = "";
-            document.getElementById("installment6_date").value = "";
-            if(installment1_amount!="" && installment1_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!=""  && total_remaining_amount.value!=0 && calculator.value==0){
+            $("#installment2_date").val("");
+            $("#installment3_date").val("");
+            $("#installment4_date").val("");
+            $("#installment5_date").val("");
+            $("#installment6_date").val("");
+            if(total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -356,21 +431,21 @@
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment3_amount").value = "";
-            document.getElementById("installment4_amount").value = "";
-            document.getElementById("installment5_amount").value = "";
-            document.getElementById("installment6_amount").value = "";
+            $("#installment3_amount").val("");
+            $("#installment4_amount").val("");
+            $("#installment5_amount").val("");
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment3_date").value = "";
-            document.getElementById("installment4_date").value = "";
-            document.getElementById("installment5_date").value = "";
-            document.getElementById("installment6_date").value = "";
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
+            $("#installment3_date").val("");
+            $("#installment4_date").val("");
+            $("#installment5_date").val("");
+            $("#installment6_date").val("");
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -382,19 +457,19 @@
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment4_amount").value = "";
-            document.getElementById("installment5_amount").value = "";
-            document.getElementById("installment6_amount").value = "";
+            $("#installment4_amount").val("");
+            $("#installment5_amount").val("");
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", false);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment4_date").value = "";
-            document.getElementById("installment5_date").value = "";
-            document.getElementById("installment6_date").value = "";
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
+            $("#installment4_date").val("");
+            $("#installment5_date").val("");
+            $("#installment6_date").val("");
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -406,17 +481,17 @@
             $('#installment4_amount').attr("readonly", false);
             $('#installment5_amount').attr("readonly", true);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment5_amount").value = "";
-            document.getElementById("installment6_amount").value = "";
+            $("#installment5_amount").val("");
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", false);
             $('#installment4_date').attr("readonly", false);
             $('#installment5_date').attr("readonly", true);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment5_date").value = "";
-            document.getElementById("installment6_date").value = "";
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
+            $("#installment5_date").val("");
+            $("#installment6_date").val("");
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -428,15 +503,15 @@
             $('#installment4_amount').attr("readonly", false);
             $('#installment5_amount').attr("readonly", false);
             $('#installment6_amount').attr("readonly", true);
-            document.getElementById("installment6_amount").value = "";
+            $("#installment6_amount").val("");
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", false);
             $('#installment4_date').attr("readonly", false);
             $('#installment5_date').attr("readonly", false);
             $('#installment6_date').attr("readonly", true);
-            document.getElementById("installment6_date").value = "";
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
+            $("#installment6_date").val("");
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
@@ -454,7 +529,7 @@
             $('#installment4_date').attr("readonly", false);
             $('#installment5_date').attr("readonly", false);
             $('#installment6_date').attr("readonly", false);
-            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && installment6_amount!="" && installment6_date!="" && name!="" && (turkish_lira.checked || dolar.checked) && debt_amount != "" && paid_amount!="" && total_remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount!="" && installment1_date!="" && installment2_amount!="" && installment2_date!="" && installment3_amount!="" && installment3_date!="" && installment4_amount!="" && installment4_date!=""  && installment5_amount!="" && installment5_date!="" && installment6_amount!="" && installment6_date!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);

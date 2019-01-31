@@ -21,20 +21,20 @@ class ClassroomController extends Controller
     public function classroom_register (Request $request){
         if(Auth::user()->hasRole('recorder')){
             $course_type=$request->input('course_type');
-            $course_starting_date=$request->input('starting_date');
-            $course_starting_date=date('Y-m-d H:i:s' , strtotime($course_starting_date));
-            $course_end_date=$request->input('end_date');
-            $course_end_date=date('Y-m-d H:i:s' , strtotime($course_end_date));
-            $course_time=$request->input('time');
-            $course_teacher_id=$request->input('teacher_id');
+            $starting_date=$request->input('starting_date');
+            $starting_date=date('Y-m-d H:i:s' , strtotime($starting_date));
+            $end_date=$request->input('end_date');
+            $end_date=date('Y-m-d H:i:s' , strtotime($end_date));
+            $time=$request->input('time');
+            $teacher_id=$request->input('teacher_id');
             
-            $classroom_register=new Classroom;
-            $classroom_register->course_type=$course_type;
-            $classroom_register->starting_date=$course_starting_date;
-            $classroom_register->end_date=$course_end_date;
-            $classroom_register->time=$course_time;
-            $classroom_register->teacher_id=$course_teacher_id;
-            $classroom_register->save();
+            $classroom=new Classroom;
+            $classroom->course_type=$course_type;
+            $classroom->starting_date=$starting_date;
+            $classroom->end_date=$end_date;
+            $classroom->time=$time;
+            $classroom->teacher_id=$teacher_id;
+            $classroom->save();
             return redirect('/classroom-info-show');
         }
     }
@@ -50,12 +50,12 @@ class ClassroomController extends Controller
             $classroom_id=$request->input('classroom_id');
             $classroom=Classroom::find($classroom_id);
             $classroom->course_type=$request->input('course_type');
-            $classroom_starting_date=$request->input('starting_date');
-            $classroom_starting_date=date('Y-m-d H:i:s' , strtotime($classroom_starting_date));
-            $classroom->starting_date=$classroom_starting_date;
-            $classroom_end_date=$request->input('end_date');
-            $classroom_end_date=date('Y-m-d H:i:s' , strtotime($classroom_end_date));
-            $classroom->end_date=$classroom_end_date;
+            $starting_date=$request->input('starting_date');
+            $starting_date=date('Y-m-d H:i:s' , strtotime($starting_date));
+            $classroom->starting_date=$starting_date;
+            $end_date=$request->input('end_date');
+            $end_date=date('Y-m-d H:i:s' , strtotime($end_date));
+            $classroom->end_date=$end_date;
             $classroom->time=$request->input('time');
             $classroom->teacher_id=$request->input('teacher_id');
             $classroom->save();

@@ -11,49 +11,51 @@ class Payment extends Model
         return $this->belongsTo('App\Person');
     }
 
-    public function installment_date_format_1($reference)
+    public function installment_date_format($reference)
     {
         if($reference==1){
             if($this->installment1_date==null){
                 $formatted_date=$this->installment1_date;
             } else{
-            $formatted_date = date('d-m-Y' , strtotime($this->installment1_date));
+            $formatted_date = date('d.m.Y' , strtotime($this->installment1_date));
         }
         }else if($reference==2){
             if($this->installment2_date==null){
                 $formatted_date=$this->installment2_date;
             } else{
-            $formatted_date = date('d-m-Y' , strtotime($this->installment2_date));
+            $formatted_date = date('d.m.Y' , strtotime($this->installment2_date));
             }
         }else if($reference==3){
             if($this->installment3_date==null){
                 $formatted_date=$this->installment3_date;
             } else{
-            $formatted_date = date('d-m-Y' , strtotime($this->installment3_date));
+            $formatted_date = date('d.m.Y' , strtotime($this->installment3_date));
             }
         }else if($reference==4){
             if($this->installment4_date==null){
                 $formatted_date=$this->installment4_date;
             } else{
-            $formatted_date = date('d-m-Y' , strtotime($this->installment4_date));
+            $formatted_date = date('d.m.Y' , strtotime($this->installment4_date));
             }
         }else if($reference==5){
             if($this->installment5_date==null){
                 $formatted_date=$this->installment5_date;
             } else{
-            $formatted_date = date('d-m-Y' , strtotime($this->installment5_date));
+            $formatted_date = date('d.m.Y' , strtotime($this->installment5_date));
             }
-        }else {
+        }else if ($reference==6) {
             if($this->installment6_date==null){
                 $formatted_date=$this->installment6_date;
             } else{
-            $formatted_date = date('d-m-Y' , strtotime($this->installment6_date));
+            $formatted_date = date('d.m.Y' , strtotime($this->installment6_date));
             }
+        } else if($reference==7){
+            $formatted_date = date('d.m.Y' , strtotime($this->cash_paid_amount_date));
         }
         return $formatted_date;
     }
 
-    public function installment_date_format_2($reference)
+   /*  public function installment_date_format_2($reference)
     {
         if($reference==1){
             if($this->installment1_date==null){
@@ -93,5 +95,5 @@ class Payment extends Model
             }
         }
         return $formatted_date;
-    }
+    } */
 }
