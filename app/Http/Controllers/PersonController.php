@@ -176,22 +176,25 @@ class PersonController extends Controller
     public function candidate_student_register (Request $request){
         if(Auth::user()->hasRole('recorder')){
             $candidate_student_name=$request->input('name');
+            $candidate_student_surname=$request->input('surname');
             $candidate_student_birthdate=$request->input('birthdate');
+            $candidate_student_birthdate=date('Y-m-d H:i:s' , strtotime($candidate_student_birthdate));
             $candidate_student_telephone=$request->input('telephone');
             $candidate_student_e_mail=$request->input('e_mail');
             $candidate_student_country=$request->input('country');
             $candidate_student_note=$request->input('note');
-            $candidate_student_demanded_education=$request->input('demanded_education');
+            $candidate_student_demanded_education_status=$request->input('demanded_education_status');
 
             $candidate_student_register=new Person;
             $candidate_student_register->name=$candidate_student_name;
+            $candidate_student_register->surname=$candidate_student_surname;
             $candidate_student_register->status="Aday Öğrenci";
             $candidate_student_register->birthdate=$candidate_student_birthdate;
             $candidate_student_register->telephone=$candidate_student_telephone;
             $candidate_student_register->e_mail=$candidate_student_e_mail;
             $candidate_student_register->country=$candidate_student_country;
             $candidate_student_register->note=$candidate_student_note;
-            $candidate_student_register->demanded_education=$candidate_student_demanded_education;
+            $candidate_student_register->demanded_education_status=$candidate_student_demanded_education_status;
             $candidate_student_register->save();
             return redirect('/candidate-student-info-show');
         }
@@ -207,12 +210,15 @@ class PersonController extends Controller
             $candidate_student_id=$request->input('candidate_student_id');
             $candidate_student=Person::find($candidate_student_id);
             $candidate_student->name=$request->input('name');
-            $candidate_student->birthdate=$request->input('birthdate');
+            $candidate_student->surname=$request->input('surname');
+            $candidate_student_birthdate=$request->input('birthdate');
+            $candidate_student_birthdate=date('Y-m-d H:i:s' , strtotime($candidate_student_birthdate));
+            $candidate_student->birthdate=$candidate_student_birthdate;
             $candidate_student->telephone=$request->input('telephone');
             $candidate_student->e_mail=$request->input('e_mail');
             $candidate_student->country=$request->input('country');
             $candidate_student->note=$request->input('note');
-            $candidate_student->demanded_education=$request->input('demanded_education');
+            $candidate_student->demanded_education=$request->input('demanded_education_status');
             $candidate_student->save();
             return redirect('/candidate-student-info-show');
         }
@@ -229,11 +235,6 @@ class PersonController extends Controller
             }
     }
 
-
-
-
-
-
     public function company_employee_info_show (){
         $company_employees=Person::where('status','Şirket Çalışanı')->get();
         return view('company_employee.info')->with('company_employees',$company_employees);
@@ -246,13 +247,16 @@ class PersonController extends Controller
     public function company_employee_register (Request $request){
         if(Auth::user()->hasRole('recorder')){
             $company_employee_name=$request->input('name');
+            $company_employee_surname=$request->input('surname');
             $company_employee_birthdate=$request->input('birthdate');
+            $company_employee_birthdate=date('Y-m-d H:i:s' , strtotime($company_employee_birthdate));
             $company_employee_telephone=$request->input('telephone');
             $company_employee_e_mail=$request->input('e_mail');
             $company_employee_note=$request->input('note');
 
             $company_employee_register=new Person;
             $company_employee_register->name=$company_employee_name;
+            $company_employee_register->surname=$company_employee_surname;
             $company_employee_register->status="Şirket Çalışanı";
             $company_employee_register->birthdate=$company_employee_birthdate;
             $company_employee_register->telephone=$company_employee_telephone;
@@ -273,7 +277,10 @@ class PersonController extends Controller
             $company_employee_id=$request->input('company_employee_id');
             $company_employee=Person::find($company_employee_id);
             $company_employee->name=$request->input('name');
-            $company_employee->birthdate=$request->input('birthdate');
+            $company_employee->surname=$request->input('surname');
+            $company_employee_birthdate=$request->input('birthdate');
+            $company_employee_birthdate=date('Y-m-d H:i:s' , strtotime($company_employee_birthdate));
+            $company_employee->birthdate=$company_employee_birthdate;
             $company_employee->telephone=$request->input('telephone');
             $company_employee->e_mail=$request->input('e_mail');
             $company_employee->note=$request->input('note');
@@ -306,12 +313,15 @@ class PersonController extends Controller
     public function teacher_register (Request $request){
         if(Auth::user()->hasRole('recorder')){
             $teacher_name=$request->input('name');
+            $teacher_surname=$request->input('surname');
             $teacher_birthdate=$request->input('birthdate');
+            $teacher_birthdate=date('Y-m-d H:i:s' , strtotime($teacher_birthdate));
             $teacher_telephone=$request->input('telephone');
             $teacher_e_mail=$request->input('e_mail');
 
             $teacher_register=new Person;
             $teacher_register->name=$teacher_name;
+            $teacher_register->surname=$teacher_surname;
             $teacher_register->status="Öğretmen";
             $teacher_register->birthdate=$teacher_birthdate;
             $teacher_register->telephone=$teacher_telephone;
@@ -331,7 +341,10 @@ class PersonController extends Controller
             $teacher_id=$request->input('teacher_id');
             $teacher=Person::find($teacher_id);
             $teacher->name=$request->input('name');
-            $teacher->birthdate=$request->input('birthdate');
+            $teacher->surname=$request->input('surname');
+            $teacher_birthdate=$request->input('birthdate');
+            $teacher_birthdate=date('Y-m-d H:i:s' , strtotime($teacher_birthdate));
+            $teacher->birthdate=$teacher_birthdate;
             $teacher->telephone=$request->input('telephone');
             $teacher->e_mail=$request->input('e_mail');
             $teacher->save();

@@ -14,7 +14,7 @@
                                 <div class="col-2">
                                     <div class="form-group">
                                         <label for="course_type">*Kurs Tipi:</label>
-                                        <select onchange="validation()" id="course_type" class="form-control" name="course_type">
+                                        <select id="course_type" class="form-control" name="course_type" required>
                                             <option></option>
                                             <option>A1</option>
                                             <option>A2</option>
@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <label for="starting_date">*Kurs Başlangıç Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input onchange="validation(); end_date_calculate();" id="starting_date" name="starting_date" autocomplete="off" placeholder="gg.dd.yyyy">
+                                            <input onchange="end_date_calculate()" id="starting_date" name="starting_date" autocomplete="off" placeholder="gg.dd.yyyy" required>
                                         </div>
                                     </div>
                                 </div>
@@ -39,14 +39,14 @@
                                     <div class="form-group">
                                         <label for="end_date">*Kurs Bitiş Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="end_date" name="end_date" autocomplete="off" placeholder="gg.dd.yyyy">
+                                            <input id="end_date" name="end_date" autocomplete="off" placeholder="gg.dd.yyyy" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="form-group">
                                         <label for="time">*Kurs Vakti:</label>
-                                        <select onchange="validation()" id="time" class="form-control" name="time">
+                                        <select id="time" class="form-control" name="time" required>
                                             <option></option>
                                             <option>Sabah</option>
                                             <option>Öğlen</option>
@@ -63,7 +63,7 @@
                                         <select id="teacher_id" class="form-control" name="teacher_id">
                                             <option value=""></option>
                                             @foreach ($teachers as $teacher)
-                                            <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                            <option value="{{ $teacher->id }}">{{ $teacher->name }} {{ $teacher->surname }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -84,12 +84,10 @@
 @endsection
 
 @section('js')
-{{-- mandatory fields --}}
+{{-- date picker --}}
 <script>
-    course_type=document.getElementById('course_type');
     starting_date=document.getElementById('starting_date');
     end_date=document.getElementById('end_date');
-    time=document.getElementById('time');
     today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
     $('#starting_date').datepicker({
         locale: 'tr-tr',
@@ -104,17 +102,7 @@
         showOnFocus: false, 
         showRightIcon: false
     });
-    $('#submit_button').attr("disabled", true);
-    function validation(){
-        console.log("aaa");
-        if(course_type.value=="" || starting_date.value=="" || time.value==""){
-            $('#submit_button').attr("disabled", true);
-        } else {
-            $('#submit_button').attr("disabled", false);
-        }
-    }
     function end_date_calculate(){
-        
         var inputString = starting_date.value;
         var dString = inputString.split('.');
         var dt = new Date(dString[2],dString[1]-1,dString[0]);

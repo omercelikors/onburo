@@ -36,7 +36,7 @@
                                 <td>@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->end_date() }}@endif</td>
-                                <td>@if(isset($student->classroom)){{ $student->classroom->teacher_name() }}@endif</td>
+                                <td>@if(isset($student->classroom)){{ $student->classroom->teacher_name() }} {{ $student->classroom->teacher_surname() }}@endif</td>
                                 <td>{{ $student->join_status }}</td>
                                 <td>{{ $student->taken_courses }}</td>
                                 <td>{{ $student->book_status }}</td>

@@ -19,7 +19,7 @@
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
                                 <th>Kur Vakti</th>
-                                <th>Öğretmen</th>
+                                <th>Öğretmen Adı</th>
                                 <th>İşlem</th>
                             </tr>
                         </thead>
@@ -30,7 +30,7 @@
                                 <td>{{ $classroom->starting_date() }}</td>
                                 <td>{{ $classroom->end_date() }}</td>
                                 <td>{{ $classroom->time }}</td>
-                                <td>{{ $classroom->teacher_name()}}</td>
+                                <td>{{ $classroom->teacher_name()}} {{ $classroom->teacher_surname()}}</td>
                                 <form action="{{ route('classroom_edit_show', ['classroom_id' => $classroom->id]) }}"
                                     method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -68,8 +68,8 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '250px', '250px', '250px',
-            '250px', '250px', '200px',
+            '100px', '100px', '100px',
+            '100px', '250px', '200px',
         ],
         col_types: [
             'string', 'date', 'date',

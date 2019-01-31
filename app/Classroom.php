@@ -30,4 +30,13 @@ class Classroom extends Model
             return null;
         }
     }
+
+    public function teacher_surname(){
+        if(isset($this->teacher_id)){
+            $teacher=Person::find($this->teacher_id);
+            return $teacher->surname;
+        } else {
+            return null;
+        }
+    }
 }

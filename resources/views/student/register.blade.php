@@ -450,7 +450,7 @@
     classroom={};
     classrooms=[];
     @foreach($classrooms as $classroom)
-        classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ $classroom->teacher_name() }}"};
+        classroom={ id:{{ $classroom->id }}, course_type:"{{ $classroom->course_type }}", time:"{{ $classroom->time }}", starting_date:"{{ $classroom->starting_date() }}", end_date:"{{ $classroom->end_date() }}", teacher_name:"{{ $classroom->teacher_name() }}", teacher_surname:"{{ $classroom->teacher_surname() }}"};
         classrooms.push(classroom);
     @endforeach
     // when page load, "all" course types had been clicked
@@ -465,7 +465,7 @@
                 if(classrooms[i].course_type=="A1"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -476,7 +476,7 @@
                 if(classrooms[i].course_type=="A2"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -487,7 +487,7 @@
                 if(classrooms[i].course_type=="B1"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -498,7 +498,7 @@
                 if(classrooms[i].course_type=="B2"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -509,7 +509,7 @@
                 if(classrooms[i].course_type=="C1"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -520,7 +520,7 @@
                 if(classrooms[i].course_type=="C1+"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -531,7 +531,7 @@
                 if(classrooms[i].course_type=="YOS"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -542,7 +542,7 @@
                 if(classrooms[i].course_type=="Diger"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
-                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                    opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                     select.appendChild(opt);
                 }
             }
@@ -552,7 +552,7 @@
             for (i = 0; i< classrooms.length; i++){
                 var opt = document.createElement('option');
                 opt.value = classrooms[i].id;
-                opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name;
+                opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
                 select.appendChild(opt);
             }
         }

@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Adı</th>
+                                <th>Soyadı</th>
                                 <th>E-posta</th>
                                 <th>Telefon</th>
                                 <th>Doğum Tarihi</th>
@@ -26,9 +27,10 @@
                             @foreach ($company_employees as $company_employee)
                             <tr>
                                 <td>{{ $company_employee->name }}</td>
+                                <td>{{ $company_employee->surname }}</td>
                                 <td>{{ $company_employee->e_mail }}</td>
                                 <td>{{ $company_employee->telephone }}</td>
-                                <td>{{ $company_employee->birthdate_2() }}</td>
+                                <td>{{ $company_employee->birthdate() }}</td>
                                 <td>{{ $company_employee->note }}</td>
                                 <form action="{{ route('company_employee_edit_show', ['company_employee_id' => $company_employee->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -66,12 +68,14 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '250px', '250px', '250px',
-            '250px', '250px', '200px',
+            '200px', '200px', '220px',
+            '150px', '120px', '380px',
+            '200px'
         ],
         col_types: [
-            'string', 'string', 'number',
-            'date', 'string', 'string',
+            'string', 'string', 'string',
+            'number', 'date', 'string',
+            'string'
         ],
         extensions: [{
             name: 'sort'

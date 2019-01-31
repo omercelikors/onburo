@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Adı</th>
+                                <th>Soyadı</th>
                                 <th>Ülke</th>
                                 <th>Eğitim Türü</th>
                                 <th>E-posta</th>
@@ -26,6 +27,7 @@
                             @foreach ($candidate_students as $candidate_student)
                             <tr>
                                 <td>{{ $candidate_student->name }}</td>
+                                <td>{{ $candidate_student->surname }}</td>
                                 <td>{{ $candidate_student->country }}</td>
                                 <td>{{ $candidate_student->demanded_education }}</td>
                                 <td>{{ $candidate_student->e_mail }}</td>
@@ -68,10 +70,12 @@
         col_widths: [
             '250px', '250px', '250px',
             '250px', '250px', '200px',
+            '200px'
         ],
         col_types: [
             'string', 'string', 'string',
             'string', 'number', 'string',
+            'string'
         ],
         extensions: [{
             name: 'sort'

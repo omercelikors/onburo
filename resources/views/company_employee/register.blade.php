@@ -7,47 +7,54 @@
             <div class="card-header">Şirket Çalışanı Kayıt</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <fieldset class="col-12">
-                        <legend style="width:9%;">Kişisel Bilgiler</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="name">*Adı:</label>
-                                    <input type="text" class="form-control" id="name" name="name">
+                        <div class="card col-10 px-0 my-3">
+                            <div class="card-header">Kişisel Bilgiler</div>
+                            <div class="card-body">
+                                <div class="row my-2 d-flex justify-content-center">
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="name">*Adı:</label>
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="name">*Soyadı:</label>
+                                            <input type="text" class="form-control" id="surname" name="surname" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="e_mail">*E-posta Adresi:</label>
+                                            <input type="email" class="form-control" id="e_mail" name="e_mail" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="telephone">*Telefon:</label>
+                                            <input type="number" class="form-control" id="telephone" name="telephone" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="birthdate">*Doğum Tarihi:</label>
+                                            <div class="gj-margin-top-10">
+                                                <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.dd.yyyy" required>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="e_mail">*E-posta Adresi:</label>
-                                    <input type="email" class="form-control" id="e_mail" name="e_mail">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="form-group">
-                                    <label for="telephone">*Telefon:</label>
-                                    <input type="number" class="form-control" id="telephone" name="telephone">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="form-group">
-                                    <label for="birthdate">*Doğum Tarihi:</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate">
-                                </div>
-                            </div>
-                    </fieldset>
-                </div>
-                <div class="row my-2 d-flex justify-content-center">
-                    <fieldset class="col-7">
-                        <legend style="width:7%;">Diğer</legend>
-                        <div class="row my-2 d-flex justify-content-center">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="note">Not:</label>
-                                    <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+                                <div class="row my-2 d-flex justify-content-center">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="note">Not:</label>
+                                            <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,36 +68,15 @@
 @endsection
 
 @section('js')
-{{-- country dropdown js --}}
-<script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
-{{-- disabled future dates for "birthdate field" --}}
+{{-- date picker --}}
 <script>
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById("birthdate").setAttribute("max", today);
-</script>
-{{-- mandatory fields --}}
-<script>
-    setInterval(function(){
-        name=document.getElementById('name').value;
-        e_mail=document.getElementById('e_mail').value;
-        telephone=document.getElementById('telephone').value;
-        birthdate=document.getElementById('birthdate').value;
-        if(name=="" || e_mail=="" || telephone=="" ||  birthdate==""){
-            document.getElementById("submit_button").disabled=true;
-        } else {
-            document.getElementById("submit_button").disabled=false;
-        }
-    }, 1000);
+    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('#birthdate').datepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy',
+        uiLibrary: 'bootstrap4',
+        maxDate: today
+    });
 </script>
 @endsection
 

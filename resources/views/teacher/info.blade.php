@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Adı</th>
+                                <th>Soyadı</th>
                                 <th>E-posta</th>
                                 <th>Telefon</th>
                                 <th>Doğum Tarihi</th>
@@ -25,9 +26,10 @@
                             @foreach ($teachers as $teacher)
                             <tr>
                                 <td>{{ $teacher->name }}</td>
+                                <td>{{ $teacher->surname }}</td>
                                 <td>{{ $teacher->e_mail }}</td>
                                 <td>{{ $teacher->telephone }}</td>
-                                <td>{{ $teacher->birthdate_2() }}</td>
+                                <td>{{ $teacher->birthdate() }}</td>
                                 <form action="{{ route('teacher_edit_show', ['teacher_id' => $teacher->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="teacher_delete({{ $teacher->id }})" class="btn btn-danger">Sil</button></td>
@@ -64,12 +66,14 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '250px', '250px', '250px',
-            '250px', '250px', '200px',
+            '200px', '200px', '250px',
+            '150px', '100px', '200px',
+            '200px'
         ],
         col_types: [
             'string', 'string', 'number',
-            'date', 'string', 'string',
+            'string', 'date', 'string',
+            'string'
         ],
         extensions: [{
             name: 'sort'
