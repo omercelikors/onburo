@@ -85,8 +85,8 @@
             '100px', '100px', '200px', 
         ],
         col_types: [
-            'string', 'string', 'string', 'date', 'string',
-            'string', 'string', 'string', 'string', 'string',
+            'string', 'string', 'string', 'number', 'string',
+            'number', 'string', 'string', 'string', 'string',
             'string', 'string', 'string'
         ],
         extensions: [{
