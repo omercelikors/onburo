@@ -85,10 +85,21 @@
                                         <textarea class="form-control" rows="5" id="why_choose_us" name="why_choose_us">{{ $student->why_choose_us }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-3">
                                     <div class="form-group">
-                                        <label for="why_abandon_us">Neden bizden ayrılmak istiyor?:</label>
-                                        <textarea class="form-control" rows="5" id="why_abandon_us" name="why_abandon_us">{{ $student->why_abandon_us }}</textarea>
+                                        <label for="why_abandon_us_status">Neden bizden ayrılmak istiyor?:</label>
+                                        <select class="form-control" id="why_abandon_us_status" name="why_abandon_us_status">
+                                            <option></option>
+                                            <option>Hoca Sorunu</option>
+                                            <option>Ücret Sorunu</option>
+                                            <option>Kişisel Nedenler</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="why_abandon_us">Ayrılma nedeni açıklaması:</label>
+                                        <textarea class="form-control" rows="5" id="why_abandon_us_note" name="why_abandon_us_note">{{ $student->why_abandon_us_note }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -607,6 +618,17 @@
                 }
             }
         });
+</script>
+{{-- education level status dropdown is having "selected attirubute" according to value coming --}}
+<script>
+    $(document).ready(function () {
+        why_abandon_us_status_length = document.getElementById("why_abandon_us_status").options.length;
+        for (i = 0; i < why_abandon_us_status_length; i++) {
+            if (document.getElementById("why_abandon_us_status").options[i].value == "{{ $student->why_abandon_us_status }}") {
+                document.getElementById("why_abandon_us_status").options[i].setAttribute('selected', true);
+            }
+        }
+    });
 </script>
 {{-- education level status dropdown is having "selected attirubute" according to value coming --}}
 <script>

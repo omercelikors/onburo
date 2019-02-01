@@ -28,7 +28,8 @@ class CreatePeopleTable extends Migration
             $table->string('languages')->nullable();
             $table->enum('book_status', ['Evet','Hayır'])->nullable();
             $table->string('why_choose_us')->nullable();
-            $table->string('why_abandon_us')->nullable();
+            $table->enum('why_abandon_us_status', ['Hoca Sorunu','Ücret Sorunu','Kişisel Nedenler'])->nullable();
+            $table->string('why_abandon_us_note')->nullable();
             $table->string('registration_by')->nullable();
 
             $table->enum('sex_status', ['Erkek','Kız'])->nullable();

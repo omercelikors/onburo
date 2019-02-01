@@ -124,7 +124,8 @@ class PersonController extends Controller
             $student->languages = implode(',', $languages);
             $student->book_status=$request->input('book_status');
             $student->why_choose_us=$request->input('why_choose_us');
-            $student->why_abandon_us=$request->input('why_abandon_us');
+            $student->why_abandon_us_status=$request->input('why_abandon_us_status');
+            $student->why_abandon_us_note=$request->input('why_abandon_us_note');
             $student->registration_by=Auth::user()->name;
             $student->classroom_id=$request->input('classrooms');
             $student->sex_status=$request->input('sex_status');
