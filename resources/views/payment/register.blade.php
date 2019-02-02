@@ -52,27 +52,31 @@
                                     </div>
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
-                                            <input id="dolar" type="radio" class="form-check-input" value="Dolar" name="currency_unit" required>Dolar
+                                            <input id="dolar" type="radio" class="form-check-input" value="Dolar" name="currency_unit"
+                                                required>Dolar
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="form-group">
                                         <label for="debt_amount">*Borç Miktarı:</label>
-                                        <input type="number" class="form-control" id="debt_amount" min="0" step="0.01" name="debt_amount" required>
+                                        <input type="number" class="form-control" id="debt_amount" min="0" step="0.01"
+                                            name="debt_amount" required>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="form-group">
                                         <label for="cash_paid_amount">*Peşin Ödenen Miktar:</label>
-                                        <input type="number" class="form-control" id="cash_paid_amount" min="0" step="0.01" name="cash_paid_amount" required>
+                                        <input type="number" class="form-control" id="cash_paid_amount" min="0" step="0.01"
+                                            name="cash_paid_amount" required>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="form-group">
                                         <label for="cash_paid_amount_date">*Peşin Ödeme Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="cash_paid_amount_date" name="cash_paid_amount_date" autocomplete="off" value="{{ $current_date }}" placeholder="gg.aa.yyyy" required>
+                                            <input id="cash_paid_amount_date" name="cash_paid_amount_date" autocomplete="off"
+                                                value="{{ $current_date }}" placeholder="gg.aa.yyyy" required>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +95,8 @@
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
                                 <div class="form-group">
-                                    <label for="calculator">Kalan Taksitlendirme Miktarı:<br><small>(Bu değer 0 olmalıdır)</small></label>
+                                    <label for="calculator">Kalan Taksitlendirme Miktarı:<br><small>(Bu değer 0
+                                            olmalıdır)</small></label>
                                     <input id="calculator" type="number" class="form-control" readonly>
                                 </div>
                             </div>
@@ -122,14 +127,16 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01" name="installment1_amount">
+                                        <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01"
+                                            name="installment1_amount">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment1_date">Taksit-1 Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="installment1_date" name="installment1_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                            <input id="installment1_date" name="installment1_date" autocomplete="off"
+                                                placeholder="gg.aa.yyyy">
                                         </div>
                                     </div>
                                 </div>
@@ -143,14 +150,16 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01" name="installment2_amount">
+                                        <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01"
+                                            name="installment2_amount">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment2_date">Taksit-2 Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="installment2_date" name="installment2_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                            <input id="installment2_date" name="installment2_date" autocomplete="off"
+                                                placeholder="gg.aa.yyyy">
                                         </div>
                                     </div>
                                 </div>
@@ -166,14 +175,16 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01" name="installment3_amount">
+                                        <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01"
+                                            name="installment3_amount">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment3_date">Taksit-3 Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="installment3_date" name="installment3_date" class="all_installments" autocomplete="off" placeholder="gg.aa.yyyy">
+                                            <input id="installment3_date" name="installment3_date" class="all_installments"
+                                                autocomplete="off" placeholder="gg.aa.yyyy">
                                         </div>
                                     </div>
                                 </div>
@@ -187,14 +198,16 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01" name="installment4_amount">
+                                        <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01"
+                                            name="installment4_amount">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment4_date">Taksit-4 Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="installment4_date" name="installment4_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                            <input id="installment4_date" name="installment4_date" autocomplete="off"
+                                                placeholder="gg.aa.yyyy">
                                         </div>
                                     </div>
                                 </div>
@@ -210,14 +223,16 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01" name="installment5_amount">
+                                        <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01"
+                                            name="installment5_amount">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment5_date">Taksit-5 Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="installment5_date" name="installment5_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                            <input id="installment5_date" name="installment5_date" autocomplete="off"
+                                                placeholder="gg.aa.yyyy">
                                         </div>
                                     </div>
                                 </div>
@@ -231,14 +246,16 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01" name="installment6_amount">
+                                        <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01"
+                                            name="installment6_amount">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment6_date">Taksit-6 Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="installment6_date" name="installment6_date" autocomplete="off" placeholder="gg.aa.yyyy">
+                                            <input id="installment6_date" name="installment6_date" autocomplete="off"
+                                                placeholder="gg.aa.yyyy">
                                         </div>
                                     </div>
                                 </div>
@@ -258,7 +275,7 @@
         </div>
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center">
-                <button id="submit_button" class="btn btn-primary" type="submit" >Kaydet</button>
+                <button id="submit_button" class="btn btn-primary" type="submit">Kaydet</button>
             </div>
         </div>
     </form>
@@ -318,6 +335,7 @@
         cash_paid_amount=document.getElementById('cash_paid_amount');
         total_remaining_amount=document.getElementById('total_remaining_amount');
         calculator=document.getElementById('calculator');
+        agency_paid_amount=document.getElementById('agency_paid_amount');
         installment_number=document.getElementById('installment_number');
         installment1_amount=document.getElementById('installment1_amount');
         installment2_amount=document.getElementById('installment2_amount');

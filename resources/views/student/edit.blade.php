@@ -56,8 +56,8 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="country">Ülke:</label>
-                                        <select class="form-control input-medium bfh-countries" id="country" data-country="US" name="country"></select>
+                                        <label for="countries">Ülke:</label>
+                                        <select class="form-control input-medium bfh-countries" id="countries" data-country="US" name="countries"></select>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -79,7 +79,18 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center my-2">
-                                <div class="col-6">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="agency">Acente:</label>
+                                        <select id="agency" class="form-control" name="agency">
+                                            <option value=""></option>
+                                            @foreach($agencies as $agency)
+                                                <option value="{{ $agency->id }}">{{ $agency->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
                                     <div class="form-group">
                                         <label for="why_choose_us">Neden bizi tercih etti?:</label>
                                         <textarea class="form-control" rows="5" id="why_choose_us" name="why_choose_us">{{ $student->why_choose_us }}</textarea>
@@ -461,7 +472,7 @@
 @endsection
 
 @section('js')
-{{-- country dropdown js --}}
+{{-- countries dropdown js --}}
 <script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
 {{-- classrooms dropdown filter --}}
 <script type="text/javascript">
@@ -641,6 +652,17 @@
         }
     });
 </script>
+{{-- agency dropdown is having "selected attirubute" according to value coming --}}
+<script>
+        $(document).ready(function () {
+            agency_length = document.getElementById("agency").options.length;
+            for (i = 0; i < agency_length; i++) {
+                if (document.getElementById("agency").options[i].value == "{{ $student->agency_id }}") {
+                    document.getElementById("agency").options[i].setAttribute('selected', true);
+                }
+            }
+        });
+</script>
 {{-- relative education level status dropdown is having "selected attirubute" according to value coming --}}
 <script>
     $(document).ready(function () {
@@ -689,13 +711,13 @@
             }
         });
 </script>
-{{-- country dropdown is having "selected attirubute" according to value coming --}}
+{{-- countries dropdown is having "selected attirubute" according to value coming --}}
 <script>
     $(document).ready(function () {
-        country_length = document.getElementById("country").options.length;
-        for (i = 0; i < country_length; i++) {
-            if (document.getElementById("country").options[i].value == "{{ $student->country }}") {
-                document.getElementById("country").options[i].setAttribute('selected', true);
+        countries_length = document.getElementById("countries").options.length;
+        for (i = 0; i < countries_length; i++) {
+            if (document.getElementById("countries").options[i].value == "{{ $student->country }}") {
+                document.getElementById("countries").options[i].setAttribute('selected', true);
             }
         }
     });
@@ -819,6 +841,6 @@
 @endsection
 
 @section('css')
-{{-- country dropdown --}}
+{{-- countries dropdown --}}
 <link rel="stylesheet" href="{{ asset('css/extensions/bootstrap-formhelpers.min.css') }}">
 @endsection

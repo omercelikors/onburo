@@ -102,42 +102,42 @@ class PaymentController extends Controller
 
             $note=$request->input('note');
 
-            $payment_register=new Payment;
-            $payment_register->person_id=$person_id;
-            $payment_register->currency_unit=$currency_unit;
-            $payment_register->paid_description=$paid_description;
-            $payment_register->debt_amount=$debt_amount;
-            $payment_register->cash_paid_amount=$cash_paid_amount;
-            $payment_register->cash_paid_amount_date=$cash_paid_amount_date;
-            $payment_register->total_remaining_amount=$total_remaining_amount;
-            $payment_register->installment_number=$installment_number;
+            $payment=new Payment;
+            $payment->person_id=$person_id;
+            $payment->currency_unit=$currency_unit;
+            $payment->paid_description=$paid_description;
+            $payment->debt_amount=$debt_amount;
+            $payment->cash_paid_amount=$cash_paid_amount;
+            $payment->cash_paid_amount_date=$cash_paid_amount_date;
+            $payment->total_remaining_amount=$total_remaining_amount;
+            $payment->installment_number=$installment_number;
 
-            $payment_register->installment1_amount=$installment1_amount;
-            $payment_register->installment1_remaining_amount=$installment1_amount;
-            $payment_register->installment1_date=$installment1_date;
+            $payment->installment1_amount=$installment1_amount;
+            $payment->installment1_remaining_amount=$installment1_amount;
+            $payment->installment1_date=$installment1_date;
 
-            $payment_register->installment2_amount=$installment2_amount;
-            $payment_register->installment2_remaining_amount=$installment2_amount;
-            $payment_register->installment2_date=$installment2_date;
+            $payment->installment2_amount=$installment2_amount;
+            $payment->installment2_remaining_amount=$installment2_amount;
+            $payment->installment2_date=$installment2_date;
 
-            $payment_register->installment3_amount=$installment3_amount;
-            $payment_register->installment3_remaining_amount=$installment3_amount;
-            $payment_register->installment3_date=$installment3_date;
+            $payment->installment3_amount=$installment3_amount;
+            $payment->installment3_remaining_amount=$installment3_amount;
+            $payment->installment3_date=$installment3_date;
 
-            $payment_register->installment4_amount=$installment4_amount;
-            $payment_register->installment4_remaining_amount=$installment4_amount;
-            $payment_register->installment4_date=$installment4_date;
+            $payment->installment4_amount=$installment4_amount;
+            $payment->installment4_remaining_amount=$installment4_amount;
+            $payment->installment4_date=$installment4_date;
             
-            $payment_register->installment5_amount=$installment5_amount;
-            $payment_register->installment5_remaining_amount=$installment5_amount;
-            $payment_register->installment5_date=$installment5_date;
+            $payment->installment5_amount=$installment5_amount;
+            $payment->installment5_remaining_amount=$installment5_amount;
+            $payment->installment5_date=$installment5_date;
             
-            $payment_register->installment6_amount=$installment6_amount;
-            $payment_register->installment6_remaining_amount=$installment6_amount;
-            $payment_register->installment6_date=$installment6_date;
+            $payment->installment6_amount=$installment6_amount;
+            $payment->installment6_remaining_amount=$installment6_amount;
+            $payment->installment6_date=$installment6_date;
 
-            $payment_register->note= $note;
-            $payment_register->save();
+            $payment->note= $note;
+            $payment->save();
             return redirect('/payment-info-show');
         }
     }

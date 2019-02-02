@@ -6,19 +6,22 @@ use Illuminate\Http\Request;
 use App\Person;
 use App\Payment;
 use App\Classroom;
+use App\Agency;
 use Debugbar;
 use Auth;
 class PersonController extends Controller
 {
     public function student_register_show (){
         $classrooms=Classroom::all();
-        return view('student.register')->with('classrooms',$classrooms);
+        $agencies=Agency::all();
+        return view('student.register')->with('classrooms',$classrooms)->with('agencies',$agencies);
     }
 
     public function student_edit_show ($student_id){
         $student= Person::find($student_id);
         $classrooms=Classroom::all();
-        return view('student.edit')->with('student',$student)->with('classrooms',$classrooms);
+        $agencies=Agency::all();
+        return view('student.edit')->with('student',$student)->with('classrooms',$classrooms)->with('agencies',$agencies);
     }
 
     public function student_delete(Request $request){
@@ -41,13 +44,14 @@ class PersonController extends Controller
             $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
-            $country=$request->input('country');
+            $country=$request->input('countries');
             $languages=$request->input('languages');
             $languages = implode(',', $languages);
             $book_status=$request->input('book_status');
             $why_choose_us=$request->input('why_choose_us');
             $registration_by=Auth::user()->name;
             $classroom_id=$request->input('classrooms');
+            $agency_id=$request->input('agency');
             $sex_status=$request->input('sex_status');
             $marital_status=$request->input('marital_status');
             $university_status=$request->input('university_status');
@@ -89,6 +93,7 @@ class PersonController extends Controller
             $student->why_choose_us=$why_choose_us;
             $student->registration_by=$registration_by;
             $student->classroom_id=$classroom_id;
+            $student->agency_id=$agency_id;
             $student->sex_status=$sex_status;
             $student->marital_status=$marital_status;
             $student->university_status=$university_status;
@@ -124,7 +129,7 @@ class PersonController extends Controller
             $student->birthdate=$birthdate;
             $student->telephone=$request->input('telephone');
             $student->e_mail=$request->input('e_mail');
-            $student->country=$request->input('country');
+            $student->country=$request->input('countries');
             $languages=$request->input('languages');
             $student->languages = implode(',', $languages);
             $student->book_status=$request->input('book_status');
@@ -133,6 +138,7 @@ class PersonController extends Controller
             $student->why_abandon_us_note=$request->input('why_abandon_us_note');
             $student->registration_by=Auth::user()->name;
             $student->classroom_id=$request->input('classrooms');
+            $student->agency_id=$request->input('agency');
             if($student->classroom_id!=null){
                 $student->join_status="Aktif";
             } else {
@@ -186,17 +192,17 @@ class PersonController extends Controller
             $note=$request->input('note');
             $demanded_education_status=$request->input('demanded_education_status');
 
-            $candidate_student_register=new Person;
-            $candidate_student_register->name=$name;
-            $candidate_student_register->surname=$surname;
-            $candidate_student_register->status="Aday Öğrenci";
-            $candidate_student_register->birthdate=$birthdate;
-            $candidate_student_register->telephone=$telephone;
-            $candidate_student_register->e_mail=$e_mail;
-            $candidate_student_register->country=$country;
-            $candidate_student_register->note=$note;
-            $candidate_student_register->demanded_education_status=$demanded_education_status;
-            $candidate_student_register->save();
+            $candidate_student=new Person;
+            $candidate_student->name=$name;
+            $candidate_student->surname=$surname;
+            $candidate_student->status="Aday Öğrenci";
+            $candidate_student->birthdate=$birthdate;
+            $candidate_student->telephone=$telephone;
+            $candidate_student->e_mail=$e_mail;
+            $candidate_student->country=$country;
+            $candidate_student->note=$note;
+            $candidate_student->demanded_education_status=$demanded_education_status;
+            $candidate_student->save();
             return redirect('/candidate-student-info-show');
         }
     }

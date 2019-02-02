@@ -55,6 +55,12 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/classroom-edit-show/{classroom_id}', 'ClassroomController@classroom_edit_show')->name('classroom_edit_show');
     Route::post('/classroom-register', 'ClassroomController@classroom_register')->name('classroom_register');
     Route::post('/classroom-edit-register', 'ClassroomController@classroom_edit_register')->name('classroom_edit_register');
+    //agency
+    Route::get('/agency-info-show', 'AgencyController@agency_info_show')->name('agency_info_show');
+    Route::get('/agency-register-show', 'AgencyController@agency_register_show')->name('agency_register_show');
+    Route::get('/agency-edit-show/{agency_id}', 'AgencyController@agency_edit_show')->name('agency_edit_show');
+    Route::post('/agency-register', 'AgencyController@agency_register')->name('agency_register');
+    Route::post('/agency-edit-register', 'AgencyController@agency_edit_register')->name('agency_edit_register');
     //polling paper
     Route::get('/polling-paper-show', 'PollingController@polling_paper_show')->name('polling_paper_show');
     //phpword library
@@ -67,6 +73,7 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/api/candidate-student-delete', 'PersonController@candidate_student_delete')->name('candidate_student_delete');
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
+    Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
 });
 
 

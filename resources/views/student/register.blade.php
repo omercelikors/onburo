@@ -54,8 +54,8 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="country">Ülke:</label>
-                                        <select class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
+                                        <label for="countries">Ülke:</label>
+                                        <select class="form-control input-medium bfh-countries" data-country="US" name="countries"></select>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -77,6 +77,17 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center my-2">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="country">Acente:</label>
+                                        <select id="agency" class="form-control" name="agency">
+                                            <option value=""></option>
+                                            @foreach($agencies as $agency)
+                                                <option value="{{ $agency->id }}">{{ $agency->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="why_choose_us">Neden bizi tercih etti?:</label>

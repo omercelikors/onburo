@@ -48,7 +48,7 @@
                     <a class="nav-link" href="#">SMS VE E-POSTA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ACENTE</a>
+                    <a class="nav-link" href="{{ route('agency_info_show') }}">ACENTE</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('candidate_student_info_show') }}">ADAY ÖĞRENCİ</a>

@@ -17,6 +17,7 @@
                                 <th>Adı</th>
                                 <th>Soyadı</th>
                                 <th>Ödeme Açıklaması</th>
+                                <th>Acente</th>
                                 <th>Başlangıç Borç Miktarı</th>
                                 <th>Peşin Ödenen Miktar</th>
                                 <th>Ödenecek Miktar</th>
@@ -35,6 +36,7 @@
                                 <td>{{ $payment->person->name }}</td>
                                 <td>{{ $payment->person->surname }}</td>
                                 <td>{{ $payment->paid_description }}</td>
+                                <td>@if(isset($payment->person->agency_id)){{ $payment->person->agency->name }}<br>{{ $payment->debt_amount*0.1}}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif @endif</td>
                                 <td>{{ $payment->debt_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
                                 <td>{{ $payment->cash_paid_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif<br>{{ $payment->installment_date_format(7) }} </td>
                                 <td>{{ $payment->total_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
@@ -80,14 +82,14 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '100px', '100px', '100px', '100px', '150px',
+            '100px', '100px', '100px', '80px', '100px',
             '100px', '100px', '100px', '100px', '100px',
-            '100px', '100px', '200px', 
+            '100px', '100px', '100px', '200px'
         ],
         col_types: [
-            'string', 'string', 'string', 'number', 'string',
-            'number', 'string', 'string', 'string', 'string',
-            'string', 'string', 'string'
+            'string', 'string', 'string', 'string', 'number',
+            'string', 'number', 'string', 'string', 'string',
+            'string', 'string', 'string', 'string'
         ],
         extensions: [{
             name: 'sort'

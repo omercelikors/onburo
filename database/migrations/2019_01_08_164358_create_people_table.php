@@ -16,6 +16,7 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('classroom_id')->nullable();
+            $table->integer('agency_id')->nullable();
             $table->string('name', 200);
             $table->string('surname', 200);
             $table->enum('status', ['Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı']);

@@ -22,6 +22,10 @@ class Person extends Model
         return $this->hasMany('App\Payment');
     }
 
+    public function agency()
+    {
+        return $this->belongsTo('App\Agency');
+    }
     public function birthdate(){
         $formatted_date = date('d.m.Y' , strtotime($this->birthdate));
         return $formatted_date;
