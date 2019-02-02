@@ -75,6 +75,11 @@ class PersonController extends Controller
             $student->name=$name;
             $student->surname=$surname;
             $student->status="Öğrenci";
+            if($classroom_id!=null){
+                $student->join_status="Aktif";
+            } else {
+                $student->join_status="Pasif";
+            }
             $student->birthdate=$birthdate;
             $student->telephone=$telephone;
             $student->e_mail=$e_mail;
@@ -128,6 +133,11 @@ class PersonController extends Controller
             $student->why_abandon_us_note=$request->input('why_abandon_us_note');
             $student->registration_by=Auth::user()->name;
             $student->classroom_id=$request->input('classrooms');
+            if($student->classroom_id!=null){
+                $student->join_status="Aktif";
+            } else {
+                $student->join_status="Pasif";
+            }
             $student->sex_status=$request->input('sex_status');
             $student->marital_status=$request->input('marital_status');
             $student->university_status=$request->input('university_status');

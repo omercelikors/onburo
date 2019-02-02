@@ -21,7 +21,7 @@ class CreatePeopleTable extends Migration
             $table->enum('status', ['Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı']);
             $table->enum('join_status', ['Aktif','Pasif'])->nullable();
             $table->string('taken_courses')->nullable();
-            $table->dateTime('birthdate');
+            $table->date('birthdate');
             $table->string('telephone');
             $table->string('e_mail');
             $table->string('country')->nullable();

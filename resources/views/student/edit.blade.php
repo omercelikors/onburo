@@ -117,42 +117,42 @@
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('A1')" type="radio" class="form-check-input" name="course_type">A1
+                                            <input onclick="filter('A1')" id="A1" type="radio" class="form-check-input" name="course_type">A1
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('A2')" type="radio" class="form-check-input" name="course_type">A2
+                                            <input onclick="filter('A2')" type="radio" id="A2" class="form-check-input" name="course_type">A2
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('B1')" type="radio" class="form-check-input" name="course_type">B1
+                                            <input onclick="filter('B1')" type="radio" id="B1"  class="form-check-input" name="course_type">B1
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('B2')" type="radio" class="form-check-input" name="course_type">B2
+                                            <input onclick="filter('B2')" type="radio" id="B2"  class="form-check-input" name="course_type">B2
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('C1')" type="radio" class="form-check-input" name="course_type">C1
+                                            <input onclick="filter('C1')" type="radio" id="C1"  class="form-check-input" name="course_type">C1
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('C1+')" type="radio" class="form-check-input" name="course_type">C1+
+                                            <input onclick="filter('C1+')" type="radio" id="C1+"  class="form-check-input" name="course_type">C1+
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('YOS')" id="YOS" type="radio" class="form-check-input" name="course_type">YÖS
+                                            <input onclick="filter('YOS')" id="YOS" type="radio" id="YOS"  class="form-check-input" name="course_type">YÖS
                                         </label>
                                     </div>
                                     <div class="form-check-inline mr-1">
                                         <label class="form-check-label">
-                                            <input onclick="filter('Diger')" id="Diger" type="radio" class="form-check-input" name="course_type">Diğer
+                                            <input onclick="filter('Diger')" id="Diger" type="radio" id="Diger" class="form-check-input" name="course_type">Diğer
                                         </label>
                                     </div>
                                     <div class="form-check-inline">

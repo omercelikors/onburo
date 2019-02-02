@@ -70,8 +70,8 @@ class ClassroomController extends Controller
             $classroom = Classroom::find($classroom_id);
             $students=Person::where('classroom_id',$classroom_id)->get();
             foreach($students as $student){
-                $student=Person::find($student->id);
                 $student->classroom_id=null;
+                $student->join_status="Pasif";
                 $student->save();
             }
             $classroom->delete();
