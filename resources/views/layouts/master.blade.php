@@ -42,7 +42,7 @@
                     <a class="nav-link" href="{{ route('payment_info_show') }}">ÖDEME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('create') }}">YOKLAMA KAĞIDI</a>
+                    <a class="nav-link" href="{{ route('polling_paper_show') }}">YOKLAMA KAĞIDI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SMS VE E-POSTA</a>

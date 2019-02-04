@@ -539,7 +539,7 @@
 
         if(course_type=="YOS"){
             for (i = 0; i< classrooms.length; i++){
-                if(classrooms[i].course_type=="YOS"){
+                if(classrooms[i].course_type=="YÖS"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
                     opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
@@ -550,7 +550,7 @@
 
         if(course_type=="Diger"){
             for (i = 0; i< classrooms.length; i++){
-                if(classrooms[i].course_type=="Diger"){
+                if(classrooms[i].course_type=="Diğer"){
                     var opt = document.createElement('option');
                     opt.value = classrooms[i].id;
                     opt.innerHTML = classrooms[i].time + " / " + classrooms[i].starting_date+ " / " + classrooms[i].end_date + " / " + classrooms[i].teacher_name + " " + classrooms[i].teacher_surname;
