@@ -112,9 +112,9 @@
         end_date_in_ms=strt_date_in_ms+course_period;
         end_date_in_string= new Date(end_date_in_ms);
         date=end_date_in_string.getDate();
-        month=end_date_in_string.getMonth();
+        month=end_date_in_string.getMonth()+1;
         year=end_date_in_string.getFullYear();
-        console.log(date)
+        end_date.value=((date < 10) ? ("0"+ date) : date ) + "." + ((month < 10) ? ("0"+ (month)) : month)+"."+year;
     }
 </script>
 @endsection
