@@ -256,7 +256,7 @@
 <script>
     
         $('#polling_paper_table').css("visibility", "hidden");
-        current_in_string = new Date(2019,01,25,10,30,30);
+        current_in_string = new Date();
         current_in_time = current_in_string.getTime();
         classroom_id = document.getElementById('classrooms');
         general_info = document.getElementById('general_info');
@@ -303,10 +303,7 @@
                     course_week_number.innerHTML = passed_week + ".Hafta";
                     send_course_week_number.value = passed_week;
                     //date_1-2-3-4-5 in head of table
-                    if (days[current_day] == "Pazar") {
-                        strt = 1 * one_day;
-                        length = 5 * one_day;
-                    } else if (days[current_day] == "Pazartesi") {
+                    if (days[current_day] == "Pazartesi") {
                         strt = 0 * one_day;
                         length = 4 * one_day;
                     } else if (days[current_day] == "Salı") {
@@ -324,6 +321,9 @@
                     } else if (days[current_day] == "Cumartesi") {
                         strt = -5 * one_day;
                         length = -1 * one_day;
+                    }else if (days[current_day] == "Pazar") {
+                        strt = -6 * one_day;
+                        length = -2 * one_day;
                     }
                     index = 0;
                     while (strt <= length) {
