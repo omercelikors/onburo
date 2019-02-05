@@ -127,12 +127,14 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#end_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         showOnFocus: false, 
         showRightIcon: false
     });
@@ -140,7 +142,7 @@
         var inputString = starting_date.value;
         var dString = inputString.split('.');
         var dt = new Date(dString[2],dString[1]-1,dString[0]);
-        dt.setDate(dt.getDate()+42);
+        dt.setDate(dt.getDate()+39);
         var finalDate = dt.getDate() + "." + (dt.getMonth()+1) + "." + dt.getFullYear();
         end_date.value=finalDate;
     }

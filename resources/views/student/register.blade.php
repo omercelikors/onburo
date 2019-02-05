@@ -671,6 +671,7 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         maxDate: today
     });
 </script>

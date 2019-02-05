@@ -64,9 +64,6 @@ Route::group(['middleware' => ['role:recorder']], function () {
     //polling paper
     Route::get('/polling-paper-show', 'PollingController@polling_paper_show')->name('polling_paper_show');
     Route::post('/polling-paper-download','PollingController@polling_paper_download')->name('polling_paper_download');
-    //phpword library
-   /*  Route::get('create','PollingController@create')->name('polling_paper_create');
-    Route::post('store','PollingController@store')->name('polling_paper_store'); */
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');

@@ -403,42 +403,49 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#installment1_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#installment2_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#installment3_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#installment4_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#installment5_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#installment6_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
 </script>

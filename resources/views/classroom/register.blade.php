@@ -93,22 +93,28 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         minDate: today
     });
     $('#end_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
+        weekStartDay: 1,
         showOnFocus: false, 
         showRightIcon: false
     });
     function end_date_calculate(){
-        var inputString = starting_date.value;
-        var dString = inputString.split('.');
-        var dt = new Date(dString[2],dString[1]-1,dString[0]);
-        dt.setDate(dt.getDate()+42);
-        var finalDate = dt.getDate() + "." + (dt.getMonth()+1) + "." + dt.getFullYear();
-        end_date.value=finalDate;
+        parsed_strt_date=starting_date.value.split(".");
+        strt_date_in_string = new Date(parsed_strt_date[2],parsed_strt_date[1]-1,parsed_strt_date[0]);
+        strt_date_in_ms=strt_date_in_string.getTime();
+        course_period=86400000*39;
+        end_date_in_ms=strt_date_in_ms+course_period;
+        end_date_in_string= new Date(end_date_in_ms);
+        date=end_date_in_string.getDate();
+        month=end_date_in_string.getMonth();
+        year=end_date_in_string.getFullYear();
+        console.log(date)
     }
 </script>
 @endsection
