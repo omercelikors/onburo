@@ -45,7 +45,7 @@
                     <a class="nav-link" href="{{ route('polling_paper_show') }}">YOKLAMA KAĞIDI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SMS VE E-POSTA</a>
+                    <a class="nav-link" href="{{ route('sms_send_show') }}">SMS VE E-POSTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('agency_info_show') }}">ACENTE</a>
@@ -59,7 +59,7 @@
                 @endrole
                 @role('admin|recorder')
                 <li class="nav-item">
-                    <a class="nav-link" href="#">BİLGİ VE ANALİZ</a>
+                    <a class="nav-link" href="{{ route('information_analysis_show') }}">BİLGİ VE ANALİZ</a>
                 </li>
                 @endrole
                 <li class="nav-item dropdown">

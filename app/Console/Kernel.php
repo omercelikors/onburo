@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('student:passive');
+        $schedule->command('student:passive')->timezone('Europe/Istanbul')->at('02:00');
     }
 
     /**

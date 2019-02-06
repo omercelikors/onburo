@@ -279,8 +279,6 @@
         function polling_paper_header() {
             if (classroom_id.value == "") {
                 $('#polling_paper_table').css("visibility", "hidden");
-                send_weekdays.value=null;
-                send_course_week_number.value=null;
             } else {
                 $('#polling_paper_table').css("visibility", "visible");
                 for (i = 0; i < classrooms.length; i++) {

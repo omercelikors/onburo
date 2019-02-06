@@ -16,8 +16,8 @@
                             <tr>
                                 <th>Adı</th>
                                 <th>Soyadı</th>
-                                <th>Kur Tipi</th>
-                                <th>Kur Vakti</th>
+                                <th>Kurs Tipi</th>
+                                <th>Kurs Vakti</th>
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
                                 <th>Sınıf Öğretmeni</th>
@@ -108,7 +108,7 @@
     document.querySelector('.loader').innerHTML = "Yükleniyor...";
     document.querySelector('.fltrow td:last-child').style.display = "none";
     document.querySelector('.helpCont').innerHTML =
-        "Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
+        "Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a target='_blank' href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
     $(".flt option:nth-child(1)").text("Temizle");
 </script>
 <script>
@@ -159,17 +159,18 @@
             });
     }
 </script>
-<style>
-    .helpFooter {
-        display: none;
-        visibility: hidden;
-    }
 
-    select {
-        cursor: pointer;
-    }
-</style>
 @endsection
 @section('css')
 <link href="{{ asset('css/extensions/tablefilter.css') }}" rel="stylesheet">
+<style>
+        .helpFooter {
+            display: none;
+            visibility: hidden;
+        }
+    
+        select {
+            cursor: pointer;
+        }
+</style>
 @endsection
