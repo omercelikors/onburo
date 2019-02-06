@@ -67,13 +67,11 @@
         status_bar: false,
         col_widths: [
             '200px', '200px', '250px',
-            '150px', '100px', '200px',
-            '200px'
+            '150px', '100px', '200px'
         ],
         col_types: [
-            'string', 'string', 'number',
-            'string', 'date', 'string',
-            'string'
+            'string', 'string', 'string',
+            'number', 'date', 'string'
         ],
         extensions: [{
             name: 'sort'

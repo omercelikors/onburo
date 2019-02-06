@@ -74,7 +74,7 @@
         ],
         col_types: [
             'string', 'string', 'string',
-            'string', 'number', 'string',
+            'string', 'string', 'number',
             'string'
         ],
         extensions: [{
