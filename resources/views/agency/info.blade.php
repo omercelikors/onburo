@@ -134,17 +134,18 @@
             });
     }
 </script>
-<style>
-    .helpFooter {
-        display: none;
-        visibility: hidden;
-    }
 
-    select {
-        cursor: pointer;
-    }
-</style>
 @endsection
 @section('css')
 <link href="{{ asset('css/extensions/tablefilter.css') }}" rel="stylesheet">
+<style>
+        .helpFooter {
+            display: none;
+            visibility: hidden;
+        }
+    
+        select {
+            cursor: pointer;
+        }
+</style>
 @endsection
