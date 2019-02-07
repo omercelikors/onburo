@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('content')
 <main class="container-fluid mt-3">
-    @if (session('status'))
+    {{-- @if (session('status'))
         <div class="alert @if(session('status')=="İşlem Başarılı!") alert-success @elseif(session('status')=="İşlem Başarısız!") alert-danger @endif">
             {{ session('status') }}
         </div>
-    @endif
+    @endif --}}
     <div class="card">
         <div class="card-header">Tüm Kişiler</div>
         <div class="card-body">
@@ -145,14 +145,11 @@
     $(".flt option:nth-child(1)").text("Temizle");
 </script>
 <script>
-    @if(isset($message))
-    console.log("qqqq");
-        if("{{ $message }}"=="SMS başarı ile gönderildi!"){
-            swal("Başarılı!", "{{ $message }}", "success");
-        }else if("{{ $message }}"=="SMS gönderilemedi"){
-            swal("Başarısız!", "{{ $message }}", "warning");
-        }
-    @endif
+    if("{{ session('status') }}"=="İşlem Başarılı!"){
+        swal("Başarılı!", "İşlem Başarılı!", "success");
+    }else if("{{ session('status') }}"=="İşlem Başarısız!"){
+        swal("Başarısız!", "İşlem Başarısız!", "warning");
+    }
 </script>
 <script>
     today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -173,7 +170,11 @@
             }
         });
         $('#people_id').val(person_id);
-        return true;
+        if($('#people_id').val()==""){
+            return false;
+        } else {
+            return true;
+        }
     });
 </script>
 
