@@ -42,7 +42,7 @@
                                 <div class="col-3">
                                     <label for="birthdate">*Doğum Tarihi:</label>
                                     <div class="gj-margin-top-10">
-                                        <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.dd.yyyy" required>
+                                        <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.aa.yyyy" required>
                                     </div>
                                 </div>
                                 <div class="col-3">

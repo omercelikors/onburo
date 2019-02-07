@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <label for="end_date">*Kurs Bitiş Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="end_date" name="end_date" autocomplete="off" placeholder="gg.dd.yyyy" required>
+                                            <input id="end_date" name="end_date" autocomplete="off" placeholder="gg.aa.yyyy" required>
                                         </div>
                                     </div>
                                 </div>

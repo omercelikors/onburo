@@ -1,24 +1,53 @@
 @extends('layouts.master')
 @section('content')
 <main class="container-fluid mt-3">
+    @if (session('status'))
+        <div class="alert @if(session('status')=="İşlem Başarılı!") alert-success @elseif(session('status')=="İşlem Başarısız!") alert-danger @endif">
+            {{ session('status') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">Tüm Kişiler</div>
         <div class="card-body">
-            <div class="row my-2 d-flex justify-content-center align-content-center align-items-center">
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="note">Mesaj metni:</label>
-                        <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+            <form id="sms_send" method="post" action="{{ route('sms_send') }}">
+                @csrf
+                <input id="people_id" type="hidden" class="form-control" name="people_id[]">
+                <div class="row my-2 d-flex justify-content-center align-content-center align-items-center">
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="originator">*Gönderici adı seçiniz:</label>
+                            <select class="form-control" id="originator" name="originator" required>
+                                <option></option>
+                                <option>TSC-YOS</option>
+                                <option>TSC-TOMER</option>
+                                <option>TSC-UNI-YOS</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="send_datetime">*Gönderme tarih ve zamanı:</label>
+                            <div class="gj-margin-top-10">
+                                <input id="send_datetime" name="send_datetime" autocomplete="off" placeholder="gg.aa.yyyy ss:dd"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="note">*Mesaj metni:</label>
+                            <textarea class="form-control" rows="5" id="text" name="text" required></textarea>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <button id="sms_send_button" class="btn btn-primary" type="submit">Gönder</button>
                     </div>
                 </div>
-                <div class="col-1">
-                    <button id="submit_button" class="btn btn-primary" type="submit">Gönder</button>
-                </div>
-            </div>
+            </form>
             <div class="row mt-3">
                 <div class="col-12 table-responsive">
-                    <table id="people-table" class="people-table table table-striped">
-                        <thead>
+                    <table id="people_table" class="people-table table table-striped">
+                        <thead id="table_header">
                             <tr>
                                 <th>Adı</th>
                                 <th>Soyadı</th>
@@ -33,9 +62,9 @@
                                 <th>Not</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="table_body">
                             @foreach ($people as $person)
-                            <tr>
+                            <tr class="info" id="{{ $person->id }}">
                                 <td>{{ $person->name }}</td>
                                 <td>{{ $person->surname }}</td>
                                 <td>{{ $person->status }}</td>
@@ -47,8 +76,8 @@
                                 <td>{{ $person->university_status }}</td>
                                 <td>{{ $person->why_abadon_us_status }}</td>
                                 <td>{{ $person->note }}</td>
-                                @endforeach
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -58,7 +87,6 @@
 </main>
 @endsection
 @section('js')
-
 <script src="{{ asset('js/extensions/tablesort.js') }}"></script>
 <script>
     var filtersConfig = {
@@ -81,11 +109,13 @@
         col_2: 'select',
         col_3: 'select',
         col_7: 'select',
+        col_8: 'select',
+        col_9: 'select',
         col_widths: [
             '170px', '170px', '100px',
             '100px', '120px', '100px',
-            '140px', '140px', '140px',
-            '140px', '140px'
+            '100px', '140px', '140px',
+            '140px', '180px'
         ],
         col_types: [
             'string', 'string', 'string',
@@ -114,7 +144,38 @@
         "Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a target='_blank'  href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
     $(".flt option:nth-child(1)").text("Temizle");
 </script>
-
+<script>
+    @if(isset($message))
+    console.log("qqqq");
+        if("{{ $message }}"=="SMS başarı ile gönderildi!"){
+            swal("Başarılı!", "{{ $message }}", "success");
+        }else if("{{ $message }}"=="SMS gönderilemedi"){
+            swal("Başarısız!", "{{ $message }}", "warning");
+        }
+    @endif
+</script>
+<script>
+    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('#send_datetime').datetimepicker({
+        locale: 'tr-tr',
+        format:'dd.mm.yyyy HH:MM',
+        datepicker: { minDate: today, weekStartDay: 1},
+        footer: true,
+        uiLibrary: 'bootstrap4',
+    });
+</script>
+<script>
+   person_id=[]
+    $("#sms_send").submit(function(e){
+        $('.info').each(function () {
+            if ($(this).css('display') != 'none') {
+                person_id.push($(this).attr('id'));
+            }
+        });
+        $('#people_id').val(person_id);
+        return true;
+    });
+</script>
 
 @endsection
 @section('css')
@@ -124,7 +185,6 @@
             display: none;
             visibility: hidden;
         }
-    
         select {
             cursor: pointer;
         }
