@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use App\Person;
 use App\Classroom;
 
-class PassiveOfStudent extends Command
+class PassiveStudent extends Command
 {
     /**
      * The name and signature of the console command.
