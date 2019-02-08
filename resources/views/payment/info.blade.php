@@ -160,7 +160,9 @@
             });
     }
 </script>
-
+<script>
+    $( ".rdiv input" ).trigger( "click" );
+</script>
 @endsection
 @section('css')
 <link href="{{ asset('css/extensions/tablefilter.css') }}" rel="stylesheet">

@@ -20,7 +20,7 @@ class PassiveOfStudent extends Command
      *
      * @var string
      */
-    protected $description = 'make passive of student controlling daily';
+    protected $description = 'make passive of student controlling weekly';
 
     /**
      * Create a new command instance.
