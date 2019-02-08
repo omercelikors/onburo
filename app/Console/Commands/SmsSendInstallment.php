@@ -11,14 +11,14 @@ class SmsSendInstallment extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'sms:installment';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'send sms student for their insatllment';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,6 @@ class SmsSendInstallment extends Command
      */
     public function handle()
     {
-        //
+        
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
+use App\Person;
 class SmsSendBirthdate extends Command
 {
     /**
@@ -11,14 +11,14 @@ class SmsSendBirthdate extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'sms:birthdate';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'send sms all people for celebrating birthdate';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,21 @@ class SmsSendBirthdate extends Command
      */
     public function handle()
     {
-        //
+        date_default_timezone_set("Europe/Istanbul");
+        $current_date=date("07.02.2019");
+        $current_date_in_time=strtotime($current_date);
+        $telephones=[];
+        $people=Person::all();
+        foreach($people as $person){
+            $birthdate=$person->birthdate;
+            $birthdate_in_time=strtotime($birthdate);
+            if($birthdate_in_time==$current_date_in_time){
+                array_push($telephones,$person->telephone);
+            }
+        }
+        $text="Deneme yazı.";
+        $originator="Deneme originator";
+        $send = Mutlucell::sendBulk($telephones, $text,'', $originator);
+        var_dump(Mutlucell::parseOutput($send));
     }
 }

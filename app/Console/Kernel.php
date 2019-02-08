@@ -30,6 +30,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('student:passive')->timezone('Europe/Istanbul')->saturdays();
+        $schedule->command('sms:course')->timezone('Europe/Istanbul')->fridays();
+        $schedule->command('sms:birthdate')->timezone('Europe/Istanbul')->daily();
+        $schedule->command('sms:installment')->timezone('Europe/Istanbul');
+        $schedule->command('email:installment')->timezone('Europe/Istanbul');
     }
 
     /**

@@ -41,7 +41,7 @@ class PassiveStudent extends Command
     {
         $students=Person::whereNotNull('classroom_id')->get();
         $classrooms=Classroom::all();
-        $date=date_default_timezone_set('Europe/Istanbul');
+        date_default_timezone_set('Europe/Istanbul');
         $current_date = date('d.m.Y', time());
         foreach($students as $student){
             if(strtotime($current_date) > strtotime($student->classroom->end_date())){
