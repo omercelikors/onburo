@@ -14,6 +14,11 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\PassiveStudent::class,
+        Commands\SmsSendBirthdate::class,
+        Commands\SmsSendCourse::class,
+        Commands\SmsSendInstallment::class,
+        Commands\EmailSendInstallment::class,
+        
     ];
 
     /**
