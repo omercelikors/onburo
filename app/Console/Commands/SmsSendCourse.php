@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Classroom;
-use App\Person;
+use Mutlucell;
 class SmsSendCourse extends Command
 {
     /**
@@ -56,6 +56,11 @@ class SmsSendCourse extends Command
             }
         }
 
+        $text="A1";
+        $originator="TSC-YOS";
+        $send = Mutlucell::sendBulk($A1student_telephones, $text,'', $originator);
+        var_dump(Mutlucell::parseOutput($send));
+
         $A2classrooms=Classroom::where('course_type','A2')->get();
         $A2student_telephones=[];
         foreach($A2classrooms as $A2classroom){
@@ -69,10 +74,9 @@ class SmsSendCourse extends Command
                 }
             }
         }
-        $text="Deneme yazı.";
-        $originator="Deneme originator";
-        $A1A2students_telephones=array_merge($A1student_telephones,$A2student_telephones);
-        $send = Mutlucell::sendBulk($A1A2students_telephones, $text,'', $originator);
+        $text="A2";
+        $originator="TSC-YOS";
+        $send = Mutlucell::sendBulk($A2student_telephones, $text,'', $originator);
         var_dump(Mutlucell::parseOutput($send));
     }
 }

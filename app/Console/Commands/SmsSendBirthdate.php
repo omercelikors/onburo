@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Person;
+use Mutlucell;
 class SmsSendBirthdate extends Command
 {
     /**
@@ -49,8 +50,8 @@ class SmsSendBirthdate extends Command
                 array_push($telephones,$person->telephone);
             }
         }
-        $text="Deneme yazı.";
-        $originator="Deneme originator";
+        $text="Doğum günü";
+        $originator="TSC-YOS";
         $send = Mutlucell::sendBulk($telephones, $text,'', $originator);
         var_dump(Mutlucell::parseOutput($send));
     }
