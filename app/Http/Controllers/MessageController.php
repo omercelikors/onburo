@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mutlucell;
 use App\Person;
-use App\Message;
 class MessageController extends Controller
 {
     public function sms_send_show(){
@@ -25,13 +24,6 @@ class MessageController extends Controller
         $people_telephone=[];
         for($i=0;$i<$people_id_array_length;$i++){
             array_push($people_telephone,Person::find($people_id_array[$i])->telephone);
-            $message=new Message;
-            $message->person_id=$people_id_array[$i];
-            $message->originator=$originator;
-            $message->type="SMS";
-            $message->text=$text;
-            $message->send_datetime=$send_datetime;
-            $message->save();
         }
         $send = Mutlucell::sendBulk($people_telephone, $text,$send_datetime, $originator);
         var_dump(Mutlucell::parseOutput($send));
