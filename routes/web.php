@@ -69,6 +69,8 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::post('/sms-send','MessageController@sms_send')->name('sms_send');
     //information-analysis
     Route::get('/payment-analysis-show', 'Information_AnalysisController@payment_analysis_show')->name('payment_analysis_show');
+    Route::post('/payment-analysis-calculate', 'Information_AnalysisController@payment_analysis_calculate')->name('payment_analysis_calculate');
+
     Route::get('/register-analysis-show', 'Information_AnalysisController@register_analysis_show')->name('register_analysis_show');
     Route::get('/personal-communication-dynamic-analysis-show', 'Information_AnalysisController@personal_communication_dynamic_analysis_show')->name('personal_communication_dynamic_analysis_show');
     //all apis
