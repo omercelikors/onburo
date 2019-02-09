@@ -10498,6 +10498,11 @@ a.text-dark:focus {
 
 .navbar {
   background-color: #24AFE0;
+  /* .dropdown-menu {
+      min-width: 40px;
+      width: 120px;
+      height: 30px;
+  } */
 }
 
 .navbar .fas {
@@ -10506,12 +10511,6 @@ a.text-dark:focus {
 
 .navbar .nav-link {
   color: white;
-}
-
-.navbar .dropdown-menu {
-  min-width: 40px;
-  width: 120px;
-  height: 30px;
 }
 
 .fa-plus-circle {

@@ -58,8 +58,13 @@
                 </li>
                 @endrole
                 @role('admin|recorder')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('information_analysis_show') }}">BİLGİ VE ANALİZ</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BİLGİ VE ANALİZ</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('payment_analysis_show') }}">ÖDEME ANALİZ</a>
+                        <a class="dropdown-item" href="{{ route('register_analysis_show') }}">KAYIT ANALİZ</a>
+                        <a class="dropdown-item" href="{{ route('personal_communication_dynamic_analysis_show') }}">K.İ.D. ANALİZ</a>
+                    </div>
                 </li>
                 @endrole
                 <li class="nav-item dropdown">

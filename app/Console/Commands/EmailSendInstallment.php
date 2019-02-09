@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
+use Mailgun\Mailgun;
 class EmailSendInstallment extends Command
 {
     /**
@@ -11,14 +11,14 @@ class EmailSendInstallment extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'email:installment';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'send email to accounting staff for student installments';
 
     /**
      * Create a new command instance.
@@ -36,7 +36,13 @@ class EmailSendInstallment extends Command
      * @return mixed
      */
     public function handle()
-    {
-        //
+    {   $mailgun_secret=env('MAILGUN_SECRET',false);
+        $domain = env('MAILGUN_DOMAIN',false);
+        $mgClient = new Mailgun($mailgun_secret);
+        $result = $mgClient->sendMessage("$domain",
+        array  ('from'    => 'info@tsc.com',
+                'to'      => 'omerr.celikors@gmail.com',
+                'subject' => 'Hello',
+                'text'    => 'Testing some Mailgun awesomeness!'));
     }
 }

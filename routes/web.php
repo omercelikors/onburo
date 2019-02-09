@@ -64,11 +64,13 @@ Route::group(['middleware' => ['role:recorder']], function () {
     //polling paper
     Route::get('/polling-paper-show', 'PollingController@polling_paper_show')->name('polling_paper_show');
     Route::post('/polling-paper-download','PollingController@polling_paper_download')->name('polling_paper_download');
-    //send sms/email
+    //send sms
     Route::get('/sms-send-show', 'MessageController@sms_send_show')->name('sms_send_show');
     Route::post('/sms-send','MessageController@sms_send')->name('sms_send');
     //information-analysis
-    Route::get('/information-analysis-show', 'Information_AnalysisController@information_analysis_show')->name('information_analysis_show');
+    Route::get('/payment-analysis-show', 'Information_AnalysisController@payment_analysis_show')->name('payment_analysis_show');
+    Route::get('/register-analysis-show', 'Information_AnalysisController@register_analysis_show')->name('register_analysis_show');
+    Route::get('/personal-communication-dynamic-analysis-show', 'Information_AnalysisController@personal_communication_dynamic_analysis_show')->name('personal_communication_dynamic_analysis_show');
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');
