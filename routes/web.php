@@ -21,6 +21,7 @@ Auth::routes();
 Route::group(['middleware' => ['role:recorder']], function () {
     //student pages
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/student-other-show', 'PersonController@student_other_show')->name('student_other_show');
     Route::get('/student-register-show', 'PersonController@student_register_show')->name('student_register_show');
     Route::get('/student-edit-show/{student_id}', 'PersonController@student_edit_show')->name('student_edit_show');
     Route::post('/student-register', 'PersonController@student_register')->name('student_register');
@@ -70,9 +71,10 @@ Route::group(['middleware' => ['role:recorder']], function () {
     //information-analysis
     Route::get('/payment-analysis-show', 'Information_AnalysisController@payment_analysis_show')->name('payment_analysis_show');
     Route::post('/payment-analysis-calculate', 'Information_AnalysisController@payment_analysis_calculate')->name('payment_analysis_calculate');
-
     Route::get('/register-analysis-show', 'Information_AnalysisController@register_analysis_show')->name('register_analysis_show');
+    Route::post('/register-analysis-calculate', 'Information_AnalysisController@register_analysis_calculate')->name('register_analysis_calculate');
     Route::get('/personal-communication-dynamic-analysis-show', 'Information_AnalysisController@personal_communication_dynamic_analysis_show')->name('personal_communication_dynamic_analysis_show');
+    Route::post('/personal-communication-dynamic-analysis-calculate', 'Information_AnalysisController@personal_communication_dynamic_analysis_calculate')->name('personal_communication_dynamic_analysis_calculate');
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');

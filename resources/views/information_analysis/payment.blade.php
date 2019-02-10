@@ -102,23 +102,10 @@
                         <div class="card-header">220 Dolar Altında Kaydedilen Kişi Sayısı</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-2">
+                                <div class="col-3">
                                     <div class="form-group">
-                                        <label for="name">*Adı:</label>
-                                        <input type="text" class="form-control" id="name" name="name" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col-5 px-0 mx-3 my-3">
-                        <div class="card-header">Kişisel Bilgiler</div>
-                        <div class="card-body">
-                            <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <label for="name">*Soyadı:</label>
-                                        <input type="text" class="form-control" id="surname" name="surname" readonly>
+                                        <label for="name">Kişi Sayısı:</label>
+                                        <input type="text" class="form-control" value="{{ $total_students_under_dolar }}" id="name" name="name" readonly>
                                     </div>
                                 </div>
                             </div>

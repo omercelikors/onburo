@@ -68,11 +68,11 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '100px', '100px', '100px',
+            '100px', '200px', '200px',
             '100px', '250px', '200px',
         ],
         col_types: [
-            'string', 'date', 'date',
+            'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             'string', 'string', 'string',
         ],
         extensions: [{

@@ -23,7 +23,7 @@
                                 <th>Sınıf Öğretmeni</th>
                                 <th>Katılım Durumu</th>
                                 <th>Aldığı Kurslar</th>
-                                <th>Kitap Durumu</th>
+                                <th>Acente Adı</th>
                                 <th>İşlem</th>
                             </tr>
                         </thead>
@@ -39,7 +39,7 @@
                                 <td>@if(isset($student->classroom)){{ $student->classroom->teacher_name() }} {{ $student->classroom->teacher_surname() }}@endif</td>
                                 <td>{{ $student->join_status }}</td>
                                 <td>{{ $student->taken_courses }}</td>
-                                <td>{{ $student->book_status }}</td>
+                                <td>@isset($student->agency){{ $student->agency->name }}@endisset</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>

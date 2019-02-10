@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Payment;
+use App\Classroom;
+use DateTimeZone;
 class Information_AnalysisController extends Controller
 {
     public function payment_analysis_show(){
@@ -16,7 +18,8 @@ class Information_AnalysisController extends Controller
         $usd = $open->Currency[0]->BanknoteSelling;
         $payments_number=count($payments);
         $total_debt_amount=0;
-        
+        $total_students_under_dolar=0;
+
         foreach($payments as $payment){
             $installment1_date_month=date("m",strtotime($payment->installment1_date));
             $installment2_date_month=date("m",strtotime($payment->installment2_date));
@@ -80,9 +83,23 @@ class Information_AnalysisController extends Controller
             } else if($payment->currency_unit=="Dolar"){
                 $total_debt_amount+=($debt_amount*$usd);
             }
+
+            if($payment->currency_unit=="Türk Lirası"){
+                $convert_dl=$debt_amount/$usd;
+                if($convert_dl<=220){
+                    $total_students_under_dolar++;
+                }
+            }
+
+            if($payment->currency_unit=="Dolar"){
+                if($debt_amount<=220){
+                    $total_students_under_dolar++;
+                }
+            }
+
         }
-        $average_gain=$total_debt_amount/$payments_number;
-        return view('information_analysis.payment')->with('expected_total_for_this_month_tl',$expected_total_for_this_month_tl)->with('expected_total_for_this_month_dl',$expected_total_for_this_month_dl)->with('average_gain',$average_gain);
+        $average_gain=number_format($total_debt_amount/$payments_number,2);
+        return view('information_analysis.payment')->with('expected_total_for_this_month_tl',$expected_total_for_this_month_tl)->with('expected_total_for_this_month_dl',$expected_total_for_this_month_dl)->with('average_gain',$average_gain)->with('total_students_under_dolar',$total_students_under_dolar);
     }
 
     public function payment_analysis_calculate(Request $request){
@@ -229,10 +246,31 @@ class Information_AnalysisController extends Controller
     }
 
     public function register_analysis_show(){
+
         return view('information_analysis.register');
+    }
+
+    public function register_analysis_calculate(Request $request){
+        $classroom_query_start_date=$request->input("classroom_query_start_date");
+        $classroom_query_end_date=$request->input("classroom_query_end_date");
+        $classroom_query_start_date_in_time=strtotime($classroom_query_start_date);
+        $classroom_query_end_date_in_time=strtotime($classroom_query_end_date);
+        $classroom_morning_number=0;
+        $classroom_afternoon_number=0;
+        $classrooms=Classroom::all();
+        foreach($classrooms as $classroom){
+            $classroom_created_date=$classroom->created_at->setTimezone(new DateTimeZone('Europe/Istanbul'));
+            $classroom_created_date_in_time=strtotime($classroom_created_date);
+        }
+        
+        return redirect()->back();
     }
 
     public function personal_communication_dynamic_analysis_show(){
         return view('information_analysis.p_c_d');
+    }
+
+    public function personal_communication_dynamic_analysis_calculate(){
+        return redirect()->back();
     }
 }

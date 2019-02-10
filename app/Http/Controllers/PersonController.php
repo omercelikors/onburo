@@ -11,6 +11,11 @@ use Debugbar;
 use Auth;
 class PersonController extends Controller
 {
+    public function student_other_show (){
+        $students = Person::where('status','Öğrenci')->get();
+        return view('student.info_other')->with('students',$students);
+    }
+
     public function student_register_show (){
         $classrooms=Classroom::all();
         $agencies=Agency::all();

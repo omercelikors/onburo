@@ -2,39 +2,49 @@
 @section('content')
 <main class="container-fluid mt-3">
     <div class="card">
-        <div class="card-header">Şirket Çalışanı Bilgileri</div>
+        <div class="card-header">Öğrenci Bilgileri</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('company_employee_register_show') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
+                    <a href="{{ route('student_register_show') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-12 table-responsive">
-                    <table id="company-employee-table" class="company-employee-table table table-striped">
+                    <table id="student-table" class="student-table table table-striped">
                         <thead>
                             <tr>
                                 <th>Adı</th>
                                 <th>Soyadı</th>
-                                <th>E-posta</th>
-                                <th>Telefon</th>
-                                <th>Doğum Tarihi</th>
-                                <th>Not</th>
+                                <th>Yaşı</th>
+                                <th>Medeni Durumu</th>
+                                <th>Kitap Durumu</th>
+                                <th>Çocuk Durumu</th>
+                                <th>Çocuk Yaş Aralığı</th>
+                                <th>Üniversite Durumu</th>
+                                <th>Yakın Üniversite Durumu</th>
+                                <th>Online Ders Durumu</th>
+                                <th>Ev Yardım Durumu</th>
                                 <th>İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($company_employees as $company_employee)
+                            @foreach ($students as $student)
                             <tr>
-                                <td>{{ $company_employee->name }}</td>
-                                <td>{{ $company_employee->surname }}</td>
-                                <td>{{ $company_employee->e_mail }}</td>
-                                <td>{{ $company_employee->telephone }}</td>
-                                <td>{{ $company_employee->birthdate() }}</td>
-                                <td>{{ $company_employee->note }}</td>
-                                <form action="{{ route('company_employee_edit_show', ['company_employee_id' => $company_employee->id]) }}" method="GET">
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->surname }}</td>
+                                <td></td>
+                                <td>{{ $student->marital_status }}</td>
+                                <td>{{ $student->book_status }}</td>
+                                <td>{{ $student->children_status }}</td>
+                                <td>{{ $student->children_age_range_status }}</td>
+                                <td>{{ $student->university_status }}</td>
+                                <td>{{ $student->relative_university_status }}</td>
+                                <td>{{ $student->online_lesson_status }}</td>
+                                <td>{{ $student->home_status }}</td>
+                                <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
-                                            onclick="company_employee_delete({{ $company_employee->id }})" class="btn btn-danger">Sil</button></td>
+                                            onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach
                             </tr>
@@ -67,21 +77,30 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
+        col_3: 'select',
+        col_4: 'select',
+        col_5: 'select',
+        col_7: 'select',
+        col_8: 'select',
+        col_9: 'select',
+        col_10: 'select',
         col_widths: [
-            '200px', '200px', '220px',
-            '150px', '120px', '380px',
-            '200px'
+            '150px', '150px', '120px',
+            '80px', '90px', '90px',
+            '220px', '100px', '100px',
+            '100px', '100px','160px'
         ],
         col_types: [
             'string', 'string', 'string',
-            'number', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string',
-            'string'
+            'number', 'string', 'string',
+            'string', 'string', 'string',
+            'string', 'string', 'string'
         ],
         extensions: [{
             name: 'sort'
         }]
     };
-    var tf = new TableFilter(document.querySelector('.company-employee-table'), filtersConfig);
+    var tf = new TableFilter(document.querySelector('.student-table'), filtersConfig);
     tf.init();
     document.querySelector('.tot span:nth-child(1)').innerHTML = "Satır ";
     document.querySelector('.mdiv span:nth-child(3)').innerHTML = "Sayfa ";
@@ -99,10 +118,10 @@
     $(".flt option:nth-child(1)").text("Temizle");
 </script>
 <script>
-    function company_employee_delete(company_employee_id) {
+    function student_delete(student_id) {
         swal({
                 title: "Emin misiniz?",
-                text: "Şirket çalışanı silindiğinde tekrar geri getiremezsiniz!",
+                text: "Öğrenci silindiğinde tekrar geri getiremezsiniz!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -111,16 +130,16 @@
             .then((willDelete) => {
                 if (willDelete) {
                     //send project id to be deleted from databese
-                    axios.get('/api/company-employee-delete', {
+                    axios.get('/api/student-delete', {
                             params: {
-                                id: company_employee_id
+                                id: student_id
                             }
                         })
                         .then(function (response) {
                             console.log(response);
                             swal({
                                 title: "Başarılı!",
-                                text: "Şirket çalışanı silindi!",
+                                text: "Öğrenci silindi!",
                                 icon: "success",
                                 timer: 2000,
                                 buttons: false,
@@ -132,14 +151,14 @@
                         .catch(function (error) {
                             console.log(error);
                             swal({
-                                text: "Şirket çalışanı bir hatadan dolayı silinemedi!",
-                                button: "Tamam",
+                                text: "Öğrenci bir hatadan dolayı silinemedi!",
+                                button: "Evet",
                             });
                         });
                 } else {
                     swal({
-                        text: "Şirket çalışanı silinmedi!",
-                        button: "Tamam",
+                        text: "Öğrenci silinmedi!",
+                        button: "Evet",
                     });
 
                 }

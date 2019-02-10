@@ -29,8 +29,12 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 @role('recorder')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">ÖĞRENCİ</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">ÖĞRENCİ</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('home') }}">ÖĞRENCİ</a>
+                        <a class="dropdown-item" href="{{ route('student_other_show') }}">ÖĞRENCİ DİĞER</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('teacher_info_show') }}">ÖĞRETMEN</a>
@@ -59,7 +63,7 @@
                 @endrole
                 @role('admin|recorder')
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BİLGİ VE ANALİZ</a>
+                    <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">BİLGİ VE ANALİZ</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('payment_analysis_show') }}">ÖDEME ANALİZ</a>
                         <a class="dropdown-item" href="{{ route('register_analysis_show') }}">KAYIT ANALİZ</a>
@@ -68,7 +72,7 @@
                 </li>
                 @endrole
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown">
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu p-0">
