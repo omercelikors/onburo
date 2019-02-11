@@ -11,9 +11,19 @@ use Debugbar;
 use Auth;
 class PersonController extends Controller
 {
-    public function student_other_show (){
+    public function student_other1_show (){
         $students = Person::where('status','Öğrenci')->get();
-        return view('student.info_other')->with('students',$students);
+        return view('student.info_other1')->with('students',$students);
+    }
+
+    public function student_other2_show (){
+        $students = Person::where('status','Öğrenci')->get();
+        return view('student.info_other2')->with('students',$students);
+    }
+
+    public function student_other3_show (){
+        $students = Person::where('status','Öğrenci')->get();
+        return view('student.info_other3')->with('students',$students);
     }
 
     public function student_register_show (){
@@ -45,8 +55,14 @@ class PersonController extends Controller
         if(Auth::user()->hasRole('recorder')){
             $name=$request->input('name');
             $surname=$request->input('surname');
+            date_default_timezone_set("Europe/Istanbul");
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate_in_time=strtotime($birthdate);
+            $current_date=date("d.m.Y");
+            $current_date_in_time=strtotime($current_date);
+            $age_in_time=$current_date_in_time-$birthdate_in_time;
+            $age=$age_in_time/31536000;
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
             $country=$request->input('countries');
@@ -90,6 +106,7 @@ class PersonController extends Controller
                 $student->join_status="Pasif";
             }
             $student->birthdate=$birthdate;
+            $student->age=$age;
             $student->telephone=$telephone;
             $student->e_mail=$e_mail;
             $student->country=$country;
@@ -130,8 +147,14 @@ class PersonController extends Controller
             $student->name=$request->input('name');
             $student->surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate_in_time=strtotime($birthdate);
+            $current_date=date("d.m.Y");
+            $current_date_in_time=strtotime($current_date);
+            $age_in_time=$current_date_in_time-$birthdate_in_time;
+            $age=$age_in_time/31536000;
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $student->birthdate=$birthdate;
+            $student->age=$age;
             $student->telephone=$request->input('telephone');
             $student->e_mail=$request->input('e_mail');
             $student->country=$request->input('countries');

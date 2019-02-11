@@ -21,7 +21,9 @@ Auth::routes();
 Route::group(['middleware' => ['role:recorder']], function () {
     //student pages
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/student-other-show', 'PersonController@student_other_show')->name('student_other_show');
+    Route::get('/student-other1-show', 'PersonController@student_other1_show')->name('student_other1_show');
+    Route::get('/student-other2-show', 'PersonController@student_other2_show')->name('student_other2_show');
+    Route::get('/student-other3-show', 'PersonController@student_other3_show')->name('student_other3_show');
     Route::get('/student-register-show', 'PersonController@student_register_show')->name('student_register_show');
     Route::get('/student-edit-show/{student_id}', 'PersonController@student_edit_show')->name('student_edit_show');
     Route::post('/student-register', 'PersonController@student_register')->name('student_register');

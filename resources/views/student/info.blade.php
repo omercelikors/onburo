@@ -86,7 +86,7 @@
         ],
         col_types: [
             'string', 'string','string',
-            'string', 'date',  'date',
+            'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             'string', 'string','string',
             'string', 'string'
         ],

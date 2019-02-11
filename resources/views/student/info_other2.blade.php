@@ -16,15 +16,15 @@
                             <tr>
                                 <th>Adı</th>
                                 <th>Soyadı</th>
-                                <th>Yaşı</th>
-                                <th>Medeni Durumu</th>
-                                <th>Kitap Durumu</th>
-                                <th>Çocuk Durumu</th>
-                                <th>Çocuk Yaş Aralığı</th>
-                                <th>Üniversite Durumu</th>
-                                <th>Yakın Üniversite Durumu</th>
-                                <th>Online Ders Durumu</th>
-                                <th>Ev Yardım Durumu</th>
+                                <th>Telefon</th>
+                                <th>E-posta</th>
+                                <th>Ülke</th>
+                                <th>Neden bizi tercih etti?</th>
+                                <th>Bizden Ayrılma Nedeni</th>
+                                <th>Bizden Ayrılma Nedeni Not</th>
+                                <th>Yakın Telefonu</th>
+                                <th>Vatandaşlık Yardımı</th>
+                                <th>Kaydı Yapan</th>
                                 <th>İşlem</th>
                             </tr>
                         </thead>
@@ -33,15 +33,15 @@
                             <tr>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->surname }}</td>
-                                <td></td>
-                                <td>{{ $student->marital_status }}</td>
-                                <td>{{ $student->book_status }}</td>
-                                <td>{{ $student->children_status }}</td>
-                                <td>{{ $student->children_age_range_status }}</td>
-                                <td>{{ $student->university_status }}</td>
-                                <td>{{ $student->relative_university_status }}</td>
-                                <td>{{ $student->online_lesson_status }}</td>
-                                <td>{{ $student->home_status }}</td>
+                                <td>{{ $student->telephone }}</td>
+                                <td>{{ $student->e_mail }}</td>
+                                <td>{{ $student->country }}</td>
+                                <td>{{ $student->why_choose_us }}</td>
+                                <td>{{ $student->why_abandon_us_status }}</td>
+                                <td>{{ $student->why_abandon_us_note }}</td>
+                                <td>{{ $student->relative_telephone }}</td>
+                                <td>{{ $student->citizenship_status }}</td>
+                                <td>{{ $student->registration_by }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
@@ -77,23 +77,18 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_3: 'select',
-        col_4: 'select',
-        col_5: 'select',
-        col_7: 'select',
-        col_8: 'select',
+        col_6: 'select',
         col_9: 'select',
-        col_10: 'select',
         col_widths: [
             '150px', '150px', '120px',
-            '80px', '90px', '90px',
-            '220px', '100px', '100px',
-            '100px', '100px','160px'
+            '150px', '90px', '90px',
+            '100px', '100px', '100px',
+            '120px', '100px','160px'
         ],
         col_types: [
+            'string', 'string', 'number',
             'string', 'string', 'string',
-            'number', 'string', 'string',
-            'string', 'string', 'string',
+            'string', 'string', 'number',
             'string', 'string', 'string'
         ],
         extensions: [{

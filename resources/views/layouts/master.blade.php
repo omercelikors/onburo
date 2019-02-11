@@ -33,7 +33,9 @@
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">ÖĞRENCİ</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('home') }}">ÖĞRENCİ</a>
-                        <a class="dropdown-item" href="{{ route('student_other_show') }}">ÖĞRENCİ DİĞER</a>
+                        <a class="dropdown-item" href="{{ route('student_other1_show') }}">ÖĞR.EKSTRA-1</a>
+                        <a class="dropdown-item" href="{{ route('student_other2_show') }}">ÖĞR.EKSTRA-2</a>
+                        <a class="dropdown-item" href="{{ route('student_other3_show') }}">ÖĞR.EKSTRA-3</a>
                     </div>
                 </li>
                 <li class="nav-item">
