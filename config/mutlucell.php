@@ -17,7 +17,7 @@ return [
     //use Queue service?
     'queue' => false,
     // SMS Charset
-    'charset' => 'default', // Values are: default, turkish, unicode
+    'charset' => 'turkish', // Values are: default, turkish, unicode
     //Append Unsubscribe text and link for receivers
     'append_unsubscribe_link' => false,
 ];

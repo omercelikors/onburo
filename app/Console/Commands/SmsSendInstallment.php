@@ -19,7 +19,7 @@ class SmsSendInstallment extends Command
      *
      * @var string
      */
-    protected $description = 'send sms student for their insatllment';
+    protected $description = 'send sms student for their installment';
 
     /**
      * Create a new command instance.
@@ -64,35 +64,35 @@ class SmsSendInstallment extends Command
             $rest4_day=$installment4_date_in_time-$current_date_in_time;
             $rest5_day=$installment5_date_in_time-$current_date_in_time;
             $rest6_day=$installment6_date_in_time-$current_date_in_time;
-            $telephone=$installment->person->telephone;
+            $telephone=$payment->person->telephone;
             $originator="TSC-YOS";
             if($installment1_remaining_amount != 0 && ($rest1_day==$two_days || $installment1_date_in_time==$current_date_in_time)){
-                $text=$installment->installment_date_format(1)."tarihinde".$installment1_remaining_amount.$currency_unit."tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
+                $text=$payment->installment_date_format(1)." tarihinde"." ".$installment1_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
                 $send = Mutlucell::sendBulk($telephone, $text,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }
             if($installment2_remaining_amount != 0 && ($rest2_day==$two_days || $installment2_date_in_time==$current_date_in_time)){
-                $text=$installment->installment_date_format(2)."tarihinde".$installment2_remaining_amount.$currency_unit."tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
+                $text=$payment->installment_date_format(2)." tarihinde"." ".$installment2_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
                 $send = Mutlucell::sendBulk($telephone, $text.$installment2_remaining_amount,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }
             if($installment3_remaining_amount != 0 && ($rest3_day==$two_days || $installment3_date_in_time==$current_date_in_time)){
-                $text=$installment->installment_date_format(3)."tarihinde".$installment3_remaining_amount.$currency_unit."tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
+                $text=$payment->installment_date_format(3)." tarihinde"." ".$installment3_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
                 $send = Mutlucell::sendBulk($telephone, $text.$installment3_remaining_amount,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }
             if($installment4_remaining_amount != 0 && ($rest4_day==$two_days || $installment4_date_in_time==$current_date_in_time)){
-                $text=$installment->installment_date_format(4)."tarihinde".$installment4_remaining_amount.$currency_unit."tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
+                $text=$payment->installment_date_format(4)." tarihinde"." ".$installment4_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
                 $send = Mutlucell::sendBulk($telephone, $text.$installment4_remaining_amount,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }
             if($installment5_remaining_amount != 0 && ($rest5_day==$two_days || $installment5_date_in_time==$current_date_in_time)){
-                $text=$installment->installment_date_format(5)."tarihinde".$installment5_remaining_amount.$currency_unit."tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
+                $text=$payment->installment_date_format(5)." tarihinde"." ".$installment5_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
                 $send = Mutlucell::sendBulk($telephone, $text.$installment5_remaining_amount,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }
             if($installment6_remaining_amount != 0 && ($rest6_day==$two_days || $installment6_date_in_time==$current_date_in_time)){
-                $text=$installment->installment_date_format(6)."tarihinde".$installment6_remaining_amount.$currency_unit."tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
+                $text=$payment->installment_date_format(6)." tarihinde"." ".$installment6_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
                 $send = Mutlucell::sendBulk($telephone, $text.$installment6_remaining_amount,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }

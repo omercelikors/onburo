@@ -46,11 +46,33 @@
         data: {
             labels:["Hoca Sorunu","Kişisel Nedenler","Ücret Sorunu"],
             datasets: [{
-                        label: "Ayrılma Nedeni-Öğrenci Sayısı Grafiği",
                         borderColor: 'rgb(255, 99, 132)',
                         data: abandon_numbers,
             }]
         },
+        options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Ayrılma Nedeni-Öğrenci Sayısı Grafiği'
+				},
+				animation: {
+					    animateScale: true,
+					    animateRotate: true
+				},
+                scales: {
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Öğrenci Sayısı'
+							}
+						}]
+				},
+		},
     });
 </script>
 

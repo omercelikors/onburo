@@ -9,7 +9,7 @@
                     <canvas id="age_chart" width="100" height="50"></canvas>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center mt-5">
                 <div class="col-6">
                     <canvas id="country_chart" width="100" height="50"></canvas>
                 </div>
@@ -51,11 +51,41 @@
         data: {
             labels:formatted_ages,
             datasets: [{
-                        label: "Yaş-Öğrenci Sayısı Grafiği",
                         borderColor: 'rgb(255, 99, 132)',
                         data: age_numbers,
             }]
         },
+        options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Yaş-Öğrenci Sayısı Grafiği'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				},
+                scales: {
+						xAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Öğrenci Yaşları'
+							}
+						}],
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Öğrenci Sayısı'
+							}
+						}]
+				},
+		},
+        
     });
 </script>
 <script>
@@ -88,11 +118,34 @@
             data: {
                 labels:formatted_countries,
                 datasets: [{
-                            label: "Ülke-Öğrenci Sayısı Grafiği",
                             borderColor: 'rgb(255, 99, 132)',
                             data: country_numbers,
                 }]
             },
+            options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Ülke-Öğrenci Sayısı Grafiği'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				},
+                scales: {
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Öğrenci Sayısı'
+							}
+						}]
+				},
+		    },
+
         });
 </script>
 @endsection

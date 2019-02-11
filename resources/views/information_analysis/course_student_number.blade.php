@@ -23,11 +23,24 @@
         data: {
                 labels: ["A1","B2"],
                 datasets: [{
-                    label: 'Kurs-Öğrenci Sayısı Grafiği',
                     data: [{{ $course_student_number->A1 }}, {{ $course_student_number->B2 }}],
-                    backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)'],
+                    backgroundColor: ['rgba(38, 163, 117, 0.7)','rgba(255, 163, 40, 0.7)'],
                 }]
         },
+        options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Kurs-Öğrenci Sayısı Grafiği'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+		},
     });
 </script>
 @endsection

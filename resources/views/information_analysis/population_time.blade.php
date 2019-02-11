@@ -23,11 +23,24 @@
         data: {
             labels:["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],
             datasets: [{
-                        label: "Aylar-Öğrenci Sayısı Grafiği",
                         borderColor: 'rgb(255, 99, 132)',
                         data: [{{ $_1month }},{{ $_2month }},{{ $_3month }},{{ $_4month }},{{ $_5month }},{{ $_6month }},{{ $_7month }},{{ $_8month }},{{ $_9month }},{{ $_10month }},{{ $_11month }},{{ $_12month }}],
             }]
         },
+        options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Aylar-Öğrenci Sayısı Grafiği'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+		},
     });
 </script>
 

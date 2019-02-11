@@ -46,11 +46,24 @@
         data: {
             labels:["Diğer","Facebook","Google","Instagram"],
             datasets: [{
-                        label: "Duyulan Platform-Öğrenci Sayısı Grafiği",
                         borderColor: 'rgb(255, 99, 132)',
                         data: platform_numbers,
             }]
         },
+        options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Duyulan Platform-Öğrenci Sayısı Grafiği'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+		},
     });
 </script>
 
