@@ -34,7 +34,7 @@ class PaymentController extends Controller
 
     public function payment_register_show (){
         $students=Person::where('status','Öğrenci')->get();
-        $date=date_default_timezone_set('Europe/Istanbul');
+        date_default_timezone_set('Europe/Istanbul');
         $current_date = date('d.m.Y', time());
         return view('payment.register')->with('students',$students)->with('current_date',$current_date);
     }

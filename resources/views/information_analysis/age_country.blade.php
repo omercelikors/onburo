@@ -27,7 +27,7 @@
         ages.push({{ $person->age }});
     @endforeach
     ages.sort();
-    last_ages=[];
+    formatted_ages=[];
     age_numbers=[];
 
     var current = null;
@@ -35,7 +35,7 @@
     for (var i = 0; i <= ages.length; i++) {
         if (ages[i] != current) {
             if (cnt > 0) {
-                last_ages.push(current);
+                formatted_ages.push(current);
                 age_numbers.push(cnt);
             }
             current = ages[i];
@@ -49,7 +49,7 @@
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels:last_ages,
+            labels:formatted_ages,
             datasets: [{
                         label: "Yaş-Öğrenci Sayısı Grafiği",
                         borderColor: 'rgb(255, 99, 132)',
@@ -57,6 +57,43 @@
             }]
         },
     });
+</script>
+<script>
+        countries=[];
+        @foreach($people as $person)
+            countries.push("{{ $person->country }}");
+        @endforeach
+        countries.sort();
+        formatted_countries=[];
+        country_numbers=[];
+    
+        var current = null;
+        var cnt = 0;
+        for (var i = 0; i <= countries.length; i++) {
+            if (countries[i] != current) {
+                if (cnt > 0) {
+                    formatted_countries.push(current);
+                    country_numbers.push(cnt);
+                }
+                current = countries[i];
+                cnt = 1;
+            } else {
+                cnt++;
+            }
+        }
+    
+        var ctx = $("#country_chart");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels:formatted_countries,
+                datasets: [{
+                            label: "Ülke-Öğrenci Sayısı Grafiği",
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: country_numbers,
+                }]
+            },
+        });
 </script>
 @endsection
 

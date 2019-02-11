@@ -37,12 +37,17 @@
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="#">Ayrılma Sebebi-Öğrenci Sayısı Grafiği</a>
+                    <a href="{{ route('heard_by_show') }}">Duyulan Platform-Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="#">Zaman-Öğrenci Sayısı Grafiği</a>
+                    <a href="{{ route('abandon_show') }}">Ayrılma Sebebi-Öğrenci Sayısı Grafiği</a>
+                </div>
+            </div>
+            <div class="row my-3 d-flex justify-content-center">
+                <div class="col-3">
+                    <a href="{{ route('population_time_show') }}">Zaman-Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
