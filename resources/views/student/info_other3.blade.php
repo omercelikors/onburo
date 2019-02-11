@@ -84,7 +84,7 @@
         col_8: 'select',
         col_10: 'select',
         col_widths: [
-            '150px', '150px', '80px',
+            '120px', '120px', '80px',
             '150px', '100px', '100px',
             '100px', '100px', '100px',
             '120px', '100px','160px',

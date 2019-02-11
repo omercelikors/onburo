@@ -71,12 +71,18 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/sms-send-show', 'MessageController@sms_send_show')->name('sms_send_show');
     Route::post('/sms-send','MessageController@sms_send')->name('sms_send');
     //information-analysis
-    Route::get('/payment-analysis-show', 'Information_AnalysisController@payment_analysis_show')->name('payment_analysis_show');
+    Route::get('/all-show', 'Information_AnalysisController@all_show')->name('all_show');
+    Route::get('/expected-payment-show', 'Information_AnalysisController@expected_payment_show')->name('expected_payment_show');
+    Route::post('/expected-payment-calculate', 'Information_AnalysisController@expected_payment_calculate')->name('expected_payment_calculate');
+    Route::get('/gain-payment-show', 'Information_AnalysisController@gain_payment_show')->name('gain_payment_show');
+    Route::post('/gain-payment-calculate', 'Information_AnalysisController@gain_payment_calculate')->name('gain_payment_calculate');
+    Route::get('/other-installment-show', 'Information_AnalysisController@other_installment_show')->name('other_installment_show');
+    /* Route::get('/payment-analysis-show', 'Information_AnalysisController@payment_analysis_show')->name('payment_analysis_show');
     Route::post('/payment-analysis-calculate', 'Information_AnalysisController@payment_analysis_calculate')->name('payment_analysis_calculate');
     Route::get('/register-analysis-show', 'Information_AnalysisController@register_analysis_show')->name('register_analysis_show');
     Route::post('/register-analysis-calculate', 'Information_AnalysisController@register_analysis_calculate')->name('register_analysis_calculate');
     Route::get('/personal-communication-dynamic-analysis-show', 'Information_AnalysisController@personal_communication_dynamic_analysis_show')->name('personal_communication_dynamic_analysis_show');
-    Route::post('/personal-communication-dynamic-analysis-calculate', 'Information_AnalysisController@personal_communication_dynamic_analysis_calculate')->name('personal_communication_dynamic_analysis_calculate');
+    Route::post('/personal-communication-dynamic-analysis-calculate', 'Information_AnalysisController@personal_communication_dynamic_analysis_calculate')->name('personal_communication_dynamic_analysis_calculate'); */
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');

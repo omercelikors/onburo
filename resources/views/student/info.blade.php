@@ -16,11 +16,12 @@
                             <tr>
                                 <th>Adı</th>
                                 <th>Soyadı</th>
+                                <th>Cinsiyet</th>
                                 <th>Kurs Tipi</th>
                                 <th>Kurs Vakti</th>
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
-                                <th>Sınıf Öğretmeni</th>
+                                <th>Öğretmen</th>
                                 <th>Katılım Durumu</th>
                                 <th>Aldığı Kurslar</th>
                                 <th>Acente Adı</th>
@@ -32,6 +33,7 @@
                             <tr>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->surname }}</td>
+                                <td>{{ $student->sex_status }}</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
                                 <td>@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
@@ -77,18 +79,21 @@
         status_bar: false,
         col_2: 'select',
         col_3: 'select',
+        col_4: 'select',
         col_7: 'select',
+        col_8: 'select',
+        col_9: 'select',
         col_widths: [
-            '200px', '200px', '75px',
-            '80px', '140px', '140px',
-            '200px', '90px', '90px',
-            '100px', '160px'
+            '130px', '130px', '80px',
+            '70px', '100px', '140px',
+            '140px', '130px', '90px',
+            '100px', '160px','160px'
         ],
         col_types: [
             'string', 'string','string',
-            'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
-            'string', 'string','string',
-            'string', 'string'
+            'string', 'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
+            { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string','string',
+            'string', 'string','string'
         ],
         extensions: [{
             name: 'sort'
