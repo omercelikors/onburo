@@ -82,6 +82,7 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/heard-by-show', 'Information_AnalysisController@heard_by_show')->name('heard_by_show');
     Route::get('/abandon-show', 'Information_AnalysisController@abandon_show')->name('abandon_show');
     Route::get('/population-time-show', 'Information_AnalysisController@population_time_show')->name('population_time_show');
+    Route::get('/age-range-show', 'Information_AnalysisController@age_range_show')->name('age_range_show');
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');

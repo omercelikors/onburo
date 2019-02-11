@@ -18,9 +18,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
 <script>
     platforms=[];
-    @foreach($people as $person)
-        if("{{ $person->heard_by_status }}"!=""){
-            platforms.push("{{ $person->heard_by_status }}");
+    @foreach($students as $student)
+        if("{{ $student->heard_by_status }}"!=""){
+            platforms.push("{{ $student->heard_by_status }}");
         }
     @endforeach
     platforms.sort();
@@ -41,7 +41,6 @@
             cnt++;
         }
     }
-
     var ctx = $("#heard_by_chart");
     var myBarChart  = new Chart(ctx, {
         type: 'bar',

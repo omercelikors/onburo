@@ -23,8 +23,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
 <script>
     ages=[];
-    @foreach($people as $person)
-        ages.push({{ $person->age }});
+    @foreach($students as $student)
+        ages.push({{ $student->age }});
     @endforeach
     ages.sort();
     formatted_ages=[];
@@ -60,8 +60,8 @@
 </script>
 <script>
         countries=[];
-        @foreach($people as $person)
-            countries.push("{{ $person->country }}");
+        @foreach($students as $student)
+            countries.push("{{ $student->country }}");
         @endforeach
         countries.sort();
         formatted_countries=[];

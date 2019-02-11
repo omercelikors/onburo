@@ -268,22 +268,22 @@ class Information_AnalysisController extends Controller
     }
 
     public function age_country_show(){
-        $people=Person::all();
-        return view('information_analysis.age_country')->with('people',$people);
+        $students=Person::where('status','Öğrenci')->get();
+        return view('information_analysis.age_country')->with('students',$students);
     }
 
     public function heard_by_show(){
-        $people=Person::all();
-        return view('information_analysis.heard_by')->with('people',$people);
+        $students=Person::where('status','Öğrenci')->get();
+        return view('information_analysis.heard_by')->with('students',$students);
     }
 
     public function abandon_show(){
-        $people=Person::all();
-        return view('information_analysis.abandon')->with('people',$people);
+        $students=Person::where('status','Öğrenci')->get();
+        return view('information_analysis.abandon')->with('students',$students);
     }
 
     public function population_time_show(){
-        $people=Person::all();
+        $students=Person::where('status','Öğrenci')->get();
         $_1month=0;
         $_2month=0;
         $_3month=0;
@@ -296,8 +296,8 @@ class Information_AnalysisController extends Controller
         $_10month=0;
         $_11month=0;
         $_12month=0;
-        foreach($people as $person){
-            $dt =$person->created_at->setTimezone(new DateTimeZone('Europe/Istanbul'));
+        foreach($students as $student){
+            $dt =$student->created_at->setTimezone(new DateTimeZone('Europe/Istanbul'));
             $month=date('m',strtotime($dt));
             if($month=="01"){
                 $_1month ++;
@@ -328,4 +328,8 @@ class Information_AnalysisController extends Controller
         return view('information_analysis.population_time')->with('_1month',$_1month)->with('_2month',$_2month)->with('_3month',$_3month)->with('_4month',$_4month)->with('_5month',$_5month)->with('_6month',$_6month)->with('_7month',$_7month)->with('_8month',$_8month)->with('_9month',$_9month)->with('_10month',$_10month)->with('_11month',$_11month)->with('_12month',$_12month);
     }
     
+    public function age_range_show(){
+        $students=Person::where('university_status','Evet')->get();
+        return view('information_analysis.age_range')->with('students',$students);
+    }
 }

@@ -32,11 +32,6 @@
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="#">Oturma Yeri-Öğrenci Sayısı Grafiği</a>
-                </div>
-            </div>
-            <div class="row my-3 d-flex justify-content-center">
-                <div class="col-3">
                     <a href="{{ route('heard_by_show') }}">Duyulan Platform-Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
@@ -52,7 +47,7 @@
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="#">Yaş Aralığı-Öğrenci Üniversiteye Gitme İsteği Grafiği</a>
+                    <a href="{{ route('age_range_show') }}">Yaş Aralığı-Öğrenci Üniversiteye Gitme İsteği Grafiği</a>
                 </div>
             </div>
         </div>

@@ -18,9 +18,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
 <script>
     abandons=[];
-    @foreach($people as $person)
-        if("{{ $person->why_abandon_us_status }}"!=""){
-            abandons.push("{{ $person->why_abandon_us_status }}");
+    @foreach($students as $student)
+        if("{{ $student->why_abandon_us_status }}"!=""){
+            abandons.push("{{ $student->why_abandon_us_status }}");
         }
     @endforeach
     abandons.sort();
