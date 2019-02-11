@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('sms:course')->timezone('Europe/Istanbul')->fridays();
         $schedule->command('sms:birthdate')->timezone('Europe/Istanbul')->daily();
         $schedule->command('sms:installment')->timezone('Europe/Istanbul')->daily();
-        $schedule->command('email:installment')->timezone('Europe/Istanbul'); */
+        $schedule->command('email:installment')->timezone('Europe/Istanbul')->daily(); */
     }
 
     /**

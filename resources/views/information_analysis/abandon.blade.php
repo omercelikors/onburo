@@ -26,7 +26,6 @@
     abandons.sort();
     formatted_abandons=[];
     abandon_numbers=[];
-
     var current = null;
     var cnt = 0;
     for (var i = 0; i <= abandons.length; i++) {
@@ -41,7 +40,6 @@
             cnt++;
         }
     }
-
     var ctx = $("#why_abandon_us_status_chart");
     var myBarChart  = new Chart(ctx, {
         type: 'bar',

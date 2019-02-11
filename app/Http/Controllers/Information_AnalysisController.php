@@ -9,6 +9,7 @@ use App\Person;
 use DateTimeZone;
 use DateTime;
 use App\CourseStudentNumber;
+
 class Information_AnalysisController extends Controller
 {
     public function all_show(){

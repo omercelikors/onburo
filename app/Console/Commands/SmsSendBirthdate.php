@@ -51,7 +51,8 @@ class SmsSendBirthdate extends Command
                 array_push($telephones,$person->telephone);
             }
         }
-        $text="Doğum günü";
+        $text="Turkey Study Center ailesi olarak yeni yaşınızı kutlarız. Sevdiklerinizle birlikte sağlıklı, başarılı ve mutlu bir hayat geçirmeniz dileğiyle.
+        Nice mutlu yıllara :) , As the Turkey Study Center family, we celebrate your new age. We wish you a healthy, successful and happy life with your loved ones. Happy Birthday :)";
         $originator="TSC-YOS";
         $send = Mutlucell::sendBulk($telephones, $text,'', $originator);
         var_dump(Mutlucell::parseOutput($send));

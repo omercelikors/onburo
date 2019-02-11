@@ -56,7 +56,9 @@ class SmsSendCourse extends Command
             }
         }
 
-        $text="A1";
+        $text="Merhaba. Turkey Study Center ailesine hoş geldiniz. Başka arkadaşlarınızın bilgi ve tavsiye alabilmeleri için lütfen kursumuz hakkında yorum yapar mısınız?
+        (Hello there. Welcome to the Turkey Study Center family. Could you please comment on our course so that other friends can get information and advice?): 
+        https://goo.gl/YUB6h6 Daha fazla Türkçe pratiği yapmak ve kursumuzla alakalı bilgilerden haberdar olmak için lütfen bizi takip edin (Please follow us to make more Turkish practice and to be informed about our course): https://www.instagram.com/turkeystudycenter/";
         $originator="TSC-YOS";
         $send = Mutlucell::sendBulk($A1student_telephones, $text,'', $originator);
         var_dump(Mutlucell::parseOutput($send));
@@ -74,7 +76,11 @@ class SmsSendCourse extends Command
                 }
             }
         }
-        $text="A2";
+        $text="Hala kursunu arkadaşlarına tavsiye etmedin mi? :)
+        https://goo.gl/YUB6h6
+        
+        Hala bizi takip etmiyorsan bu linki tıkla ;)
+        https://www.instagram.com/turkeystudycenter/";
         $originator="TSC-YOS";
         $send = Mutlucell::sendBulk($A2student_telephones, $text,'', $originator);
         var_dump(Mutlucell::parseOutput($send));

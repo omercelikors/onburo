@@ -26,7 +26,6 @@
     platforms.sort();
     formatted_platforms=[];
     platform_numbers=[];
-
     var current = null;
     var cnt = 0;
     for (var i = 0; i <= platforms.length; i++) {
