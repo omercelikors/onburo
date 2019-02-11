@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Payment;
 use App\Classroom;
+use App\Person;
 use DateTimeZone;
+use App\CourseStudentNumber;
 class Information_AnalysisController extends Controller
 {
     public function all_show(){
@@ -259,32 +261,14 @@ class Information_AnalysisController extends Controller
         return redirect()->back()->with('total_for_between_tl',$total_for_between_tl)->with('total_for_between_dl',$total_for_between_dl)->with('start_date',$start_date)->with('end_date',$end_date);
     }
 
-    public function register_analysis_show(){
-
-        return view('information_analysis.register');
+    public function course_student_number_show(){
+        $course_student_number=CourseStudentNumber::find(1);
+        return view('information_analysis.course_student_number')->with('course_student_number',$course_student_number);
     }
 
-    public function register_analysis_calculate(Request $request){
-        $classroom_query_start_date=$request->input("classroom_query_start_date");
-        $classroom_query_end_date=$request->input("classroom_query_end_date");
-        $classroom_query_start_date_in_time=strtotime($classroom_query_start_date);
-        $classroom_query_end_date_in_time=strtotime($classroom_query_end_date);
-        $classroom_morning_number=0;
-        $classroom_afternoon_number=0;
-        $classrooms=Classroom::all();
-        foreach($classrooms as $classroom){
-            $classroom_created_date=$classroom->created_at->setTimezone(new DateTimeZone('Europe/Istanbul'));
-            $classroom_created_date_in_time=strtotime($classroom_created_date);
-        }
-        
-        return redirect()->back();
+    public function age_country_show(){
+        $people=Person::all();
+        return view('information_analysis.age_country')->with('people',$people);
     }
-
-    public function personal_communication_dynamic_analysis_show(){
-        return view('information_analysis.p_c_d');
-    }
-
-    public function personal_communication_dynamic_analysis_calculate(){
-        return redirect()->back();
-    }
+    
 }

@@ -7,6 +7,7 @@ use App\Person;
 use App\Payment;
 use App\Classroom;
 use App\Agency;
+use App\CourseStudentNumber;
 use Debugbar;
 use Auth;
 class PersonController extends Controller
@@ -136,6 +137,17 @@ class PersonController extends Controller
             $student->heard_by_other=$heard_by_other;
             $student->demanded_education_status=$demanded_education_status;
             $student->save();
+            if(isset($classroom_id)){
+                $course_type=Classroom::find($classroom_id)->course_type;
+                $course_student_number=CourseStudentNumber::find(1);
+                if($course_type=="A1"){
+                    $course_student_number->A1=($course_student_number->A1)+1;
+                    $course_student_number->save();
+                } else if($course_type=="B2"){
+                    $course_student_number->B2=($course_student_number->B2)+1;
+                    $course_student_number->save();
+                } 
+            }
             return redirect('/home');
         }
     }
