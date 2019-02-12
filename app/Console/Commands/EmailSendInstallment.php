@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Mailgun\Mailgun;
+use App\Payment;
 class EmailSendInstallment extends Command
 {
     /**
@@ -36,13 +37,89 @@ class EmailSendInstallment extends Command
      * @return mixed
      */
     public function handle()
-    {   $mailgun_secret=env('MAILGUN_SECRET',false);
+    {   
+        date_default_timezone_set("Europe/Istanbul");
+        $current_date=date("30.03.2019");
+        $current_date_in_time=strtotime($current_date);
+        $mailgun_secret=env('MAILGUN_SECRET',false);
         $domain = env('MAILGUN_DOMAIN',false);
-        $mgClient = new Mailgun($mailgun_secret);
-        $result = $mgClient->sendMessage("$domain",
-        array  ('from'    => 'info@tsc.com',
-                'to'      => 'omerr.celikors@gmail.com',
-                'subject' => 'Hello',
-                'text'    => 'Testing some Mailgun awesomeness!'));
+        $payments=Payment::all();
+        foreach($payments as $payment){
+            $installment1_date_in_time=strtotime($payment->installment1_date);
+            $installment2_date_in_time=strtotime($payment->installment2_date);
+            $installment3_date_in_time=strtotime($payment->installment3_date);
+            $installment4_date_in_time=strtotime($payment->installment4_date);
+            $installment5_date_in_time=strtotime($payment->installment5_date);
+            $installment6_date_in_time=strtotime($payment->installment6_date);
+            $installment1_remaining_amount=$payment->installment1_remaining_amount;
+            $installment2_remaining_amount=$payment->installment2_remaining_amount;
+            $installment3_remaining_amount=$payment->installment3_remaining_amount;
+            $installment4_remaining_amount=$payment->installment4_remaining_amount;
+            $installment5_remaining_amount=$payment->installment5_remaining_amount;
+            $installment6_remaining_amount=$payment->installment6_remaining_amount;
+            $currency_unit=$payment->currency_unit;
+            $two_days=2*86400;
+            $rest1_day=$installment1_date_in_time-$current_date_in_time;
+            $rest2_day=$installment2_date_in_time-$current_date_in_time;
+            $rest3_day=$installment3_date_in_time-$current_date_in_time;
+            $rest4_day=$installment4_date_in_time-$current_date_in_time;
+            $rest5_day=$installment5_date_in_time-$current_date_in_time;
+            $rest6_day=$installment6_date_in_time-$current_date_in_time;
+            
+            if($installment1_remaining_amount != 0 && ($rest1_day==$two_days || $installment1_date_in_time==$current_date_in_time)){
+                $text="<b>"."Öğrenci Adı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->name."</span>"." "."<span style=color:red;font-weight:bold;>".$payment->person->surname."</span>"."<br>"."<b>"."Sınıfı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->classroom->course_type."</span>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<span style=color:red;font-weight:bold;>".$installment1_remaining_amount."</span>"." "."<span style=color:red;font-weight:bold;>".$currency_unit."</span>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->installment_date_format(1)."</span>";
+                $mgClient = new Mailgun($mailgun_secret);
+                $result = $mgClient->sendMessage("$domain",
+                array  ('from'    => 'info@turkeystudycenter.com',
+                        'to'      => 'omerr.celikors@gmail.com',
+                        'subject' => 'TAKSİT BİLDİRİMİ',
+                        'html'    => $text));
+            }
+            if($installment2_remaining_amount != 0 && ($rest2_day==$two_days || $installment2_date_in_time==$current_date_in_time)){
+                $text="<b>"."Öğrenci Adı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->name."</span>"." "."<span style=color:red;font-weight:bold;>".$payment->person->surname."</span>"."<br>"."<b>"."Sınıfı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->classroom->course_type."</span>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<span style=color:red;font-weight:bold;>".$installment2_remaining_amount."</span>"." "."<span style=color:red;font-weight:bold;>".$currency_unit."</span>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->installment_date_format(2)."</span>";
+                $mgClient = new Mailgun($mailgun_secret);
+                $result = $mgClient->sendMessage("$domain",
+                array  ('from'    => 'info@turkeystudycenter.com',
+                        'to'      => 'omerr.celikors@gmail.com',
+                        'subject' => 'TAKSİT BİLDİRİMİ',
+                        'html'    => $text));
+            }
+            if($installment3_remaining_amount != 0 && ($rest3_day==$two_days || $installment3_date_in_time==$current_date_in_time)){
+                $text="<b>"."Öğrenci Adı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->name."</span>"." "."<span style=color:red;font-weight:bold;>".$payment->person->surname."</span>"."<br>"."<b>"."Sınıfı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->classroom->course_type."</span>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<span style=color:red;font-weight:bold;>".$installment3_remaining_amount."</span>"." "."<span style=color:red;font-weight:bold;>".$currency_unit."</span>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->installment_date_format(3)."</span>";
+                $mgClient = new Mailgun($mailgun_secret);
+                $result = $mgClient->sendMessage("$domain",
+                array  ('from'    => 'info@turkeystudycenter.com',
+                        'to'      => 'omerr.celikors@gmail.com',
+                        'subject' => 'TAKSİT BİLDİRİMİ',
+                        'html'    => $text));
+            }
+            if($installment4_remaining_amount != 0 && ($rest4_day==$two_days || $installment4_date_in_time==$current_date_in_time)){
+                $text="<b>"."Öğrenci Adı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->name."</span>"." "."<span style=color:red;font-weight:bold;>".$payment->person->surname."</span>"."<br>"."<b>"."Sınıfı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->classroom->course_type."</span>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<span style=color:red;font-weight:bold;>".$installment4_remaining_amount."</span>"." "."<span style=color:red;font-weight:bold;>".$currency_unit."</span>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->installment_date_format(4)."</span>";
+                $mgClient = new Mailgun($mailgun_secret);
+                $result = $mgClient->sendMessage("$domain",
+                array  ('from'    => 'info@turkeystudycenter.com',
+                        'to'      => 'omerr.celikors@gmail.com',
+                        'subject' => 'TAKSİT BİLDİRİMİ',
+                        'html'    => $text));
+            }
+            if($installment5_remaining_amount != 0 && ($rest5_day==$two_days || $installment5_date_in_time==$current_date_in_time)){
+                $text="<b>"."Öğrenci Adı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->name."</span>"." "."<span style=color:red;font-weight:bold;>".$payment->person->surname."</span>"."<br>"."<b>"."Sınıfı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->classroom->course_type."</span>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<span style=color:red;font-weight:bold;>".$installment5_remaining_amount."</span>"." "."<span style=color:red;font-weight:bold;>".$currency_unit."</span>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->installment_date_format(5)."</span>";
+                $mgClient = new Mailgun($mailgun_secret);
+                $result = $mgClient->sendMessage("$domain",
+                array  ('from'    => 'info@turkeystudycenter.com',
+                        'to'      => 'omerr.celikors@gmail.com',
+                        'subject' => 'TAKSİT BİLDİRİMİ',
+                        'html'    => $text));
+            }
+            if($installment6_remaining_amount != 0 && ($rest6_day==$two_days || $installment6_date_in_time==$current_date_in_time)){
+                $text="<b>"."Öğrenci Adı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->name."</span>"." "."<span style=color:red;font-weight:bold;>".$payment->person->surname."</span>"."<br>"."<b>"."Sınıfı:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->person->classroom->course_type."</span>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<span style=color:red;font-weight:bold;>".$installment6_remaining_amount."</span>"." "."<span style=color:red;font-weight:bold;>".$currency_unit."</span>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<span style=color:red;font-weight:bold;>".$payment->installment_date_format(6)."</span>";
+                $mgClient = new Mailgun($mailgun_secret);
+                $result = $mgClient->sendMessage("$domain",
+                array  ('from'    => 'info@turkeystudycenter.com',
+                        'to'      => 'omerr.celikors@gmail.com',
+                        'subject' => 'TAKSİT BİLDİRİMİ',
+                        'html'    => $text));
+            }
+        }
     }
 }

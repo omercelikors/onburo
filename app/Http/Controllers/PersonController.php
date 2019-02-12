@@ -225,7 +225,7 @@ class PersonController extends Controller
             $name=$request->input('name');
             $surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
             $country=$request->input('country');
@@ -259,7 +259,7 @@ class PersonController extends Controller
             $candidate_student->name=$request->input('name');
             $candidate_student->surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $candidate_student->birthdate=$birthdate;
             $candidate_student->telephone=$request->input('telephone');
             $candidate_student->e_mail=$request->input('e_mail');
@@ -296,7 +296,7 @@ class PersonController extends Controller
             $name=$request->input('name');
             $surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
             $note=$request->input('note');
@@ -326,7 +326,7 @@ class PersonController extends Controller
             $company_employee->name=$request->input('name');
             $company_employee->surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $company_employee->birthdate=$birthdate;
             $company_employee->telephone=$request->input('telephone');
             $company_employee->e_mail=$request->input('e_mail');
@@ -362,7 +362,7 @@ class PersonController extends Controller
             $name=$request->input('name');
             $surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
 
@@ -390,7 +390,7 @@ class PersonController extends Controller
             $teacher->name=$request->input('name');
             $teacher->surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d H:i:s' , strtotime($birthdate));
+            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $teacher->birthdate=$birthdate;
             $teacher->telephone=$request->input('telephone');
             $teacher->e_mail=$request->input('e_mail');

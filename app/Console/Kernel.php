@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\SmsSendCourse::class,
         Commands\SmsSendInstallment::class,
         Commands\EmailSendInstallment::class,
-        
+        Commands\BirthdateRefresh::class,
     ];
 
     /**
@@ -33,7 +33,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('sms:course')->timezone('Europe/Istanbul')->fridays();
         $schedule->command('sms:birthdate')->timezone('Europe/Istanbul')->daily();
         $schedule->command('sms:installment')->timezone('Europe/Istanbul')->daily();
-        $schedule->command('email:installment')->timezone('Europe/Istanbul')->daily(); */
+        $schedule->command('email:installment')->timezone('Europe/Istanbul')->daily();
+        $schedule->command('birthdate:refresh')->timezone('Europe/Istanbul')->yearly(); */
     }
 
     /**
