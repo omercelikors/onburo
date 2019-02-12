@@ -91,7 +91,7 @@
                             text: 'Aylara Göre Öğrenci Sayısı Grafiği'
                     },
                     scales: {
-                            yAxes: [{scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {stepSize: 1}}]
+                            yAxes: [{scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {min:0,stepSize: 1}}]
                     }
 		},
     });

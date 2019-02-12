@@ -21,38 +21,27 @@
         @foreach($students as $student)
             ages.push({{ $student->age }});
         @endforeach
-        ages.sort();
-        formatted_ages=[];
-        age_numbers=[];
-    
-        var current = null;
-        var cnt = 0;
-        for (var i = 0; i <= ages.length; i++) {
-            if (ages[i] != current) {
-                if (cnt > 0) {
-                    formatted_ages.push(current);
-                    age_numbers.push(cnt);
-                }
-                current = ages[i];
-                cnt = 1;
-            } else {
-                cnt++;
-            }
+        var counts = {};
+        ages.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+        keys = [];
+        values=[];
+        for(var key in counts){
+            keys.push(key);
+            values.push(counts[key]);
         }
-       
         var ctx = $("#age_range_status_chart");
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels:formatted_ages,
-                datasets: [{borderColor: 'rgb(255, 99, 132)',data: age_numbers}]
+                labels:keys,
+                datasets: [{borderColor: 'rgb(255, 99, 132)',backgroundColor: 'rgb(255, 99, 132)',label:"Üniversiteye Gitmek İsteyen Sayısı",data: values,fill:false}]
             },
             options: {
 				responsive: true,
 				legend: {position: 'top'},
-				title: {display: true,text: 'Yaş-Üniversiteye Gitmek İsteyen Sayısı Grafiği'},
+				title: {display: true,text: 'Yaşlara Göre Üniversiteye Gitmek İsteyen Sayısı Grafiği'},
                 scales: {xAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Yaşları'}}],
-						yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Üniversiteye Gitmek İsteyen Sayısı'}}]}
+						yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Üniversiteye Gitmek İsteyen Sayısı'},ticks: {min:0,stepSize: 1}}]}
 		    },
         });
 </script>

@@ -22,32 +22,32 @@
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="{{ route('course_student_number_show') }}">Kurs-Öğrenci Sayısı Grafiği</a>
+                    <a href="{{ route('course_student_number_show') }}">Kurslara Göre Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="{{ route('age_country_show') }}">Yaş/Ülke-Öğrenci Grafiği</a>
+                    <a href="{{ route('age_country_show') }}">Yaş ve Ülkeye Göre Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="{{ route('heard_by_show') }}">Duyulan Platform-Öğrenci Sayısı Grafiği</a>
+                    <a href="{{ route('heard_by_show') }}">Duyulan Platform Göre Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="{{ route('abandon_show') }}">Ayrılma Sebebi-Öğrenci Sayısı Grafiği</a>
+                    <a href="{{ route('abandon_show') }}">Ayrılma Sebebine Göre Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
                 <div class="col-3">
-                    <a href="{{ route('population_time_show') }}">Zaman-Öğrenci Sayısı Grafiği</a>
+                    <a href="{{ route('population_time_show') }}">Aylara Göre Öğrenci Sayısı Grafiği</a>
                 </div>
             </div>
             <div class="row my-3 d-flex justify-content-center">
-                <div class="col-3">
-                    <a href="{{ route('age_range_show') }}">Yaş Aralığı-Öğrenci Üniversiteye Gitme İsteği Grafiği</a>
+                <div class="col-4">
+                    <a href="{{ route('age_range_show') }}">Yaşlara Göre Öğrencilerin Üniversiteye Gitme İsteği Grafiği</a>
                 </div>
             </div>
         </div>

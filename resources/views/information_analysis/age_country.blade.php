@@ -26,39 +26,28 @@
     @foreach($students as $student)
         ages.push({{ $student->age }});
     @endforeach
-    ages.sort();
-    formatted_ages=[];
-    age_numbers=[];
-
-    var current = null;
-    var cnt = 0;
-    for (var i = 0; i <= ages.length; i++) {
-        if (ages[i] != current) {
-            if (cnt > 0) {
-                formatted_ages.push(current);
-                age_numbers.push(cnt);
-            }
-            current = ages[i];
-            cnt = 1;
-        } else {
-            cnt++;
-        }
+    var counts = {};
+    ages.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+    console.log(counts);
+    keys = [];
+    values=[];
+    for(key in counts){
+        keys.push(key);
+        values.push(counts[key]);
     }
-   console.log(formatted_ages);
-   console.log(age_numbers);
     var ctx = $("#age_chart");
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-                labels:formatted_ages,
-                datasets: [{backgroundColor: 'rgba(38, 113, 117, 0.7)', data: age_numbers,label:"Öğrenci Sayısı",fill:false}]
+                labels:keys,
+                datasets: [{borderColor: 'rgba(38, 113, 117, 0.7)',backgroundColor: 'rgba(38, 113, 117, 0.7)', data: values,label:"Öğrenci Sayısı",fill:false}]
         },
         options: {
 				responsive: true,
 				legend: {position: 'top'},
-				title: {display: true,text: 'Yaş-Öğrenci Sayısı Grafiği'},
+				title: {display: true,text: 'Yaşlara Göre Öğrenci Sayısı Grafiği'},
                 scales: {xAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Yaşları'}}],
-						yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'}}]}
+						yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {min:0,stepSize: 1}}]}
 		},
         
     });
@@ -68,37 +57,26 @@
         @foreach($students as $student)
             countries.push("{{ $student->country }}");
         @endforeach
-        countries.sort();
-        formatted_countries=[];
-        country_numbers=[];
-    
-        var current = null;
-        var cnt = 0;
-        for (var i = 0; i <= countries.length; i++) {
-            if (countries[i] != current) {
-                if (cnt > 0) {
-                    formatted_countries.push(current);
-                    country_numbers.push(cnt);
-                }
-                current = countries[i];
-                cnt = 1;
-            } else {
-                cnt++;
-            }
+        var counts = {};
+        countries.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+        keys = [];
+        values=[];
+        for(key in counts){
+            keys.push(key);
+            values.push(counts[key]);
         }
-    
         var ctx = $("#country_chart");
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels:formatted_countries,
-                datasets: [{borderColor: 'rgb(255, 99, 132)',data: country_numbers}]
+                labels:keys,
+                datasets: [{borderColor: 'rgb(255, 99, 132)',backgroundColor:'rgb(255, 99, 132)',data: values,label:"Öğrenci Sayısı",fill:false}]
             },
             options: {
 				responsive: true,
 				legend: {position: 'top'},
-				title: {display: true,text: 'Ülke-Öğrenci Sayısı Grafiği'},
-                scales: {yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'}}]}
+				title: {display: true,text: 'Ülkelere Göre Öğrenci Sayısı Grafiği'},
+                scales: {yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {min:0,stepSize: 1}}]}
 		    },
         });
 </script>

@@ -27,7 +27,7 @@
         options: {
 				responsive: true,
 				legend: {position: 'top'},
-				title: {display: true,text: 'Kurs-Öğrenci Sayısı Grafiği'}
+				title: {display: true,text: 'Kurslara Göre Öğrenci Sayısı Grafiği'}
 		}
     });
 </script>
