@@ -44,34 +44,33 @@
     var myBarChart  = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels:["Hoca Sorunu","Kişisel Nedenler","Ücret Sorunu"],
-            datasets: [{
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: abandon_numbers,
-            }]
+                datasets:[
+                            {
+                                label: "Hoca Sorunu",
+                                backgroundColor: ['rgba(934, 133, 40, 0.7)'],
+                                data: [abandon_numbers[0]],
+                            },
+                            {
+                                label: "Kişisel Nedenler",
+                                backgroundColor: ['rgba(388, 163, 117, 0.7)'],
+                                data: [abandon_numbers[1]],
+                            },
+                            {
+                                label: "Ücret Sorunu",
+                                backgroundColor: ['rgba(148, 463, 217, 0.7)'],
+                                data: [abandon_numbers[2]],
+                            }
+                ]
         },
         options: {
-				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				title: {
-					display: true,
-					text: 'Ayrılma Nedeni-Öğrenci Sayısı Grafiği'
-				},
-				animation: {
-					    animateScale: true,
-					    animateRotate: true
-				},
-                scales: {
-						yAxes: [{
-							display: true,
-							scaleLabel: {
-								display: true,
-								labelString: 'Öğrenci Sayısı'
-							}
-						}]
-				},
+				    responsive: true,
+				    title: {
+                            display: true,
+                            text: 'Ayrılma Nedeni-Öğrenci Sayısı Grafiği'
+                    },
+                    scales: {
+                            yAxes: [{scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {stepSize: 1}}]
+                    }
 		},
     });
 </script>

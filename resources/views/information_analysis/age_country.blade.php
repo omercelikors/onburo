@@ -44,46 +44,21 @@
             cnt++;
         }
     }
-   
+   console.log(formatted_ages);
+   console.log(age_numbers);
     var ctx = $("#age_chart");
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels:formatted_ages,
-            datasets: [{
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: age_numbers,
-            }]
+                labels:formatted_ages,
+                datasets: [{backgroundColor: 'rgba(38, 113, 117, 0.7)', data: age_numbers,label:"Öğrenci Sayısı",fill:false}]
         },
         options: {
 				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				title: {
-					display: true,
-					text: 'Yaş-Öğrenci Sayısı Grafiği'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				},
-                scales: {
-						xAxes: [{
-							display: true,
-							scaleLabel: {
-								display: true,
-								labelString: 'Öğrenci Yaşları'
-							}
-						}],
-						yAxes: [{
-							display: true,
-							scaleLabel: {
-								display: true,
-								labelString: 'Öğrenci Sayısı'
-							}
-						}]
-				},
+				legend: {position: 'top'},
+				title: {display: true,text: 'Yaş-Öğrenci Sayısı Grafiği'},
+                scales: {xAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Yaşları'}}],
+						yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'}}]}
 		},
         
     });
@@ -117,35 +92,14 @@
             type: 'line',
             data: {
                 labels:formatted_countries,
-                datasets: [{
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: country_numbers,
-                }]
+                datasets: [{borderColor: 'rgb(255, 99, 132)',data: country_numbers}]
             },
             options: {
 				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				title: {
-					display: true,
-					text: 'Ülke-Öğrenci Sayısı Grafiği'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				},
-                scales: {
-						yAxes: [{
-							display: true,
-							scaleLabel: {
-								display: true,
-								labelString: 'Öğrenci Sayısı'
-							}
-						}]
-				},
+				legend: {position: 'top'},
+				title: {display: true,text: 'Ülke-Öğrenci Sayısı Grafiği'},
+                scales: {yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'}}]}
 		    },
-
         });
 </script>
 @endsection

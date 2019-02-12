@@ -44,25 +44,38 @@
     var myBarChart  = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels:["Diğer","Facebook","Google","Instagram"],
-            datasets: [{
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: platform_numbers,
-            }]
+                datasets:[
+                            {
+                                label: "Diğer",
+                                backgroundColor: ['rgba(38, 113, 117, 0.7)'],
+                                data: [platform_numbers[0]],
+                            },
+                            {
+                                label: "Facebook",
+                                backgroundColor: ['rgba(48, 63, 217, 0.7)'],
+                                data: [platform_numbers[1]],
+                            },
+                            {
+                                label: "Google",
+                                backgroundColor: ['rgba(348, 63, 217, 0.7)'],
+                                data: [platform_numbers[2]],
+                            },
+                            {
+                                label: "Instagram",
+                                backgroundColor: ['rgba(155, 163, 40, 0.7)'],
+                                data: [platform_numbers[3]],
+                            }
+                ]
         },
         options: {
-				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				title: {
-					display: true,
-					text: 'Duyulan Platform-Öğrenci Sayısı Grafiği'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				}
+				    responsive: true,
+				    title: {
+                            display: true,
+                            text: 'Duyulan Platform-Öğrenci Sayısı Grafiği'
+                    },
+                    scales: {
+                            yAxes: [{scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {stepSize: 1}}]
+                    }
 		},
     });
 </script>

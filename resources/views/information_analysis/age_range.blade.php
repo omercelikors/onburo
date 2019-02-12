@@ -45,27 +45,17 @@
             type: 'line',
             data: {
                 labels:formatted_ages,
-                datasets: [{
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: age_numbers,
-                }]
+                datasets: [{borderColor: 'rgb(255, 99, 132)',data: age_numbers}]
             },
             options: {
 				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				title: {
-					display: true,
-					text: 'Yaş-Üniversiteye Gitmek İsteyen Sayısı Grafiği'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				}
+				legend: {position: 'top'},
+				title: {display: true,text: 'Yaş-Üniversiteye Gitmek İsteyen Sayısı Grafiği'},
+                scales: {xAxes: [{display: true,scaleLabel: {display: true,labelString: 'Öğrenci Yaşları'}}],
+						yAxes: [{display: true,scaleLabel: {display: true,labelString: 'Üniversiteye Gitmek İsteyen Sayısı'}}]}
 		    },
         });
-    </script>
+</script>
 
 @endsection
 

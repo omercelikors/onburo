@@ -21,25 +21,78 @@
     var myBarChart  = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels:["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],
-            datasets: [{
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: [{{ $_1month }},{{ $_2month }},{{ $_3month }},{{ $_4month }},{{ $_5month }},{{ $_6month }},{{ $_7month }},{{ $_8month }},{{ $_9month }},{{ $_10month }},{{ $_11month }},{{ $_12month }}],
-            }]
+                datasets:[
+                            {
+                                label: "Ocak",
+                                backgroundColor: ['rgba(38, 113, 117, 0.7)'],
+                                data: [{{ $_1month }}],
+                            },
+                            {
+                                label: "Şubat",
+                                backgroundColor: ['rgba(48, 63, 217, 0.7)'],
+                                data: [{{ $_2month }}],
+                            },
+                            {
+                                label: "Mart",
+                                backgroundColor: ['rgba(348, 643, 217, 0.7)'],
+                                data: [{{ $_3month }}],
+                            },
+                            {
+                                label: "Nisan",
+                                backgroundColor: ['rgba(155, 163, 40, 0.7)'],
+                                data: [{{ $_4month }}],
+                            },
+                            {
+                                label: "Mayıs",
+                                backgroundColor: ['rgba(138, 113, 127, 0.7)'],
+                                data: [{{ $_5month }}],
+                            },
+                            {
+                                label: "Haziran",
+                                backgroundColor: ['rgba(448, 43, 17, 0.4)'],
+                                data: [{{ $_6month }}],
+                            },
+                            {
+                                label: "Temmuz",
+                                backgroundColor: ['rgba(583, 43, 297, 0.3)'],
+                                data: [{{ $_7month }}],
+                            },
+                            {
+                                label: "Ağustos",
+                                backgroundColor: ['rgba(155, 13, 490, 0.7)'],
+                                data: [{{ $_8month }}],
+                            },
+                            {
+                                label: "Eylül",
+                                backgroundColor: ['rgba(128, 613, 17, 0.7)'],
+                                data: [{{ $_9month }}],
+                            },
+                            {
+                                label: "Ekim",
+                                backgroundColor: ['rgba(48, 30, 17, 0.7)'],
+                                data: [{{ $_10month }}],
+                            },
+                            {
+                                label: "Kasım",
+                                backgroundColor: ['rgba(248, 63, 17, 0.7)'],
+                                data: [{{ $_11month }}],
+                            },
+                            {
+                                label: "Aralık",
+                                backgroundColor: ['rgba(15, 13, 40, 0.7)'],
+                                data: [{{ $_12month }}],
+                            }
+                ]
         },
         options: {
-				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				title: {
-					display: true,
-					text: 'Aylar-Öğrenci Sayısı Grafiği'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				}
+				    responsive: true,
+				    title: {
+                            display: true,
+                            text: 'Aylara Göre Öğrenci Sayısı Grafiği'
+                    },
+                    scales: {
+                            yAxes: [{scaleLabel: {display: true,labelString: 'Öğrenci Sayısı'},ticks: {stepSize: 1}}]
+                    }
 		},
     });
 </script>
