@@ -28,11 +28,16 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                @role('recorder')
+                @role('recorder|admin')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">ÖĞRENCİ</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('home') }}">ÖĞRENCİ</a>
+                        @role('recorder')
+                            <a class="dropdown-item" href="{{ route('home') }}">ÖĞRENCİ</a>
+                        @endrole
+                        @role('admin')
+                            <a class="dropdown-item" href="{{ route('student_show') }}">ÖĞRENCİ</a>
+                        @endrole
                         <a class="dropdown-item" href="{{ route('student_other1_show') }}">ÖĞR.EKSTRA-1</a>
                         <a class="dropdown-item" href="{{ route('student_other2_show') }}">ÖĞR.EKSTRA-2</a>
                         <a class="dropdown-item" href="{{ route('student_other3_show') }}">ÖĞR.EKSTRA-3</a>
@@ -63,9 +68,9 @@
                     <a class="nav-link" href="{{ route('company_employee_info_show') }}">ŞİRKET ÇALIŞANI</a>
                 </li>
                 @endrole
-                @role('admin|recorder')
+                @role('admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('all_show') }}">BİLGİ VE ANALİZ</a>
+                    <a class="nav-link" href="{{ route('home') }}">BİLGİ VE ANALİZ</a>
                 </li>
                 @endrole
                 <li class="nav-item dropdown">

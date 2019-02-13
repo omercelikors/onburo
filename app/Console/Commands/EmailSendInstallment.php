@@ -71,7 +71,7 @@ class EmailSendInstallment extends Command
                 $mgClient = new Mailgun($mailgun_secret);
                 $result = $mgClient->sendMessage("$domain",
                 array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => 'omerr.celikors@gmail.com',
+                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }
@@ -80,7 +80,7 @@ class EmailSendInstallment extends Command
                 $mgClient = new Mailgun($mailgun_secret);
                 $result = $mgClient->sendMessage("$domain",
                 array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => 'omerr.celikors@gmail.com',
+                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }
@@ -89,7 +89,7 @@ class EmailSendInstallment extends Command
                 $mgClient = new Mailgun($mailgun_secret);
                 $result = $mgClient->sendMessage("$domain",
                 array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => 'omerr.celikors@gmail.com',
+                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }
@@ -98,7 +98,7 @@ class EmailSendInstallment extends Command
                 $mgClient = new Mailgun($mailgun_secret);
                 $result = $mgClient->sendMessage("$domain",
                 array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => 'omerr.celikors@gmail.com',
+                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }
@@ -107,7 +107,7 @@ class EmailSendInstallment extends Command
                 $mgClient = new Mailgun($mailgun_secret);
                 $result = $mgClient->sendMessage("$domain",
                 array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => 'omerr.celikors@gmail.com',
+                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }
@@ -116,7 +116,7 @@ class EmailSendInstallment extends Command
                 $mgClient = new Mailgun($mailgun_secret);
                 $result = $mgClient->sendMessage("$domain",
                 array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => 'omerr.celikors@gmail.com',
+                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }

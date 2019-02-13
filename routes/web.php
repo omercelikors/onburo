@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::group(['middleware' => ['role:recorder']], function () {
+Route::group(['middleware' => ['role:recorder|admin']], function () {
     //student pages
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/student-other1-show', 'PersonController@student_other1_show')->name('student_other1_show');
@@ -70,8 +70,20 @@ Route::group(['middleware' => ['role:recorder']], function () {
     //send sms
     Route::get('/sms-send-show', 'MessageController@sms_send_show')->name('sms_send_show');
     Route::post('/sms-send','MessageController@sms_send')->name('sms_send');
+    
+    //all apis
+    Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
+    Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');
+    Route::get('/api/classroom-delete', 'ClassroomController@classroom_delete')->name('classroom_delete');
+    Route::get('/api/candidate-student-delete', 'PersonController@candidate_student_delete')->name('candidate_student_delete');
+    Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
+    Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
+    Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
+});
+
+Route::group(['middleware' => ['role:admin']], function () {
     //information-analysis
-    Route::get('/all-show', 'Information_AnalysisController@all_show')->name('all_show');
+    Route::get('/student-show', 'PersonController@student_show')->name('student_show');
     Route::get('/expected-payment-show', 'Information_AnalysisController@expected_payment_show')->name('expected_payment_show');
     Route::post('/expected-payment-calculate', 'Information_AnalysisController@expected_payment_calculate')->name('expected_payment_calculate');
     Route::get('/gain-payment-show', 'Information_AnalysisController@gain_payment_show')->name('gain_payment_show');
@@ -83,14 +95,4 @@ Route::group(['middleware' => ['role:recorder']], function () {
     Route::get('/abandon-show', 'Information_AnalysisController@abandon_show')->name('abandon_show');
     Route::get('/population-time-show', 'Information_AnalysisController@population_time_show')->name('population_time_show');
     Route::get('/age-range-show', 'Information_AnalysisController@age_range_show')->name('age_range_show');
-    //all apis
-    Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
-    Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');
-    Route::get('/api/classroom-delete', 'ClassroomController@classroom_delete')->name('classroom_delete');
-    Route::get('/api/candidate-student-delete', 'PersonController@candidate_student_delete')->name('candidate_student_delete');
-    Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
-    Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
-    Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
 });
-
-
