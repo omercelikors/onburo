@@ -40,7 +40,7 @@ class SmsSendBirthdate extends Command
     public function handle()
     {
         date_default_timezone_set("Europe/Istanbul");
-        $current_date=date("07.02.2019");
+        $current_date=date("d.m.Y");
         $current_date_in_time=strtotime($current_date);
         $telephones=[];
         $people=Person::all();

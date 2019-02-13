@@ -29,12 +29,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        /* $schedule->command('student:passive')->timezone('Europe/Istanbul')->saturdays();
-        $schedule->command('sms:course')->timezone('Europe/Istanbul')->fridays();
-        $schedule->command('sms:birthdate')->timezone('Europe/Istanbul')->daily();
-        $schedule->command('sms:installment')->timezone('Europe/Istanbul')->daily();
-        $schedule->command('email:installment')->timezone('Europe/Istanbul')->daily();
-        $schedule->command('birthdate:refresh')->timezone('Europe/Istanbul')->yearly(); */
+        $schedule->command('student:passive')->timezone('Europe/Istanbul')->saturdays()->at('22:00');
+        $schedule->command('sms:course')->timezone('Europe/Istanbul')->fridays()->at('21:00');
+        $schedule->command('sms:birthdate')->timezone('Europe/Istanbul')->dailyAt('10:00');
+        $schedule->command('sms:installment')->timezone('Europe/Istanbul')->dailyAt('09:00');
+        $schedule->command('email:installment')->timezone('Europe/Istanbul')->dailyAt('07:00');
+        $schedule->command('birthdate:refresh')->timezone('Europe/Istanbul')->yearly();
     }
 
     /**
