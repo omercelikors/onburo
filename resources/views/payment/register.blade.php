@@ -127,7 +127,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment1_amount" min="0" step="0.01"
                                             name="installment1_amount">
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment2_amount" min="0" step="0.01"
                                             name="installment2_amount">
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment3_amount" min="0" step="0.01"
                                             name="installment3_amount">
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment4_amount" min="0" step="0.01"
                                             name="installment4_amount">
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment5_amount" min="0" step="0.01"
                                             name="installment5_amount">
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment6_amount" min="0" step="0.01"
                                             name="installment6_amount">
                                     </div>
                                 </div>

@@ -134,14 +134,14 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment1_amount">Taksit-1 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment1_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment1_amount" min="0" step="0.01"
                                             value="{{ $payment->installment1_amount }}" name="installment1_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment1_paid_amount">Taksit-1 Ödenen Miktar:</label>
-                                        <input type="text" class="form-control" id="installment1_paid_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment1_paid_amount" min="0" step="0.01"
                                             value="{{ $payment->installment1_paid_amount }}" name="installment1_paid_amount">
                                     </div>
                                 </div>
@@ -173,21 +173,21 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment2_amount">Taksit-2 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment2_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment2_amount" min="0" step="0.01"
                                             value="{{ $payment->installment2_amount }}" name="installment2_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment2_paid_amount">Taksit-2 Ödenen Miktar:</label>
-                                        <input type="text" class="form-control" id="installment2_paid_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment2_paid_amount" min="0" step="0.01"
                                             value="{{ $payment->installment2_paid_amount }}" name="installment2_paid_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment2_remaining_amount">Taksit-2 Kalan Miktar:</label>
-                                        <input type="text" class="form-control" id="installment2_remaining_amount" value="{{ $payment->installment2_remaining_amount }}"
+                                        <input type="number" class="form-control" id="installment2_remaining_amount" value="{{ $payment->installment2_remaining_amount }}"
                                             name="installment2_remaining_amount" readonly>
                                     </div>
                                 </div>
@@ -211,21 +211,21 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment3_amount">Taksit-3 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment3_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment3_amount" min="0" step="0.01"
                                             value="{{ $payment->installment3_amount }}" name="installment3_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment3_paid_amount">Taksit-3 Ödenen Miktar:</label>
-                                        <input type="text" class="form-control" id="installment3_paid_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment3_paid_amount" min="0" step="0.01"
                                             value="{{ $payment->installment3_paid_amount }}" name="installment3_paid_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment3_remaining_amount">Taksit-3 Kalan Miktar:</label>
-                                        <input type="text" class="form-control" id="installment3_remaining_amount" value="{{ $payment->installment3_remaining_amount }}"
+                                        <input type="number" class="form-control" id="installment3_remaining_amount" value="{{ $payment->installment3_remaining_amount }}"
                                             name="installment3_remaining_amount" readonly>
                                     </div>
                                 </div>
@@ -249,21 +249,21 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment4_amount">Taksit-4 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment4_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment4_amount" min="0" step="0.01"
                                             value="{{ $payment->installment2_amount }}" name="installment4_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment4_paid_amount">Taksit-4 Ödenen Miktar:</label>
-                                        <input type="text" class="form-control" id="installment4_paid_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment4_paid_amount" min="0" step="0.01"
                                             value="{{ $payment->installment4_paid_amount }}" name="installment4_paid_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment4_remaining_amount">Taksit-4 Kalan Miktar:</label>
-                                        <input type="text" class="form-control" id="installment4_remaining_amount" value="{{ $payment->installment4_remaining_amount }}"
+                                        <input type="number" class="form-control" id="installment4_remaining_amount" value="{{ $payment->installment4_remaining_amount }}"
                                             name="installment4_remaining_amount" readonly>
                                     </div>
                                 </div>
@@ -287,21 +287,21 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment5_amount">Taksit-5 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment5_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment5_amount" min="0" step="0.01"
                                             value="{{ $payment->installment5_amount }}" name="installment5_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment2_paid_amount">Taksit-5 Ödenen Miktar:</label>
-                                        <input type="text" class="form-control" id="installment5_paid_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment5_paid_amount" min="0" step="0.01"
                                             value="{{ $payment->installment5_paid_amount }}" name="installment5_paid_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment5_remaining_amount">Taksit-5 Kalan Miktar:</label>
-                                        <input type="text" class="form-control" id="installment5_remaining_amount" value="{{ $payment->installment5_remaining_amount }}"
+                                        <input type="number" class="form-control" id="installment5_remaining_amount" value="{{ $payment->installment5_remaining_amount }}"
                                             name="installment5_remaining_amount" readonly>
                                     </div>
                                 </div>
@@ -325,21 +325,21 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                        <input type="text" class="form-control" id="installment6_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment6_amount" min="0" step="0.01"
                                             value="{{ $payment->installment6_amount }}" name="installment6_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment6_paid_amount">Taksit-6 Ödenen Miktar:</label>
-                                        <input type="text" class="form-control" id="installment6_paid_amount" min="0" step="0.01"
+                                        <input type="number" class="form-control" id="installment6_paid_amount" min="0" step="0.01"
                                             value="{{ $payment->installment6_paid_amount }}" name="installment6_paid_amount">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label for="installment6_remaining_amount">Taksit-6 Kalan Miktar:</label>
-                                        <input type="text" class="form-control" id="installment6_remaining_amount" value="{{ $payment->installment6_remaining_amount }}"
+                                        <input type="number" class="form-control" id="installment6_remaining_amount" value="{{ $payment->installment6_remaining_amount }}"
                                             name="installment6_remaining_amount" readonly>
                                     </div>
                                 </div>
