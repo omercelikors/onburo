@@ -68,7 +68,7 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '200px', '200px', '220px',
+            '150px', '150px', '250px',
             '150px', '120px', '380px',
             '200px'
         ],
