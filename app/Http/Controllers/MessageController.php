@@ -9,7 +9,7 @@ class MessageController extends Controller
 {
     public function sms_send_show(){
         $people=Person::all();
-        return view('sms_email.filter')->with('people',$people);
+        return view('sms.filter')->with('people',$people);
     }
 
     public function sms_send(Request $request){

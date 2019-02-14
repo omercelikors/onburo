@@ -10,13 +10,8 @@ use App\Agency;
 use App\CourseStudentNumber;
 use Debugbar;
 use Auth;
-class PersonController extends Controller
-{
-    public function student_show (){
-        $students = Person::where('status','Öğrenci')->get();
-        return view('student.info')->with('students',$students);
-    }
-
+class PersonController extends Controller{
+    
     public function student_other1_show (){
         $students = Person::where('status','Öğrenci')->get();
         return view('student.info_other1')->with('students',$students);
@@ -46,19 +41,13 @@ class PersonController extends Controller
     }
 
     public function student_delete(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $student_id=$request->input('id');
             $student = Person::find($student_id);
             $student->delete();
             $student_payments=Payment::where('person_id',$student_id)->delete();
-            return "success";
-        } else {
-            return "fail";
-        }
     }
 
     public function student_register (Request $request) {
-        if(Auth::user()->hasRole('recorder')){
             $name=$request->input('name');
             $surname=$request->input('surname');
             date_default_timezone_set("Europe/Istanbul");
@@ -154,11 +143,9 @@ class PersonController extends Controller
                 } 
             }
             return redirect('/home');
-        }
     }
 
     public function student_edit_register(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $student_id=$request->input('student_id');
             $student=Person::find($student_id);
             $student->name=$request->input('name');
@@ -213,7 +200,6 @@ class PersonController extends Controller
             $student->demanded_education_status=$request->input('demanded_education_status');
             $student->save();
             return redirect('/home');
-        }
     }
     //CANDİDATE
     public function candidate_student_info_show (){
@@ -226,7 +212,6 @@ class PersonController extends Controller
     }
 
     public function candidate_student_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $name=$request->input('name');
             $surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
@@ -249,7 +234,6 @@ class PersonController extends Controller
             $candidate_student->demanded_education_status=$demanded_education_status;
             $candidate_student->save();
             return redirect('/candidate-student-info-show');
-        }
     }
 
     public function candidate_student_edit_show ($candidate_student_id){
@@ -258,7 +242,6 @@ class PersonController extends Controller
     }
 
     public function candidate_student_edit_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $candidate_student_id=$request->input('candidate_student_id');
             $candidate_student=Person::find($candidate_student_id);
             $candidate_student->name=$request->input('name');
@@ -273,18 +256,12 @@ class PersonController extends Controller
             $candidate_student->demanded_education_status=$request->input('demanded_education_status');
             $candidate_student->save();
             return redirect('/candidate-student-info-show');
-        }
     }
 
     public function candidate_student_delete(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $candidate_student_id=$request->input('id');
             $candidate_student = Person::find($candidate_student_id);
             $candidate_student->delete();
-            return "success";
-        } else {
-            return "fail";
-            }
     }
     //COMPANY EMPLOYEE
     public function company_employee_info_show (){
@@ -297,7 +274,6 @@ class PersonController extends Controller
     }
 
     public function company_employee_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $name=$request->input('name');
             $surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
@@ -316,7 +292,6 @@ class PersonController extends Controller
             $company_employee->note=$note;
             $company_employee->save();
             return redirect('/company-employee-info-show');
-        }
     }
 
     public function company_employee_edit_show ($company_employee_id){
@@ -325,7 +300,6 @@ class PersonController extends Controller
     }
 
     public function company_employee_edit_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $company_employee_id=$request->input('company_employee_id');
             $company_employee=Person::find($company_employee_id);
             $company_employee->name=$request->input('name');
@@ -338,18 +312,12 @@ class PersonController extends Controller
             $company_employee->note=$request->input('note');
             $company_employee->save();
             return redirect('/company-employee-info-show');
-        }
     }
 
     public function company_employee_delete(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $company_employee_id=$request->input('id');
             $company_employee = Person::find($company_employee_id);
             $company_employee->delete();
-            return "success";
-        }else {
-            return "fail";
-        }
     }
 
     //TEACHER
@@ -363,7 +331,6 @@ class PersonController extends Controller
     }
 
     public function teacher_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $name=$request->input('name');
             $surname=$request->input('surname');
             $birthdate=$request->input('birthdate');
@@ -380,7 +347,6 @@ class PersonController extends Controller
             $teacher->e_mail=$e_mail;
             $teacher->save();
             return redirect('/teacher-info-show');
-        }
     }
 
     public function teacher_edit_show ($teacher_id){
@@ -389,7 +355,6 @@ class PersonController extends Controller
     }
 
     public function teacher_edit_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $teacher_id=$request->input('teacher_id');
             $teacher=Person::find($teacher_id);
             $teacher->name=$request->input('name');
@@ -401,11 +366,9 @@ class PersonController extends Controller
             $teacher->e_mail=$request->input('e_mail');
             $teacher->save();
             return redirect('/teacher-info-show');
-        }
     }
 
     public function teacher_delete(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $teacher_id=$request->input('id');
             $teacher = Person::find($teacher_id);
             $classrooms=Classroom::where('teacher_id',$teacher_id)->get();
@@ -415,9 +378,5 @@ class PersonController extends Controller
                 $classroom->save();
             }
             $teacher->delete();
-            return "success";
-        } else {
-            return "fail";
-        }
     }
 }

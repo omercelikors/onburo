@@ -32,12 +32,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">ÖĞRENCİ</a>
                     <div class="dropdown-menu">
-                        @role('recorder')
-                            <a class="dropdown-item" href="{{ route('home') }}">ÖĞRENCİ</a>
-                        @endrole
-                        @role('admin')
-                            <a class="dropdown-item" href="{{ route('student_show') }}">ÖĞRENCİ</a>
-                        @endrole
+                        <a class="dropdown-item" href="{{ route('home') }}">ÖĞRENCİ</a>
                         <a class="dropdown-item" href="{{ route('student_other1_show') }}">ÖĞR.EKSTRA-1</a>
                         <a class="dropdown-item" href="{{ route('student_other2_show') }}">ÖĞR.EKSTRA-2</a>
                         <a class="dropdown-item" href="{{ route('student_other3_show') }}">ÖĞR.EKSTRA-3</a>
@@ -56,7 +51,7 @@
                     <a class="nav-link" href="{{ route('polling_paper_show') }}">YOKLAMA KAĞIDI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('sms_send_show') }}">SMS VE E-POSTA</a>
+                    <a class="nav-link" href="{{ route('sms_send_show') }}">SMS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('agency_info_show') }}">ACENTE</a>
@@ -70,7 +65,7 @@
                 @endrole
                 @role('admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">BİLGİ VE ANALİZ</a>
+                    <a class="nav-link" href="{{ route('all_analysis_show') }}">BİLGİ VE ANALİZ</a>
                 </li>
                 @endrole
                 <li class="nav-item dropdown">

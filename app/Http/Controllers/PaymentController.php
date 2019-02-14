@@ -22,14 +22,10 @@ class PaymentController extends Controller
     }
 
     public function payment_delete(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $payment_id=$request->input('id');
             $payment = Payment::find($payment_id);
             $payment->delete();
             return "success";
-        } else {
-            return "fail";
-            }
     }
 
     public function payment_register_show (){
@@ -40,7 +36,6 @@ class PaymentController extends Controller
     }
 
     public function payment_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $person_id=$request->input('name');
             $currency_unit=$request->input('currency_unit');
             $paid_description=$request->input('paid_description');
@@ -139,11 +134,9 @@ class PaymentController extends Controller
             $payment->note= $note;
             $payment->save();
             return redirect('/payment-info-show');
-        }
     }
 
     public function payment_edit_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $payment_id=$request->input('payment_id');
             $payment=Payment::find($payment_id);
             $payment->currency_unit=$request->input('currency_unit');
@@ -225,6 +218,5 @@ class PaymentController extends Controller
             $payment->note= $request->input('note');
             $payment->save();
             return redirect('/payment-info-show');
-        }
     }
 }

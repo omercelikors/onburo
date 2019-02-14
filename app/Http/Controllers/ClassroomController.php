@@ -19,7 +19,6 @@ class ClassroomController extends Controller
     }
 
     public function classroom_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $course_type=$request->input('course_type');
             $starting_date=$request->input('starting_date');
             $starting_date=date('Y-m-d H:i:s' , strtotime($starting_date));
@@ -36,7 +35,6 @@ class ClassroomController extends Controller
             $classroom->teacher_id=$teacher_id;
             $classroom->save();
             return redirect('/classroom-info-show');
-        }
     }
 
     public function classroom_edit_show ($classroom_id){
@@ -46,7 +44,6 @@ class ClassroomController extends Controller
     }
 
     public function classroom_edit_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $classroom_id=$request->input('classroom_id');
             $classroom=Classroom::find($classroom_id);
             $classroom->course_type=$request->input('course_type');
@@ -60,12 +57,9 @@ class ClassroomController extends Controller
             $classroom->teacher_id=$request->input('teacher_id');
             $classroom->save();
             return redirect('/classroom-info-show');
-        }
     }
 
-    public function classroom_delete(Request $request)
-    {
-        if(Auth::user()->hasRole('recorder')){
+    public function classroom_delete(Request $request){
             $classroom_id=$request->input('id');
             $classroom = Classroom::find($classroom_id);
             $students=Person::where('classroom_id',$classroom_id)->get();
@@ -75,9 +69,5 @@ class ClassroomController extends Controller
                 $student->save();
             }
             $classroom->delete();
-            return "success";
-        } else {
-            return "fail";
-        }
     }
 }

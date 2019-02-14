@@ -12,6 +12,10 @@ use App\CourseStudentNumber;
 
 class Information_AnalysisController extends Controller
 {
+    public function all_analysis_show(){
+        return view('information_analysis.all');
+    }
+    
     public function expected_payment_show(){
         return view('information_analysis.expected_payment');
     }

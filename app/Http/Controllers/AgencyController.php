@@ -18,7 +18,6 @@ class AgencyController extends Controller
     }
 
     public function agency_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $name=$request->input('name');
             $note=$request->input('note');
             $agency=new Agency;
@@ -26,7 +25,6 @@ class AgencyController extends Controller
             $agency->note=$note;
             $agency->save();
             return redirect('/agency-info-show');
-        }
     }
 
     public function agency_edit_show ($agency_id){
@@ -35,18 +33,15 @@ class AgencyController extends Controller
     }
 
     public function agency_edit_register (Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $agency_id=$request->input('agency_id');
             $agency=Agency::find($agency_id);
             $agency->name=$request->input('name');
             $agency->note=$request->input('note');
             $agency->save();
             return redirect('/agency-info-show');
-        }
     }
 
     public function agency_delete(Request $request){
-        if(Auth::user()->hasRole('recorder')){
             $agency_id=$request->input('id');
             $agency = Agency::find($agency_id);
             $students=Person::where('agency_id',$agency_id)->get();
@@ -55,9 +50,5 @@ class AgencyController extends Controller
                 $student->save();
             }
             $agency->delete();
-            return "success";
-        } else {
-            return "fail";
-            }
     }
 }

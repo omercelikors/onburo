@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Person;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -25,14 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->hasRole('recorder'))
+        if(Auth::user()->hasAnyRole(['recorder','admin']))
         {
             $students = Person::where('status','Öğrenci')->get();
             return view('student.info')->with('students',$students);
-        }
-
-        if(Auth::user()->hasRole('admin')){
-            return view('information_analysis.all');
         }
     }
 }

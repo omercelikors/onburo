@@ -139,7 +139,6 @@
     document.querySelector('.lastPage').style.cursor = "pointer";
     document.querySelector('.reset').style.cursor = "pointer";
     document.querySelector('.loader').innerHTML = "Yükleniyor...";
-    document.querySelector('.fltrow td:last-child').style.display = "none";
     document.querySelector('.helpCont').innerHTML =
         "Daha detaylı bir filitreleme için aşağıdaki operatörleri kullanarak arama yapabilirsiniz.<br><b><</b>, <b><=</b>, <b>></b>, <b>>=</b>, <b>*</b>, <b>!</b>, <b>{</b>, <b>}</b>, <b>||</b>, <b>&&</b>, <b>[empty]</b>, <b>[nonempty]</b>, <b>rgx</b> <br> <a target='_blank'  href='https://github.com/koalyptus/TableFilter/wiki/4.-Filter-operators/'>Detaylı Bilgi</a>";
     $(".flt option:nth-child(1)").text("Temizle");

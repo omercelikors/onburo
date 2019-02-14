@@ -83,7 +83,7 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
 
 Route::group(['middleware' => ['role:admin']], function () {
     //information-analysis
-    Route::get('/student-show', 'PersonController@student_show')->name('student_show');
+    Route::get('/all-analysis-show', 'Information_AnalysisController@all_analysis_show')->name('all_analysis_show');
     Route::get('/expected-payment-show', 'Information_AnalysisController@expected_payment_show')->name('expected_payment_show');
     Route::post('/expected-payment-calculate', 'Information_AnalysisController@expected_payment_calculate')->name('expected_payment_calculate');
     Route::get('/gain-payment-show', 'Information_AnalysisController@gain_payment_show')->name('gain_payment_show');
