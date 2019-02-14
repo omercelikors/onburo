@@ -169,7 +169,19 @@ class PersonController extends Controller{
             $student->why_abandon_us_status=$request->input('why_abandon_us_status');
             $student->why_abandon_us_note=$request->input('why_abandon_us_note');
             $student->registration_by=Auth::user()->name;
-            $student->classroom_id=$request->input('classrooms');
+            $classroom_id=$request->input('classrooms');
+            $student->classroom_id= $classroom_id;
+            if(isset($classroom_id)){
+                $course_type=Classroom::find($classroom_id)->course_type;
+                $course_student_number=CourseStudentNumber::find(1);
+                if($course_type=="A1"){
+                    $course_student_number->A1=($course_student_number->A1)+1;
+                    $course_student_number->save();
+                } else if($course_type=="B2"){
+                    $course_student_number->B2=($course_student_number->B2)+1;
+                    $course_student_number->save();
+                } 
+            }
             $student->agency_id=$request->input('agency');
             if($student->classroom_id!=null){
                 $student->join_status="Aktif";
