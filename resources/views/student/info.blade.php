@@ -181,3 +181,5 @@
         }
 </style>
 @endsection
+
+@section('title', "Öğrenci Bilgi")

@@ -84,3 +84,4 @@
 @section('css')
 
 @endsection
+@section('title', "Şirket Çalışanı Kaydet")

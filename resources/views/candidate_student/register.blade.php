@@ -109,3 +109,4 @@
 @section('css')
 
 @endsection
+@section('title', "Aday Öğrenci Kaydet")

@@ -192,3 +192,4 @@
         }
 </style>
 @endsection
+@section('title', "SMS")

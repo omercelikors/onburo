@@ -56,3 +56,4 @@
     </div>
 </main>
 @endsection
+@section('title', "Bilgi ve Analiz Listesi")

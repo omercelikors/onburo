@@ -81,3 +81,4 @@
 @section('css')
 
 @endsection
+@section('title', "Grafik")

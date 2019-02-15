@@ -56,3 +56,4 @@
 
 </script>
 @endsection
+@section('title', "Sorgu")

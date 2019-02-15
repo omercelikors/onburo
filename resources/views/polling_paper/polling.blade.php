@@ -390,3 +390,4 @@
     }
 </style>
 @endsection
+@section('title', "Yoklama Kağıdı")

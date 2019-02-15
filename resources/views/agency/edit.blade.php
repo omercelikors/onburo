@@ -46,3 +46,4 @@
 @section('css')
 
 @endsection
+@section('title', "Acente Düzenle")

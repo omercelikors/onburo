@@ -45,3 +45,4 @@
 @section('css')
 
 @endsection
+@section('title', "Acente Kaydet")

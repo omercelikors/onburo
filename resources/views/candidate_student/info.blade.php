@@ -163,3 +163,4 @@
         }
 </style>
 @endsection
+@section('title', "Aday Öğrenci Bilgi")

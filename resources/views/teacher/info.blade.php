@@ -159,3 +159,4 @@
         }
 </style>
 @endsection
+@section('title', "Öğretmen Bilgi")

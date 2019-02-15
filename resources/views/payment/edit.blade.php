@@ -767,3 +767,4 @@
     }, 1000);
 </script>
 @endsection
+@section('title', "Ödeme Düzenle")

@@ -122,3 +122,4 @@
 @section('css')
 
 @endsection
+@section('title', "Sınıf Kaydet")

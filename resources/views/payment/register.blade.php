@@ -537,3 +537,4 @@
 @section('css')
 
 @endsection
+@section('title', "Ödeme Kaydet")

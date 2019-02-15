@@ -151,3 +151,4 @@
         }
 </style>
 @endsection
+@section('title', "Acente Bilgi")

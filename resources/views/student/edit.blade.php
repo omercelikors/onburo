@@ -845,3 +845,4 @@
 {{-- countries dropdown --}}
 <link rel="stylesheet" href="{{ asset('css/extensions/bootstrap-formhelpers.min.css') }}">
 @endsection
+@section('title', "Öğrenci Düzenle")

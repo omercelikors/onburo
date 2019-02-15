@@ -156,3 +156,4 @@
 @section('css')
 
 @endsection
+@section('title', "Sınıf Düzenle")

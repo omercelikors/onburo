@@ -132,3 +132,4 @@
 @section('css')
 
 @endsection
+@section('title', "Aday Öğrenci Düzenle")

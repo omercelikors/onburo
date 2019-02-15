@@ -76,3 +76,5 @@
 @section('css')
 
 @endsection
+
+@section('title', "Öğretmen Düzenle")

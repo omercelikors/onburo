@@ -177,3 +177,4 @@
         }
 </style>
 @endsection
+@section('title', "Ödeme Bilgi")

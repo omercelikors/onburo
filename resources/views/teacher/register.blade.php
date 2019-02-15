@@ -74,3 +74,5 @@
 @section('css')
 
 @endsection
+
+@section('title', "Öğretmen Kaydet")
