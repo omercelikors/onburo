@@ -14,18 +14,18 @@
                     <table id="student-table" class="student-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>Cinsiyet</th>
-                                <th>Kurs Tipi</th>
-                                <th>Kurs Vakti</th>
-                                <th>Başlangıç Tarihi</th>
-                                <th>Bitiş Tarihi</th>
-                                <th>Öğretmen</th>
-                                <th>Katılım Durumu</th>
-                                <th>Aldığı Kurslar</th>
-                                <th>Acente Adı</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Cinsiyet</th>
+                                <th class="align-middle">Kurs Tipi</th>
+                                <th class="align-middle">Kurs Vakti</th>
+                                <th class="align-middle">Başlangıç Tarihi</th>
+                                <th class="align-middle">Bitiş Tarihi</th>
+                                <th class="align-middle">Öğretmen</th>
+                                <th class="align-middle">Katılım Durumu</th>
+                                <th class="align-middle">Aldığı Kurslar</th>
+                                <th class="align-middle">Acente Adı</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

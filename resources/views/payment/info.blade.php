@@ -14,20 +14,20 @@
                     <table id="payment-table" class="payment-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>Ödeme Açıklaması</th>
-                                <th>Acente</th>
-                                <th>Başlangıç Borç Miktarı</th>
-                                <th>Peşin Ödenen Miktar</th>
-                                <th>Ödenecek Miktar</th>
-                                <th>1. Taksit</th>
-                                <th>2. Taksit</th>
-                                <th>3. Taksit</th>
-                                <th>4. Taksit</th>
-                                <th>5. Taksit</th>
-                                <th>6. Taksit</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Ödeme Açıklaması</th>
+                                <th class="align-middle">Acente</th>
+                                <th class="align-middle">Başlangıç Borç Miktarı</th>
+                                <th class="align-middle">Peşin Ödenen Miktar</th>
+                                <th class="align-middle">Ödenecek Miktar</th>
+                                <th class="align-middle">1. Taksit</th>
+                                <th class="align-middle">2. Taksit</th>
+                                <th class="align-middle">3. Taksit</th>
+                                <th class="align-middle">4. Taksit</th>
+                                <th class="align-middle">5. Taksit</th>
+                                <th class="align-middle">6. Taksit</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

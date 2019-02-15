@@ -14,13 +14,13 @@
                     <table id="company-employee-table" class="company-employee-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>E-posta</th>
-                                <th>Telefon</th>
-                                <th>Doğum Tarihi</th>
-                                <th>Not</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">E-posta</th>
+                                <th class="align-middle">Telefon</th>
+                                <th class="align-middle">Doğum Tarihi</th>
+                                <th class="align-middle">Not</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

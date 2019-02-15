@@ -2,7 +2,7 @@
 @section('content')
 <main class="container-fluid mt-3">
     <div class="card">
-        <div class="card-header">Öğrenci Bilgileri</div>
+        <div class="card-header">Öğrenci Bilgileri Ekstra-3</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
@@ -14,19 +14,19 @@
                     <table id="student-table" class="student-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>Çocuk Sayısı</th>
-                                <th>Konuştuğu Diller</th>
-                                <th>Üniversite Bölümü</th>
-                                <th>Üniversite Seviyesi</th>
-                                <th>Yakın İsmi</th>
-                                <th>Yakın Üniversite Seviyesi</th>
-                                <th>Bizi Nereden Duydu?</th>
-                                <th>Diğer Duyduğu Yer</th>
-                                <th>Talep Edilen Eğitimler</th>
-                                <th>Genel Not</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Çocuk Sayısı</th>
+                                <th class="align-middle">Konuştuğu Diller</th>
+                                <th class="align-middle">Üniversite Bölümü</th>
+                                <th class="align-middle">Üniversite Seviyesi</th>
+                                <th class="align-middle">Yakın İsmi</th>
+                                <th class="align-middle">Yakın Üniversite Seviyesi</th>
+                                <th class="align-middle">Bizi Nereden Duydu?</th>
+                                <th class="align-middle">Diğer Duyduğu Yer</th>
+                                <th class="align-middle">Talep Edilen Eğitimler</th>
+                                <th class="align-middle">Genel Not</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

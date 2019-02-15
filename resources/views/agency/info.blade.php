@@ -14,9 +14,9 @@
                     <table id="agency-table" class="agency-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Not</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Not</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

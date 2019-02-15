@@ -2,7 +2,7 @@
 @section('content')
 <main class="container-fluid mt-3">
     <div class="card">
-        <div class="card-header">Öğrenci Bilgileri</div>
+        <div class="card-header">Öğrenci Bilgileri Ekstra-1</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
@@ -14,18 +14,18 @@
                     <table id="student-table" class="student-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>Yaşı</th>
-                                <th>Medeni Durumu</th>
-                                <th>Kitap Durumu</th>
-                                <th>Çocuk Durumu</th>
-                                <th>Çocuk Yaş Aralığı</th>
-                                <th>Üniversite Durumu</th>
-                                <th>Yakın Üniversite Durumu</th>
-                                <th>Online Ders Durumu</th>
-                                <th>Ev Yardım Durumu</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Yaşı</th>
+                                <th class="align-middle">Medeni Durumu</th>
+                                <th class="align-middle">Kitap Durumu</th>
+                                <th class="align-middle">Çocuk Durumu</th>
+                                <th class="align-middle">Çocuk Yaş Aralığı</th>
+                                <th class="align-middle">Üniversite Durumu</th>
+                                <th class="align-middle">Yakın Üniversite Durumu</th>
+                                <th class="align-middle">Online Ders Durumu</th>
+                                <th class="align-middle">Ev Yardım Durumu</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

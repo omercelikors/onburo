@@ -14,13 +14,14 @@
                     <table id="candidate-student-table" class="candidate-student-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>Ülke</th>
-                                <th>Eğitim Türü</th>
-                                <th>E-posta</th>
-                                <th>Telefon</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Ülke</th>
+                                <th class="align-middle">Eğitim Türü</th>
+                                <th class="align-middle">E-posta</th>
+                                <th class="align-middle">Telefon</th>
+                                <th class="align-middle">Doğum Tarihi</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,7 @@
                                 <td class="align-middle">{{ $candidate_student->demanded_education }}</td>
                                 <td class="align-middle">{{ $candidate_student->e_mail }}</td>
                                 <td class="align-middle">{{ $candidate_student->telephone }}</td>
+                                <td class="align-middle">{{ $candidate_student->birthdate() }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button></td>
@@ -70,12 +72,12 @@
         col_widths: [
             '120px', '120px', '150px',
             '150px', '250px', '150px',
-            '200px'
+            '150px', '200px'
         ],
         col_types: [
             'string', 'string', 'string',
             'string', 'string', 'number',
-            'string'
+            { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string'
         ],
         extensions: [{
             name: 'sort'

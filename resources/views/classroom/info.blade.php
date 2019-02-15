@@ -15,12 +15,12 @@
                     <table id="classroom-table" class="classroom-table table table-striped">
                         <thead>
                             <tr>
-                                <th>Kurs Tipi</th>
-                                <th>Başlangıç Tarihi</th>
-                                <th>Bitiş Tarihi</th>
-                                <th>Kurs Vakti</th>
-                                <th>Öğretmen Adı</th>
-                                <th>İşlem</th>
+                                <th class="align-middle">Kurs Tipi</th>
+                                <th class="align-middle">Başlangıç Tarihi</th>
+                                <th class="align-middle">Bitiş Tarihi</th>
+                                <th class="align-middle">Kurs Vakti</th>
+                                <th class="align-middle">Öğretmen Adı</th>
+                                <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

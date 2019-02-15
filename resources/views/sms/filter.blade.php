@@ -49,17 +49,17 @@
                     <table id="people_table" class="people-table table table-striped">
                         <thead id="table_header">
                             <tr>
-                                <th>Adı</th>
-                                <th>Soyadı</th>
-                                <th>Statüsü</th>
-                                <th>Katılım Durumu</th>
-                                <th>Aldığı Kuslar</th>
-                                <th>Ülke</th>
-                                <th>Konuştuğu Diller</th>
-                                <th>Kitap Durmu</th>
-                                <th>Üniversiteye Gitme Durumu</th>
-                                <th>Ayrılma Nedeni</th>
-                                <th>Not</th>
+                                <th class="align-middle">Adı</th>
+                                <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Statüsü</th>
+                                <th class="align-middle">Katılım Durumu</th>
+                                <th class="align-middle">Aldığı Kuslar</th>
+                                <th class="align-middle">Ülke</th>
+                                <th class="align-middle">Konuştuğu Diller</th>
+                                <th class="align-middle">Kitap Durmu</th>
+                                <th class="align-middle">Üniversiteye Gitme Durumu</th>
+                                <th class="align-middle">Ayrılma Nedeni</th>
+                                <th class="align-middle">Not</th>
                             </tr>
                         </thead>
                         <tbody id="table_body">
