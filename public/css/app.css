@@ -10498,11 +10498,6 @@ a.text-dark:focus {
 
 .navbar {
   background-color: #24AFE0;
-  /* .dropdown-menu {
-      min-width: 40px;
-      width: 120px;
-      height: 30px;
-  } */
 }
 
 .navbar .fas {
@@ -10519,5 +10514,14 @@ a.text-dark:focus {
 
 caption {
   caption-side: top;
+}
+
+.exit_item {
+  height: 30px;
+  min-width: 130px;
+}
+
+.exit_item a:hover {
+  color: red;
 }
 

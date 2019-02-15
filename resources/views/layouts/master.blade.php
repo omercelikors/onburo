@@ -72,8 +72,8 @@
                     <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown">
                         {{ Auth::user()->name }}
                     </a>
-                    <div class="dropdown-menu p-0">
-                        <a class="btn text-dark py-0 pl-1" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <div class="dropdown-menu exit_item p-0">
+                        <a class="btn py-0 pl-1" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">{{
                             __('ÇIKIŞ') }}</a>
                     </div>
