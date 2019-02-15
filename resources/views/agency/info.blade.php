@@ -22,10 +22,10 @@
                         <tbody>
                             @foreach ($agencies as $agency)
                             <tr>
-                                <td>{{ $agency->name }}</td>
-                                <td>{{ $agency->note }}</td>
+                                <td class="align-middle">{{ $agency->name }}</td>
+                                <td class="align-middle">{{ $agency->note }}</td>
                                 <form action="{{ route('agency_edit_show', ['agency_id' => $agency->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="agency_delete({{ $agency->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach

@@ -26,14 +26,14 @@
                         <tbody>
                             @foreach ($classrooms as $classroom)
                             <tr>
-                                <td>{{ $classroom->course_type }}</td>
-                                <td>{{ $classroom->starting_date() }}</td>
-                                <td>{{ $classroom->end_date() }}</td>
-                                <td>{{ $classroom->time }}</td>
-                                <td>{{ $classroom->teacher_name()}} {{ $classroom->teacher_surname()}}</td>
+                                <td class="align-middle">{{ $classroom->course_type }}</td>
+                                <td class="align-middle">{{ $classroom->starting_date() }}</td>
+                                <td class="align-middle">{{ $classroom->end_date() }}</td>
+                                <td class="align-middle">{{ $classroom->time }}</td>
+                                <td class="align-middle">{{ $classroom->teacher_name()}} {{ $classroom->teacher_surname()}}</td>
                                 <form action="{{ route('classroom_edit_show', ['classroom_id' => $classroom->id]) }}"
                                     method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="classroom_delete({{ $classroom->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                             </tr>

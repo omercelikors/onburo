@@ -65,17 +65,17 @@
                         <tbody id="table_body">
                             @foreach ($people as $person)
                             <tr class="info" id="{{ $person->id }}">
-                                <td>{{ $person->name }}</td>
-                                <td>{{ $person->surname }}</td>
-                                <td>{{ $person->status }}</td>
-                                <td>{{ $person->join_status }}</td>
-                                <td>{{ $person->taken_courses }}</td>
-                                <td>{{ $person->country }}</td>
-                                <td>{{ $person->languages }}</td>
-                                <td>{{ $person->book_status }}</td>
-                                <td>{{ $person->university_status }}</td>
-                                <td>{{ $person->why_abadon_us_status }}</td>
-                                <td>{{ $person->note }}</td>
+                                <td class="align-middle">{{ $person->name }}</td>
+                                <td class="align-middle">{{ $person->surname }}</td>
+                                <td class="align-middle">{{ $person->status }}</td>
+                                <td class="align-middle">{{ $person->join_status }}</td>
+                                <td class="align-middle">{{ $person->taken_courses }}</td>
+                                <td class="align-middle">{{ $person->country }}</td>
+                                <td class="align-middle">{{ $person->languages }}</td>
+                                <td class="align-middle">{{ $person->book_status }}</td>
+                                <td class="align-middle">{{ $person->university_status }}</td>
+                                <td class="align-middle">{{ $person->why_abadon_us_status }}</td>
+                                <td class="align-middle">{{ $person->note }}</td>
                             </tr>
                             @endforeach
                         </tbody>

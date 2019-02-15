@@ -26,14 +26,14 @@
                         <tbody>
                             @foreach ($company_employees as $company_employee)
                             <tr>
-                                <td>{{ $company_employee->name }}</td>
-                                <td>{{ $company_employee->surname }}</td>
-                                <td>{{ $company_employee->e_mail }}</td>
-                                <td>{{ $company_employee->telephone }}</td>
-                                <td>{{ $company_employee->birthdate() }}</td>
-                                <td>{{ $company_employee->note }}</td>
+                                <td class="align-middle">{{ $company_employee->name }}</td>
+                                <td class="align-middle">{{ $company_employee->surname }}</td>
+                                <td class="align-middle">{{ $company_employee->e_mail }}</td>
+                                <td class="align-middle">{{ $company_employee->telephone }}</td>
+                                <td class="align-middle">{{ $company_employee->birthdate() }}</td>
+                                <td class="align-middle">{{ $company_employee->note }}</td>
                                 <form action="{{ route('company_employee_edit_show', ['company_employee_id' => $company_employee->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="company_employee_delete({{ $company_employee->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach

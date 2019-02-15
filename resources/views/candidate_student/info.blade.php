@@ -26,14 +26,14 @@
                         <tbody>
                             @foreach ($candidate_students as $candidate_student)
                             <tr>
-                                <td>{{ $candidate_student->name }}</td>
-                                <td>{{ $candidate_student->surname }}</td>
-                                <td>{{ $candidate_student->country }}</td>
-                                <td>{{ $candidate_student->demanded_education }}</td>
-                                <td>{{ $candidate_student->e_mail }}</td>
-                                <td>{{ $candidate_student->telephone }}</td>
+                                <td class="align-middle">{{ $candidate_student->name }}</td>
+                                <td class="align-middle">{{ $candidate_student->surname }}</td>
+                                <td class="align-middle">{{ $candidate_student->country }}</td>
+                                <td class="align-middle">{{ $candidate_student->demanded_education }}</td>
+                                <td class="align-middle">{{ $candidate_student->e_mail }}</td>
+                                <td class="align-middle">{{ $candidate_student->telephone }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach

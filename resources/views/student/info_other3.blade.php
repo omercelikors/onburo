@@ -32,20 +32,20 @@
                         <tbody>
                             @foreach ($students as $student)
                             <tr>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->surname }}</td>
-                                <td>{{ $student->children_number }}</td>
-                                <td>{{ $student->languages }}</td>
-                                <td>{{ $student->university_department }}</td>
-                                <td>{{ $student->education_level_status }}</td>
-                                <td>{{ $student->relative_name }}</td>
-                                <td>{{ $student->relative_education_level_status }}</td>
-                                <td>{{ $student->heard_by_status }}</td>
-                                <td>{{ $student->heard_by_other }}</td>
-                                <td>{{ $student->demanded_education_status }}</td>
-                                <td>{{ $student->note }}</td>
+                                <td class="align-middle">{{ $student->name }}</td>
+                                <td class="align-middle">{{ $student->surname }}</td>
+                                <td class="align-middle">{{ $student->children_number }}</td>
+                                <td class="align-middle">{{ $student->languages }}</td>
+                                <td class="align-middle">{{ $student->university_department }}</td>
+                                <td class="align-middle">{{ $student->education_level_status }}</td>
+                                <td class="align-middle">{{ $student->relative_name }}</td>
+                                <td class="align-middle">{{ $student->relative_education_level_status }}</td>
+                                <td class="align-middle">{{ $student->heard_by_status }}</td>
+                                <td class="align-middle">{{ $student->heard_by_other }}</td>
+                                <td class="align-middle">{{ $student->demanded_education_status }}</td>
+                                <td class="align-middle">{{ $student->note }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach

@@ -31,19 +31,19 @@
                         <tbody>
                             @foreach ($students as $student)
                             <tr>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->surname }}</td>
-                                <td>{{ $student->telephone }}</td>
-                                <td>{{ $student->e_mail }}</td>
-                                <td>{{ $student->country }}</td>
-                                <td>{{ $student->why_choose_us }}</td>
-                                <td>{{ $student->why_abandon_us_status }}</td>
-                                <td>{{ $student->why_abandon_us_note }}</td>
-                                <td>{{ $student->relative_telephone }}</td>
-                                <td>{{ $student->citizenship_status }}</td>
-                                <td>{{ $student->registration_by }}</td>
+                                <td class="align-middle">{{ $student->name }}</td>
+                                <td class="align-middle">{{ $student->surname }}</td>
+                                <td class="align-middle">{{ $student->telephone }}</td>
+                                <td class="align-middle">{{ $student->e_mail }}</td>
+                                <td class="align-middle">{{ $student->country }}</td>
+                                <td class="align-middle">{{ $student->why_choose_us }}</td>
+                                <td class="align-middle">{{ $student->why_abandon_us_status }}</td>
+                                <td class="align-middle">{{ $student->why_abandon_us_note }}</td>
+                                <td class="align-middle">{{ $student->relative_telephone }}</td>
+                                <td class="align-middle">{{ $student->citizenship_status }}</td>
+                                <td class="align-middle">{{ $student->registration_by }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach

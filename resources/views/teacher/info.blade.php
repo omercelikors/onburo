@@ -25,13 +25,13 @@
                         <tbody>
                             @foreach ($teachers as $teacher)
                             <tr>
-                                <td>{{ $teacher->name }}</td>
-                                <td>{{ $teacher->surname }}</td>
-                                <td>{{ $teacher->e_mail }}</td>
-                                <td>{{ $teacher->telephone }}</td>
-                                <td>{{ $teacher->birthdate() }}</td>
+                                <td class="align-middle">{{ $teacher->name }}</td>
+                                <td class="align-middle">{{ $teacher->surname }}</td>
+                                <td class="align-middle">{{ $teacher->e_mail }}</td>
+                                <td class="align-middle">{{ $teacher->telephone }}</td>
+                                <td class="align-middle">{{ $teacher->birthdate() }}</td>
                                 <form action="{{ route('teacher_edit_show', ['teacher_id' => $teacher->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="teacher_delete({{ $teacher->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach

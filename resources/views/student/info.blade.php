@@ -31,19 +31,19 @@
                         <tbody>
                             @foreach ($students as $student)
                             <tr>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->surname }}</td>
-                                <td>{{ $student->sex_status }}</td>
-                                <td>@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
-                                <td>@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
-                                <td>@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
-                                <td>@if(isset($student->classroom)){{ $student->classroom->end_date() }}@endif</td>
-                                <td>@if(isset($student->classroom)){{ $student->classroom->teacher_name() }} {{ $student->classroom->teacher_surname() }}@endif</td>
-                                <td>{{ $student->join_status }}</td>
-                                <td>{{ $student->taken_courses }}</td>
-                                <td>@isset($student->agency){{ $student->agency->name }}@endisset</td>
+                                <td class="align-middle">{{ $student->name }}</td>
+                                <td class="align-middle">{{ $student->surname }}</td>
+                                <td class="align-middle">{{ $student->sex_status }}</td>
+                                <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
+                                <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
+                                <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
+                                <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->end_date() }}@endif</td>
+                                <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->teacher_name() }} {{ $student->classroom->teacher_surname() }}@endif</td>
+                                <td class="align-middle">{{ $student->join_status }}</td>
+                                <td class="align-middle">{{ $student->taken_courses }}</td>
+                                <td class="align-middle">@isset($student->agency){{ $student->agency->name }}@endisset</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
-                                    <td><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
                                 </form>
                                 @endforeach
