@@ -233,6 +233,7 @@ class PersonController extends Controller{
             $country=$request->input('country');
             $note=$request->input('note');
             $demanded_education_status=$request->input('demanded_education_status');
+            $registration_by=Auth::user()->name;
 
             $candidate_student=new Person;
             $candidate_student->name=$name;
@@ -244,6 +245,7 @@ class PersonController extends Controller{
             $candidate_student->country=$country;
             $candidate_student->note=$note;
             $candidate_student->demanded_education_status=$demanded_education_status;
+            $candidate_student->registration_by=$registration_by;
             $candidate_student->save();
             return redirect('/candidate-student-info-show');
     }
@@ -266,6 +268,7 @@ class PersonController extends Controller{
             $candidate_student->country=$request->input('country');
             $candidate_student->note=$request->input('note');
             $candidate_student->demanded_education_status=$request->input('demanded_education_status');
+            $candidate_student->registration_by=Auth::user()->name;
             $candidate_student->save();
             return redirect('/candidate-student-info-show');
     }
@@ -293,6 +296,7 @@ class PersonController extends Controller{
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
             $note=$request->input('note');
+            $registration_by=Auth::user()->name;
 
             $company_employee=new Person;
             $company_employee->name=$name;
@@ -302,6 +306,7 @@ class PersonController extends Controller{
             $company_employee->telephone=$telephone;
             $company_employee->e_mail=$e_mail;
             $company_employee->note=$note;
+            $company_employee->registration_by=$registration_by;
             $company_employee->save();
             return redirect('/company-employee-info-show');
     }
@@ -322,6 +327,7 @@ class PersonController extends Controller{
             $company_employee->telephone=$request->input('telephone');
             $company_employee->e_mail=$request->input('e_mail');
             $company_employee->note=$request->input('note');
+            $company_employee->registration_by=Auth::user()->name;
             $company_employee->save();
             return redirect('/company-employee-info-show');
     }
@@ -349,6 +355,7 @@ class PersonController extends Controller{
             $birthdate=date('Y-m-d' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
+            $registration_by=Auth::user()->name;
 
             $teacher=new Person;
             $teacher->name=$name;
@@ -357,6 +364,7 @@ class PersonController extends Controller{
             $teacher->birthdate=$birthdate;
             $teacher->telephone=$telephone;
             $teacher->e_mail=$e_mail;
+            $teacher->registration_by=Auth::user()->name;
             $teacher->save();
             return redirect('/teacher-info-show');
     }
@@ -376,6 +384,7 @@ class PersonController extends Controller{
             $teacher->birthdate=$birthdate;
             $teacher->telephone=$request->input('telephone');
             $teacher->e_mail=$request->input('e_mail');
+            $teacher->registration_by=Auth::user()->name;
             $teacher->save();
             return redirect('/teacher-info-show');
     }

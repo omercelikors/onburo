@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => 1,
-            'name' => "Hikmet",
+            'name' => "TSC",
             'email' => 'tsctomer@gmail.com ',
             'password' => bcrypt('123456'),
         ]);
@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 2,
-            'name' => " Hikmet",
+            'name' => "Hikmet Y.",
             'email' => 'hikmet.y@turkeystudycenter.com',
             'password' => bcrypt('123456'),
         ]);
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 3,
-            'name' => "Halil",
+            'name' => "Halil S.",
             'email' => 'halil.s@turkeystudycenter.com',
             'password' => bcrypt('123456'),
         ]);
