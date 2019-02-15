@@ -42,14 +42,19 @@ class SmsSendBirthdate extends Command
         date_default_timezone_set("Europe/Istanbul");
         $current_date=date("d.m.Y");
         $current_date_in_time=strtotime($current_date);
+        $current_day=date("d",$current_date_in_time);
+        $current_month=date("m",$current_date_in_time);
         $telephones=[];
         $people=Person::all();
         foreach($people as $person){
             $birthdate=$person->birthdate;
             $birthdate_in_time=strtotime($birthdate);
-            if($birthdate_in_time==$current_date_in_time){
+            $birthdate_day=date("d",$birthdate_in_time);
+            $birthdate_month=date("m",$birthdate_in_time);
+            if($current_day==$birthdate_day && $current_month==$birthdate_month){
                 array_push($telephones,$person->telephone);
             }
+
         }
         $text="Turkey Study Center ailesi olarak yeni yaşınızı kutlarız. Sevdiklerinizle birlikte sağlıklı, başarılı ve mutlu bir hayat geçirmeniz dileğiyle. Nice mutlu yıllara :) , As the Turkey Study Center family, we celebrate your new age. We wish you a healthy, successful and happy life with your loved ones. Happy Birthday :)";
         $originator="TSC-YOS";

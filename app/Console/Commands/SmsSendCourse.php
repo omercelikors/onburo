@@ -74,11 +74,7 @@ class SmsSendCourse extends Command
                 }
             }
         }
-        $text="Hala kursunu arkadaşlarına tavsiye etmedin mi? :)
-        https://goo.gl/YUB6h6
-        
-        Hala bizi takip etmiyorsan bu linki tıkla ;)
-        https://www.instagram.com/turkeystudycenter/";
+        $text="Hala kursunu arkadaşlarına tavsiye etmedin mi? :) https://goo.gl/YUB6h6 Hala bizi takip etmiyorsan bu linki tıkla ;) https://www.instagram.com/turkeystudycenter/";
         $originator="TSC-YOS";
         $send = Mutlucell::sendBulk($A2student_telephones, $text,'', $originator);
         var_dump(Mutlucell::parseOutput($send));
