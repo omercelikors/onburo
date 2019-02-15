@@ -5,8 +5,8 @@
         <div class="card-header">Bilgi ve Analiz</div>
         <div class="card-body">
             <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                    <canvas id="why_abandon_us_status_chart" width="100" height="50"></canvas>
+                <div class="col-12">
+                    <canvas id="why_abandon_us_status_chart" width="100" height="30"></canvas>
                 </div>
             </div>
         </div>
