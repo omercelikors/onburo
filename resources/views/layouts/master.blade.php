@@ -69,13 +69,15 @@
                 </li>
                 @endrole
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown">
-                        {{ Auth::user()->name }}
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
-                    <div class="dropdown-menu exit_item p-0">
-                        <a class="btn py-0 pl-1" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">{{
-                            __('ÇIKIŞ') }}</a>
+
+                    <div class="dropdown-menu dropdown-menu-right exit_item" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Çıkış') }}
+                        </a>
                     </div>
                 </li>
             </ul>

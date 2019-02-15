@@ -10516,12 +10516,7 @@ caption {
   caption-side: top;
 }
 
-.exit_item {
-  height: 30px;
-  min-width: 130px;
-}
-
-.exit_item a:hover {
+.exit_item:hover a {
   color: red;
 }
 
