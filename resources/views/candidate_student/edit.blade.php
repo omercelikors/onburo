@@ -8,35 +8,35 @@
             <div class="card-header">Aday Öğrenci Düzenle</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-10 px-0 my-3">
+                    <div class="card col-11 px-0 my-3">
                         <div class="card-header">Kişisel Bilgiler</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Adı:</label>
                                         <input type="text" class="form-control" value="{{ $candidate_student->name }}" id="name" name="name" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Soyadı:</label>
                                         <input type="text" class="form-control" id="surname" value="{{ $candidate_student->surname }}" name="surname" required>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="e_mail">*E-posta Adresi:</label>
                                         <input type="email" class="form-control" id="e_mail" value="{{ $candidate_student->e_mail }}" name="e_mail" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="telephone">*Telefon:</label>
                                         <input type="number" class="form-control" id="telephone" value="{{ $candidate_student->telephone }}"name="telephone" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="birthdate">*Doğum Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="country">Ülke:</label>
                                         <select id="country" class="form-control input-medium bfh-countries" data-country="US" name="country"></select>
@@ -59,7 +59,7 @@
                         <div class="card-header">Diğer Bilgiler</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-2">
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                     <div class="form-group">
                                         <label for="demanded_education_status">Başka bir kurs istiyor mu?:</label>
                                         <select class="form-control" id="demanded_education_status" name="demanded_education_status">
@@ -70,7 +70,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                     <div class="form-group">
                                         <label for="note">Not:</label>
                                         <textarea class="form-control" rows="5" id="note" name="note">{{ $candidate_student->note }}</textarea>

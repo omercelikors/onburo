@@ -7,11 +7,11 @@
             <div class="card-header">Bilgi ve Analiz</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-6 px-0 mx-3 my-3">
+                    <div class="card col-12 col-md-12 col-xl-6 px-0 mx-3 my-3">
                         <div class="card-header">Belirli Aralıkta Beklenen Ödeme</div>
                         <div class="card-body">
                             <div class="row my-3 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="birthdate">Aralık Başlangıcı:</label>
                                         <div class="gj-margin-top-10">
@@ -20,7 +20,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="birthdate">Aralık Bitişi:</label>
                                         <div class="gj-margin-top-10">
@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="name">Beklenen Ödeme</label>
                                         <input type="text" class="form-control" value="{{ session('total_for_between_tl') }} TL + {{ session('total_for_between_dl') }} $"

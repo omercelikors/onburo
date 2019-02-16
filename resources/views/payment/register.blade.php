@@ -7,7 +7,7 @@
             <div class="card-header">Ödeme Kayıt</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
+                    <div class="col-12 col-md-4 col-xl-2">
                         <div class="form-group">
                             <label for="name">*Öğrenci Adı:</label>
                             <select class="form-control" id="name" name="name" required>
@@ -18,7 +18,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-12 col-md-3 col-xl-2">
                         <div class="form-group">
                             <label for="paid_description">*Ödeme Açıklamsı:</label>
                             <select id="paid_description" class="form-control" name="paid_description" required>
@@ -36,11 +36,11 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-9 px-0 my-3 mx-2">
+                    <div class="card col-12 col-xl-11 px-0 my-3 mx-2">
                         <div class="card-header">Borç Bilgileri</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div>
                                         <label>*Para Birimi:</label>
                                     </div>
@@ -57,21 +57,21 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="debt_amount">*Borç Miktarı:</label>
                                         <input type="number" class="form-control" id="debt_amount" min="0" step="0.01"
                                             name="debt_amount" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="cash_paid_amount">*Peşin Ödenen Miktar:</label>
                                         <input type="number" class="form-control" id="cash_paid_amount" min="0" step="0.01"
                                             name="cash_paid_amount" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="cash_paid_amount_date">*Peşin Ödeme Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -80,7 +80,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="total_remaining_amount">Toplam Kalan Miktar:</label>
                                         <input type="number" class="form-control" id="total_remaining_amount" name="total_remaining_amount"
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card col-2 px-0 my-3">
+                    <div class="card col-12 col-md-4 px-0 my-3">
                         <div class="card-header">Taksitlendirme Yardımcısı</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-2">
+                    <div class="col-12 col-md-3 col-xl-2">
                         <div class="form-group">
                             <label for="installment_number">Taksit Sayısı:</label>
                             <select class="form-control" id="installment_number" name="installment_number">
@@ -120,18 +120,18 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-4 px-0 my-3 mx-3">
+                    <div class="card col-12 col-md-6 col-xl-4 px-0 my-3 mx-3">
                         <div class="card-header">Taksit-1</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment1_amount">Taksit-1 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment1_amount" min="0" step="0.01"
                                             name="installment1_amount">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment1_date">Taksit-1 Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -143,18 +143,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card col-4 px-0 my-3 mx-3">
+                    <div class="card col-12 col-md-6 col-xl-4 px-0 my-3 mx-3">
                         <div class="card-header">Taksit-2</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-6 col-md-6">
                                     <div class="form-group">
                                         <label for="installment2_amount">Taksit-2 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment2_amount" min="0" step="0.01"
                                             name="installment2_amount">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment2_date">Taksit-2 Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -168,18 +168,18 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-4 px-0 my-3 mx-3">
+                    <div class="card col-12 col-md-6 col-xl-4 px-0 my-3 mx-3">
                         <div class="card-header">Taksit-3</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment3_amount">Taksit-3 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment3_amount" min="0" step="0.01"
                                             name="installment3_amount">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment3_date">Taksit-3 Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -191,18 +191,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card col-4 px-0 my-3 mx-3">
+                    <div class="card col-12 col-md-6 col-xl-4 px-0 my-3 mx-3">
                         <div class="card-header">Taksit-4</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment4_amount">Taksit-4 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment4_amount" min="0" step="0.01"
                                             name="installment4_amount">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment4_date">Taksit-4 Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -216,18 +216,18 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-4 px-0 my-3 mx-3">
+                    <div class="card col-12 col-md-6 col-xl-4 px-0 my-3 mx-3">
                         <div class="card-header">Taksit-5</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment5_amount">Taksit-5 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment5_amount" min="0" step="0.01"
                                             name="installment5_amount">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment5_date">Taksit-5 Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -239,18 +239,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card col-4 px-0 my-3 mx-3">
+                    <div class="card col-12 col-md-6 col-xl-4 px-0 my-3 mx-3">
                         <div class="card-header">Taksit-6</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment6_amount">Taksit-6 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment6_amount" min="0" step="0.01"
                                             name="installment6_amount">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="installment6_date">Taksit-6 Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -264,7 +264,7 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="col-4">
+                    <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="note">Not:</label>
                             <textarea class="form-control" rows="5" id="note" name="note"></textarea>

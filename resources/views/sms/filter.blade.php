@@ -1,11 +1,6 @@
 @extends('layouts.master')
 @section('content')
 <main class="container-fluid mt-3">
-    {{-- @if (session('status'))
-        <div class="alert @if(session('status')=="İşlem Başarılı!") alert-success @elseif(session('status')=="İşlem Başarısız!") alert-danger @endif">
-            {{ session('status') }}
-        </div>
-    @endif --}}
     <div class="card">
         <div class="card-header">Tüm Kişiler</div>
         <div class="card-body">
@@ -13,7 +8,7 @@
                 @csrf
                 <input id="people_id" type="hidden" class="form-control" name="people_id[]">
                 <div class="row my-2 d-flex justify-content-center align-content-center align-items-center">
-                    <div class="col-2">
+                    <div class="col-12 col-md-3 col-xl-2">
                         <div class="form-group">
                             <label for="originator">*Gönderici adı seçiniz:</label>
                             <select class="form-control" id="originator" name="originator" required>
@@ -24,7 +19,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-12 col-md-4 col-xl-2">
                         <div class="form-group">
                             <label for="send_datetime">*Gönderme tarih ve zamanı:</label>
                             <div class="gj-margin-top-10">
@@ -33,13 +28,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-md-3 col-xl-4">
                         <div class="form-group">
                             <label for="note">*Mesaj metni:</label>
                             <textarea class="form-control" rows="5" id="text" name="text" required></textarea>
                         </div>
                     </div>
-                    <div class="col-1">
+                    <div class="col-12 col-md-1 col-xl-1">
                         <button id="sms_send_button" class="btn btn-primary" type="submit">Gönder</button>
                     </div>
                 </div>

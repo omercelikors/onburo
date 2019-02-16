@@ -2,14 +2,14 @@
 @section('content')
 <main class="container-fluid mt-3">
         <div class="card my-3">
-            <div class="card-header">Sınıflar</div>
+            <div class="card-header">Yoklama Cetveli</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-10 px-0 my-3">
+                    <div class="card col-12 col-lg-12 col-xl-10 px-0 my-3">
                         <div class="card-header">Sınıflar</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-5">
+                                <div class="col-12 col-lg-6 col-xl-5">
                                     <div>
                                         <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
                                     </div>
@@ -60,7 +60,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-12 col-lg-6 col-xl-5">
                                     <div class="form-group">
                                         <label for="classrooms">Sınıflar:</label>
                                         <select onchange="polling_paper_header();polling_paper_body();" form="polling_paper_download" class="form-control" id="classrooms" name="classrooms" required></select>

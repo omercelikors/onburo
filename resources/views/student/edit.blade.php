@@ -7,31 +7,30 @@
         <div class="card my-3">
             <div class="card-header">Öğrenci Düzenle</div>
             <div class="card-body">
-
                 <div class="row d-flex justify-content-center my-2">
-                    <div class="card col-8 px-0 my-3">
+                    <div class="card col-12 col-md-12 col-xl-8 px-0 my-3">
                         <div class="card-header">Kişisel Bilgiler</div>
                         <div class="card-body">
                             <div class="row d-flex justify-content-center my-2">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="name">*Adı:</label>
                                         <input type="text" class="form-control" id="name" name="name" value="{{ $student->name }}" required>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="surname">*Soyadı:</label>
                                         <input type="text" class="form-control" id="surname" name="surname" value="{{ $student->surname }}" required>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="e_mail">*E-posta Adresi:</label>
                                         <input type="email" class="form-control" id="e_mail" name="e_mail" value="{{ $student->e_mail }}" required>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="telephone">*Telefon:</label>
                                         <input type="number" class="form-control" id="telephone" value="{{ $student->telephone }}" name="telephone"
@@ -40,27 +39,27 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center my-2">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <label for="birthdate">*Doğum Tarihi:</label>
                                     <div class="gj-margin-top-10">
                                         <input id="birthdate" name="birthdate" autocomplete="off" value="{{ $student->birthdate() }}"
                                             required>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="languages">*Konuştuğu Diller:</label>
                                         <select id="languages" class="form-control input-medium bfh-languages"
                                             data-language="US" name="languages[]" multiple required></select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="countries">Ülke:</label>
                                         <select class="form-control input-medium bfh-countries" id="countries" data-country="US" name="countries"></select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div>
                                         <label>*Kitap aldı mı?:</label>
                                     </div>
@@ -79,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center my-2">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="agency">Acente:</label>
                                         <select id="agency" class="form-control" name="agency">
@@ -90,13 +89,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-4 col-xl-3">
                                     <div class="form-group">
                                         <label for="why_choose_us">Neden bizi tercih etti?:</label>
                                         <textarea class="form-control" rows="5" id="why_choose_us" name="why_choose_us">{{ $student->why_choose_us }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-4 col-xl-3">
                                     <div class="form-group">
                                         <label for="why_abandon_us_status">Neden bizden ayrılmak istiyor?:</label>
                                         <select class="form-control" id="why_abandon_us_status" name="why_abandon_us_status">
@@ -107,7 +106,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-5 col-xl-3">
                                     <div class="form-group">
                                         <label for="why_abandon_us">Ayrılma nedeni açıklaması:</label>
                                         <textarea class="form-control" rows="5" id="why_abandon_us_note" name="why_abandon_us_note">{{ $student->why_abandon_us_note }}</textarea>
@@ -118,11 +117,11 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center my-2">
-                    <div class="card col-8 my-3 px-0">
+                    <div class="card col-12 col-md-12 col-xl-8 my-3 px-0">
                         <div class="card-header">Sınıflar</div>
                         <div class="card-body">
                             <div class="row d-flex justify-content-center my-2">
-                                <div class="col-7">
+                                <div class="col-12 col-md-8 col-xl-7">
                                     <div>
                                         <label>Kurs Tipi(<small>Sınıfları kurs tipini seçerek filitreyebilirsiniz</small>):</label>
                                     </div>
@@ -175,30 +174,27 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center my-2">
-                                <div class="col-7">
+                                <div class="col-12 col-md-8 col-xl-7">
                                     <div class="form-group">
                                         <label for="classrooms">Sınıflar:</label>
                                         <select class="form-control" id="classrooms" name="classrooms"></select>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="card my-3">
             <div class="card-header">Kişisel İletişim Dinamikleri</div>
             <div class="card-body">
-
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-4 my-3 px-0">
+                    <div class="card col-12 col-md-12 col-xl-4 my-3 px-0">
                         <div class="card-header">Cinsiyet-Evlilik</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-4">
+                                <div class="col-12 col-md-4 col-xl-4">
                                     <div>
                                         <label>Cinsiyet:</label>
                                     </div>
@@ -213,7 +209,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-md-4 col-xl-4">
                                     <div>
                                         <label>Evlilik Durumu:</label>
                                     </div>
@@ -233,11 +229,11 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-8 my-3 px-0">
+                    <div class="card col-12 col-md-12 col-xl-8 my-3 px-0">
                         <div class="card-header">Üniversite ve Çocuk Bilgileri</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div>
                                         <label>Üniversiteye gitmek isiyor mu?:</label>
                                     </div>
@@ -254,14 +250,14 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="university_department">Hangi bölümde okumak istiyor?:</label>
                                         <input id="university_department" type="text" class="form-control" id="university_department"
                                             value="{{ $student->university_department }}" name="university_department">
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="education_level_status">Almayı düşündüğü eğitim:</label>
                                         <select class="form-control" id="education_level_status" name="education_level_status">
@@ -275,7 +271,7 @@
                                 </div>
                             </div>
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div>
                                         <label>Çocuk Durumu:</label>
                                     </div>
@@ -292,13 +288,13 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="children_number">Çocuk Sayısı:</label>
                                         <input type="number" class="form-control" id="children_number" value="{{ $student->children_number }}" name="children_number">
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="children_age_range_status">Çocuk Yaş Aralığı:</label>
                                         <select class="form-control" id="children_age_range_status" name="children_age_range_status[]"
@@ -313,7 +309,7 @@
                                 </div>
                             </div>
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-5 col-xl-3">
                                     <div class="form-group">
                                         <label for="note">Not:</label>
                                         <textarea class="form-control" rows="5" id="note" name="note">{{ $student->note }}</textarea>
@@ -324,11 +320,11 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-9 my-3 px-0">
+                    <div class="card col-12 col-md-12 col-xl-9 my-3 px-0">
                         <div class="card-header">Yakın Bilgileri</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-4">
+                                <div class="col-12 col-md-3 col-xl-4">
                                     <div>
                                         <label>Üniversiteye gitmek isteyen yakını var mı?:</label>
                                     </div>
@@ -345,19 +341,19 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="relative_name">Yakın İsmi:</label>
                                         <input type="text" class="form-control" id="relative_name" value="{{ $student->relative_name }}" name="relative_name">
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="relative_telephone">Yakın Telefonu:</label>
                                         <input type="number" class="form-control" id="relative_telephone" value="{{ $student->relative_telephone }}" name="relative_telephone">
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-4 col-xl-3">
                                     <div class="form-group">
                                         <label for="education_level_status">Almayı düşündüğü eğitim:</label>
                                         <select class="form-control" id="relative_education_level_status" name="relative_education_level_status">
@@ -370,17 +366,16 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-9 my-3 px-0">
+                    <div class="card col-12 col-md-12 col-xl-9 my-3 px-0">
                         <div class="card-header">Diğer Bilgiler</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-6 col-3">
                                     <div>
                                         <label>Online ders istiyor mu?:</label>
                                     </div>
@@ -395,7 +390,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-md-6 col-xl-4">
                                     <div>
                                         <label>Vatandaşlık işlemleri için yardım istiyor mu?:</label>
                                     </div>
@@ -410,7 +405,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-md-6 col-xl-4">
                                     <div>
                                         <label>Ev almak veya kiralamak için yardım istiyor mu?:</label>
                                     </div>
@@ -427,7 +422,7 @@
                                 </div>
                             </div>
                             <div class="row my-4 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="heard_by_status">Bizi nereden duydu?:</label>
                                         <select class="form-control" id="heard_by_status" name="heard_by_status">
@@ -439,13 +434,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-md-4 col-xl-4">
                                     <div class="form-group">
                                         <label for="heard_by">Bizi nereden duydu?(Diğer):</label>
                                         <input type="text" class="form-control" id="heard_by_other" value="{{ $student->heard_by_other }}" name="heard_by_other">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-md-4 col-xl-4">
                                     <div class="form-group">
                                         <label for="demanded_education_status">Başka bir kurs istiyor mu?:</label>
                                         <select class="form-control" id="demanded_education_status" name="demanded_education_status">

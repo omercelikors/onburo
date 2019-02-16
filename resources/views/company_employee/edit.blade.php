@@ -12,31 +12,31 @@
                         <div class="card-header">Kişisel Bilgiler</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Adı:</label>
                                         <input type="text" class="form-control" value="{{ $company_employee->name }}" id="name" name="name">
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Soyadı:</label>
                                         <input type="text" class="form-control" value="{{ $company_employee->surname }}" id="surname" name="surname">
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-6 col-xl-3">
                                     <div class="form-group">
                                         <label for="e_mail">*E-posta Adresi:</label>
                                         <input type="email" class="form-control" id="e_mail" value="{{ $company_employee->e_mail }}" name="e_mail">
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="telephone">*Telefon:</label>
                                         <input type="number" class="form-control" id="telephone" value="{{ $company_employee->telephone }}"name="telephone">
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="birthdate">*Doğum Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6 col-xl-4">
                                     <div class="form-group">
                                         <label for="note">Not:</label>
                                         <textarea class="form-control" rows="5" id="note" name="note">{{ $company_employee->note }}</textarea>

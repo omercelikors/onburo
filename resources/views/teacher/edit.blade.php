@@ -8,35 +8,35 @@
             <div class="card-header">Öğretmen Düzenle</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-10 px-0 my-3">
+                    <div class="card col-12 col-md-12 col-xl-10 px-0 my-3">
                         <div class="card-header">Öğretmen Bilgileri</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Adı:</label>
                                         <input type="text" class="form-control" value="{{ $teacher->name }}" id="name" name="name" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Soyadı:</label>
                                         <input type="text" class="form-control" id="surname" value="{{ $teacher->surname }}" name="surname" required>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="e_mail">*E-posta Adresi:</label>
                                         <input type="email" class="form-control" id="e_mail" value="{{ $teacher->e_mail }}" name="e_mail" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="telephone">*Telefon:</label>
                                         <input type="number" class="form-control" id="telephone" value="{{ $teacher->telephone }}"name="telephone" required>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="birthdate">*Doğum Tarihi:</label>
                                         <div class="gj-margin-top-10">

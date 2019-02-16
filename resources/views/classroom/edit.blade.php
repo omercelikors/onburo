@@ -8,11 +8,11 @@
             <div class="card-header">Sınıf Düzenle</div>
             <div class="card-body">
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-10 px-0 my-3">
+                    <div class="card col-11 px-0 my-3">
                         <div class="card-header">Sınıf Bilgileri</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-2">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="course_type">*Kurs Tipi:</label>
                                         <select id="course_type" class="form-control" name="course_type"  required>
@@ -28,7 +28,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="starting_date">*Kurs Başlangıç Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="end_date">*Kurs Bitiş Tarihi:</label>
                                         <div class="gj-margin-top-10">
@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="time">*Kurs Vakti:</label>
                                         <select id="time" class="form-control" name="time" required>
@@ -58,7 +58,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="teacher_id">Kurs Öğretmeni:</label>
                                         <select id="teacher_id" class="form-control" name="teacher_id">

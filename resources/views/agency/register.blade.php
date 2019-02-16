@@ -11,13 +11,13 @@
                         <div class="card-header">Acente Bilgileri</div>
                         <div class="card-body">
                             <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-3">
+                                <div class="col-12 col-md-5 col-lg-3">
                                     <div class="form-group">
                                         <label for="name">*Acente Adı:</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-8 col-lg-4">
                                     <div class="form-group">
                                         <label for="note">Not:</label>
                                         <textarea class="form-control" rows="5" id="note" name="note"></textarea>
