@@ -1,119 +1,112 @@
 @extends('layouts.master')
 @section('content')
 <main class="container-fluid mt-3">
-        <div class="card my-3">
-            <div class="card-header">Yoklama Cetveli</div>
-            <div class="card-body">
-                <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-12 col-lg-12 col-xl-10 px-0 my-3">
-                        <div class="card-header">Sınıflar</div>
-                        <div class="card-body">
-                            <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-12 col-lg-6 col-xl-5">
-                                    <div>
-                                        <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('A1')" type="radio" class="form-check-input" name="course_type">A1
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('A2')" type="radio" class="form-check-input" name="course_type">A2
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('B1')" type="radio" class="form-check-input" name="course_type">B1
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('B2')" type="radio" class="form-check-input" name="course_type">B2
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('C1')" type="radio" class="form-check-input" name="course_type">C1
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('C1+')" type="radio" class="form-check-input" name="course_type">C1+
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('YOS')" type="radio" class="form-check-input" name="course_type">YÖS
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline mr-1">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('Dıger')" type="radio" class="form-check-input" name="course_type">Diğer
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input onclick="filter('All')" type="radio" id="all" class="form-check-input"
-                                                name="course_type">All
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 col-xl-5">
-                                    <div class="form-group">
-                                        <label for="classrooms">Sınıflar:</label>
-                                        <select onchange="polling_paper_header();polling_paper_body();" form="polling_paper_download" class="form-control" id="classrooms" name="classrooms" required></select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="card my-3">
+        <div class="card-header">Sınıflar</div>
+        <div class="card-body">
+            <div class="row my-2 d-flex justify-content-center">
+                <div class="col-12 col-lg-6 col-xl-5">
+                    <div>
+                        <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('A1')" type="radio" class="form-check-input" name="course_type">A1
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('A2')" type="radio" class="form-check-input" name="course_type">A2
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('B1')" type="radio" class="form-check-input" name="course_type">B1
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('B2')" type="radio" class="form-check-input" name="course_type">B2
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('C1')" type="radio" class="form-check-input" name="course_type">C1
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('C1+')" type="radio" class="form-check-input" name="course_type">C1+
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('YOS')" type="radio" class="form-check-input" name="course_type">YÖS
+                        </label>
+                    </div>
+                    <div class="form-check-inline mr-1">
+                        <label class="form-check-label">
+                            <input onclick="filter('Dıger')" type="radio" class="form-check-input" name="course_type">Diğer
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input onclick="filter('All')" type="radio" id="all" class="form-check-input" name="course_type">All
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-5">
+                    <div class="form-group">
+                        <label for="classrooms">Sınıflar:</label>
+                        <select onchange="polling_paper_header();polling_paper_body();" form="polling_paper_download"
+                            class="form-control" id="classrooms" name="classrooms" required></select>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div  class="card my-3">
-            <div class="card-header">Yoklama Cetveli</div>
-            <div class="card-body">
-                <div class="row my-2 d-flex justify-content-center">
-                    <div  class="col-12 d-flex justify-content-center">
-                        <table id="polling_paper_table">
-                            <thead id="table_header">
-                                <tr>
-                                    <th id="general_info" colspan="3"></th>
-                                    <th id="course_type" colspan="20"></th>
-                                    <th id="course_week_number" colspan="1"></th>
-                                </tr>
-                                <tr>
-                                    <th colspan="1">No</th>
-                                    <th colspan="1">Adı</th>
-                                    <th colspan="1">Soyadı</th>
-                                    <th id="weekday_1" colspan="4"></th>
-                                    <th id="weekday_2" colspan="4"></th>
-                                    <th id="weekday_3" colspan="4"></th>
-                                    <th id="weekday_4" colspan="4"></th>
-                                    <th id="weekday_5" colspan="4"></th>
-                                    <th colspan="1">Sınav</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table_body">
-                            </tbody>
-                        </table>
-                    </div>
+    <div class="card my-3">
+        <div class="card-header">Yoklama Cetveli</div>
+        <div class="card-body">
+            <div class="row my-2 d-flex justify-content-center">
+                <div class="col-12 d-flex justify-content-center">
+                    <table id="polling_paper_table">
+                        <thead id="table_header">
+                            <tr>
+                                <th id="general_info" colspan="3"></th>
+                                <th id="course_type" colspan="20"></th>
+                                <th id="course_week_number" colspan="1"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1">No</th>
+                                <th colspan="1">Adı</th>
+                                <th colspan="1">Soyadı</th>
+                                <th id="weekday_1" colspan="4"></th>
+                                <th id="weekday_2" colspan="4"></th>
+                                <th id="weekday_3" colspan="4"></th>
+                                <th id="weekday_4" colspan="4"></th>
+                                <th id="weekday_5" colspan="4"></th>
+                                <th colspan="1">Sınav</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_body">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="row my-3">
-            <div class="col-12 d-flex justify-content-center">
-                <form id="polling_paper_download" method="post" action="{{ route('polling_paper_download') }}">
-                    @csrf
-                    <input id="send_weekdays" type="hidden" class="form-control" name="send_weekdays[]">
-                    <input id="send_course_week_number" type="hidden" class="form-control" name="send_course_week_number">
-                    <button id="download_button" class="btn btn-primary" type="submit">İndir</button>
-                </form>
-            </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-12 d-flex justify-content-center">
+            <form id="polling_paper_download" method="post" action="{{ route('polling_paper_download') }}">
+                @csrf
+                <input id="send_weekdays" type="hidden" class="form-control" name="send_weekdays[]">
+                <input id="send_course_week_number" type="hidden" class="form-control" name="send_course_week_number">
+                <button id="download_button" class="btn btn-primary" type="submit">İndir</button>
+            </form>
         </div>
+    </div>
 </main>
 @endsection
 

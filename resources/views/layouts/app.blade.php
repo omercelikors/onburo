@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('Welcome', 'Welcome') }}</title>
+    <title>{{ config('Hoş Geldiniz', 'Hoş Geldiniz') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,10 +26,10 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('Giriş', 'Giriş') }}
                 </a>
-                <p style="position:absolute; left:38%;font-size:16px;">ÖN MUHASEBE PROGRAMI</p>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div>
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

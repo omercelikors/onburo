@@ -2,7 +2,7 @@
 @section('content')
 <main class="container-fluid mt-3">
     <div class="card">
-        <div class="card-header">Tüm Kişiler</div>
+        <div class="card-header">SMS Gönder</div>
         <div class="card-body">
             <form id="sms_send" method="post" action="{{ route('sms_send') }}">
                 @csrf

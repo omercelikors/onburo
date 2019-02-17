@@ -17,7 +17,7 @@
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Ülke</th>
-                                <th class="align-middle">Eğitim Türü</th>
+                                <th class="align-middle">İstediği Kurs</th>
                                 <th class="align-middle">E-posta</th>
                                 <th class="align-middle">Telefon</th>
                                 <th class="align-middle">Doğum Tarihi</th>

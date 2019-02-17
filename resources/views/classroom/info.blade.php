@@ -67,6 +67,7 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
+        col_0: 'select',
         col_widths: [
             '100px', '200px', '200px',
             '100px', '250px', '200px',

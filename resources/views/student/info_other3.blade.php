@@ -25,7 +25,7 @@
                                 <th class="align-middle">Bizi Nereden Duydu?</th>
                                 <th class="align-middle">Diğer Duyduğu Yer</th>
                                 <th class="align-middle">Talep Edilen Eğitimler</th>
-                                <th class="align-middle">Genel Not</th>
+                                <th class="align-middle">Not</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
