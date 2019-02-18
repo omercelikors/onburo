@@ -7,7 +7,7 @@
             <div class="row my-2 d-flex justify-content-center">
                 <div class="col-12 col-lg-6 col-xl-5">
                     <div>
-                        <label>Kur Tipi(<small>Sınıfları kur tipini seçerek filitreyebilirsiniz</small>):</label>
+                        <label>Kurs Tipi(<small>Sınıfları kurs tipini seçerek filitreyebilirsiniz</small>):</label>
                     </div>
                     <div class="form-check-inline mr-1">
                         <label class="form-check-label">
@@ -70,7 +70,7 @@
         <div class="card-header">Yoklama Cetveli</div>
         <div class="card-body">
             <div class="row my-2 d-flex justify-content-center">
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 d-flex justify-content-center table-responsive">
                     <table id="polling_paper_table">
                         <thead id="table_header">
                             <tr>
