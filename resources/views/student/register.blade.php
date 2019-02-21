@@ -20,7 +20,7 @@
                                 <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="surname">*Soyadı:</label>
-                                        <input type="text" class="form-control" id="surname" name="surname" required>
+                                        <input type="text" class="form-control" style="text-transform:uppercase" id="surname" name="surname" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-3">
@@ -57,23 +57,6 @@
                                         <select class="form-control input-medium bfh-countries" data-country="US" name="countries"></select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-3 col-xl-3">
-                                    <div>
-                                        <label>*Kitap aldı mı?:</label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" id="book_status_yes" class="form-check-input" value="Evet"
-                                                name="book_status" required>Evet
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" id="book_status_no" class="form-check-input" value="Hayır"
-                                                name="book_status" required>Hayır
-                                        </label>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row d-flex justify-content-center my-2">
                                 <div class="col-12 col-md-3 col-xl-3">
@@ -85,12 +68,6 @@
                                                 <option value="{{ $agency->id }}">{{ $agency->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6 col-xl-6">
-                                    <div class="form-group">
-                                        <label for="why_choose_us">Neden bizi tercih etti?:</label>
-                                        <textarea class="form-control" rows="5" id="why_choose_us" name="why_choose_us"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -411,6 +388,7 @@
                                             <option>Google</option>
                                             <option>Instagram</option>
                                             <option>Facebook</option>
+                                            <option>Tavsiye</option>
                                             <option>Diğer</option>
                                         </select>
                                     </div>

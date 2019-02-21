@@ -17,10 +17,9 @@
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Ülke</th>
-                                <th class="align-middle">İstediği Kurs</th>
-                                <th class="align-middle">E-posta</th>
                                 <th class="align-middle">Telefon</th>
-                                <th class="align-middle">Doğum Tarihi</th>
+                                <th class="align-middle">İstediği Kurs</th>
+                                <th class="align-middle">Note</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -30,10 +29,9 @@
                                 <td class="align-middle">{{ $candidate_student->name }}</td>
                                 <td class="align-middle">{{ $candidate_student->surname }}</td>
                                 <td class="align-middle">{{ $candidate_student->country }}</td>
-                                <td class="align-middle">{{ $candidate_student->demanded_education }}</td>
-                                <td class="align-middle">{{ $candidate_student->e_mail }}</td>
                                 <td class="align-middle">{{ $candidate_student->telephone }}</td>
-                                <td class="align-middle">{{ $candidate_student->birthdate() }}</td>
+                                <td class="align-middle">{{ $candidate_student->demanded_education_status }}</td>
+                                <td class="align-middle">{{ $candidate_student->note }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button></td>
@@ -69,15 +67,16 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
+        col_4:'select',
         col_widths: [
             '120px', '120px', '150px',
-            '150px', '250px', '150px',
-            '150px', '200px'
+            '150px', '150px', '250px',
+            '200px'
         ],
         col_types: [
             'string', 'string', 'string',
-            'string', 'string', 'number',
-            { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string'
+            'number', 'string', 'string',
+            'string'
         ],
         extensions: [{
             name: 'sort'

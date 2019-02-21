@@ -63,8 +63,6 @@ class PersonController extends Controller{
             $country=$request->input('countries');
             $languages=$request->input('languages');
             $languages = implode(',', $languages);
-            $book_status=$request->input('book_status');
-            $why_choose_us=$request->input('why_choose_us');
             $registration_by=Auth::user()->name;
             $classroom_id=$request->input('classrooms');
             $agency_id=$request->input('agency');
@@ -107,7 +105,6 @@ class PersonController extends Controller{
             $student->country=$country;
             $student->languages=$languages;
             $student->book_status=$book_status;
-            $student->why_choose_us=$why_choose_us;
             $student->registration_by=$registration_by;
             $student->classroom_id=$classroom_id;
             $student->agency_id=$agency_id;
@@ -164,8 +161,6 @@ class PersonController extends Controller{
             $student->country=$request->input('countries');
             $languages=$request->input('languages');
             $student->languages = implode(',', $languages);
-            $student->book_status=$request->input('book_status');
-            $student->why_choose_us=$request->input('why_choose_us');
             $student->why_abandon_us_status=$request->input('why_abandon_us_status');
             $student->why_abandon_us_note=$request->input('why_abandon_us_note');
             $student->registration_by=Auth::user()->name;

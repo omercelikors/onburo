@@ -21,7 +21,7 @@
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Soyadı:</label>
-                                        <input type="text" class="form-control" value="{{ $company_employee->surname }}" id="surname" name="surname">
+                                        <input type="text" class="form-control" style="text-transform:uppercase" value="{{ $company_employee->surname }}" id="surname" name="surname">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-xl-3">

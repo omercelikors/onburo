@@ -31,6 +31,23 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-12 col-md-3 col-xl-3">
+                        <div>
+                            <label>*Kitap aldı mı?:</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" id="book_status_yes" @if($payment->book_status=="Evet") checked @endif class="form-check-input" value="Evet"
+                                    name="book_status" required>Evet
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" id="book_status_no" @if($payment->book_status=="Hayır") checked @endif class="form-check-input" value="Hayır"
+                                    name="book_status" required>Hayır
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="card col-12 col-xl-10 px-0 my-3 mx-2">
@@ -318,44 +335,6 @@
                     </div>
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
-                    <div class="card col-12 col-md-9 col-lg-12 col-xl-10 px-0 my-3">
-                        <div class="card-header">Taksit-6</div>
-                        <div class="card-body">
-                            <div class="row my-2 d-flex justify-content-center">
-                                <div class="col-12 col-md-5 col-lg-3">
-                                    <div class="form-group">
-                                        <label for="installment6_amount">Taksit-6 Miktarı:</label>
-                                        <input type="number" class="form-control" id="installment6_amount" min="0" step="0.01"
-                                            value="{{ $payment->installment6_amount }}" name="installment6_amount">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-7 col-lg-3">
-                                    <div class="form-group">
-                                        <label for="installment6_paid_amount">Taksit-6 Ödenen Miktar:</label>
-                                        <input type="number" class="form-control" id="installment6_paid_amount" min="0" step="0.01"
-                                            value="{{ $payment->installment6_paid_amount }}" name="installment6_paid_amount">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-5 col-lg-3">
-                                    <div class="form-group">
-                                        <label for="installment6_remaining_amount">Taksit-6 Kalan Miktar:</label>
-                                        <input type="number" class="form-control" id="installment6_remaining_amount" value="{{ $payment->installment6_remaining_amount }}"
-                                            name="installment6_remaining_amount" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-7 col-lg-3">
-                                    <div class="form-group">
-                                        <label for="installment6_date">Taksit-6 Tarihi:</label>
-                                        <div class="gj-margin-top-10">
-                                            <input id="installment6_date" name="installment6_date" value="{{ $payment->installment_date_format(6) }}" placeholder="gg.aa.yyyy" autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-2 d-flex justify-content-center">
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="note">Not:</label>
@@ -441,13 +420,6 @@
         weekStartDay: 1,
         minDate: today
     });
-    $('#installment6_date').datepicker({
-        locale: 'tr-tr',
-        format:'dd.mm.yyyy',
-        uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
-    });
 </script>
 <script>
         debt_amount=document.getElementById('debt_amount');
@@ -462,39 +434,39 @@
         installment3_amount=document.getElementById('installment3_amount');
         installment4_amount=document.getElementById('installment4_amount');
         installment5_amount=document.getElementById('installment5_amount');
-        installment6_amount=document.getElementById('installment6_amount');
+        
 
         installment1_paid_amount=document.getElementById('installment1_paid_amount');
         installment2_paid_amount=document.getElementById('installment2_paid_amount');
         installment3_paid_amount=document.getElementById('installment3_paid_amount');
         installment4_paid_amount=document.getElementById('installment4_paid_amount');
         installment5_paid_amount=document.getElementById('installment5_paid_amount');
-        installment6_paid_amount=document.getElementById('installment6_paid_amount');
+       
 
         installment1_remaining_amount=document.getElementById('installment1_remaining_amount');
         installment2_remaining_amount=document.getElementById('installment2_remaining_amount');
         installment3_remaining_amount=document.getElementById('installment3_remaining_amount');
         installment4_remaining_amount=document.getElementById('installment4_remaining_amount');
         installment5_remaining_amount=document.getElementById('installment5_remaining_amount');
-        installment6_remaining_amount=document.getElementById('installment6_remaining_amount');
+        
 
         installment1_date=document.getElementById('installment1_date');
         installment2_date=document.getElementById('installment2_date');
         installment3_date=document.getElementById('installment3_date');
         installment4_date=document.getElementById('installment4_date');
         installment5_date=document.getElementById('installment5_date');
-        installment6_date=document.getElementById('installment6_date');
+        
     setInterval(function(){ 
         installment1_remaining_amount.value=installment1_amount.value-installment1_paid_amount.value;
         installment2_remaining_amount.value=installment2_amount.value-installment2_paid_amount.value;
         installment3_remaining_amount.value=installment3_amount.value-installment3_paid_amount.value;
         installment4_remaining_amount.value=installment4_amount.value-installment4_paid_amount.value;
         installment5_remaining_amount.value=installment5_amount.value-installment5_paid_amount.value;
-        installment6_remaining_amount.value=installment6_amount.value-installment6_paid_amount.value;
         
-        paid_amount_by_installments.value=Number(installment1_paid_amount.value) + Number(installment2_paid_amount.value) + Number(installment3_paid_amount.value) + Number(installment4_paid_amount.value) + Number(installment5_paid_amount.value) + Number(installment6_paid_amount.value);
+        
+        paid_amount_by_installments.value=Number(installment1_paid_amount.value) + Number(installment2_paid_amount.value) + Number(installment3_paid_amount.value) + Number(installment4_paid_amount.value) + Number(installment5_paid_amount.value);
         total_remaining_amount.value=debt_amount.value - cash_paid_amount.value - paid_amount_by_installments.value;
-        calculator.value=debt_amount.value - cash_paid_amount.value - installment1_amount.value - installment2_amount.value - installment3_amount.value - installment4_amount.value - installment5_amount.value - installment6_amount.value;
+        calculator.value=debt_amount.value - cash_paid_amount.value - installment1_amount.value - installment2_amount.value - installment3_amount.value - installment4_amount.value - installment5_amount.value;
         
         if(installment_number.value==""){
             $('#installment1_amount').attr("readonly", true);
@@ -502,13 +474,13 @@
             $('#installment3_amount').attr("readonly", true);
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
-            $('#installment6_amount').attr("readonly", true);
+           
             $("#installment1_amount").val("");
             $("#installment2_amount").val("");
             $("#installment3_amount").val("");
             $("#installment4_amount").val("");
             $("#installment5_amount").val("");
-            $("#installment6_amount").val("");
+           
             $('#installment1_paid_amount').attr("readonly", true);
             $('#installment2_paid_amount').attr("readonly", true);
             $('#installment3_paid_amount').attr("readonly", true);
@@ -520,26 +492,26 @@
             $("#installment3_paid_amount").val("");
             $("#installment4_paid_amount").val("");
             $("#installment5_paid_amount").val("");
-            $("#installment6_paid_amount").val("");
+            
             $("#installment1_paid_amount").val("");
             $("#installment1_remaining_amount").val("");
             $("#installment2_remaining_amount").val("");
             $("#installment3_remaining_amount").val("");
             $("#installment4_remaining_amount").val("");
             $("#installment5_remaining_amount").val("");
-            $("#installment6_remaining_amount").val("");
+            
             $('#installment1_date').attr("readonly", true);
             $('#installment2_date').attr("readonly", true);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
-            $('#installment6_date').attr("readonly", true);
+            
             $("#installment1_date").val("");
             $("#installment2_date").val("");
             $("#installment3_date").val("");
             $("#installment4_date").val("");
             $("#installment5_date").val("");
-            $("#installment6_date").val("");
+            
             if(total_remaining_amount.value>=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
@@ -551,41 +523,41 @@
             $('#installment3_amount').attr("readonly", true);
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
-            $('#installment6_amount').attr("readonly", true);
+            
             $("#installment2_amount").val("");
             $("#installment3_amount").val("");
             $("#installment4_amount").val("");
             $("#installment5_amount").val("");
-            $("#installment6_amount").val("");
+            
             $('#installment1_paid_amount').attr("readonly", false);
             $('#installment2_paid_amount').attr("readonly", true);
             $('#installment3_paid_amount').attr("readonly", true);
             $('#installment4_paid_amount').attr("readonly", true);
             $('#installment5_paid_amount').attr("readonly", true);
-            $('#installment6_paid_amount').attr("readonly", true);
+            
             
             $("#installment2_paid_amount").val("");
             $("#installment3_paid_amount").val("");
             $("#installment4_paid_amount").val("");
             $("#installment5_paid_amount").val("");
-            $("#installment6_paid_amount").val("");
+           
 
             $("#installment2_remaining_amount").val("");
             $("#installment3_remaining_amount").val("");
             $("#installment4_remaining_amount").val("");
             $("#installment5_remaining_amount").val("");
-            $("#installment6_remaining_amount").val("");
+            
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", true);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
-            $('#installment6_date').attr("readonly", true);
+           
             $("#installment2_date").val("");
             $("#installment3_date").val("");
             $("#installment4_date").val("");
             $("#installment5_date").val("");
-            $("#installment6_date").val("");
+           
             if(installment1_amount.value!="" && installment1_date.value!="" && total_remaining_amount.value>=0 && calculator.value==0 && installment1_remaining_amount.value>=0){
                 $('#submit_button').attr("disabled", false);
             } else {
@@ -597,38 +569,38 @@
             $('#installment3_amount').attr("readonly", true);
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
-            $('#installment6_amount').attr("readonly", true);
+            
             $("#installment3_amount").val("");
             $("#installment4_amount").val("");
             $("#installment5_amount").val("");
-            $("#installment6_amount").val("");
+           
 
             $('#installment1_paid_amount').attr("readonly", false);
             $('#installment2_paid_amount').attr("readonly", false);
             $('#installment3_paid_amount').attr("readonly", true);
             $('#installment4_paid_amount').attr("readonly", true);
             $('#installment5_paid_amount').attr("readonly", true);
-            $('#installment6_paid_amount').attr("readonly", true);
+            
            
             $("#installment3_paid_amount").val("");
             $("#installment4_paid_amount").val("");
             $("#installment5_paid_amount").val("");
-            $("#installment6_paid_amount").val("");
+            
             
             $("#installment3_remaining_amount").val("");
             $("#installment4_remaining_amount").val("");
             $("#installment5_remaining_amount").val("");
-            $("#installment6_remaining_amount").val("");
+            
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", true);
             $('#installment4_date').attr("readonly", true);
             $('#installment5_date').attr("readonly", true);
-            $('#installment6_date').attr("readonly", true);
+            
             $("#installment3_date").val("");
             $("#installment4_date").val("");
             $("#installment5_date").val("");
-            $("#installment6_date").val("");
+            
             if(installment1_amount.value!="" && installment1_date.value!="" && installment2_amount.value!="" && installment2_date.value!="" && total_remaining_amount.value>=0 && calculator.value==0 && installment1_remaining_amount.value>=0 && installment2_remaining_amount.value>=0){
                 $('#submit_button').attr("disabled", false);
             } else {
@@ -640,17 +612,17 @@
             $('#installment3_amount').attr("readonly", false);
             $('#installment4_amount').attr("readonly", true);
             $('#installment5_amount').attr("readonly", true);
-            $('#installment6_amount').attr("readonly", true);
+           
             $("#installment4_amount").val("");
             $("#installment5_amount").val("");
-            $("#installment6_amount").val("");
+           
 
             $('#installment1_paid_amount').attr("readonly", false);
             $('#installment2_paid_amount').attr("readonly", false);
             $('#installment3_paid_amount').attr("readonly", false);
             $('#installment4_paid_amount').attr("readonly", true);
             $('#installment5_paid_amount').attr("readonly", true);
-            $('#installment6_paid_amount').attr("readonly", true);
+            
             
             $("#installment4_paid_amount").val("");
             $("#installment5_paid_amount").val("");
@@ -658,7 +630,7 @@
             
             $("#installment4_remaining_amount").val("");
             $("#installment5_remaining_amount").val("");
-            $("#installment6_remaining_amount").val("");
+            
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", false);
@@ -667,7 +639,7 @@
             $('#installment6_date').attr("readonly", true);
             $("#installment4_date").val("");
             $("#installment5_date").val("");
-            $("#installment6_date").val("");
+           
             if(installment1_amount.value!="" && installment1_date.value!="" && installment2_amount.value!="" && installment2_date.value!="" && installment3_amount.value!="" && installment3_date.value!="" && total_remaining_amount.value>=0 && calculator.value==0 && installment1_remaining_amount.value>=0 && installment2_remaining_amount.value>=0 && installment3_remaining_amount.value>=0){
                 $('#submit_button').attr("disabled", false);
             } else {
@@ -679,19 +651,19 @@
             $('#installment3_amount').attr("readonly", false);
             $('#installment4_amount').attr("readonly", false);
             $('#installment5_amount').attr("readonly", true);
-            $('#installment6_amount').attr("readonly", true);
+            
             $("#installment5_amount").val("");
-            $("#installment6_amount").val("");
+            
 
             $('#installment1_paid_amount').attr("readonly", false);
             $('#installment2_paid_amount').attr("readonly", false);
             $('#installment3_paid_amount').attr("readonly", false);
             $('#installment4_paid_amount').attr("readonly", false);
             $('#installment5_paid_amount').attr("readonly", true);
-            $('#installment6_paid_amount').attr("readonly", true);
+           
            
             $("#installment5_paid_amount").val("");
-            $("#installment6_paid_amount").val("");
+            
            
             $("#installment5_remaining_amount").val("");
             $("#installment6_remaining_amount").val("");
@@ -700,9 +672,9 @@
             $('#installment3_date').attr("readonly", false);
             $('#installment4_date').attr("readonly", false);
             $('#installment5_date').attr("readonly", true);
-            $('#installment6_date').attr("readonly", true);
+           
             $("#installment5_date").val("");
-            $("#installment6_date").val("");
+           
             if(installment1_amount.value!="" && installment1_date.value!="" && installment2_amount.value!="" && installment2_date.value!="" && installment3_amount.value!="" && installment3_date.value!="" && installment4_amount.value!="" && installment4_date.value!="" && total_remaining_amount.value>=0 && calculator.value==0 && installment1_remaining_amount.value>=0 && installment2_remaining_amount.value>=0 && installment3_remaining_amount.value>=0 && installment4_remaining_amount.value>=0){
                 $('#submit_button').attr("disabled", false);
             } else {
@@ -714,56 +686,29 @@
             $('#installment3_amount').attr("readonly", false);
             $('#installment4_amount').attr("readonly", false);
             $('#installment5_amount').attr("readonly", false);
-            $('#installment6_amount').attr("readonly", true);
-            $("#installment6_amount").val("");
+            
+           
 
             $('#installment1_paid_amount').attr("readonly", false);
             $('#installment2_paid_amount').attr("readonly", false);
             $('#installment3_paid_amount').attr("readonly", false);
             $('#installment4_paid_amount').attr("readonly", false);
             $('#installment5_paid_amount').attr("readonly", false);
-            $('#installment6_paid_amount').attr("readonly", true);
             
-            $("#installment6_paid_amount").val("");
            
-            $("#installment6_remaining_amount").val("");
+           
+           
             $('#installment1_date').attr("readonly", false);
             $('#installment2_date').attr("readonly", false);
             $('#installment3_date').attr("readonly", false);
             $('#installment4_date').attr("readonly", false);
             $('#installment5_date').attr("readonly", false);
-            $('#installment6_date').attr("readonly", true);
-            $("#installment6_date").val("");
             if(installment1_amount.value!="" && installment1_date.value!="" && installment2_amount.value!="" && installment2_date.value!="" && installment3_amount.value!="" && installment3_date.value!="" && installment4_amount.value!="" && installment4_date.value!=""  && installment5_amount.value!="" && installment5_date.value!="" && total_remaining_amount.value>=0 && calculator.value==0 && installment1_remaining_amount.value>=0 && installment2_remaining_amount.value>=0 && installment3_remaining_amount.value>=0 && installment4_remaining_amount.value>=0 && installment5_remaining_amount.value>=0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);
             }
-        } else if(installment_number.value==6) {
-            $('#installment1_amount').attr("readonly", false);
-            $('#installment2_amount').attr("readonly", false);
-            $('#installment3_amount').attr("readonly", false);
-            $('#installment4_amount').attr("readonly", false);
-            $('#installment5_amount').attr("readonly", false);
-            $('#installment6_amount').attr("readonly", false);
-            $('#installment1_paid_amount').attr("readonly", false);
-            $('#installment2_paid_amount').attr("readonly", false);
-            $('#installment3_paid_amount').attr("readonly", false);
-            $('#installment4_paid_amount').attr("readonly", false);
-            $('#installment5_paid_amount').attr("readonly", false);
-            $('#installment6_paid_amount').attr("readonly", false);
-            $('#installment1_date').attr("readonly", false);
-            $('#installment2_date').attr("readonly", false);
-            $('#installment3_date').attr("readonly", false);
-            $('#installment4_date').attr("readonly", false);
-            $('#installment5_date').attr("readonly", false);
-            $('#installment6_date').attr("readonly", false);
-            if(installment1_amount.value!="" && installment1_date.value!="" && installment2_amount.value!="" && installment2_date.value!="" && installment3_amount.value!="" && installment3_date.value!="" && installment4_amount.value!="" && installment4_date.value!=""  && installment5_amount.value!="" && installment5_date.value!="" && installment6_amount.value!="" && installment6_date.value!="" && total_remaining_amount.value>=0 && calculator.value==0&& installment1_remaining_amount.value>=0 && installment2_remaining_amount.value>=0 && installment3_remaining_amount.value>=0 && installment4_remaining_amount.value>=0 && installment5_remaining_amount.value>=0 && installment6_remaining_amount.value>=0){
-                $('#submit_button').attr("disabled", false);
-            } else {
-                $('#submit_button').attr("disabled", true);
-            }
-        }
+        } 
     }, 1000);
 </script>
 @endsection

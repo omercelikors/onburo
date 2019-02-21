@@ -39,6 +39,7 @@ class PaymentController extends Controller
             $person_id=$request->input('name');
             $currency_unit=$request->input('currency_unit');
             $paid_description=$request->input('paid_description');
+            $book_status=$request->input('book_status');
             $debt_amount=$request->input('debt_amount');
             $cash_paid_amount=$request->input('cash_paid_amount');
             $cash_paid_amount_date=$request->input('cash_paid_amount_date');
@@ -87,20 +88,13 @@ class PaymentController extends Controller
                 $installment5_date=null;
             }
 
-            $installment6_amount=$request->input('installment6_amount');
-            $installment6_date=$request->input('installment6_date');
-            if($installment6_date!=""){
-                $installment6_date=date('Y-m-d H:i:s' , strtotime($installment6_date));
-            } else {
-                $installment6_date=null;
-            }
-
             $note=$request->input('note');
 
             $payment=new Payment;
             $payment->person_id=$person_id;
             $payment->currency_unit=$currency_unit;
             $payment->paid_description=$paid_description;
+            $payment->book_status=$book_status;
             $payment->debt_amount=$debt_amount;
             $payment->cash_paid_amount=$cash_paid_amount;
             $payment->cash_paid_amount_date=$cash_paid_amount_date;
@@ -126,10 +120,6 @@ class PaymentController extends Controller
             $payment->installment5_amount=$installment5_amount;
             $payment->installment5_remaining_amount=$installment5_amount;
             $payment->installment5_date=$installment5_date;
-            
-            $payment->installment6_amount=$installment6_amount;
-            $payment->installment6_remaining_amount=$installment6_amount;
-            $payment->installment6_date=$installment6_date;
 
             $payment->note= $note;
             $payment->save();
@@ -141,6 +131,7 @@ class PaymentController extends Controller
             $payment=Payment::find($payment_id);
             $payment->currency_unit=$request->input('currency_unit');
             $payment->paid_description=$request->input('paid_description');
+            $payment->book_status=$request->input('book_status');
             $payment->debt_amount=$request->input('debt_amount');
             $payment->cash_paid_amount=$request->input('cash_paid_amount');
             $cash_paid_amount_date=$request->input('cash_paid_amount_date');
@@ -203,17 +194,6 @@ class PaymentController extends Controller
                 $installment5_date=null;
             }
             $payment->installment5_date=$installment5_date;
-
-            $payment->installment6_amount=$request->input('installment6_amount');
-            $payment->installment6_paid_amount=$request->input('installment6_paid_amount');
-            $payment->installment6_remaining_amount=$request->input('installment6_remaining_amount');
-            $installment6_date=$request->input('installment6_date');
-            if($installment6_date!=""){
-                $installment6_date=date('Y-m-d H:i:s' , strtotime($installment6_date));
-            } else {
-                $installment6_date=null;
-            }
-            $payment->installment6_date=$installment6_date;
 
             $payment->note= $request->input('note');
             $payment->save();

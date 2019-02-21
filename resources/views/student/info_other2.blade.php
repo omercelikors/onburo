@@ -19,7 +19,6 @@
                                 <th class="align-middle">Telefon</th>
                                 <th class="align-middle">E-posta</th>
                                 <th class="align-middle">Ülke</th>
-                                <th class="align-middle">Neden bizi tercih etti?</th>
                                 <th class="align-middle">Bizden Ayrılma Nedeni</th>
                                 <th class="align-middle">Bizden Ayrılma Nedeni Not</th>
                                 <th class="align-middle">Yakın Telefonu</th>
@@ -36,7 +35,6 @@
                                 <td class="align-middle">{{ $student->telephone }}</td>
                                 <td class="align-middle">{{ $student->e_mail }}</td>
                                 <td class="align-middle">{{ $student->country }}</td>
-                                <td class="align-middle">{{ $student->why_choose_us }}</td>
                                 <td class="align-middle">{{ $student->why_abandon_us_status }}</td>
                                 <td class="align-middle">{{ $student->why_abandon_us_note }}</td>
                                 <td class="align-middle">{{ $student->relative_telephone }}</td>
@@ -77,19 +75,20 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_6: 'select',
+        col_5: 'select',
+        col_8: 'select',
         col_9: 'select',
         col_widths: [
             '150px', '150px', '120px',
-            '150px', '90px', '90px',
-            '100px', '100px', '100px',
-            '120px', '100px','160px'
+            '250px', '90px', '90px',
+            '100px', '100px', '120px',
+            '120px', '160px'
         ],
         col_types: [
             'string', 'string', 'number',
             'string', 'string', 'string',
-            'string', 'string', 'number',
-            'string', 'string', 'string'
+            'string', 'number', 'string',
+            'string', 'string'
         ],
         extensions: [{
             name: 'sort'

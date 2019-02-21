@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('person_id');
             $table->enum('currency_unit', ['Türk Lirası','Dolar']);
             $table->enum('paid_description', ['A1','A2','B1','B2','C1','C1+','YÖS','Diğer']);
+            $table->enum('book_status', ['Evet','Hayır'])->nullable();
             $table->decimal('debt_amount',8,2);
             $table->decimal('cash_paid_amount',8,2);
             $table->date('cash_paid_amount_date');
@@ -43,10 +44,6 @@ class CreatePaymentsTable extends Migration
             $table->decimal('installment5_paid_amount',8,2)->nullable();
             $table->decimal('installment5_remaining_amount',8,2)->nullable();
             $table->date('installment5_date')->nullable();
-            $table->decimal('installment6_amount',8,2)->nullable();
-            $table->decimal('installment6_paid_amount',8,2)->nullable();
-            $table->decimal('installment6_remaining_amount',8,2)->nullable();
-            $table->date('installment6_date')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
         });

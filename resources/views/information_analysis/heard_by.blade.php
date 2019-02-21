@@ -64,6 +64,11 @@
                                 label: "Instagram",
                                 backgroundColor: ['rgba(155, 163, 40, 0.7)'],
                                 data: [platform_numbers[3]],
+                            },
+                            {
+                                label: "Tavsiye",
+                                backgroundColor: ['rgba(152, 63, 40, 0.7)'],
+                                data: [platform_numbers[3]],
                             }
                 ]
         },
