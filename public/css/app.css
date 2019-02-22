@@ -10520,3 +10520,25 @@ caption {
   color: red;
 }
 
+.button_register {
+  background-color: transparent;
+}
+
+.button_register:hover .span_register {
+  color: #428bca;
+  cursor: pointer;
+}
+
+.button_register:hover .icon_register {
+  color: #428bca;
+  cursor: pointer;
+}
+
+.button_register .span_register {
+  color: #24AFE0;
+}
+
+.button_register .icon_register {
+  color: #24AFE0;
+}
+

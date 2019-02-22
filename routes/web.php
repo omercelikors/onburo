@@ -30,7 +30,7 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
     Route::post('/student-edit-register', 'PersonController@student_edit_register')->name('student_edit_register');
     //payment pages
     Route::get('/payment-info-show', 'PaymentController@payment_info_show')->name('payment_info_show');
-    Route::get('/payment-register-show', 'PaymentController@payment_register_show')->name('payment_register_show');
+    Route::get('/payment-register-show/{button_register}', 'PaymentController@payment_register_show')->name('payment_register_show');
     Route::get('/payment-edit-show/{payment_id}', 'PaymentController@payment_edit_show')->name('payment_edit_show');
     Route::post('/payment-register', 'PaymentController@payment_register')->name('payment_register');
     Route::post('/payment-edit-register', 'PaymentController@payment_edit_register')->name('payment_edit_register');

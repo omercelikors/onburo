@@ -28,9 +28,9 @@ class PaymentController extends Controller
             return "success";
     }
 
-    public function payment_register_show (){
+    public function payment_register_show ($button_register){
         $students=Person::where('status','Öğrenci')->get();
-        return view('payment.register')->with('students',$students);
+        return view('payment.register')->with('students',$students)->with('button_register',$button_register);
     }
 
     public function payment_register (Request $request){

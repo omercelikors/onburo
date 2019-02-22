@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('payment_register_show') }}"><span class="float-right">Yeni Ödeme</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
+                    <form action="{{ route('payment_register_show',['button_register'=>1]) }}" method="GET"><button type="submit" class="float-right border border-0 button_register"><span class="float-right span_register">Yeni Ödeme</span><i class="fas fa-plus-circle float-right icon_register pr-2"></i></button></form>
                 </div>
             </div>
             <div class="row mt-3">

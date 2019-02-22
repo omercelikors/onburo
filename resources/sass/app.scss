@@ -36,3 +36,22 @@ caption {
         color:red;
     }
 }
+
+.button_register{
+    background-color:transparent;
+    &:hover .span_register{
+        color:#428bca;
+        cursor: pointer;
+    }
+    &:hover .icon_register{
+        color:#428bca;
+        cursor: pointer;
+    }
+    .span_register{
+        color:#24AFE0;
+    }
+
+    .icon_register{
+        color:#24AFE0;
+    }
+}

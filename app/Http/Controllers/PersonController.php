@@ -138,7 +138,9 @@ class PersonController extends Controller{
                     $course_student_number->save();
                 } 
             }
-            return redirect('/home');
+            $student=Person::where('name',$name)->where('surname',$surname)->first();
+            $student_id=$student->id;
+            return redirect()->route('payment_register_show',['button_register'=>0,])->with('name',$name)->with('surname',$surname)->with('student_id',$student_id);
     }
 
     public function student_edit_register(Request $request){

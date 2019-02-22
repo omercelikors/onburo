@@ -10,12 +10,18 @@
                     <div class="col-12 col-md-4 col-xl-2">
                         <div class="form-group">
                             <label for="name">*Öğrenci Adı:</label>
-                            <select class="form-control" id="name" name="name" required>
-                                <option value=""></option>
-                                @foreach($students as $student)
-                                    <option value="{{ $student->id }}">{{ $student->name }} {{ $student->surname }}</option>
-                                @endforeach
-                            </select>
+                            @if($button_register==1)
+                                <select class="form-control" id="name" name="name" required>
+                                    <option value=""></option>
+                                    @foreach($students as $student)
+                                        <option value="{{ $student->id }}">{{ $student->name }} {{ $student->surname }}</option>
+                                    @endforeach
+                                </select>
+                            @elseif($button_register==0)
+                                <select class="form-control" name="name" readonly>
+                                    <option value="{{ session('student_id') }}">{{ session('name')." ".session('surname') }}</option>
+                                </select>
+                            @endif
                         </div>
                     </div>
                     <div class="col-12 col-md-3 col-xl-2">
