@@ -3,6 +3,7 @@
 <main class="container-fluid mt-3">
     <form method="post" action="{{ route('payment_register') }}" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" class="form-control" name="name" value="{{ session('student_id') }}">
         <div class="card my-3">
             <div class="card-header">Ödeme Kayıt</div>
             <div class="card-body">
@@ -18,9 +19,7 @@
                                     @endforeach
                                 </select>
                             @elseif($button_register==0)
-                                <select class="form-control" name="name" readonly>
-                                    <option value="{{ session('student_id') }}">{{ session('name')." ".session('surname') }}</option>
-                                </select>
+                                <input type="text" value="{{ session('name')." ".session('surname') }}" class="form-control" readonly>
                             @endif
                         </div>
                     </div>
