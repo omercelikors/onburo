@@ -50,13 +50,11 @@ class EmailSendInstallment extends Command
             $installment3_date_in_time=strtotime($payment->installment3_date);
             $installment4_date_in_time=strtotime($payment->installment4_date);
             $installment5_date_in_time=strtotime($payment->installment5_date);
-            $installment6_date_in_time=strtotime($payment->installment6_date);
             $installment1_remaining_amount=$payment->installment1_remaining_amount;
             $installment2_remaining_amount=$payment->installment2_remaining_amount;
             $installment3_remaining_amount=$payment->installment3_remaining_amount;
             $installment4_remaining_amount=$payment->installment4_remaining_amount;
             $installment5_remaining_amount=$payment->installment5_remaining_amount;
-            $installment6_remaining_amount=$payment->installment6_remaining_amount;
             $currency_unit=$payment->currency_unit;
             $two_days=2*86400;
             $rest1_day=$installment1_date_in_time-$current_date_in_time;
@@ -64,7 +62,6 @@ class EmailSendInstallment extends Command
             $rest3_day=$installment3_date_in_time-$current_date_in_time;
             $rest4_day=$installment4_date_in_time-$current_date_in_time;
             $rest5_day=$installment5_date_in_time-$current_date_in_time;
-            $rest6_day=$installment6_date_in_time-$current_date_in_time;
             
             if($installment1_remaining_amount != 0 && ($rest1_day==$two_days || $installment1_date_in_time==$current_date_in_time)){
                 $text="<b>"."Öğrenci Adı:"."</b>"."<b style=color:red;>".$payment->person->name."</b>"." "."<b style=color:red;>".$payment->person->surname."</b>"."<br>"."<b>"."Sınıfı:"."</b>"."<b style=color:red;>".$payment->person->classroom->course_type."</b>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<b style=color:red;>".$installment1_remaining_amount."</b>"." "."<b style=color:red;>".$currency_unit."</b>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<b style=color:red;>".$payment->installment_date_format(1)."</b>";
