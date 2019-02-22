@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use App\Classroom;
+
 use App\Person;
 use Illuminate\Database\Eloquent\Model;
 
