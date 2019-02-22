@@ -38,7 +38,7 @@
                                 <td class="align-middle">{{ $payment->paid_description }}</td>
                                 <td class="align-middle">{{ $payment->book_status }}</td>
                                 <td class="align-middle">{{ $payment->debt_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
-                                <td class="align-middle">{{ $payment->cash_paid_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif<br>{{ $payment->installment_date_format(7) }} </td>
+                                <td class="align-middle">{{ number_format($payment->debt_amount-$payment->total_remaining_amount,2) }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
                                 <td class="align-middle">{{ $payment->total_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
                                 <td class="align-middle">@if(isset($payment->person->agency_id)){{ $payment->person->agency->name }}<br>{{ $payment->debt_amount*0.1}}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif @endif</td>
                                 <td class="align-middle">@if(isset($payment->installment1_remaining_amount)){{ $payment->installment1_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif <br> {{ $payment->installment_date_format(1) }}@endif</td>
@@ -83,14 +83,15 @@
         status_bar: false,
         col_2: 'select',
         col_3: 'select',
+        col_7: 'select',
         col_widths: [
             '100px', '100px', '100px', '80px', '100px',
             '100px', '100px', '100px', '100px', '100px',
-            '100px', '100px', '160px','200px'
+            '100px', '100px', '100px','200px'
         ],
         col_types: [
             'string', 'string', 'string', 'string', 'number',
-            'string', 'number', 'string', 'string', 'string',
+            'number', 'number', 'string', 'string', 'string',
             'string', 'string', 'string','string'
         ],
         extensions: [{

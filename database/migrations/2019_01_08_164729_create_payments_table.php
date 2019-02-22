@@ -21,7 +21,6 @@ class CreatePaymentsTable extends Migration
             $table->enum('book_status', ['Evet','Hayır'])->nullable();
             $table->decimal('debt_amount',8,2);
             $table->decimal('cash_paid_amount',8,2);
-            $table->date('cash_paid_amount_date');
             $table->decimal('total_remaining_amount',8,2);
             $table->integer('installment_number')->nullable();
             $table->decimal('installment1_amount',8,2)->nullable();

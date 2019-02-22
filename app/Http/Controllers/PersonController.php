@@ -104,7 +104,6 @@ class PersonController extends Controller{
             $student->e_mail=$e_mail;
             $student->country=$country;
             $student->languages=$languages;
-            $student->book_status=$book_status;
             $student->registration_by=$registration_by;
             $student->classroom_id=$classroom_id;
             $student->agency_id=$agency_id;

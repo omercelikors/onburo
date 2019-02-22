@@ -707,100 +707,74 @@
     });
 </script>
 <script>
-    university_status_yes=document.getElementById('university_status_yes');
-    university_status_no=document.getElementById('university_status_no');
-    university_department=document.getElementById('university_department');
-    education_level=document.getElementById('education_level');
-    relative_university_status_yes=document.getElementById('relative_university_status_yes');
-    relative_university_status_no=document.getElementById('relative_university_status_no');
-    relative_name=document.getElementById('relative_name');
-    relative_telephone=document.getElementById('relative_telephone');
-    relative_education_level=document.getElementById('relative_education_level');
-    setInterval(function(){ 
-
-        if(university_status_yes.checked==false && university_status_no.checked==false){
-            $('#university_department').attr("disabled", true);
-            $('#education_level_status').attr("disabled", true);
-            $('#relative_university_status_yes').attr("disabled", true);
-            $('#relative_university_status_no').attr("disabled", true);
-            $('#relative_name').attr("disabled", true);
-            $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level_status').attr("disabled", true);
-        }else if(university_status_yes.checked==true){
-            $('#university_department').attr("disabled", false);
-            $('#education_level_status').attr("disabled", false);
-            $('#relative_university_status_yes').attr("disabled", true);
-            $('#relative_university_status_no').attr("disabled", true);
-            $('#relative_name').attr("disabled", true);
-            $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level_status').attr("disabled", true);
-            relative_university_status_yes.checked=false;
-            relative_university_status_no.checked=false;
-            $('#relative_name').val("");
-            $('#relative_telephone').val("");
-            $('#relative_education_level_status').val("");
-        }else if(university_status_no.checked==true){
-            $('#university_department').attr("disabled", true);
-            $('#education_level_status').attr("disabled", true);
-            $('#university_department').val("");
-            $('#education_level').val("");
-            $('#relative_university_status_yes').attr("disabled", false);
-            $('#relative_university_status_no').attr("disabled", false);
-            if(relative_university_status_yes.checked==true){
+        university_status_yes=document.getElementById('university_status_yes');
+        university_status_no=document.getElementById('university_status_no');
+        university_department=document.getElementById('university_department');
+        education_level_status=document.getElementById('education_level_status');
+        relative_university_status_yes=document.getElementById('relative_university_status_yes');
+        relative_university_status_no=document.getElementById('relative_university_status_no');
+        relative_name=document.getElementById('relative_name');
+        relative_telephone=document.getElementById('relative_telephone');
+        relative_education_level_status=document.getElementById('relative_education_level_status');
+        children_status_yes=document.getElementById('children_status_yes');
+        children_status_no=document.getElementById('children_status_no');
+        children_number=document.getElementById('children_number');
+        children_age_range_status=document.getElementById('children_age_range_status');
+        heard_by_status=document.getElementById('heard_by_status');
+        heard_by_other=document.getElementById('heard_by_other');
+        setInterval(function(){ 
+    
+            if(university_status_yes.checked==false && university_status_no.checked==false){
+                $('#university_department').attr("disabled", true);
+                $('#education_level_status').attr("disabled", true);
+            }else if(university_status_yes.checked==true){
+                $('#university_department').attr("disabled", false);
+                $('#education_level_status').attr("disabled", false);
+            }else if(university_status_no.checked==true){
                 $('#university_department').attr("disabled", true);
                 $('#education_level_status').attr("disabled", true);
                 $('#university_department').val("");
-                $('#education_level').val("");
+                $('#education_level_status').val("");
+            }
+    
+            if(relative_university_status_yes.checked==false && relative_university_status_no.checked==false){
+                $('#relative_name').attr("disabled", true);
+                $('#relative_telephone').attr("disabled", true);
+                $('#relative_education_level_status').attr("disabled", true);
+            }else if(relative_university_status_yes.checked==true){
                 $('#relative_name').attr("disabled", false);
                 $('#relative_telephone').attr("disabled", false);
                 $('#relative_education_level_status').attr("disabled", false);
             }else if(relative_university_status_no.checked==true){
-                $('#university_department').attr("disabled", true);
-                $('#education_level_status').attr("disabled", true);
-                $('#university_department').val("");
-                $('#education_level').val("");
                 $('#relative_name').attr("disabled", true);
                 $('#relative_telephone').attr("disabled", true);
-                $('#relative_education_level').attr("disabled", true);
+                $('#relative_education_level_status').attr("disabled", true);
                 $('#relative_name').val("");
                 $('#relative_telephone').val("");
                 $('#relative_education_level_status').val("");
             }
-        }
-    }, 1000);
-</script>
-<script>
-    children_status_yes=document.getElementById('children_status_yes');
-    children_status_no=document.getElementById('children_status_no');
-    children_number=document.getElementById('children_number');
-    children_age_range_status=document.getElementById('children_age_range_status');
-    setInterval(function(){
-
-        if(children_status_yes.checked==false && children_status_no.checked==false){
-            $('#children_number').attr("disabled", true);
-            $('#children_age_range_status').attr("disabled", true);
-        }else if(children_status_yes.checked==true){
-            $('#children_number').attr("disabled", false);
-            $('#children_age_range_status').attr("disabled", false);
-        }else if(children_status_no.checked==true){
-            $('#children_number').attr("disabled", true);
-            $('#children_age_range_status').attr("disabled", true);
-            $('#children_number').val("");
-            $('#children_age_range_status').val("");
-        }
-    }, 1000);
-</script>
-<script>
-    heard_by_status=document.getElementById('heard_by_status');
-    heard_by_other=document.getElementById('heard_by_other');
-    setInterval(function(){
-        if(heard_by_status.value=="Diğer"){
-            $('#heard_by_other').attr("disabled", false);
-        }else if(heard_by_status.value!="Diğer"){
-            $('#heard_by_other').attr("disabled", true);
-            $('#heard_by_other').val("");
-        }
-    }, 1000);
+    
+            if(children_status_yes.checked==false && children_status_no.checked==false){
+                $('#children_number').attr("disabled", true);
+                $('#children_age_range_status').attr("disabled", true);
+            }else if(children_status_yes.checked==true){
+                $('#children_number').attr("disabled", false);
+                $('#children_age_range_status').attr("disabled", false);
+            }else if(children_status_no.checked==true){
+                $('#children_number').attr("disabled", true);
+                $('#children_age_range_status').attr("disabled", true);
+                $('#children_number').val("");
+                $('#children_age_range_status').val("");
+            }
+    
+            if(heard_by_status.value=="Diğer"){
+                $('#heard_by_other').attr("disabled", false);
+            }else if(heard_by_status.value!="Diğer"){
+                $('#heard_by_other').attr("disabled", true);
+                $('#heard_by_other').val("");
+            }
+    
+        }, 1000);
 </script>
 <script>
     today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());

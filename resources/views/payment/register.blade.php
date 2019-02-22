@@ -13,7 +13,7 @@
                             <select class="form-control" id="name" name="name" required>
                                 <option value=""></option>
                                 @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->name }} {{ $student->surname }}</option>
+                                    <option value="{{ $student->id }}">{{ $student->name }} {{ $student->surname }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -90,15 +90,6 @@
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
-                                        <label for="cash_paid_amount_date">*Peşin Ödeme Tarihi:</label>
-                                        <div class="gj-margin-top-10">
-                                            <input id="cash_paid_amount_date" name="cash_paid_amount_date" autocomplete="off"
-                                                value="{{ $current_date }}" placeholder="gg.aa.yyyy" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-3 col-xl-2">
-                                    <div class="form-group">
                                         <label for="total_remaining_amount">Toplam Kalan Miktar:</label>
                                         <input type="number" class="form-control" id="total_remaining_amount" name="total_remaining_amount"
                                             readonly>
@@ -131,7 +122,6 @@
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
-                                <option>6</option>
                             </select>
                         </div>
                     </div>
@@ -401,7 +391,7 @@
             $("#installment4_date").val("");
             $("#installment5_date").val("");
             
-            if(total_remaining_amount.value!=0 && calculator.value==0){
+            if(installment1_amount.value!="" && installment1_date.value!="" && total_remaining_amount.value!=0 && calculator.value==0){
                 $('#submit_button').attr("disabled", false);
             } else {
                 $('#submit_button').attr("disabled", true);

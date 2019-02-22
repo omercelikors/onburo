@@ -20,7 +20,8 @@
                                 <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="surname">*Soyadı:</label>
-                                        <input type="text" class="form-control" style="text-transform:uppercase" id="surname" name="surname" required>
+                                        <input type="text" class="form-control" style="text-transform:uppercase" id="surname"
+                                            name="surname" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-3">
@@ -41,7 +42,8 @@
                                 <div class="col-12 col-md-3 col-xl-3">
                                     <label for="birthdate">*Doğum Tarihi:</label>
                                     <div class="gj-margin-top-10">
-                                        <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.aa.yyyy" required>
+                                        <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.aa.yyyy"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-3">
@@ -57,15 +59,13 @@
                                         <select class="form-control input-medium bfh-countries" data-country="US" name="countries"></select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row d-flex justify-content-center my-2">
                                 <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="country">Acente:</label>
                                         <select id="agency" class="form-control" name="agency">
                                             <option value=""></option>
                                             @foreach($agencies as $agency)
-                                                <option value="{{ $agency->id }}">{{ $agency->name }}</option>
+                                            <option value="{{ $agency->id }}">{{ $agency->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -552,65 +552,43 @@
     relative_name=document.getElementById('relative_name');
     relative_telephone=document.getElementById('relative_telephone');
     relative_education_level_status=document.getElementById('relative_education_level_status');
+    children_status_yes=document.getElementById('children_status_yes');
+    children_status_no=document.getElementById('children_status_no');
+    children_number=document.getElementById('children_number');
+    children_age_range_status=document.getElementById('children_age_range_status');
+    heard_by_status=document.getElementById('heard_by_status');
+    heard_by_other=document.getElementById('heard_by_other');
     setInterval(function(){ 
 
         if(university_status_yes.checked==false && university_status_no.checked==false){
             $('#university_department').attr("disabled", true);
             $('#education_level_status').attr("disabled", true);
-            $('#relative_university_status_yes').attr("disabled", true);
-            $('#relative_university_status_no').attr("disabled", true);
-            $('#relative_name').attr("disabled", true);
-            $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level_status').attr("disabled", true);
         }else if(university_status_yes.checked==true){
             $('#university_department').attr("disabled", false);
             $('#education_level_status').attr("disabled", false);
-            $('#relative_university_status_yes').attr("disabled", true);
-            $('#relative_university_status_no').attr("disabled", true);
-            $('#relative_name').attr("disabled", true);
-            $('#relative_telephone').attr("disabled", true);
-            $('#relative_education_level_status').attr("disabled", true);
-            relative_university_status_yes.checked=false;
-            relative_university_status_no.checked=false;
-            $('#relative_name').val("");
-            $('#relative_telephone').val("");
-            $('#relative_education_level_status').val("");
         }else if(university_status_no.checked==true){
             $('#university_department').attr("disabled", true);
             $('#education_level_status').attr("disabled", true);
             $('#university_department').val("");
             $('#education_level_status').val("");
-            $('#relative_university_status_yes').attr("disabled", false);
-            $('#relative_university_status_no').attr("disabled", false);
-            if(relative_university_status_yes.checked==true){
-                $('#university_department').attr("disabled", true);
-                $('#education_level_status').attr("disabled", true);
-                $('#university_department').val("");
-                $('#education_level_status').val("");
-                $('#relative_name').attr("disabled", false);
-                $('#relative_telephone').attr("disabled", false);
-                $('#relative_education_level_status').attr("disabled", false);
-            }else if(relative_university_status_no.checked==true){
-                $('#university_department').attr("disabled", true);
-                $('#education_level_status').attr("disabled", true);
-                $('#university_department').val("");
-                $('#education_level_status').val("");
-                $('#relative_name').attr("disabled", true);
-                $('#relative_telephone').attr("disabled", true);
-                $('#relative_education_level_status').attr("disabled", true);
-                $('#relative_name').val("");
-                $('#relative_telephone').val("");
-                $('#relative_education_level_status').val("");
-            }
         }
-    }, 1000);
-</script>
-<script>
-    children_status_yes=document.getElementById('children_status_yes');
-    children_status_no=document.getElementById('children_status_no');
-    children_number=document.getElementById('children_number');
-    children_age_range_status=document.getElementById('children_age_range_status');
-    setInterval(function(){
+
+        if(relative_university_status_yes.checked==false && relative_university_status_no.checked==false){
+            $('#relative_name').attr("disabled", true);
+            $('#relative_telephone').attr("disabled", true);
+            $('#relative_education_level_status').attr("disabled", true);
+        }else if(relative_university_status_yes.checked==true){
+            $('#relative_name').attr("disabled", false);
+            $('#relative_telephone').attr("disabled", false);
+            $('#relative_education_level_status').attr("disabled", false);
+        }else if(relative_university_status_no.checked==true){
+            $('#relative_name').attr("disabled", true);
+            $('#relative_telephone').attr("disabled", true);
+            $('#relative_education_level_status').attr("disabled", true);
+            $('#relative_name').val("");
+            $('#relative_telephone').val("");
+            $('#relative_education_level_status').val("");
+        }
 
         if(children_status_yes.checked==false && children_status_no.checked==false){
             $('#children_number').attr("disabled", true);
@@ -624,18 +602,14 @@
             $('#children_number').val("");
             $('#children_age_range_status').val("");
         }
-    }, 1000);
-</script>
-<script>
-    heard_by_status=document.getElementById('heard_by_status');
-    heard_by_other=document.getElementById('heard_by_other');
-    setInterval(function(){
+
         if(heard_by_status.value=="Diğer"){
             $('#heard_by_other').attr("disabled", false);
         }else if(heard_by_status.value!="Diğer"){
             $('#heard_by_other').attr("disabled", true);
             $('#heard_by_other').val("");
         }
+
     }, 1000);
 </script>
 <script>

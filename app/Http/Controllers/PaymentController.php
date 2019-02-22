@@ -30,9 +30,7 @@ class PaymentController extends Controller
 
     public function payment_register_show (){
         $students=Person::where('status','Öğrenci')->get();
-        date_default_timezone_set('Europe/Istanbul');
-        $current_date = date('d.m.Y', time());
-        return view('payment.register')->with('students',$students)->with('current_date',$current_date);
+        return view('payment.register')->with('students',$students);
     }
 
     public function payment_register (Request $request){
@@ -42,15 +40,13 @@ class PaymentController extends Controller
             $book_status=$request->input('book_status');
             $debt_amount=$request->input('debt_amount');
             $cash_paid_amount=$request->input('cash_paid_amount');
-            $cash_paid_amount_date=$request->input('cash_paid_amount_date');
-            $cash_paid_amount_date=date('Y-m-d H:i:s' , strtotime($cash_paid_amount_date));
             $total_remaining_amount=$request->input('total_remaining_amount');
             $installment_number=$request->input('installment_number');
 
             $installment1_amount=$request->input('installment1_amount');
             $installment1_date=$request->input('installment1_date');
              if($installment1_date!=""){
-                $installment1_date=date('Y-m-d H:i:s' , strtotime($installment1_date));
+                $installment1_date=date('Y-m-d' , strtotime($installment1_date));
             } else {
                 $installment1_date=null;
             }
@@ -58,7 +54,7 @@ class PaymentController extends Controller
             $installment2_amount=$request->input('installment2_amount');
             $installment2_date=$request->input('installment2_date');
             if($installment2_date!=""){
-                $installment2_date=date('Y-m-d H:i:s' , strtotime($installment2_date));
+                $installment2_date=date('Y-m-d' , strtotime($installment2_date));
             } else {
                 $installment2_date=null;
             }
@@ -67,7 +63,7 @@ class PaymentController extends Controller
             $installment3_amount=$request->input('installment3_amount');
             $installment3_date=$request->input('installment3_date');
             if($installment3_date!=""){
-                $installment3_date=date('Y-m-d H:i:s' , strtotime($installment3_date));
+                $installment3_date=date('Y-m-d' , strtotime($installment3_date));
             } else {
                 $installment3_date=null;
             }
@@ -75,7 +71,7 @@ class PaymentController extends Controller
             $installment4_amount=$request->input('installment4_amount');
             $installment4_date=$request->input('installment4_date');
             if($installment4_date!=""){
-                $installment4_date=date('Y-m-d H:i:s' , strtotime($installment4_date));
+                $installment4_date=date('Y-m-d' , strtotime($installment4_date));
             } else {
                 $installment4_date=null;
             }
@@ -83,7 +79,7 @@ class PaymentController extends Controller
             $installment5_amount=$request->input('installment5_amount');
             $installment5_date=$request->input('installment5_date');
             if($installment5_date!=""){
-                $installment5_date=date('Y-m-d H:i:s' , strtotime($installment5_date));
+                $installment5_date=date('Y-m-d' , strtotime($installment5_date));
             } else {
                 $installment5_date=null;
             }
@@ -97,7 +93,6 @@ class PaymentController extends Controller
             $payment->book_status=$book_status;
             $payment->debt_amount=$debt_amount;
             $payment->cash_paid_amount=$cash_paid_amount;
-            $payment->cash_paid_amount_date=$cash_paid_amount_date;
             $payment->total_remaining_amount=$total_remaining_amount;
             $payment->installment_number=$installment_number;
 
@@ -134,9 +129,6 @@ class PaymentController extends Controller
             $payment->book_status=$request->input('book_status');
             $payment->debt_amount=$request->input('debt_amount');
             $payment->cash_paid_amount=$request->input('cash_paid_amount');
-            $cash_paid_amount_date=$request->input('cash_paid_amount_date');
-            $cash_paid_amount_date=date('Y-m-d H:i:s' , strtotime($cash_paid_amount_date));
-            $payment->cash_paid_amount_date=$cash_paid_amount_date;
             $payment->total_remaining_amount=$request->input('total_remaining_amount');
             $payment->installment_number=$request->input('installment_number');
 
@@ -145,7 +137,7 @@ class PaymentController extends Controller
             $payment->installment1_remaining_amount=$request->input('installment1_remaining_amount');
             $installment1_date=$request->input('installment1_date');
             if($installment1_date!=""){
-                $installment1_date=date('Y-m-d H:i:s' , strtotime($installment1_date));
+                $installment1_date=date('Y-m-d' , strtotime($installment1_date));
             } else {
                 $installment1_date=null;
             }
@@ -156,7 +148,7 @@ class PaymentController extends Controller
             $payment->installment2_remaining_amount=$request->input('installment2_remaining_amount');
             $installment2_date=$request->input('installment2_date');
             if($installment2_date!=""){
-                $installment2_date=date('Y-m-d H:i:s' , strtotime($installment2_date));
+                $installment2_date=date('Y-m-d' , strtotime($installment2_date));
             } else {
                 $installment2_date=null;
             }
@@ -167,7 +159,7 @@ class PaymentController extends Controller
             $payment->installment3_remaining_amount=$request->input('installment3_remaining_amount');
             $installment3_date=$request->input('installment3_date');
             if($installment3_date!=""){
-                $installment3_date=date('Y-m-d H:i:s' , strtotime($installment3_date));
+                $installment3_date=date('Y-m-d' , strtotime($installment3_date));
             } else {
                 $installment3_date=null;
             }
@@ -178,7 +170,7 @@ class PaymentController extends Controller
             $payment->installment4_remaining_amount=$request->input('installment4_remaining_amount');
             $installment4_date=$request->input('installment4_date');
             if($installment4_date!=""){
-                $installment4_date=date('Y-m-d H:i:s' , strtotime($installment4_date));
+                $installment4_date=date('Y-m-d' , strtotime($installment4_date));
             } else {
                 $installment4_date=null;
             }
@@ -189,7 +181,7 @@ class PaymentController extends Controller
             $payment->installment5_remaining_amount=$request->input('installment5_remaining_amount');
             $installment5_date=$request->input('installment5_date');
             if($installment5_date!=""){
-                $installment5_date=date('Y-m-d H:i:s' , strtotime($installment5_date));
+                $installment5_date=date('Y-m-d' , strtotime($installment5_date));
             } else {
                 $installment5_date=null;
             }

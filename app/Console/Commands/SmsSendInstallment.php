@@ -91,11 +91,6 @@ class SmsSendInstallment extends Command
                 $send = Mutlucell::sendBulk($telephone, $text,'', $originator);
                 var_dump(Mutlucell::parseOutput($send));
             }
-            if($installment6_remaining_amount != 0 && ($rest6_day==$two_days || $installment6_date_in_time==$current_date_in_time)){
-                $text=$payment->installment_date_format(6)." tarihinde"." ".$installment6_remaining_amount." ".$currency_unit." tutarında olan taksit gününüz yaklaşmaktadır. Sağlıklı ve mutlu günler dileriz.(Your installment day is approaching. We wish you happy and healthy days)";
-                $send = Mutlucell::sendBulk($telephone, $text,'', $originator);
-                var_dump(Mutlucell::parseOutput($send));
-            }
         }
     }
 }

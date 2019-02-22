@@ -85,15 +85,6 @@
                                             value="{{ $payment->cash_paid_amount }}" name="cash_paid_amount" required>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-3 col-xl-2">
-                                    <div class="form-group">
-                                        <label for="cash_paid_amount_date">*Peşin Ödeme Tarihi:</label>
-                                        <div class="gj-margin-top-10">
-                                            <input id="cash_paid_amount_date" name="cash_paid_amount_date" value="{{ $payment->installment_date_format(7) }}" autocomplete="off"
-                                                required>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row my-2 d-flex justify-content-center">
                                 <div class="col-12 col-md-4 col-lg-3 col-xl-2">
@@ -137,7 +128,6 @@
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
-                                <option>6</option>
                             </select>
                         </div>
                     </div>
@@ -267,7 +257,7 @@
                                     <div class="form-group">
                                         <label for="installment4_amount">Taksit-4 Miktarı:</label>
                                         <input type="number" class="form-control" id="installment4_amount" min="0" step="0.01"
-                                            value="{{ $payment->installment2_amount }}" name="installment4_amount">
+                                            value="{{ $payment->installment4_amount }}" name="installment4_amount">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-3">

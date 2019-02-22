@@ -18,7 +18,6 @@
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Yaşı</th>
                                 <th class="align-middle">Medeni Durumu</th>
-                                <th class="align-middle">Kitap Durumu</th>
                                 <th class="align-middle">Çocuk Durumu</th>
                                 <th class="align-middle">Çocuk Yaş Aralığı</th>
                                 <th class="align-middle">Üniversite Durumu</th>
@@ -35,7 +34,6 @@
                                 <td class="align-middle">{{ $student->surname }}</td>
                                 <td class="align-middle">{{ $student->age }}</td>
                                 <td class="align-middle">{{ $student->marital_status }}</td>
-                                <td class="align-middle">{{ $student->book_status }}</td>
                                 <td class="align-middle">{{ $student->children_status }}</td>
                                 <td class="align-middle">{{ $student->children_age_range_status }}</td>
                                 <td class="align-middle">{{ $student->university_status }}</td>
@@ -80,6 +78,7 @@
         col_3: 'select',
         col_4: 'select',
         col_5: 'select',
+        col_6: 'select',
         col_7: 'select',
         col_8: 'select',
         col_9: 'select',
@@ -87,14 +86,14 @@
         col_widths: [
             '150px', '150px', '60px',
             '90px', '90px', '90px',
-            '220px', '100px', '100px',
-            '100px', '100px','160px'
+            '100px', '100px', '100px',
+            '100px', '160px'
         ],
         col_types: [
+            'string', 'string', 'number',
             'string', 'string', 'string',
-            'number', 'string', 'string',
             'string', 'string', 'string',
-            'string', 'string', 'string'
+            'string', 'string'
         ],
         extensions: [{
             name: 'sort'

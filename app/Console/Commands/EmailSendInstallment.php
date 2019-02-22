@@ -111,15 +111,6 @@ class EmailSendInstallment extends Command
                         'subject' => 'TAKSİT BİLDİRİMİ',
                         'html'    => $text));
             }
-            if($installment6_remaining_amount != 0 && ($rest6_day==$two_days || $installment6_date_in_time==$current_date_in_time)){
-                $text="<b>"."Öğrenci Adı:"."</b>"."<b style=color:red;>".$payment->person->name."</b>"." "."<b style=color:red;>".$payment->person->surname."</b>"."<br>"."<b>"."Sınıfı:"."</b>"."<b style=color:red;>".$payment->person->classroom->course_type."</b>"."<br>"."<b>"."Taksit Tutarı:"."</b>"."<b style=color:red;>".$installment6_remaining_amount."</b>"." "."<b style=color:red;>".$currency_unit."</b>"."<br>"."<b>"."Taksit Tarihi:"."</b>"."<b style=color:red;>".$payment->installment_date_format(6)."</b>";
-                $mgClient = new Mailgun($mailgun_secret);
-                $result = $mgClient->sendMessage("$domain",
-                array  ('from'    => 'info@turkeystudycenter.com',
-                        'to'      => array('mesud.a@turkeystudycenter.com,fatma.d@turkeystudycenter.com'),
-                        'subject' => 'TAKSİT BİLDİRİMİ',
-                        'html'    => $text));
-            }
         }
     }
 }

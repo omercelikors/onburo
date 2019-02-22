@@ -49,8 +49,6 @@ class Payment extends Model
             } else{
             $formatted_date = date('d.m.Y' , strtotime($this->installment6_date));
             }
-        } else if($reference==7){
-            $formatted_date = date('d.m.Y' , strtotime($this->cash_paid_amount_date));
         }
         return $formatted_date;
     }
