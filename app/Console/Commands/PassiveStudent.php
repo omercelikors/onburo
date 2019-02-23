@@ -45,7 +45,7 @@ class PassiveStudent extends Command
         $current_date=date("d.m.Y");
         foreach($students as $student){
             if(strtotime($current_date) > strtotime($student->classroom->end_date())){
-                $student->taken_courses=$student->taken_courses."/".$student->classroom->course_type;
+                $student->taken_courses=$student->taken_courses."  ".$student->classroom->course_type;
                 $student->join_status='Pasif';
                 $student->classroom_id=null;
                 $student->save();
