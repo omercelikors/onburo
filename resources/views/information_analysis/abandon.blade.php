@@ -46,17 +46,18 @@
         data: {
                 datasets:[
                             {
-                                label: "Hoca Sorunu",
+                                label: formatted_abandons[0],
                                 backgroundColor: ['rgba(934, 133, 40, 0.7)'],
                                 data: [abandon_numbers[0]],
                             },
                             {
-                                label: "Kişisel Nedenler",
+                                label: formatted_abandons[1],
                                 backgroundColor: ['rgba(388, 163, 117, 0.7)'],
                                 data: [abandon_numbers[1]],
+                                
                             },
                             {
-                                label: "Ücret Sorunu",
+                                label: formatted_abandons[2],
                                 backgroundColor: ['rgba(148, 463, 217, 0.7)'],
                                 data: [abandon_numbers[2]],
                             }

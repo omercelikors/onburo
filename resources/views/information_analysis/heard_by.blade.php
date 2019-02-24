@@ -46,29 +46,29 @@
         data: {
                 datasets:[
                             {
-                                label: "Diğer",
+                                label: formatted_platforms[0],
                                 backgroundColor: ['rgba(38, 113, 117, 0.7)'],
                                 data: [platform_numbers[0]],
                             },
                             {
-                                label: "Facebook",
+                                label: formatted_platforms[1],
                                 backgroundColor: ['rgba(48, 63, 217, 0.7)'],
                                 data: [platform_numbers[1]],
                             },
                             {
-                                label: "Google",
+                                label: formatted_platforms[2],
                                 backgroundColor: ['rgba(348, 63, 217, 0.7)'],
                                 data: [platform_numbers[2]],
                             },
                             {
-                                label: "Instagram",
+                                label: formatted_platforms[3],
                                 backgroundColor: ['rgba(155, 163, 40, 0.7)'],
                                 data: [platform_numbers[3]],
                             },
                             {
-                                label: "Tavsiye",
+                                label: formatted_platforms[4],
                                 backgroundColor: ['rgba(152, 63, 40, 0.7)'],
-                                data: [platform_numbers[3]],
+                                data: [platform_numbers[4]],
                             }
                 ]
         },
