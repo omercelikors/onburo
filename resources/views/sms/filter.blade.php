@@ -48,7 +48,7 @@
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Statüsü</th>
                                 <th class="align-middle">Katılım Durumu</th>
-                                <th class="align-middle">Aldığı Kuslar</th>
+                                <th class="align-middle">Kurs Tipi</th>
                                 <th class="align-middle">Ülke</th>
                                 <th class="align-middle">Konuştuğu Diller</th>
                                 <th class="align-middle">Kitap Durmu</th>
@@ -64,7 +64,7 @@
                                 <td class="align-middle">{{ $person->surname }}</td>
                                 <td class="align-middle">{{ $person->status }}</td>
                                 <td class="align-middle">{{ $person->join_status }}</td>
-                                <td class="align-middle">{{ $person->taken_courses }}</td>
+                                <td class="align-middle">@isset ($person->classroom) {{ $person->classroom->course_type }} @endisset</td>
                                 <td class="align-middle">{{ $person->country }}</td>
                                 <td class="align-middle">{{ $person->languages }}</td>
                                 <td class="align-middle">{{ $person->book_status }}</td>
@@ -103,6 +103,7 @@
         status_bar: false,
         col_2: 'select',
         col_3: 'select',
+        col_4: 'select',
         col_7: 'select',
         col_8: 'select',
         col_9: 'select',
