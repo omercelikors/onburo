@@ -195,7 +195,7 @@ class Information_AnalysisController extends Controller
             $installment4_date_in_time=strtotime($payment->installment4_date);
             $installment5_date_in_time=strtotime($payment->installment5_date);
             $installment6_date_in_time=strtotime($payment->installment6_date);
-            $cash_paid_amount_date_in_time=strtotime($payment->cash_paid_amount_date);
+            $cash_paid_amount_date_in_time=strtotime($payment->created_at);
             $installment1_paid_amount=$payment->installment1_paid_amount;
             $installment2_paid_amount=$payment->installment2_paid_amount;
             $installment3_paid_amount=$payment->installment3_paid_amount;
