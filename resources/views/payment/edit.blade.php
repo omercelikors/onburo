@@ -18,7 +18,7 @@
                     <div class="col-12 col-md-3 col-xl-2">
                         <div class="form-group">
                             <label for="paid_description">*Ödeme Açıklamsı:</label>
-                            <select id="paid_description" class="form-control" name="paid_description" required>
+                            <select id="paid_description" class="form-control" name="paid_description[]" multiple required>
                                 <option></option>
                                 <option>A1</option>
                                 <option>A2</option>
@@ -356,11 +356,15 @@
 </script>
 {{-- paid description dropdown is having "selected attirubute" according to value coming --}}
 <script>
+        paid_description="{{ $payment->paid_description }}";
+        paid_description_array=paid_description.split(",")
         $(document).ready(function () {
             paid_description_option_length = document.getElementById("paid_description").options.length;
             for (i = 0; i < paid_description_option_length; i++) {
-                if (document.getElementById("paid_description").options[i].value =="{{ $payment->paid_description }}") {
-                    document.getElementById("paid_description").options[i].setAttribute('selected', true);
+                for(z = 0; z < paid_description_array.length; z++){
+                    if (document.getElementById("paid_description").options[i].value == paid_description_array[z]) {
+                        document.getElementById("paid_description").options[i].setAttribute('selected', true);
+                    }
                 }
             }
         });

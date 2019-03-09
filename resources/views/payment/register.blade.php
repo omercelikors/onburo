@@ -26,7 +26,7 @@
                     <div class="col-12 col-md-3 col-xl-2">
                         <div class="form-group">
                             <label for="paid_description">*Ödeme Açıklamsı:</label>
-                            <select id="paid_description" class="form-control" name="paid_description" required>
+                            <select id="paid_description" class="form-control" name="paid_description[]" multiple required>
                                 <option></option>
                                 <option>A1</option>
                                 <option>A2</option>

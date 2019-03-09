@@ -37,6 +37,7 @@ class PaymentController extends Controller
             $person_id=$request->input('name');
             $currency_unit=$request->input('currency_unit');
             $paid_description=$request->input('paid_description');
+            $paid_description = implode(',', $paid_description);
             $book_status=$request->input('book_status');
             $debt_amount=$request->input('debt_amount');
             $cash_paid_amount=$request->input('cash_paid_amount');
@@ -125,7 +126,8 @@ class PaymentController extends Controller
             $payment_id=$request->input('payment_id');
             $payment=Payment::find($payment_id);
             $payment->currency_unit=$request->input('currency_unit');
-            $payment->paid_description=$request->input('paid_description');
+            $paid_description=$request->input('paid_description');
+            $payment->paid_description=implode(',', $paid_description);
             $payment->book_status=$request->input('book_status');
             $payment->debt_amount=$request->input('debt_amount');
             $payment->cash_paid_amount=$request->input('cash_paid_amount');

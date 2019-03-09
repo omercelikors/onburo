@@ -82,7 +82,6 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_2: 'select',
         col_3: 'select',
         col_7: 'select',
         col_widths: [
