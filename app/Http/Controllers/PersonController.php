@@ -222,8 +222,6 @@ class PersonController extends Controller{
     public function candidate_student_register (Request $request){
             $name=$request->input('name');
             $surname=$request->input('surname');
-            $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d' , strtotime($birthdate));
             $telephone=$request->input('telephone');
             $e_mail=$request->input('e_mail');
             $country=$request->input('country');
@@ -235,7 +233,6 @@ class PersonController extends Controller{
             $candidate_student->name=$name;
             $candidate_student->surname=$surname;
             $candidate_student->status="Aday Öğrenci";
-            $candidate_student->birthdate=$birthdate;
             $candidate_student->telephone=$telephone;
             $candidate_student->e_mail=$e_mail;
             $candidate_student->country=$country;
@@ -256,9 +253,6 @@ class PersonController extends Controller{
             $candidate_student=Person::find($candidate_student_id);
             $candidate_student->name=$request->input('name');
             $candidate_student->surname=$request->input('surname');
-            $birthdate=$request->input('birthdate');
-            $birthdate=date('Y-m-d' , strtotime($birthdate));
-            $candidate_student->birthdate=$birthdate;
             $candidate_student->telephone=$request->input('telephone');
             $candidate_student->e_mail=$request->input('e_mail');
             $candidate_student->country=$request->input('country');
