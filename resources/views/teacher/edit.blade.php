@@ -21,7 +21,7 @@
                                 <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Soyadı:</label>
-                                        <input type="text" class="form-control" id="surname" style="text-transform:uppercase" value="{{ $teacher->surname }}" name="surname" required>
+                                        <input type="text" class="form-control" id="surname" oninput="this.value = this.value.toUpperCase()" value="{{ $teacher->surname }}" name="surname" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-2">

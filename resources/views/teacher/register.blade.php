@@ -20,7 +20,7 @@
                                 <div class="col-12 col-md-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Soyadı:</label>
-                                        <input type="text" class="form-control" style="text-transform:uppercase" id="surname" name="surname" required>
+                                        <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" id="surname" name="surname" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-2">
