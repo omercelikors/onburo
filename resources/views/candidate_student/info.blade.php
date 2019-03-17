@@ -19,7 +19,7 @@
                                 <th class="align-middle">Ülke</th>
                                 <th class="align-middle">Telefon</th>
                                 <th class="align-middle">İstediği Kurs</th>
-                                <th class="align-middle">Note</th>
+                                <th class="align-middle">Not</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
