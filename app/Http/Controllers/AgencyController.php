@@ -9,7 +9,7 @@ use Auth;
 class AgencyController extends Controller
 {
     public function agency_info_show (){
-        $agencies=Agency::all();
+        $agencies=Agency::orderBy('id', 'desc')->get();
         return view('agency.info')->with('agencies',$agencies);
     }
 

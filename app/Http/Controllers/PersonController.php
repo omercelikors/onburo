@@ -13,17 +13,17 @@ use Auth;
 class PersonController extends Controller{
     
     public function student_other1_show (){
-        $students = Person::where('status','Öğrenci')->get();
+        $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
         return view('student.info_other1')->with('students',$students);
     }
 
     public function student_other2_show (){
-        $students = Person::where('status','Öğrenci')->get();
+        $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
         return view('student.info_other2')->with('students',$students);
     }
 
     public function student_other3_show (){
-        $students = Person::where('status','Öğrenci')->get();
+        $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
         return view('student.info_other3')->with('students',$students);
     }
 
@@ -211,7 +211,7 @@ class PersonController extends Controller{
     }
     //CANDİDATE
     public function candidate_student_info_show (){
-        $candidate_students=Person::where('status','Aday Öğrenci')->get();
+        $candidate_students=Person::where('status','Aday Öğrenci')->orderBy('id', 'desc')->get();
         return view('candidate_student.info')->with('candidate_students',$candidate_students);
     }
 
@@ -276,7 +276,7 @@ class PersonController extends Controller{
     }
     //COMPANY EMPLOYEE
     public function company_employee_info_show (){
-        $company_employees=Person::where('status','Şirket Çalışanı')->get();
+        $company_employees=Person::where('status','Şirket Çalışanı')->orderBy('id', 'desc')->get();
         return view('company_employee.info')->with('company_employees',$company_employees);
     }
 
@@ -336,7 +336,7 @@ class PersonController extends Controller{
 
     //TEACHER
     public function teacher_info_show (){
-        $teachers=Person::where('status','Öğretmen')->get();
+        $teachers=Person::where('status','Öğretmen')->orderBy('id', 'desc')->get();
         return view('teacher.info')->with('teachers',$teachers);
     }
 

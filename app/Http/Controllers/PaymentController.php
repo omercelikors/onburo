@@ -10,7 +10,7 @@ use App\Person;
 class PaymentController extends Controller
 {
     public function payment_info_show (){
-        $payments=Payment::all();
+        $payments=Payment::orderBy('id', 'desc')->get();
         return view('payment.info')->with('payments',$payments);
     }
 

@@ -9,7 +9,7 @@ use Auth;
 class ClassroomController extends Controller
 {
     public function classroom_info_show (){
-        $classrooms=Classroom::all();
+        $classrooms=Classroom::orderBy('id', 'desc')->get();
         return view('classroom.info')->with('classrooms',$classrooms);
     }
 

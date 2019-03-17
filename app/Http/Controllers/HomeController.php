@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         if(Auth::user()->hasAnyRole(['recorder','admin']))
         {
-            $students = Person::where('status','Öğrenci')->get();
+            $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
             return view('student.info')->with('students',$students);
         }
     }
