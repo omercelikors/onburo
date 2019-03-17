@@ -70,7 +70,7 @@
         col_4:'select',
         col_widths: [
             '120px', '120px', '150px',
-            '150px', '150px', '250px',
+            '150px', '150px', '450px',
             '200px'
         ],
         col_types: [

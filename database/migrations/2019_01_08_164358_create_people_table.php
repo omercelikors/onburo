@@ -22,10 +22,10 @@ class CreatePeopleTable extends Migration
             $table->enum('status', ['Öğrenci','Aday Öğrenci','Öğretmen','Şirket Çalışanı']);
             $table->enum('join_status', ['Aktif','Pasif'])->nullable();
             $table->string('taken_courses')->nullable();
-            $table->date('birthdate');
+            $table->date('birthdate')->nullable();
             $table->integer('age')->nullable();
             $table->string('telephone');
-            $table->string('e_mail');
+            $table->string('e_mail')->nullable();
             $table->string('country')->nullable();
             $table->string('languages')->nullable();
             $table->enum('why_abandon_us_status', ['Hoca Sorunu','Ücret Sorunu','Kişisel Nedenler'])->nullable();

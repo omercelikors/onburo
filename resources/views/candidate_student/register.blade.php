@@ -25,22 +25,14 @@
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
-                                        <label for="e_mail">*E-posta Adresi:</label>
-                                        <input type="email" class="form-control" id="e_mail" name="e_mail" required>
+                                        <label for="e_mail">E-posta Adresi:</label>
+                                        <input type="email" class="form-control" id="e_mail" name="e_mail">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="telephone">*Telefon:</label>
                                         <input type="number" class="form-control" id="telephone" name="telephone" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
-                                    <div class="form-group">
-                                        <label for="birthdate">*Doğum Tarihi:</label>
-                                        <div class="gj-margin-top-10">
-                                            <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.aa.yyyy" required>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">
@@ -69,10 +61,10 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 col-lg-4 col-xl-5">
+                                <div class="col-12 col-md-6 col-lg-6 col-xl-7">
                                     <div class="form-group">
                                         <label for="note">Not:</label>
-                                        <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+                                        <textarea class="form-control" rows="10" id="note" name="note"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -93,17 +85,6 @@
 @section('js')
 {{-- country dropdown js --}}
 <script src="{{ asset('js/extensions/bootstrap-formhelpers.min.js') }}"></script>
-{{-- date picker --}}
-<script>
-    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-    $('#birthdate').datepicker({
-        locale: 'tr-tr',
-        format:'dd.mm.yyyy',
-        uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        maxDate: today
-    });
-</script>
 @endsection
 
 @section('css')
