@@ -17,6 +17,7 @@
                             <tr>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
+                                <th class="align-middle">Öğretmen</th>
                                 <th class="align-middle">Ödeme Açıklaması</th>
                                 <th class="align-middle">Kitap Aldı Mı?</th>
                                 <th class="align-middle">Anlaşılan Tutar</th>
@@ -36,6 +37,7 @@
                             <tr>
                                 <td class="align-middle">{{ $payment->person->name }}</td>
                                 <td class="align-middle">{{ $payment->person->surname }}</td>
+                                <td class="align-middle">@isset($payment->person->classroom) {{ $payment->person->classroom->teacher_name() }} {{ $payment->person->classroom->teacher_surname() }} @endisset</td>
                                 <td class="align-middle">{{ $payment->paid_description }}</td>
                                 <td class="align-middle">{{ $payment->book_status }}</td>
                                 <td class="align-middle">{{ $payment->debt_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
@@ -82,15 +84,16 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
+        col_2:'select',
         col_3: 'select',
         col_7: 'select',
         col_widths: [
-            '100px', '100px', '100px', '80px', '100px',
-            '100px', '100px', '100px', '100px', '100px',
+            '100px', '100px', '150px', '100px', '80px', '100px',
+            '100px', '100px', '100px', '100px','100px',
             '100px', '100px', '100px','200px'
         ],
         col_types: [
-            'string', 'string', 'string', 'string', 'number',
+            'string', 'string', 'string', 'string', 'string', 'number',
             'number', 'number', 'string', 'string', 'string',
             'string', 'string', 'string','string'
         ],
