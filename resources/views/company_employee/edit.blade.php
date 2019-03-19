@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="col-12 col-md-6 col-xl-3">
                                     <div class="form-group">
-                                        <label for="e_mail">*E-posta Adresi:</label>
+                                        <label for="e_mail">E-posta Adresi:</label>
                                         <input type="email" class="form-control" id="e_mail" value="{{ $company_employee->e_mail }}" name="e_mail">
                                     </div>
                                 </div>

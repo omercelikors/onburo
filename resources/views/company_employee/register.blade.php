@@ -25,8 +25,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-xl-3">
                                         <div class="form-group">
-                                            <label for="e_mail">*E-posta Adresi:</label>
-                                            <input type="email" class="form-control" id="e_mail" name="e_mail" required>
+                                            <label for="e_mail">E-posta Adresi:</label>
+                                            <input type="email" class="form-control" id="e_mail" name="e_mail">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4 col-xl-2">
