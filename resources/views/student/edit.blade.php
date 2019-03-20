@@ -49,8 +49,18 @@
                                 <div class="col-12 col-md-3 col-xl-3">
                                     <div class="form-group">
                                         <label for="languages">*Konuştuğu Diller:</label>
-                                        <select id="languages" class="form-control input-medium bfh-languages"
-                                            data-language="US" name="languages[]" multiple required></select>
+                                        <select id="languages" class="form-control" name="languages[]" multiple required>
+                                            <option></option>
+                                            <option>İngilizce</option>
+                                            <option>Arapça</option>
+                                            <option>Farsça</option>
+                                            <option>Rusça</option>
+                                            <option>Çince</option>
+                                            <option>Hintçe</option>
+                                            <option>İspanyolca</option>
+                                            <option>Fransızca</option>
+                                            <option>Diğer</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 col-xl-3">
@@ -782,8 +792,7 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        maxDate: today
+        weekStartDay: 1
     });
 </script>
 @endsection

@@ -376,36 +376,31 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
+        weekStartDay: 1
     });
     $('#installment2_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
+        weekStartDay: 1
     });
     $('#installment3_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
+        weekStartDay: 1
     });
     $('#installment4_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
+        weekStartDay: 1
     });
     $('#installment5_date').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
+        weekStartDay: 1
     });
 </script>
 <script>

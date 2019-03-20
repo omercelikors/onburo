@@ -62,7 +62,11 @@ class PersonController extends Controller{
             $e_mail=$request->input('e_mail');
             $country=$request->input('countries');
             $languages=$request->input('languages');
-            $languages = implode(',', $languages);
+            if($languages[0]==null){
+                $languages=null;
+            } else {
+                $languages = implode(',', $languages);
+            }
             $registration_by=Auth::user()->name;
             $classroom_id=$request->input('classrooms');
             $agency_id=$request->input('agency');

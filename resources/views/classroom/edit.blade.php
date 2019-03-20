@@ -127,8 +127,7 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        minDate: today
+        weekStartDay: 1
     });
     $('#end_date').datepicker({
         locale: 'tr-tr',

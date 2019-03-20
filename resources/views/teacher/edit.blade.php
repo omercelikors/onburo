@@ -67,8 +67,7 @@
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        maxDate: today
+        weekStartDay: 1
     });
 </script>
 @endsection

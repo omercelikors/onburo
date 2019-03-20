@@ -50,6 +50,7 @@
                                     <div class="form-group">
                                         <label for="languages">*Konuştuğu Diller:</label>
                                         <select id="languages" class="form-control" name="languages[]" multiple required>
+                                            <option></option>
                                             <option>İngilizce</option>
                                             <option>Arapça</option>
                                             <option>Farsça</option>
@@ -626,9 +627,9 @@
     $('#birthdate').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
+        value:'01.01.2000',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        maxDate: today
+        weekStartDay: 1
     });
 </script>
 @endsection

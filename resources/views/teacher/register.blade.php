@@ -64,9 +64,9 @@
     $('#birthdate').datepicker({
         locale: 'tr-tr',
         format:'dd.mm.yyyy',
+        value:'01.01.2000',
         uiLibrary: 'bootstrap4',
-        weekStartDay: 1,
-        maxDate: today
+        weekStartDay: 1
     });
 </script>
 @endsection
