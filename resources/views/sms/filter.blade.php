@@ -93,9 +93,6 @@
             page_length: true,
             sort: true
         },
-        paging: {
-            results_per_page: ['Records: ', [10, 25, 50, 100]]
-        },
         alternate_rows: true,
         btn_reset: true,
         rows_counter: true,
@@ -157,7 +154,7 @@
     });
 </script>
 <script>
-   person_id=[]
+    person_id=[]
     $("#sms_send").submit(function(e){
         $('.info').each(function () {
             if ($(this).css('display') != 'none') {

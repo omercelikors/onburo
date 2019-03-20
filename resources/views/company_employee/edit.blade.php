@@ -38,9 +38,9 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
-                                        <label for="birthdate">*Doğum Tarihi:</label>
+                                        <label for="birthdate">Doğum Tarihi:</label>
                                         <div class="gj-margin-top-10">
-                                            <input id="birthdate" name="birthdate" autocomplete="off" value="{{ $company_employee->birthdate() }}" required>
+                                            <input id="birthdate" name="birthdate" autocomplete="off" value="{{ $company_employee->birthdate() }}">
                                         </div>
                                     </div>
                                 </div>

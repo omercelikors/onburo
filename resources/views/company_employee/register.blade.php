@@ -37,9 +37,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-xl-2">
                                         <div class="form-group">
-                                            <label for="birthdate">*Doğum Tarihi:</label>
+                                            <label for="birthdate">Doğum Tarihi:</label>
                                             <div class="gj-margin-top-10">
-                                                <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.aa.yyyy" required>
+                                                <input id="birthdate" name="birthdate" autocomplete="off" placeholder="gg.aa.yyyy">
                                             </div>
                                         </div>
                                     </div>
