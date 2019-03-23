@@ -10,4 +10,9 @@ class Agency extends Model
     {
         return $this->hasMany('App\Person');
     }
+
+    public function payment()
+    {
+        return $this->hasMany('App\Payment');
+    }
 }

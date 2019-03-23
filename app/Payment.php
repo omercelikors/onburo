@@ -11,6 +11,11 @@ class Payment extends Model
         return $this->belongsTo('App\Person');
     }
 
+    public function agency()
+    {
+        return $this->belongsTo('App\Agency');
+    }
+
     public function installment_date_format($reference)
     {
         if($reference==1){

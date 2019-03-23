@@ -4,6 +4,7 @@
     <form method="post" action="{{ route('payment_register') }}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" class="form-control" name="name" value="{{ session('student_id') }}">
+        <input type="hidden" class="form-control" id="agency_id" name="agency_id" value="{{ session('agency_id') }}">
         <div class="card my-3">
             <div class="card-header">Ödeme Kayıt</div>
             <div class="card-body">
@@ -12,7 +13,7 @@
                         <div class="form-group">
                             <label for="name">*Öğrenci Adı:</label>
                             @if($button_register==1)
-                                <select class="form-control" id="name" name="name" required>
+                                <select class="form-control" onchange="agency_control(this.value)" id="name" name="name" required>
                                     <option value=""></option>
                                     @foreach($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->name }} {{ $student->surname }}</option>
@@ -39,7 +40,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3 col-xl-3">
+                    <div class="col-12 col-md-3 col-xl-2">
                         <div>
                             <label>*Kitap aldı mı?:</label>
                         </div>
@@ -56,6 +57,49 @@
                             </label>
                         </div>
                     </div>
+                    @if(session('agency_name')!=null && $button_register==0)
+                        <div class="col-12 col-md-3 col-xl-2">
+                            <div class="form-group">
+                                <label >Acente Adı:</label>
+                                <input type="text" value="{{ session('agency_name') }}" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 col-xl-2">
+                            <div class="form-group">
+                                <label for="agency_debt_amount">Acente Borç Miktarı:</label>
+                                <input type="number" class="form-control" id="agency_debt_amount" name="agency_debt_amount"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 col-xl-2">
+                            <div class="form-group">
+                                <label for="agency_paid_amount">Acente Ödenen Miktar:</label>
+                                <input type="number" class="form-control" id="agency_paid_amount" min="0" step="0.01"
+                                    name="agency_paid_amount">
+                            </div>
+                        </div>
+                    @elseif($button_register==1)
+                        <div class="col-12 col-md-3 col-xl-2" id="agency_name_capsul" style="display:none">
+                            <div class="form-group">
+                                <label >Acente Adı:</label>
+                                <input type="text" class="form-control" id="agency_name" readonly>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 col-xl-2" id="agency_debt_amount_capsul" style="display:none">
+                            <div class="form-group">
+                                <label for="agency_debt_amount">Acente Borç Miktarı:</label>
+                                <input type="number" class="form-control" id="agency_debt_amount" name="agency_debt_amount"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 col-xl-2" id="agency_paid_amount_capsul" style="display:none">
+                            <div class="form-group">
+                                <label for="agency_paid_amount">Acente Ödenen Miktar:</label>
+                                <input type="number" class="form-control" id="agency_paid_amount" min="0" step="0.01"
+                                    name="agency_paid_amount">
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="card col-12 col-xl-11 px-0 my-3 mx-2">
@@ -308,11 +352,41 @@
 </script>
 
 <script>
+    function agency_control(student_id){
+        axios.get('/api/agency', {
+            params: {
+                student_id: student_id
+            }
+        })
+        .then(function (response) {
+            if(response.data !== ""){
+                $('#agency_name_capsul').css("display", "block");
+                $("#agency_name").val(response.data[0]);
+                $("#agency_id").val(response.data[1]);
+                $('#agency_debt_amount_capsul').css("display", "block");
+                $('#agency_paid_amount_capsul').css("display", "block");
+            }else{
+                $('#agency_name_capsul').css("display", "none");
+                $("#agency_name").val("");
+                $('#agency_debt_amount_capsul').css("display", "none");
+                $('#agency_paid_amount_capsul').css("display", "none");
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });  
+    }
+</script>
+<script>
         debt_amount=document.getElementById('debt_amount');
         cash_paid_amount=document.getElementById('cash_paid_amount');
         total_remaining_amount=document.getElementById('total_remaining_amount');
         calculator=document.getElementById('calculator');
-        agency_paid_amount=document.getElementById('agency_paid_amount');
+        cash_paid_amount=document.getElementById('cash_paid_amount');
+        agency_debt_amount=document.getElementById('agency_debt_amount');
         installment_number=document.getElementById('installment_number');
         installment1_amount=document.getElementById('installment1_amount');
         installment2_amount=document.getElementById('installment2_amount');
@@ -327,6 +401,7 @@
         setInterval(function(){ 
         total_remaining_amount.value=debt_amount.value-cash_paid_amount.value;
         calculator.value=debt_amount.value-cash_paid_amount.value-installment1_amount.value-installment2_amount.value-installment3_amount.value-installment4_amount.value-installment5_amount.value;
+        agency_debt_amount.value=debt_amount.value*0.1;
         if(total_remaining_amount.value==0 || installment_number.value==""){
             $('#installment1_amount').attr("readonly", true);
             $('#installment2_amount').attr("readonly", true);

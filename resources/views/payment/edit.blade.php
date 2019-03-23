@@ -31,7 +31,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3 col-xl-3">
+                    <div class="col-12 col-md-3 col-xl-2">
                         <div>
                             <label>*Kitap aldı mı?:</label>
                         </div>
@@ -48,6 +48,28 @@
                             </label>
                         </div>
                     </div>
+                    @if(isset($agency_name))
+                    <div class="col-12 col-md-3 col-xl-2">
+                        <div class="form-group">
+                            <label >Acente Adı:</label>
+                            <input type="text" value="{{ $agency_name }}" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 col-xl-2">
+                        <div class="form-group">
+                            <label for="agency_debt_amount">Acente Borç Miktarı:</label>
+                            <input type="number" class="form-control" id="agency_debt_amount" name="agency_debt_amount" min="0" step="0.01"
+                                readonly>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 col-xl-2">
+                        <div class="form-group">
+                            <label for="agency_paid_amount">Acente Ödenen Miktar:</label>
+                            <input type="number" class="form-control" value="{{ $payment->agency_paid_amount }}" id="agency_paid_amount" min="0" step="0.01"
+                                name="agency_paid_amount">
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 <div class="row my-2 d-flex justify-content-center">
                     <div class="card col-12 col-xl-10 px-0 my-3 mx-2">
@@ -409,6 +431,7 @@
         paid_amount_by_installments=document.getElementById('paid_amount_by_installments');
         total_remaining_amount=document.getElementById('total_remaining_amount');
         calculator=document.getElementById('calculator');
+        agency_debt_amount=document.getElementById('agency_debt_amount');
         installment_number=document.getElementById('installment_number');
         installment1_amount=document.getElementById('installment1_amount');
         installment2_amount=document.getElementById('installment2_amount');
@@ -439,6 +462,7 @@
         paid_amount_by_installments.value=Number(installment1_paid_amount.value) + Number(installment2_paid_amount.value) + Number(installment3_paid_amount.value) + Number(installment4_paid_amount.value) + Number(installment5_paid_amount.value);
         total_remaining_amount.value=debt_amount.value - cash_paid_amount.value - paid_amount_by_installments.value;
         calculator.value=debt_amount.value - cash_paid_amount.value - installment1_amount.value - installment2_amount.value - installment3_amount.value - installment4_amount.value - installment5_amount.value;
+        agency_debt_amount.value=debt_amount.value*0.1;
         if(installment_number.value==""){
             $('#installment1_amount').attr("readonly", true);
             $('#installment2_amount').attr("readonly", true);

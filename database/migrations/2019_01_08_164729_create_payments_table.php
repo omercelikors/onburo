@@ -16,6 +16,9 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('person_id');
+            $table->integer('agency_id')->nullable();
+            $table->decimal('agency_debt_amount',8,2)->nullable();
+            $table->decimal('agency_paid_amount',8,2)->nullable();
             $table->enum('currency_unit', ['Türk Lirası','Dolar']);
             $table->string('paid_description');
             $table->enum('book_status', ['Evet','Hayır'])->nullable();

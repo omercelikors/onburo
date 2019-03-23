@@ -144,7 +144,12 @@ class PersonController extends Controller{
             }
             $student=Person::where('name',$name)->where('surname',$surname)->first();
             $student_id=$student->id;
-            return redirect()->route('payment_register_show',['button_register'=>0,])->with('name',$name)->with('surname',$surname)->with('student_id',$student_id);
+            if(isset($student->agency)){
+                $agency_name=$student->agency->name;
+            }else {
+                $agency_name=null;
+            }
+            return redirect()->route('payment_register_show',['button_register'=>0,])->with('name',$name)->with('surname',$surname)->with('student_id',$student_id)->with('agency_id',$agency_id)->with('agency_name',$agency_name);
     }
 
     public function student_edit_register(Request $request){
@@ -182,7 +187,14 @@ class PersonController extends Controller{
                     $course_student_number->save();
                 } 
             }
-            $student->agency_id=$request->input('agency');
+            $agency_id=$request->input('agency');
+            $student->agency_id=$agency_id;
+            $payments=Payment::where('person_id',$student_id)->get();
+            foreach($payments as $payment){
+                $payment->agency_id=$agency_id;
+                $payment->agency_debt_amount=$payment->debt_amount*0.1;
+                $payment->save();
+            }
             if($student->classroom_id!=null){
                 $student->join_status="Aktif";
             } else {
@@ -393,5 +405,17 @@ class PersonController extends Controller{
                 $classroom->save();
             }
             $teacher->delete();
+    }
+
+    public function agency_name(Request $request){
+        $student_id=$request->input('student_id');
+        $student=Person::find($student_id);
+        if(isset($student->agency)){
+            $agency_name=$student->agency->name;
+            $agency_id=$student->agency->id;
+            return [$agency_name,$agency_id];
+        } else {
+            return null;
+        }
     }
 }

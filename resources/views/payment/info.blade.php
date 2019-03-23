@@ -23,7 +23,7 @@
                                 <th class="align-middle">Anlaşılan Tutar</th>
                                 <th class="align-middle">Ödenen</th>
                                 <th class="align-middle">Kalan</th>
-                                <th class="align-middle">Acente</th>
+                                <th class="align-middle">Acente Kalan</th>
                                 <th class="align-middle">1. Taksit</th>
                                 <th class="align-middle">2. Taksit</th>
                                 <th class="align-middle">3. Taksit</th>
@@ -43,7 +43,7 @@
                                 <td class="align-middle">{{ $payment->debt_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
                                 <td class="align-middle">{{ number_format($payment->debt_amount-$payment->total_remaining_amount,2) }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
                                 <td class="align-middle">{{ $payment->total_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif</td>
-                                <td class="align-middle">@if(isset($payment->person->agency_id)){{ $payment->person->agency->name }}<br>{{ $payment->debt_amount*0.1}}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif @endif</td>
+                                <td class="align-middle">@if(isset($payment->person->agency_id)){{ $payment->person->agency->name }}<br>{{ $payment->agency_debt_amount-$payment->agency_paid_amount}}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif @endif</td>
                                 <td class="align-middle">@if(isset($payment->installment1_remaining_amount)){{ $payment->installment1_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif <br> {{ $payment->installment_date_format(1) }}@endif</td>
                                 <td class="align-middle">@if(isset($payment->installment2_remaining_amount)){{ $payment->installment2_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif <br> {{ $payment->installment_date_format(2) }}@endif</td>
                                 <td class="align-middle">@if(isset($payment->installment3_remaining_amount)){{ $payment->installment3_remaining_amount }}@if($payment->currency_unit=="Türk Lirası") TL @elseif($payment->currency_unit=="Dolar") $ @endif <br> {{ $payment->installment_date_format(3) }}@endif</td>

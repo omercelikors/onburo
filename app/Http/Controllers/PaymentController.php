@@ -18,7 +18,12 @@ class PaymentController extends Controller
         $payment=Payment::find($payment_id);
         $student_name=$payment->person->name;
         $student_surname=$payment->person->surname;
-        return view('payment.edit')->with('payment',$payment)->with('student_name',$student_name)->with('student_surname',$student_surname);
+        if(isset($payment->agency)){
+            $agency_name=$payment->agency->name;
+        } else {
+            $agency_name=null;
+        }
+        return view('payment.edit')->with('payment',$payment)->with('student_name',$student_name)->with('student_surname',$student_surname)->with('agency_name',$agency_name);
     }
 
     public function payment_delete(Request $request){
@@ -35,6 +40,9 @@ class PaymentController extends Controller
 
     public function payment_register (Request $request){
             $person_id=$request->input('name');
+            $agency_id=$request->input('agency_id');
+            $agency_debt_amount=$request->input('agency_debt_amount');
+            $agency_paid_amount=$request->input('agency_paid_amount');
             $currency_unit=$request->input('currency_unit');
             $paid_description=$request->input('paid_description');
             $paid_description = implode(',', $paid_description);
@@ -89,6 +97,9 @@ class PaymentController extends Controller
 
             $payment=new Payment;
             $payment->person_id=$person_id;
+            $payment->agency_id=$agency_id;
+            $payment->agency_debt_amount=$agency_debt_amount;
+            $payment->agency_paid_amount=$agency_paid_amount;
             $payment->currency_unit=$currency_unit;
             $payment->paid_description=$paid_description;
             $payment->book_status=$book_status;
@@ -125,6 +136,8 @@ class PaymentController extends Controller
     public function payment_edit_register (Request $request){
             $payment_id=$request->input('payment_id');
             $payment=Payment::find($payment_id);
+            $payment->agency_debt_amount=$request->input('agency_debt_amount');
+            $payment->agency_paid_amount=$request->input('agency_paid_amount');
             $payment->currency_unit=$request->input('currency_unit');
             $paid_description=$request->input('paid_description');
             $payment->paid_description=implode(',', $paid_description);

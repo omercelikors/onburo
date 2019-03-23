@@ -79,6 +79,9 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
+    //api in payment register page for getting agency name
+    Route::get('/api/agency', 'PersonController@agency_name')->name('agency_name');
+
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
