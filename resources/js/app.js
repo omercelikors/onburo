@@ -9,6 +9,7 @@ require('./bootstrap');
 
 
 
+
 window.TableFilter = require('TableFilter');
 
 import swal from 'sweetalert';

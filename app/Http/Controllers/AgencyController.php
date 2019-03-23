@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Agency;
 use App\Person;
+use App\Payment;
 use Auth;
 class AgencyController extends Controller
 {
@@ -48,6 +49,13 @@ class AgencyController extends Controller
             foreach($students as $student){
                 $student->agency_id=null;
                 $student->save();
+            }
+            $payments=Payment::where('agency_id',$agency_id)->get();
+            foreach($payments as $payment){
+                $payment->agency_id=null;
+                $payment->agency_debt_amount=null;
+                $payment->agency_paid_amount=null;
+                $payment->save();
             }
             $agency->delete();
     }

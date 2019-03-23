@@ -190,11 +190,21 @@ class PersonController extends Controller{
             $agency_id=$request->input('agency');
             $student->agency_id=$agency_id;
             $payments=Payment::where('person_id',$student_id)->get();
-            foreach($payments as $payment){
-                $payment->agency_id=$agency_id;
-                $payment->agency_debt_amount=$payment->debt_amount*0.1;
-                $payment->save();
+            if($agency_id!=null){
+                foreach($payments as $payment){
+                    $payment->agency_id=$agency_id;
+                    $payment->agency_debt_amount=$payment->debt_amount*0.1;
+                    $payment->save();
+                }
+            }else {
+                foreach($payments as $payment){
+                    $payment->agency_id=null;
+                    $payment->agency_debt_amount=null;
+                    $payment->agency_paid_amount=null;
+                    $payment->save();
+                }
             }
+            
             if($student->classroom_id!=null){
                 $student->join_status="Aktif";
             } else {
