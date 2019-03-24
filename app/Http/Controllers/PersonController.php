@@ -188,23 +188,30 @@ class PersonController extends Controller{
                 } 
             }
             $agency_id=$request->input('agency');
-            $student->agency_id=$agency_id;
             $payments=Payment::where('person_id',$student_id)->get();
+            $agency=Agency::where('id',$agency_id)->first();
             if($agency_id!=null){
                 foreach($payments as $payment){
                     $payment->agency_id=$agency_id;
                     $payment->agency_debt_amount=$payment->debt_amount*0.1;
+                    $agency->debt_amount=($agency->debt_amount)+$payment->agency_debt_amount;
+                    $agency->currency_unit=$payment->currency_unit;
+                    $agency->save();
                     $payment->save();
                 }
             }else {
                 foreach($payments as $payment){
+                    $agency=Agency::where('id',$student->agency->id)->first();
+                    $agency->debt_amount=($agency->debt_amount)-$payment->agency_debt_amount;
+                    $agency->paid_amount=($agency->paid_amount)-$payment->agency_paid_amount;
+                    $agency->save();
                     $payment->agency_id=null;
                     $payment->agency_debt_amount=null;
                     $payment->agency_paid_amount=null;
                     $payment->save();
                 }
             }
-            
+            $student->agency_id=$agency_id;
             if($student->classroom_id!=null){
                 $student->join_status="Aktif";
             } else {

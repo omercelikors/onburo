@@ -15,6 +15,9 @@
                         <thead>
                             <tr>
                                 <th class="align-middle">Adı</th>
+                                <th class="align-middle">Ödenecek Tutar</th>
+                                <th class="align-middle">Ödenen Tutar</th>
+                                <th class="align-middle">Kalan</th>
                                 <th class="align-middle">Not</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
@@ -23,6 +26,9 @@
                             @foreach ($agencies as $agency)
                             <tr>
                                 <td class="align-middle">{{ $agency->name }}</td>
+                                <td class="align-middle">@if(isset($agency->debt_amount)){{ $agency->debt_amount }} @if($agency->currency_unit=="Türk Lirası") TL @elseif($agency->currency_unit=="Dolar") $ @endif @endif</td>
+                                <td class="align-middle">@if(isset($agency->paid_amount)){{ $agency->paid_amount }} @if($agency->currency_unit=="Türk Lirası") TL @elseif($agency->currency_unit=="Dolar") $ @endif @endif</td>
+                                <td class="align-middle">{{ $agency->debt_amount-$agency->paid_amount }} @if($agency->currency_unit=="Türk Lirası") TL @elseif($agency->currency_unit=="Dolar") $ @endif</td>
                                 <td class="align-middle">{{ $agency->note }}</td>
                                 <form action="{{ route('agency_edit_show', ['agency_id' => $agency->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -60,10 +66,10 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '350px', '450px', '250px'
+            '250px','200px','200px','200px', '350px', '250px'
         ],
         col_types: [
-            'string', 'string', 'string'
+            'string','number', 'number','number', 'string', 'string'
         ],
         extensions: [{
             name: 'sort'

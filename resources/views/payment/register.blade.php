@@ -363,14 +363,16 @@
                 $('#agency_name_capsul').css("display", "block");
                 $("#agency_name").val(response.data[0]);
                 $("#agency_id").val(response.data[1]);
-                $('#agency_debt_amount_capsul').attr("disabled", false);
                 $('#agency_debt_amount_capsul').css("display", "block");
+                $('#agency_debt_amount').attr("disabled", false);
+                $('#agency_debt_amount').attr("readonly", true);
                 $('#agency_paid_amount_capsul').css("display", "block");
             }else{
                 $('#agency_name_capsul').css("display", "none");
                 $("#agency_name").val("");
-                $('#agency_debt_amount_capsul').attr("disabled", true);
                 $('#agency_debt_amount_capsul').css("display", "none");
+                $('#agency_debt_amount').attr("disabled", true);
+                $('#agency_debt_amount').attr("readonly", false);
                 $('#agency_paid_amount_capsul').css("display", "none");
             }
         })
