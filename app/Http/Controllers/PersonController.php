@@ -11,7 +11,7 @@ use App\CourseStudentNumber;
 use Debugbar;
 use Auth;
 class PersonController extends Controller{
-    
+
     public function student_other1_show (){
         $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
         return view('student.info_other1')->with('students',$students);
@@ -140,7 +140,7 @@ class PersonController extends Controller{
                 } else if($course_type=="B2"){
                     $course_student_number->B2=($course_student_number->B2)+1;
                     $course_student_number->save();
-                } 
+                }
             }
             $student=Person::where('name',$name)->where('surname',$surname)->first();
             $student_id=$student->id;
@@ -185,7 +185,7 @@ class PersonController extends Controller{
                 } else if($course_type=="B2"){
                     $course_student_number->B2=($course_student_number->B2)+1;
                     $course_student_number->save();
-                } 
+                }
             }
             $agency_id=$request->input('agency');
             $payments=Payment::where('person_id',$student_id)->get();
@@ -201,14 +201,16 @@ class PersonController extends Controller{
                 }
             }else {
                 foreach($payments as $payment){
-                    $agency=Agency::where('id',$student->agency->id)->first();
-                    $agency->debt_amount=($agency->debt_amount)-$payment->agency_debt_amount;
-                    $agency->paid_amount=($agency->paid_amount)-$payment->agency_paid_amount;
-                    $agency->save();
-                    $payment->agency_id=null;
-                    $payment->agency_debt_amount=null;
-                    $payment->agency_paid_amount=null;
-                    $payment->save();
+                    if ($student->agency->id) {
+                        $agency=Agency::where('id',$student->agency->id)->first();
+                        $agency->debt_amount=($agency->debt_amount)-$payment->agency_debt_amount;
+                        $agency->paid_amount=($agency->paid_amount)-$payment->agency_paid_amount;
+                        $agency->save();
+                        $payment->agency_id=null;
+                        $payment->agency_debt_amount=null;
+                        $payment->agency_paid_amount=null;
+                        $payment->save();
+                    }
                 }
             }
             $student->agency_id=$agency_id;
