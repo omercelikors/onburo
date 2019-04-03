@@ -201,7 +201,7 @@ class PersonController extends Controller{
                 }
             }else {
                 foreach($payments as $payment){
-                    if ($student->agency->id) {
+                    if (isset($student->agency->id)) {
                         $agency=Agency::where('id',$student->agency->id)->first();
                         $agency->debt_amount=($agency->debt_amount)-$payment->agency_debt_amount;
                         $agency->paid_amount=($agency->paid_amount)-$payment->agency_paid_amount;
