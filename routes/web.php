@@ -70,11 +70,12 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
     //send sms
     Route::get('/sms-send-show', 'MessageController@sms_send_show')->name('sms_send_show');
     Route::post('/sms-send','MessageController@sms_send')->name('sms_send');
-    
+
     //all apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');
     Route::get('/api/classroom-delete', 'ClassroomController@classroom_delete')->name('classroom_delete');
+    Route::get('/api/classroom-update', 'ClassroomController@classroom_update')->name('classroom_update');
     Route::get('/api/candidate-student-delete', 'PersonController@candidate_student_delete')->name('candidate_student_delete');
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');

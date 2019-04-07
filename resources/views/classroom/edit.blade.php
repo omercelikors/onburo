@@ -80,6 +80,16 @@
                 <button id="submit_button" class="btn btn-primary" type="submit">Düzenle</button>
             </div>
         </div>
+        <div class="card my-3">
+            <div class="card-header">Sınıf Listesi</div>
+            <div class="card-body p-5">
+                <ul class="list-group">
+                    @foreach($classroom->person()->get() as $person)
+                        <li class="list-group-item"><a href="{{ route('student_edit_show', ['student_id' => $person->id]) }}"> {{ $person->name }} {{ $person->surname }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     </form>
 </main>
 @endsection
@@ -134,7 +144,7 @@
         format:'dd.mm.yyyy',
         uiLibrary: 'bootstrap4',
         weekStartDay: 1,
-        showOnFocus: false, 
+        showOnFocus: false,
         showRightIcon: false
     });
     function end_date_calculate(){

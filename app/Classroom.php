@@ -39,4 +39,8 @@ class Classroom extends Model
             return null;
         }
     }
+
+    public function teacher() {
+        return  Person::find($this->teacher_id);
+    }
 }
