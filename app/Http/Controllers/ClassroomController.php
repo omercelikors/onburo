@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Classroom;
 use App\Person;
 use Auth;
+use Carbon\Carbon;
 class ClassroomController extends Controller
 {
     public function classroom_info_show (){
@@ -26,7 +27,7 @@ class ClassroomController extends Controller
             $end_date=date('Y-m-d H:i:s' , strtotime($end_date));
             $time=$request->input('time');
             $teacher_id=$request->input('teacher_id');
-            
+
             $classroom=new Classroom;
             $classroom->course_type=$course_type;
             $classroom->starting_date=$starting_date;
@@ -69,5 +70,28 @@ class ClassroomController extends Controller
                 $student->save();
             }
             $classroom->delete();
+            return;
+    }
+
+    public function classroom_update(Request $request){
+        $classroom_id=$request->input('id');
+        $classroom = Classroom::find($classroom_id);
+        $students=Person::where('classroom_id',$classroom_id)->get();
+        $teacher= $classroom->teacher();
+        $old_end_date = new Carbon ($classroom->end_date);
+        $new_start = $old_end_date->copy()->addDays(3);
+        $new_end = $new_start->copy()->addDays(32);
+        $new_classroom=new Classroom();
+        $new_classroom->course_type=$classroom->course_type;
+        $new_classroom->starting_date=$new_start;
+        $new_classroom->end_date= $new_end;
+        $new_classroom->time=$classroom->time;
+        $new_classroom->teacher_id=$classroom->teacher_id;
+        $new_classroom->save();
+        foreach($students as $student){
+            $student->classroom_id=$new_classroom->id;
+            $student->save();
+        }
+        return;
     }
 }

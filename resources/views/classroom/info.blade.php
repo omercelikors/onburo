@@ -33,8 +33,10 @@
                                 <td class="align-middle">{{ $classroom->teacher_name()}} {{ $classroom->teacher_surname()}}</td>
                                 <form action="{{ route('classroom_edit_show', ['classroom_id' => $classroom->id]) }}"
                                     method="GET">
-                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
-                                            onclick="classroom_delete({{ $classroom->id }})" class="btn btn-danger">Sil</button></td>
+                                    <td class="align-middle"><button type="submit" class="btn btn-primary btn-sm">Düzenle</button>
+                                        <button type="button" onclick="classroom_update({{ $classroom->id }})" class="btn btn-warning btn-sm">Aktar</button>
+                                        <button type="button" onclick="classroom_delete({{ $classroom->id }})" class="btn btn-danger btn-sm">Sil</button>
+                                            </td>
                                 </form>
                             </tr>
                             @endforeach
@@ -146,6 +148,53 @@
                 }
             });
     }
+
+    function classroom_update(classroom_id) {
+        swal({
+                title: "Emin misiniz?",
+                text: "Tüm Sınıfı ve bir öğretmeni bir üst sınıfa aktarmak üzeresiniz.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                buttons: ["Hayır", "Evet"],
+            })
+            .then((willUpdate) => {
+                if (willUpdate) {
+                    //send project id to be deleted from databese
+                    axios.get('/api/classroom-update', {
+                            params: {
+                                id: classroom_id
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response);
+                            swal({
+                                title: "Başarılı!",
+                                text: "Sınıf Aktarıldı!",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false,
+                            });
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 2000);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            swal({
+                                text: "Sınıf bir hatadan dolayı aktarılamadı!",
+                                button: "Tamam",
+                            });
+                        });
+                } else {
+                    swal({
+                        text: "Sınıf Aktarılmadı!",
+                        button: "Tamam",
+                    });
+
+                }
+            });
+    }
 </script>
 <script>
     $( ".rdiv input" ).trigger( "click" );
@@ -158,7 +207,7 @@
             display: none;
             visibility: hidden;
         }
-    
+
         select {
             cursor: pointer;
         }
