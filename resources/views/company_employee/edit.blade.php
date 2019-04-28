@@ -15,7 +15,7 @@
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Adı:</label>
-                                        <input type="text" class="form-control" value="{{ $company_employee->name }}" id="name" name="name">
+                                        <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()" value="{{ $company_employee->name }}" id="name" name="name">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 col-xl-2">

@@ -14,7 +14,7 @@
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="name">*Adı:</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
+                                        <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" id="name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">

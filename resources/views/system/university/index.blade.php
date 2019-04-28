@@ -2,54 +2,32 @@
 @section('content')
 <main class="container-fluid mt-3">
     <div class="card">
-        <div class="card-header">Öğrenci Bilgileri Ekstra-3</div>
+        <div class="card-header">Üniversite Bilgileri</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('student_register_show') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
+                    <a href="{{ route('university.create') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-12 table-responsive">
-                    <table id="student-table" class="student-table table table-striped">
+                    <table id="university-table" class="university-table table table-striped">
                         <thead>
                             <tr>
-                                <th class="align-middle">Adı</th>
-                                <th class="align-middle">Soyadı</th>
-                                <th class="align-middle">Çocuk Sayısı</th>
-                                <th class="align-middle">Konuştuğu Diller</th>
-                                <th class="align-middle">Üniversite Bölümü</th>
-                                <th class="align-middle">Üniversite Seviyesi</th>
-                                <th class="align-middle">Yakın İsmi</th>
-                                <th class="align-middle">Yakın Üniversite Seviyesi</th>
-                                <th class="align-middle">Bizi Nereden Duydu?</th>
-                                <th class="align-middle">Diğer Duyduğu Yer</th>
-                                <th class="align-middle">Talep Edilen Eğitimler</th>
-                                <th class="align-middle">Not</th>
+                                <th class="align-middle">Üniversite Adı</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($students as $student)
-                            <tr>
-                                <td class="align-middle">{{ $student->name }}</td>
-                                <td class="align-middle">{{ $student->surname }}</td>
-                                <td class="align-middle">{{ $student->children_number }}</td>
-                                <td class="align-middle">{{ $student->languages }}</td>
-                                <td class="align-middle">{{ $student->university_department }}</td>
-                                <td class="align-middle">{{ $student->education_level_status }}</td>
-                                <td class="align-middle">{{ $student->relative_name }}</td>
-                                <td class="align-middle">{{ $student->relative_education_level_status }}</td>
-                                <td class="align-middle">{{ $student->heard_by_status }}</td>
-                                <td class="align-middle">{{ $student->heard_by_other }}</td>
-                                <td class="align-middle">{{ $student->demanded_education_status }}</td>
-                                <td class="align-middle">{{ $student->note }}</td>
-                                <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
-                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
-                                            onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
-                                </form>
-                                @endforeach
-                            </tr>
+                            @foreach ($universities as $university)
+                                <tr>
+                                    <td class="align-middle">{{ $university->name }}</td>
+                                    <form action="{{ route('university.edit', ['university' => $university->id]) }}" method="GET">
+                                        <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
+                                                onclick="university_delete({{ $university->id }})" class="btn btn-danger">Sil</button></td>
+                                    </form>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -79,29 +57,18 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_5: 'select',
-        col_7: 'select',
-        col_8: 'select',
-        col_10: 'select',
         col_widths: [
-            '120px', '120px', '80px',
-            '150px', '100px', '100px',
-            '100px', '100px', '100px',
-            '120px', '100px','160px',
-            '160px'
+            '500px', '200px'
+            
         ],
         col_types: [
-            'string', 'string', 'number',
-            'string', 'string', 'string',
-            'string', 'string', 'string',
-            'string', 'string', 'string',
-            'string'
+            'string', 'string'
         ],
         extensions: [{
             name: 'sort'
         }]
     };
-    var tf = new TableFilter(document.querySelector('.student-table'), filtersConfig);
+    var tf = new TableFilter(document.querySelector('.university-table'), filtersConfig);
     tf.init();
     document.querySelector('.tot span:nth-child(1)').innerHTML = "Satır ";
     document.querySelector('.mdiv span:nth-child(3)').innerHTML = "Sayfa ";
@@ -119,10 +86,10 @@
     $(".flt option:nth-child(1)").text("Temizle");
 </script>
 <script>
-    function student_delete(student_id) {
+    function university_delete(university_id) {
         swal({
                 title: "Emin misiniz?",
-                text: "Öğrenci silindiğinde tekrar geri getiremezsiniz!",
+                text: "Üniversite silindiğinde tekrar geri getiremezsiniz!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -131,16 +98,16 @@
             .then((willDelete) => {
                 if (willDelete) {
                     //send project id to be deleted from databese
-                    axios.get('/api/student-delete', {
+                    axios.get('/api/university-delete', {
                             params: {
-                                id: student_id
+                                id: university_id
                             }
                         })
                         .then(function (response) {
                             console.log(response);
                             swal({
                                 title: "Başarılı!",
-                                text: "Öğrenci silindi!",
+                                text: "Üniversite silindi!",
                                 icon: "success",
                                 timer: 2000,
                                 buttons: false,
@@ -152,14 +119,14 @@
                         .catch(function (error) {
                             console.log(error);
                             swal({
-                                text: "Öğrenci bir hatadan dolayı silinemedi!",
-                                button: "Evet",
+                                text: "Üniversite bir hatadan dolayı silinemedi!",
+                                button: "Tamam",
                             });
                         });
                 } else {
                     swal({
-                        text: "Öğrenci silinmedi!",
-                        button: "Evet",
+                        text: "Üniversite silinmedi!",
+                        button: "Tamam",
                     });
 
                 }
@@ -183,4 +150,4 @@
         }
 </style>
 @endsection
-@section('title', "Öğrenci Bilgi Ekstra-3")
+@section('title', "Üniversite Bilgi")

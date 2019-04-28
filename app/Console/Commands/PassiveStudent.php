@@ -47,13 +47,7 @@ class PassiveStudent extends Command
             if(strtotime($current_date) > strtotime($student->classroom->end_date())){
                 $student->taken_courses=$student->taken_courses."  ".$student->classroom->course_type;
                 $student->join_status='Pasif';
-                $student->classroom_id=null;
                 $student->save();
-            }
-        }
-        foreach($classrooms as $classroom){
-            if(strtotime($current_date) > strtotime($classroom->end_date())){
-                $classroom->delete();
             }
         }
         $this->info('related students make passive and related classrooms make deleted');

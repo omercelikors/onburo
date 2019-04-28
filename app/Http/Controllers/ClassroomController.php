@@ -90,6 +90,7 @@ class ClassroomController extends Controller
         $new_classroom->save();
         foreach($students as $student){
             $student->classroom_id=$new_classroom->id;
+            $student->join_status='Aktif';
             $student->save();
         }
         return;
