@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['role:recorder|admin']], function () {
     //student pages
-    Route::get('/home', 'HomeController@index')->name('home');
+    /* Route::get('/home', 'HomeController@index')->name('home'); */
     Route::get('/student-other1-show', 'PersonController@student_other1_show')->name('student_other1_show');
     Route::get('/student-other2-show', 'PersonController@student_other2_show')->name('student_other2_show');
     Route::get('/student-other3-show', 'PersonController@student_other3_show')->name('student_other3_show');
@@ -102,7 +102,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 });
 
 Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    /* Route::get('/home', 'HomeController@index')->name('home'); */
     //agency
     Route::get('/agency-info-show', 'AgencyController@agency_info_show')->name('agency_info_show');
     Route::get('/agency-register-show', 'AgencyController@agency_register_show')->name('agency_register_show');
