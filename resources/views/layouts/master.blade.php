@@ -70,7 +70,7 @@
                         <a class="nav-link" href="{{ route('agency_info_show') }}">ACENTE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('recruitment.index') }}">TEMİN</a>
+                        <a class="nav-link" href="{{ route('home') }}">TEMİN</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">SİSTEM</a>
