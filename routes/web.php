@@ -80,9 +80,6 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
-    Route::get('/api/branch-delete', 'UniversityBranchController@destroy');
-    Route::get('/api/university-delete', 'UniversityController@destroy');
-    Route::get('/api/recruitment-delete', 'RecruitmentController@destroy');
     //api in payment register page for getting agency name
     Route::get('/api/agency', 'PersonController@agency_name')->name('agency_name');
 
@@ -114,6 +111,9 @@ Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () 
     Route::post('/agency-edit-register', 'AgencyController@agency_edit_register')->name('agency_edit_register');
     //agency api
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
+    Route::get('/api/branch-delete', 'UniversityBranchController@destroy');
+    Route::get('/api/university-delete', 'UniversityController@destroy');
+    Route::get('/api/recruitment-delete', 'RecruitmentController@destroy');
     //recruitment
     Route::resource('/recruitment', 'RecruitmentController');
     //univertsity
