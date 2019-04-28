@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Person;
+use App\Recruitment;
 use Auth;
 
 class HomeController extends Controller
@@ -29,6 +30,11 @@ class HomeController extends Controller
         {
             $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
             return view('student.info')->with('students',$students);
+        }
+
+        if(Auth::user()->hasRole(['recruitment_recorder'])){
+            $recruitments=Recruitment::all();
+            return view('recruitment.index',['recruitments'=>$recruitments]);
         }
     }
 }

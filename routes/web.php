@@ -111,7 +111,7 @@ Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () 
     Route::get('/agency-edit-show/{agency_id}', 'AgencyController@agency_edit_show')->name('agency_edit_show');
     Route::post('/agency-register', 'AgencyController@agency_register')->name('agency_register');
     Route::post('/agency-edit-register', 'AgencyController@agency_edit_register')->name('agency_edit_register');
-
+    //agency api
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
     //recruitment
     Route::resource('/recruitment', 'RecruitmentController');
