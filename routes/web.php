@@ -71,7 +71,7 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
     Route::get('/sms-send-show', 'MessageController@sms_send_show')->name('sms_send_show');
     Route::post('/sms-send','MessageController@sms_send')->name('sms_send');
 
-    //all apis
+    //apis
     Route::get('/api/student-delete', 'PersonController@student_delete')->name('student_delete');
     Route::get('/api/teacher-delete', 'PersonController@teacher_delete')->name('teacher_delete');
     Route::get('/api/classroom-delete', 'ClassroomController@classroom_delete')->name('classroom_delete');
@@ -109,7 +109,7 @@ Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () 
     Route::get('/agency-edit-show/{agency_id}', 'AgencyController@agency_edit_show')->name('agency_edit_show');
     Route::post('/agency-register', 'AgencyController@agency_register')->name('agency_register');
     Route::post('/agency-edit-register', 'AgencyController@agency_edit_register')->name('agency_edit_register');
-    //agency api
+    //apis
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
     Route::get('/api/branch-delete', 'UniversityBranchController@destroy');
     Route::get('/api/university-delete', 'UniversityController@destroy');
