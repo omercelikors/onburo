@@ -18,13 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::group(['middleware' => ['role:recruitment_recorder|admin|recorder']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
-});
-
-Route::group(['middleware' => ['role:recorder|admin']], function () {
+Route::middleware(['auth'])->group(function() {
     //student pages
-    /* Route::get('/home', 'HomeController@index')->name('home'); */
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/student-other1-show', 'PersonController@student_other1_show')->name('student_other1_show');
     Route::get('/student-other2-show', 'PersonController@student_other2_show')->name('student_other2_show');
     Route::get('/student-other3-show', 'PersonController@student_other3_show')->name('student_other3_show');
@@ -84,13 +80,12 @@ Route::group(['middleware' => ['role:recorder|admin']], function () {
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
+    Route::get('/api/branch-delete', 'UniversityBranchController@destroy');
+    Route::get('/api/university-delete', 'UniversityController@destroy');
+    Route::get('/api/recruitment-delete', 'RecruitmentController@destroy');
     //api in payment register page for getting agency name
     Route::get('/api/agency', 'PersonController@agency_name')->name('agency_name');
 
-});
-
-Route::group(['middleware' => ['role:admin']], function () {
-    //information-analysis
     Route::get('/all-analysis-show', 'Information_AnalysisController@all_analysis_show')->name('all_analysis_show');
     Route::get('/expected-payment-show', 'Information_AnalysisController@expected_payment_show')->name('expected_payment_show');
     Route::post('/expected-payment-calculate', 'Information_AnalysisController@expected_payment_calculate')->name('expected_payment_calculate');
@@ -103,21 +98,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/abandon-show', 'Information_AnalysisController@abandon_show')->name('abandon_show');
     Route::get('/population-time-show', 'Information_AnalysisController@population_time_show')->name('population_time_show');
     Route::get('/age-range-show', 'Information_AnalysisController@age_range_show')->name('age_range_show');
-});
 
-Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () {
-    /* Route::get('/home', 'HomeController@index')->name('home'); */
-    //agency
-    Route::get('/agency-info-show', 'AgencyController@agency_info_show')->name('agency_info_show');
-    Route::get('/agency-register-show', 'AgencyController@agency_register_show')->name('agency_register_show');
-    Route::get('/agency-edit-show/{agency_id}', 'AgencyController@agency_edit_show')->name('agency_edit_show');
-    Route::post('/agency-register', 'AgencyController@agency_register')->name('agency_register');
-    Route::post('/agency-edit-register', 'AgencyController@agency_edit_register')->name('agency_edit_register');
-    //apis
-    Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
-    Route::get('/api/branch-delete', 'UniversityBranchController@destroy');
-    Route::get('/api/university-delete', 'UniversityController@destroy');
-    Route::get('/api/recruitment-delete', 'RecruitmentController@destroy');
     //recruitment
     Route::resource('/recruitment', 'RecruitmentController');
     //univertsity
@@ -125,3 +106,8 @@ Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () 
     //university branch
     Route::resource('/university-branch', 'UniversityBranchController');
 });
+
+
+    
+
+
