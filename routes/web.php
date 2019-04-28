@@ -105,6 +105,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 });
 
 Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
     //agency
     Route::get('/agency-info-show', 'AgencyController@agency_info_show')->name('agency_info_show');
     Route::get('/agency-register-show', 'AgencyController@agency_register_show')->name('agency_register_show');
