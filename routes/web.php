@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::group(['middleware' => ['role:recruitment_recorder|admin|recorder']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
 Route::group(['middleware' => ['role:recorder|admin']], function () {
     //student pages
     /* Route::get('/home', 'HomeController@index')->name('home'); */
