@@ -105,6 +105,14 @@ Route::group(['middleware' => ['role:admin']], function () {
 });
 
 Route::group(['middleware' => ['role:recruitment_recorder|admin']], function () {
+    //agency
+    Route::get('/agency-info-show', 'AgencyController@agency_info_show')->name('agency_info_show');
+    Route::get('/agency-register-show', 'AgencyController@agency_register_show')->name('agency_register_show');
+    Route::get('/agency-edit-show/{agency_id}', 'AgencyController@agency_edit_show')->name('agency_edit_show');
+    Route::post('/agency-register', 'AgencyController@agency_register')->name('agency_register');
+    Route::post('/agency-edit-register', 'AgencyController@agency_edit_register')->name('agency_edit_register');
+
+    Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
     //recruitment
     Route::resource('/recruitment', 'RecruitmentController');
     //univertsity
