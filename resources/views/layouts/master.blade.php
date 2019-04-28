@@ -80,7 +80,6 @@
                         </div>
                     </li>
                 @endrole
-
                 @role('admin')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('agency_info_show') }}">ACENTE</a>
