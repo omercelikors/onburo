@@ -14,7 +14,7 @@ class UniversityController extends Controller
      */
     public function index()
     {
-        $universities=University::all();
+        $universities=University::orderBy('name', 'asc')->get();
         return view('system.university.index',['universities'=>$universities]);
     }
 
