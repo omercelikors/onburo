@@ -14,7 +14,7 @@ class UniversityBranchController extends Controller
      */
     public function index()
     {
-        $branches=UniversityBranch::all();
+        $branches=UniversityBranch::all()->orderBy('name', 'desc');
         return view('system.branch.index',['branches'=>$branches]);
     }
 
