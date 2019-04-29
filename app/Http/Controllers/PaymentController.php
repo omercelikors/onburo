@@ -51,7 +51,7 @@ class PaymentController extends Controller
                 $agency->currency_unit=$request->input('currency_unit');
                 $agency->save();
             }
-            
+
             $currency_unit=$request->input('currency_unit');
             $paid_description=$request->input('paid_description');
             $paid_description = implode(',', $paid_description);
@@ -76,7 +76,7 @@ class PaymentController extends Controller
             } else {
                 $installment2_date=null;
             }
-            
+
 
             $installment3_amount=$request->input('installment3_amount');
             $installment3_date=$request->input('installment3_date');
@@ -132,7 +132,7 @@ class PaymentController extends Controller
             $payment->installment4_amount=$installment4_amount;
             $payment->installment4_remaining_amount=$installment4_amount;
             $payment->installment4_date=$installment4_date;
-            
+
             $payment->installment5_amount=$installment5_amount;
             $payment->installment5_remaining_amount=$installment5_amount;
             $payment->installment5_date=$installment5_date;
@@ -147,15 +147,18 @@ class PaymentController extends Controller
             $payment=Payment::find($payment_id);
 
             $agency=Agency::where('id',$payment->agency_id)->first();
-            //düzenle sayfasındaki acente borç ve ödenen miktarda değişiklik yapıldıysa
-            if($payment->agency_debt_amount!=$request->input('agency_debt_amount')){
-                $agency->debt_amount=($agency->debt_amount)-($payment->agency_debt_amount)+($request->input('agency_debt_amount'));
+            if($agency) {
+                 //düzenle sayfasındaki acente borç ve ödenen miktarda değişiklik yapıldıysa
+                if($payment->agency_debt_amount!=$request->input('agency_debt_amount')){
+                    $agency->debt_amount=($agency->debt_amount)-($payment->agency_debt_amount)+($request->input('agency_debt_amount'));
+                }
+                if($payment->agency_paid_amount!=$request->input('agency_paid_amount')){
+                    $agency->paid_amount=($agency->paid_amount)-($payment->agency_paid_amount)+($request->input('agency_paid_amount'));
+                }
+                $agency->currency_unit=$request->input('currency_unit');
+                $agency->save();
             }
-            if($payment->agency_paid_amount!=$request->input('agency_paid_amount')){
-                $agency->paid_amount=($agency->paid_amount)-($payment->agency_paid_amount)+($request->input('agency_paid_amount'));
-            }
-            $agency->currency_unit=$request->input('currency_unit');
-            $agency->save();
+
 
             $payment->agency_debt_amount=$request->input('agency_debt_amount');
             $payment->agency_paid_amount=$request->input('agency_paid_amount');
@@ -200,7 +203,7 @@ class PaymentController extends Controller
                 $installment3_date=null;
             }
             $payment->installment3_date=$installment3_date;
-            
+
             $payment->installment4_amount=$request->input('installment4_amount');
             $payment->installment4_paid_amount=$request->input('installment4_paid_amount');
             $payment->installment4_remaining_amount=$request->input('installment4_remaining_amount');
