@@ -59,7 +59,7 @@ class RecruitmentController extends Controller
         $heard_by=$request->input('heard_by');
         $agency=$request->input('agency');
         $consultancy=$request->input('consultancy');
-
+        $notes=$request->input('notes');
         $recruitment=new Recruitment;
         $recruitment->name=$name;
         $recruitment->surname=$surname;
@@ -74,6 +74,7 @@ class RecruitmentController extends Controller
         $recruitment->heard_by=$heard_by;
         $recruitment->agency=$agency;
         $recruitment->consultancy=$consultancy;
+        $recruitment->notes=$notes;
         $recruitment->save();
         return redirect()->route('recruitment.index');
     }
@@ -129,6 +130,7 @@ class RecruitmentController extends Controller
         $recruitment->heard_by=$request->input('heard_by');
         $recruitment->agency=$request->input('agency');
         $recruitment->consultancy=$request->input('consultancy');
+        $recruitment->notes=$request->input('notes');
         $recruitment->save();
         return redirect()->route('recruitment.index');
     }

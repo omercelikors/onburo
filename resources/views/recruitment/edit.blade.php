@@ -155,6 +155,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row my-2 d-flex justify-content-center">
+                                <div class="col-12 col-md-6 col-xl-4">
+                                    <div class="form-group">
+                                        <label for="note">Not:</label>
+                                        <textarea class="form-control" rows="5" id="notes" name="notes">{{$recruitment->notes}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

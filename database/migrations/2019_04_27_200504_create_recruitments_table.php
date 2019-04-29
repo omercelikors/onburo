@@ -28,6 +28,7 @@ class CreateRecruitmentsTable extends Migration
             $table->string('heard_by')->nullable();
             $table->string('agency')->nullable();
             $table->string('consultancy')->nullable();
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }
