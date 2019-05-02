@@ -50,7 +50,7 @@
             sort: true
         },
         paging: {
-            results_per_page: ['Records: ', [50, 100]]
+            results_per_page: ['Records: ', [50, 100, 200]]
         },
         alternate_rows: true,
         btn_reset: true,
@@ -59,7 +59,7 @@
         status_bar: false,
         col_widths: [
             '500px', '200px'
-            
+
         ],
         col_types: [
             'string', 'string'
@@ -144,7 +144,7 @@
             display: none;
             visibility: hidden;
         }
-    
+
         select {
             cursor: pointer;
         }
