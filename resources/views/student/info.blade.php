@@ -16,15 +16,15 @@
                             <tr>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
-                                <th class="align-middle">Cinsiyet</th>
                                 <th class="align-middle">Kurs Tipi</th>
                                 <th class="align-middle">Kurs Vakti</th>
                                 <th class="align-middle">Başlangıç Tarihi</th>
                                 <th class="align-middle">Bitiş Tarihi</th>
                                 <th class="align-middle">Öğretmen</th>
+                                <th class="align-middle">Telefon</th>
+                                <th class="align-middle">Eposta</th>
+                                <th class="align-middle">Kaydı Yapan</th>
                                 <th class="align-middle">Katılım Durumu</th>
-                                <th class="align-middle">Aldığı Kurslar</th>
-                                <th class="align-middle">Acente Adı</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -33,15 +33,15 @@
                             <tr>
                                 <td class="align-middle">{{ $student->name }}</td>
                                 <td class="align-middle">{{ $student->surname }}</td>
-                                <td class="align-middle">{{ $student->sex_status }}</td>
                                 <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
                                 <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->time }}@endif</td>
                                 <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->starting_date() }}@endif</td>
                                 <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->end_date() }}@endif</td>
                                 <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->teacher_name() }} {{ $student->classroom->teacher_surname() }}@endif</td>
+                                <td class="align-middle">{{ $student->telephone }}</td>
+                                <td class="align-middle">{{ $student->e_mail }}</td>
+                                <td class="align-middle">{{ $student->registration_by }}</td>
                                 <td class="align-middle">{{ $student->join_status }}</td>
-                                <td class="align-middle">{{ $student->taken_courses }}</td>
-                                <td class="align-middle">@isset($student->agency){{ $student->agency->name }}@endisset</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
@@ -77,12 +77,10 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_2: 'select',
         col_3: 'select',
-        col_4: 'select',
-        col_7: 'select',
-        col_8: 'select',
+        col_6: 'select',
         col_9: 'select',
+        col_10: 'select',
         col_widths: [
             '130px', '130px', '80px',
             '70px', '100px', '140px',
@@ -90,8 +88,8 @@
             '100px', '160px','160px'
         ],
         col_types: [
-            'string', 'string','string',
-            'string', 'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
+            'string', 'string',
+            'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string','string',
             'string', 'string','string'
         ],
@@ -175,7 +173,7 @@
             display: none;
             visibility: hidden;
         }
-    
+
         select {
             cursor: pointer;
         }

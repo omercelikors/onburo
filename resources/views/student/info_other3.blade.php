@@ -16,16 +16,15 @@
                             <tr>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
-                                <th class="align-middle">Çocuk Sayısı</th>
-                                <th class="align-middle">Konuştuğu Diller</th>
-                                <th class="align-middle">Üniversite Bölümü</th>
-                                <th class="align-middle">Üniversite Seviyesi</th>
-                                <th class="align-middle">Yakın İsmi</th>
+                                <th class="align-middle">Yakın İsmi</th>ü
+                                <th class="align-middle">Yakın Üniversite Durumu</th>
                                 <th class="align-middle">Yakın Üniversite Seviyesi</th>
-                                <th class="align-middle">Bizi Nereden Duydu?</th>
-                                <th class="align-middle">Diğer Duyduğu Yer</th>
-                                <th class="align-middle">Talep Edilen Eğitimler</th>
-                                <th class="align-middle">Not</th>
+                                <th class="align-middle">Yakın Telefonu</th>
+                                <th class="align-middle">Online Ders Durumu</th>
+                                <th class="align-middle">Ev Yardım Durumu</th>
+                                <th class="align-middle">Vatandaşlık Yardımı</th>
+                                <th class="align-middle">Bizden Ayrılma Nedeni</th>
+                                <th class="align-middle">Bizden Ayrılma Nedeni Not</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -34,16 +33,15 @@
                             <tr>
                                 <td class="align-middle">{{ $student->name }}</td>
                                 <td class="align-middle">{{ $student->surname }}</td>
-                                <td class="align-middle">{{ $student->children_number }}</td>
-                                <td class="align-middle">{{ $student->languages }}</td>
-                                <td class="align-middle">{{ $student->university_department }}</td>
-                                <td class="align-middle">{{ $student->education_level_status }}</td>
                                 <td class="align-middle">{{ $student->relative_name }}</td>
+                                <td class="align-middle">{{ $student->relative_university_status }}</td>
                                 <td class="align-middle">{{ $student->relative_education_level_status }}</td>
-                                <td class="align-middle">{{ $student->heard_by_status }}</td>
-                                <td class="align-middle">{{ $student->heard_by_other }}</td>
-                                <td class="align-middle">{{ $student->demanded_education_status }}</td>
-                                <td class="align-middle">{{ $student->note }}</td>
+                                <td class="align-middle">{{ $student->relative_telephone }}</td>
+                                <td class="align-middle">{{ $student->online_lesson_status }}</td>
+                                <td class="align-middle">{{ $student->home_status }}</td>
+                                <td class="align-middle">{{ $student->citizenship_status }}</td>
+                                <td class="align-middle">{{ $student->why_abandon_us_status }}</td>
+                                <td class="align-middle">{{ $student->why_abandon_us_note }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
@@ -79,23 +77,23 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_5: 'select',
+        col_3: 'select',
+        col_6: 'select',
         col_7: 'select',
         col_8: 'select',
-        col_10: 'select',
+        col_9: 'select',
         col_widths: [
             '120px', '120px', '80px',
-            '150px', '100px', '100px',
+            '120px', '100px', '100px',
             '100px', '100px', '100px',
             '120px', '100px','160px',
             '160px'
         ],
         col_types: [
-            'string', 'string', 'number',
             'string', 'string', 'string',
             'string', 'string', 'string',
             'string', 'string', 'string',
-            'string'
+            'string', 'string', 'string',
         ],
         extensions: [{
             name: 'sort'

@@ -16,14 +16,15 @@
                             <tr>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
-                                <th class="align-middle">Yaşı</th>
-                                <th class="align-middle">Medeni Durumu</th>
-                                <th class="align-middle">Çocuk Durumu</th>
-                                <th class="align-middle">Çocuk Yaş Aralığı</th>
+                                <th class="align-middle">Aldığı Kurslar</th>
+                                <th class="align-middle">Acente Adı</th>
+                                <th class="align-middle">Ülke</th>
                                 <th class="align-middle">Üniversite Durumu</th>
-                                <th class="align-middle">Yakın Üniversite Durumu</th>
-                                <th class="align-middle">Online Ders Durumu</th>
-                                <th class="align-middle">Ev Yardım Durumu</th>
+                                <th class="align-middle">Üniversite Bölümü</th>
+                                <th class="align-middle">Üniversite Seviyesi</th>
+                                <th class="align-middle">Talep Edilen Eğitimler</th>
+                                <th class="align-middle">Konuştuğu Diller</th>
+                                <th class="align-middle">Not</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -32,14 +33,15 @@
                             <tr>
                                 <td class="align-middle">{{ $student->name }}</td>
                                 <td class="align-middle">{{ $student->surname }}</td>
-                                <td class="align-middle">{{ $student->age }}</td>
-                                <td class="align-middle">{{ $student->marital_status }}</td>
-                                <td class="align-middle">{{ $student->children_status }}</td>
-                                <td class="align-middle">{{ $student->children_age_range_status }}</td>
+                                <td class="align-middle">{{ $student->taken_courses }}</td>
+                                <td class="align-middle">@isset($student->agency){{ $student->agency->name }}@endisset</td>
+                                <td class="align-middle">{{ $student->country }}</td>
                                 <td class="align-middle">{{ $student->university_status }}</td>
-                                <td class="align-middle">{{ $student->relative_university_status }}</td>
-                                <td class="align-middle">{{ $student->online_lesson_status }}</td>
-                                <td class="align-middle">{{ $student->home_status }}</td>
+                                <td class="align-middle">{{ $student->university_department }}</td>
+                                <td class="align-middle">{{ $student->education_level_status }}</td>
+                                <td class="align-middle">{{ $student->demanded_education_status }}</td>
+                                <td class="align-middle">{{ $student->languages }}</td>
+                                <td class="align-middle">{{ $student->note }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
@@ -75,22 +77,17 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_3: 'select',
-        col_4: 'select',
         col_5: 'select',
-        col_6: 'select',
         col_7: 'select',
         col_8: 'select',
-        col_9: 'select',
-        col_10: 'select',
         col_widths: [
-            '150px', '150px', '60px',
+            '150px', '150px', '90px',
             '90px', '90px', '90px',
             '100px', '100px', '100px',
-            '100px', '160px'
+            '100px', '160px', '160px'
         ],
         col_types: [
-            'string', 'string', 'number',
+            'string', 'string', 'string',
             'string', 'string', 'string',
             'string', 'string', 'string',
             'string', 'string'

@@ -16,14 +16,14 @@
                             <tr>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
-                                <th class="align-middle">Telefon</th>
-                                <th class="align-middle">E-posta</th>
-                                <th class="align-middle">Ülke</th>
-                                <th class="align-middle">Bizden Ayrılma Nedeni</th>
-                                <th class="align-middle">Bizden Ayrılma Nedeni Not</th>
-                                <th class="align-middle">Yakın Telefonu</th>
-                                <th class="align-middle">Vatandaşlık Yardımı</th>
-                                <th class="align-middle">Kaydı Yapan</th>
+                                <th class="align-middle">Yaşı</th>
+                                <th class="align-middle">Cinsiyet</th>
+                                <th class="align-middle">Medeni Durum</th>
+                                <th class="align-middle">Çocuk Durumu</th>
+                                <th class="align-middle">Çocuk Sayısı</th>
+                                <th class="align-middle">Çocuk Yaş Aralığı</th>
+                                <th class="align-middle">Bizi Nereden Duydu</th>
+                                <th class="align-middle">Diğer Duyduğu Yer</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -32,14 +32,14 @@
                             <tr>
                                 <td class="align-middle">{{ $student->name }}</td>
                                 <td class="align-middle">{{ $student->surname }}</td>
-                                <td class="align-middle">{{ $student->telephone }}</td>
-                                <td class="align-middle">{{ $student->e_mail }}</td>
-                                <td class="align-middle">{{ $student->country }}</td>
-                                <td class="align-middle">{{ $student->why_abandon_us_status }}</td>
-                                <td class="align-middle">{{ $student->why_abandon_us_note }}</td>
-                                <td class="align-middle">{{ $student->relative_telephone }}</td>
-                                <td class="align-middle">{{ $student->citizenship_status }}</td>
-                                <td class="align-middle">{{ $student->registration_by }}</td>
+                                <td class="align-middle">{{ $student->age }}</td>
+                                <td class="align-middle">{{ $student->sex_status }}</td>
+                                <td class="align-middle">{{ $student->marital_status }}</td>
+                                <td class="align-middle">{{ $student->children_status }}</td>
+                                <td class="align-middle">{{ $student->children_number }}</td>
+                                <td class="align-middle">{{ $student->children_age_range_status }}</td>
+                                <td class="align-middle">{{ $student->heard_by_status }}</td>
+                                <td class="align-middle">{{ $student->heard_by_other }}</td>
                                 <form action="{{ route('student_edit_show', ['student_id' => $student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="student_delete({{ $student->id }})" class="btn btn-danger">Sil</button></td>
@@ -75,9 +75,10 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
+        col_3: 'select',
+        col_4: 'select',
         col_5: 'select',
         col_8: 'select',
-        col_9: 'select',
         col_widths: [
             '150px', '150px', '120px',
             '250px', '90px', '90px',
@@ -87,7 +88,7 @@
         col_types: [
             'string', 'string', 'number',
             'string', 'string', 'string',
-            'string', 'number', 'string',
+            'number', 'string', 'string',
             'string', 'string'
         ],
         extensions: [{
