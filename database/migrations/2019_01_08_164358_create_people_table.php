@@ -51,6 +51,7 @@ class CreatePeopleTable extends Migration
             $table->enum('heard_by_status', ['Google','Instagram','Facebook','Tavsiye','Diğer'])->nullable();
             $table->string('heard_by_other')->nullable();
             $table->enum('demanded_education_status', ['YÖS','Online','Diğer Diller'])->nullable();
+            $table->enum('register_status', ['Evet','Hayır', 'Yok'])->nullable();
             $table->timestamps();
         });
     }

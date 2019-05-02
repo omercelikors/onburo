@@ -21,6 +21,7 @@
                                 <th class="align-middle">İstediği Kurs</th>
                                 <th class="align-middle">Not</th>
                                 <th class="align-middle">Kaydı Yapan</th>
+                                <th class="align-middle">Katılım Durumu</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -34,9 +35,15 @@
                                 <td class="align-middle">{{ $candidate_student->demanded_education_status }}</td>
                                 <td class="align-middle">{{ $candidate_student->note }}</td>
                                 <td class="align-middle">{{ $candidate_student->registration_by }}</td>
+                                <td class="align-middle">{{ $candidate_student->register_status }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
-                                    <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
-                                            onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button></td>
+                                    <td class="align-middle">
+                                        <button type="submit" class="btn btn-primary mx-2">Düzenle</button>
+                                        <button type="button" onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button>
+                                        <button type="button" onclick="candidate_student_registered({{ $candidate_student->id }})" class="btn btn-success">Kaydı Yapıldı</button>
+                                        <button type="button" onclick="candidate_student_not_come({{ $candidate_student->id }})" class="btn btn-secondary">Gelmeyecek</button>
+                                    </td>
+
                                 </form>
                                 @endforeach
                             </tr>
@@ -73,7 +80,7 @@
         col_widths: [
             '120px', '120px', '150px',
             '150px', '150px', '450px',
-            '100px', '100px'
+            '100px', '100px', '300px'
         ],
         col_types: [
             'string', 'string', 'string',
@@ -142,6 +149,100 @@
                 } else {
                     swal({
                         text: "Öğrenci silinmedi!",
+                        button: "Tamam",
+                    });
+
+                }
+            });
+    }
+
+    function candidate_student_registered(candidate_student_id) {
+        swal({
+                title: "Emin misiniz?",
+                text: "Öğrenciyi kayıt oldu olarak işaretliyorsunuz!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                buttons: ["Hayır", "Evet"],
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    //send project id to be deleted from databese
+                    axios.get('/api/candidate-student-registered', {
+                            params: {
+                                id: candidate_student_id
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response);
+                            swal({
+                                title: "Başarılı!",
+                                text: "Öğrenci kayıt oldu olarak işaretlendi!",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false,
+                            });
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 2000);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            swal({
+                                text: "Öğrenci bir hatadan dolayı işaretlenemedi!",
+                                button: "Tamam",
+                            });
+                        });
+                } else {
+                    swal({
+                        text: "Öğrenci işaretlenemedi!",
+                        button: "Tamam",
+                    });
+
+                }
+            });
+    }
+
+    function candidate_student_not_come(candidate_student_id) {
+        swal({
+                title: "Emin misiniz?",
+                text: "Öğrenciyi kayıt olmayacak olarak işaretliyorsunuz!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                buttons: ["Hayır", "Evet"],
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    //send project id to be deleted from databese
+                    axios.get('/api/candidate-student-not-come', {
+                            params: {
+                                id: candidate_student_id
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response);
+                            swal({
+                                title: "Başarılı!",
+                                text: "Öğrenci kayıt olmayacak olarak işaretlendi!",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false,
+                            });
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 2000);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            swal({
+                                text: "Öğrenci bir hatadan dolayı işaretlenemedi!",
+                                button: "Tamam",
+                            });
+                        });
+                } else {
+                    swal({
+                        text: "Öğrenci işaretlenemedi!",
                         button: "Tamam",
                     });
 

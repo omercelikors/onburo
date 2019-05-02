@@ -303,6 +303,21 @@ class PersonController extends Controller{
             $candidate_student = Person::find($candidate_student_id);
             $candidate_student->delete();
     }
+
+    public function candidate_student_registered(Request $request){
+        $candidate_student_id=$request->input('id');
+        $candidate_student = Person::find($candidate_student_id);
+        $candidate_student->register_status = 'Evet';
+        $candidate_student->save();
+    }
+
+    public function candidate_student_not_come(Request $request){
+        $candidate_student_id=$request->input('id');
+        $candidate_student = Person::find($candidate_student_id);
+        $candidate_student->register_status = 'Hayır';
+        $candidate_student->save();
+
+    }
     //COMPANY EMPLOYEE
     public function company_employee_info_show (){
         $company_employees=Person::where('status','Şirket Çalışanı')->orderBy('id', 'desc')->get();

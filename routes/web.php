@@ -77,6 +77,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/api/classroom-delete', 'ClassroomController@classroom_delete')->name('classroom_delete');
     Route::get('/api/classroom-update', 'ClassroomController@classroom_update')->name('classroom_update');
     Route::get('/api/candidate-student-delete', 'PersonController@candidate_student_delete')->name('candidate_student_delete');
+    Route::get('/api/candidate-student-registered', 'PersonController@candidate_student_registered')->name('candidate_student_registered');
+    Route::get('/api/candidate-student-not-come', 'PersonController@candidate_student_not_come')->name('candidate_student_not_come');
     Route::get('/api/company-employee-delete', 'PersonController@company_employee_delete')->name('company_employee_delete');
     Route::get('/api/payment-delete', 'PaymentController@payment_delete')->name('payment_delete');
     Route::get('/api/agency-delete', 'AgencyController@agency_delete')->name('agency_delete');
@@ -108,6 +110,6 @@ Route::middleware(['auth'])->group(function() {
 });
 
 
-    
+
 
 
