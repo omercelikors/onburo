@@ -29,6 +29,7 @@ class CreateRecruitmentsTable extends Migration
             $table->string('agency')->nullable();
             $table->string('consultancy')->nullable();
             $table->string('notes')->nullable();
+            $table->string('registration_by')->nullable();
             $table->timestamps();
         });
     }

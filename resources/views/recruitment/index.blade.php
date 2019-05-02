@@ -27,6 +27,7 @@
                                 <th class="align-middle">Nerden Duydu</th>
                                 <th class="align-middle">Acente</th>
                                 <th class="align-middle">Ücretli Danışmanlık</th>
+                                <th class="align-middle">Kayıt Yapan</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -46,6 +47,7 @@
                                 <td class="align-middle">{{ $recruitment->heard_by }}</td>
                                 <td class="align-middle">{{ $recruitment->agency }}</td>
                                 <td class="align-middle">{{ $recruitment->consultancy }}</td>
+                                <td class="align-middle">{{ $recruitment->registration_by }}</td>
                                 <form action="{{ route('recruitment.edit', ['recruitment' => $recruitment->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="recruitment_delete({{ $recruitment->id }})" class="btn btn-danger">Sil</button></td>
@@ -92,12 +94,12 @@
         col_widths: [
             '100px', '100px', '100px','150px', '250px', '200px',
             '200px','100px', '100px', '100px','120px', '100px',
-            '120px', '200px'
+            '120px', '200px', '100px'
         ],
         col_types: [
             'string', 'string', 'string','string', 'string', 'string',
             'string','string', 'string', 'string','string', 'string',
-            'string','string',
+            'string','string', 'string'
         ],
         extensions: [{
             name: 'sort'

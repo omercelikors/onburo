@@ -75,6 +75,7 @@ class RecruitmentController extends Controller
         $recruitment->agency=$agency;
         $recruitment->consultancy=$consultancy;
         $recruitment->notes=$notes;
+        $recruitment->registration_by=Auth::user()->name;
         $recruitment->save();
         return redirect()->route('recruitment.index');
     }
@@ -131,6 +132,7 @@ class RecruitmentController extends Controller
         $recruitment->agency=$request->input('agency');
         $recruitment->consultancy=$request->input('consultancy');
         $recruitment->notes=$request->input('notes');
+        $recruitment->registration_by=Auth::user()->name;
         $recruitment->save();
         return redirect()->route('recruitment.index');
     }
