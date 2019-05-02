@@ -20,6 +20,7 @@
                                 <th class="align-middle">Telefon</th>
                                 <th class="align-middle">İstediği Kurs</th>
                                 <th class="align-middle">Not</th>
+                                <th class="align-middle">Kaydı Yapan</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -32,6 +33,7 @@
                                 <td class="align-middle">{{ $candidate_student->telephone }}</td>
                                 <td class="align-middle">{{ $candidate_student->demanded_education_status }}</td>
                                 <td class="align-middle">{{ $candidate_student->note }}</td>
+                                <td class="align-middle">{{ $candidate_student->registration_by }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
                                             onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button></td>
