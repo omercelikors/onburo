@@ -73,7 +73,7 @@
         col_widths: [
             '120px', '120px', '150px',
             '150px', '150px', '450px',
-            '200px'
+            '100px', '100px'
         ],
         col_types: [
             'string', 'string', 'string',
