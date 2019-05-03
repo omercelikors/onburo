@@ -38,10 +38,10 @@
                                 <td class="align-middle">{{ $candidate_student->register_status }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
                                     <td class="align-middle">
-                                        <button type="submit" class="btn btn-primary mx-2">Düzenle</button>
-                                        <button type="button" onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger">Sil</button>
-                                        <button type="button" onclick="candidate_student_registered({{ $candidate_student->id }})" class="btn btn-success">Kaydı Yapıldı</button>
-                                        <button type="button" onclick="candidate_student_not_come({{ $candidate_student->id }})" class="btn btn-secondary">Gelmeyecek</button>
+                                        <button type="submit" class="btn btn-primary btn-sm btn-block">Düzenle</button>
+                                        <button type="button" onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger btn-sm btn-block">Sil</button>
+                                        <button type="button" onclick="candidate_student_registered({{ $candidate_student->id }})" class="btn btn-success btn-sm btn-block">Kaydı Yapıldı</button>
+                                        <button type="button" onclick="candidate_student_not_come({{ $candidate_student->id }})" class="btn btn-secondary btn-sm btn-block">Gelmeyecek</button>
                                     </td>
 
                                 </form>
