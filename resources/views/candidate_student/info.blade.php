@@ -22,6 +22,7 @@
                                 <th class="align-middle">Not</th>
                                 <th class="align-middle">Kaydı Yapan</th>
                                 <th class="align-middle">Katılım Durumu</th>
+                                <td class="align-middle">Katılım İşlem</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
                         </thead>
@@ -38,12 +39,13 @@
                                 <td class="align-middle">{{ $candidate_student->register_status }}</td>
                                 <form action="{{ route('candidate_student_edit_show', ['candidate_student_id' => $candidate_student->id]) }}" method="GET">
                                     <td class="align-middle">
-                                        <button type="submit" class="btn btn-primary btn-sm btn-block">Düzenle</button>
-                                        <button type="button" onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger btn-sm btn-block">Sil</button>
                                         <button type="button" onclick="candidate_student_registered({{ $candidate_student->id }})" class="btn btn-success btn-sm btn-block">Kaydı Yapıldı</button>
                                         <button type="button" onclick="candidate_student_not_come({{ $candidate_student->id }})" class="btn btn-secondary btn-sm btn-block">Gelmeyecek</button>
                                     </td>
-
+                                    <td class="align-middle">
+                                        <button type="submit" class="btn btn-primary btn-sm btn-block">Düzenle</button>
+                                        <button type="button" onclick="candidate_student_delete({{ $candidate_student->id }})" class="btn btn-danger btn-sm btn-block">Sil</button>
+                                    </td>
                                 </form>
                                 @endforeach
                             </tr>
@@ -80,7 +82,8 @@
         col_widths: [
             '120px', '120px', '150px',
             '150px', '150px', '450px',
-            '100px', '100px', '300px'
+            '100px', '100px', '150px',
+            '150px'
         ],
         col_types: [
             'string', 'string', 'string',
