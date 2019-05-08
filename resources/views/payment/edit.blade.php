@@ -350,7 +350,7 @@
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="note">Not:</label>
-                            <textarea class="form-control" rows="5" id="note" name="note"></textarea>
+                            <textarea class="form-control" rows="5" id="note" name="note">{{ $payment->note }}</textarea>
                         </div>
                     </div>
                 </div>
