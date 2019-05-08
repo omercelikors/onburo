@@ -143,6 +143,7 @@ class PaymentController extends Controller
     }
 
     public function payment_edit_register (Request $request){
+        return $request->input('note');
             $payment_id=$request->input('payment_id');
             $payment=Payment::find($payment_id);
 
