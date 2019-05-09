@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Agency;
 use App\University;
 use App\UniversityBranch;
+use Auth;
 
 class RecruitmentController extends Controller
 {
