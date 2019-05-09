@@ -18,7 +18,7 @@ class RecruitmentController extends Controller
      */
     public function index()
     {
-        $recruitments=Recruitment::all();
+        $recruitments=Recruitment::all()->orderBy('id', 'desc');
         return view('recruitment.index',['recruitments'=>$recruitments]);
     }
 
