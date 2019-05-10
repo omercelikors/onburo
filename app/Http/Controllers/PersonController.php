@@ -13,7 +13,7 @@ use Auth;
 class PersonController extends Controller{
 
     public function student_other1_show (){
-        $students = Person::where('status','Öğrenci')->get();
+        $students = Person::where('status','Öğrenci')->orderBy('id', 'desc')->get();
         return view('student.info_other1')->with('students',$students);
     }
 
