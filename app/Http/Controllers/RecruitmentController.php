@@ -22,6 +22,17 @@ class RecruitmentController extends Controller
         return view('recruitment.index',['recruitments'=>$recruitments]);
     }
 
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index1()
+    {
+        $recruitments=Recruitment::all();
+        return view('recruitment.index1',['recruitments'=>$recruitments]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

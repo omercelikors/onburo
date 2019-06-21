@@ -103,6 +103,7 @@ Route::middleware(['auth'])->group(function() {
 
     //recruitment
     Route::resource('/recruitment', 'RecruitmentController');
+    Route::get('/recruitment-ikinci', 'RecruitmentController@index1')->name('recruitment1');
     //univertsity
     Route::resource('/university', 'UniversityController');
     //university branch

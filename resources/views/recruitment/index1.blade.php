@@ -17,13 +17,10 @@
                                 <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
-                                <th class="align-middle">Telefon</th>
-                                <th class="align-middle">E-posta</th>
-                                <th class="align-middle">Üniversite</th>
-                                <th class="align-middle">Bölüm</th>
-                                <th class="align-middle">Öğrenim Dili</th>
-                                <th class="align-middle">Derece</th>
-                                <th class="align-middle">Başvuru Durumu</th>
+                                <th class="align-middle">Ülke</th>
+                                <th class="align-middle">Nerden Duydu</th>
+                                <th class="align-middle">Acente</th>
+                                <th class="align-middle">Ücretli Danışmanlık</th>
                                 <th class="align-middle">Kayıt Yapan</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
@@ -34,13 +31,10 @@
                                 <td class="align-middle">{{ $loop->index }}</td>
                                 <td class="align-middle">{{ $recruitment->name }}</td>
                                 <td class="align-middle">{{ $recruitment->surname }}</td>
-                                <td class="align-middle">{{ $recruitment->telephone }}</td>
-                                <td class="align-middle">{{ $recruitment->e_mail }}</td>
-                                <td class="align-middle">{{ $recruitment->university }}</td>
-                                <td class="align-middle">{{ $recruitment->branch }}</td>
-                                <td class="align-middle">{{ $recruitment->learning_language }}</td>
-                                <td class="align-middle">{{ $recruitment->degree }}</td>
-                                <td class="align-middle">{{ $recruitment->application_status }}</td>
+                                <td class="align-middle">{{ $recruitment->country }}</td>
+                                <td class="align-middle">{{ $recruitment->heard_by }}</td>
+                                <td class="align-middle">{{ $recruitment->agency }}</td>
+                                <td class="align-middle">{{ $recruitment->consultancy }}</td>
                                 <td class="align-middle">{{ $recruitment->registration_by }}</td>
                                 <form action="{{ route('recruitment.edit', ['recruitment' => $recruitment->id]) }}" method="GET">
                                     <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -86,12 +80,12 @@
         col_11:'select',
         col_12:'select',
         col_widths: [
-            '50px', '100px', '100px','150px', '250px', '200px',
-            '200px','100px', '100px', '100px','120px', '100px'
+            '50px', '100px', '100px', '100px', '120px', '100px',
+            '120px', '200px', '100px'
         ],
         col_types: [
-            'number', 'string', 'string','string', 'string', 'string',
-            'string','string', 'string', 'string','string',  'string'
+            'number', 'string', 'string', 'string','string', 'string',
+            'string','string', 'string'
         ],
         extensions: [{
             name: 'sort'
