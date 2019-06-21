@@ -15,6 +15,7 @@
                     <table id="payment-table" class="payment-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Öğretmen</th>
@@ -35,6 +36,7 @@
                         <tbody>
                             @foreach($payments as $payment)
                             <tr>
+                                <td class="align-middle">{{ $loop-> index + 1}}</td>
                                 <td class="align-middle">{{ $payment->person->name }}</td>
                                 <td class="align-middle">{{ $payment->person->surname }}</td>
                                 <td class="align-middle">@isset($payment->person->classroom) {{ $payment->person->classroom->teacher_name() }} {{ $payment->person->classroom->teacher_surname() }} @endisset</td>
@@ -88,12 +90,12 @@
         col_3: 'select',
         col_7: 'select',
         col_widths: [
-            '100px', '100px', '150px', '100px', '80px', '100px',
+            '50px','100px', '100px', '150px', '100px', '80px', '100px',
             '100px', '100px', '100px', '100px','100px',
             '100px', '100px', '100px','200px'
         ],
         col_types: [
-            'string', 'string', 'string', 'string', 'string', 'number',
+            'number','string', 'string', 'string', 'string', 'string', 'number',
             'number', 'number', 'string', 'string', 'string',
             'string', 'string', 'string','string'
         ],

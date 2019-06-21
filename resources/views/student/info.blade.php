@@ -14,6 +14,7 @@
                     <table id="student-table" class="student-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Kurs Tipi</th>
@@ -31,6 +32,7 @@
                         <tbody>
                             @foreach ($students as $student)
                             <tr>
+                                <td class="align-middle">{{ $loop->index }}</td>
                                 <td class="align-middle">{{ $student->name }}</td>
                                 <td class="align-middle">{{ $student->surname }}</td>
                                 <td class="align-middle">@if(isset($student->classroom)){{ $student->classroom->course_type }}@endif</td>
@@ -83,13 +85,13 @@
         col_9: 'select',
         col_10: 'select',
         col_widths: [
-            '130px', '130px', '80px',
+            '50px','130px', '130px', '80px',
             '70px', '100px', '140px',
             '140px', '130px', '90px',
             '100px', '160px','160px'
         ],
         col_types: [
-            'string', 'string',
+            'number', 'string', 'string',
             'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string','string',
             'string', 'string','string'

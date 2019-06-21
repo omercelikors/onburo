@@ -14,6 +14,7 @@
                     <table id="university-table" class="university-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Üniversite Adı</th>
                                 <th class="align-middle">İşlem</th>
                             </tr>
@@ -21,6 +22,7 @@
                         <tbody>
                             @foreach ($universities as $university)
                                 <tr>
+                                    <td class="align-middle">{{ $loop->index }}</td>
                                     <td class="align-middle">{{ $university->name }}</td>
                                     <form action="{{ route('university.edit', ['university' => $university->id]) }}" method="GET">
                                         <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"
@@ -58,11 +60,11 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '500px', '200px'
+            '50px', '500px', '200px'
 
         ],
         col_types: [
-            'string', 'string'
+            'number', 'string', 'string'
         ],
         extensions: [{
             name: 'sort'

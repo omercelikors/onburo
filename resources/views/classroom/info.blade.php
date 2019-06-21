@@ -15,6 +15,7 @@
                     <table id="classroom-table" class="classroom-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sayı</th>
                                 <th class="align-middle">Kurs Tipi</th>
                                 <th class="align-middle">Başlangıç Tarihi</th>
                                 <th class="align-middle">Bitiş Tarihi</th>
@@ -26,6 +27,7 @@
                         <tbody>
                             @foreach ($classrooms as $classroom)
                             <tr>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $classroom->course_type }}</td>
                                 <td class="align-middle">{{ $classroom->starting_date() }}</td>
                                 <td class="align-middle">{{ $classroom->end_date() }}</td>
@@ -73,11 +75,11 @@
         col_3: 'select',
         col_4: 'select',
         col_widths: [
-            '100px', '200px', '200px',
+            '50px', '100px', '200px', '200px',
             '100px', '250px', '200px',
         ],
         col_types: [
-            'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
+            'number', 'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             'string', 'string', 'string',
         ],
         extensions: [{

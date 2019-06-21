@@ -14,6 +14,7 @@
                     <table id="company-employee-table" class="company-employee-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sayı</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">E-posta</th>
@@ -26,6 +27,7 @@
                         <tbody>
                             @foreach ($company_employees as $company_employee)
                             <tr>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $company_employee->name }}</td>
                                 <td class="align-middle">{{ $company_employee->surname }}</td>
                                 <td class="align-middle">{{ $company_employee->e_mail }}</td>
@@ -68,12 +70,12 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '150px', '150px', '250px',
+            '50px', '150px', '150px', '250px',
             '150px', '120px', '380px',
             '200px'
         ],
         col_types: [
-            'string', 'string', 'string',
+            'number', 'string', 'string', 'string',
             'number', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string',
             'string'
         ],

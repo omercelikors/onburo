@@ -14,6 +14,7 @@
                     <table id="agency-table" class="agency-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Ödenecek Tutar</th>
                                 <th class="align-middle">Ödenen Tutar</th>
@@ -25,6 +26,7 @@
                         <tbody>
                             @foreach ($agencies as $agency)
                             <tr>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $agency->name }}</td>
                                 <td class="align-middle">@if(isset($agency->debt_amount)){{ $agency->debt_amount }} @if($agency->currency_unit=="Türk Lirası") TL @elseif($agency->currency_unit=="Dolar") $ @endif @endif</td>
                                 <td class="align-middle">@if(isset($agency->paid_amount)){{ $agency->paid_amount }} @if($agency->currency_unit=="Türk Lirası") TL @elseif($agency->currency_unit=="Dolar") $ @endif @endif</td>
@@ -66,10 +68,10 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '250px','200px','200px','200px', '350px', '250px'
+            '50px', '250px','200px','200px','200px', '350px', '250px'
         ],
         col_types: [
-            'string','number', 'number','number', 'string', 'string'
+            'number','string','number', 'number','number', 'string', 'string'
         ],
         extensions: [{
             name: 'sort'

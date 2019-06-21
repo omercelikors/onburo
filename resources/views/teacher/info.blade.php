@@ -14,6 +14,7 @@
                     <table id="teacher-table" class="teacher-table table table-striped">
                         <thead>
                             <tr>
+                                <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">E-posta</th>
@@ -25,6 +26,7 @@
                         <tbody>
                             @foreach ($teachers as $teacher)
                             <tr>
+                                <td class="align-middle">{{ $loop->index }}</td>
                                 <td class="align-middle">{{ $teacher->name }}</td>
                                 <td class="align-middle">{{ $teacher->surname }}</td>
                                 <td class="align-middle">{{ $teacher->e_mail }}</td>
@@ -66,11 +68,11 @@
         loader: true,
         status_bar: false,
         col_widths: [
-            '200px', '200px', '250px',
+            '50px', '200px', '200px', '250px',
             '150px', '100px', '200px'
         ],
         col_types: [
-            'string', 'string', 'string',
+            'number', 'string', 'string', 'string',
             'number', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string'
         ],
         extensions: [{

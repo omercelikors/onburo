@@ -44,6 +44,7 @@
                     <table id="people_table" class="people-table table table-striped">
                         <thead id="table_header">
                             <tr>
+                                <th class="align-middle">Sıra</th>
                                 <th class="align-middle">Adı</th>
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Statüsü</th>
@@ -60,6 +61,7 @@
                         <tbody id="table_body">
                             @foreach ($people as $person)
                             <tr class="info" id="{{ $person->id }}">
+                                <td class="align-middle">{{ $loop->index }}</td>
                                 <td class="align-middle">{{ $person->name }}</td>
                                 <td class="align-middle">{{ $person->surname }}</td>
                                 <td class="align-middle">{{ $person->status }}</td>
@@ -105,15 +107,15 @@
         col_8: 'select',
         col_9: 'select',
         col_widths: [
-            '170px', '170px', '100px',
+            '50px', '170px', '170px', '100px',
             '100px', '120px', '100px',
             '100px', '140px', '140px',
             '140px', '180px'
         ],
         col_types: [
+            'number', 'string', 'string', 'string',
             'string', 'string', 'string',
             'string', 'string', 'string',
-            'string', 'string', 'string', 
             'string', 'string'
         ],
         extensions: [{
