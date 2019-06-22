@@ -91,7 +91,7 @@
         col_11:'select',
         col_12:'select',
         col_widths: [
-            '50px', '100px', '100px','150px', '200px', '300px', '200px'
+            '50px', '100px', '100px','150px', '200px', '300px', '200px',
             '200px','100px', '100px', '100px','120px', '100px'
         ],
         col_types: [
