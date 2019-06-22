@@ -19,7 +19,7 @@
 <script>
     var ctx = $("#myChart");
     var myDoughnutChart = new Chart(ctx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
                 labels: ["A1","B2"],
                 datasets: [{data: [{{ $course_student_number->A1 }}, {{ $course_student_number->B2 }}],backgroundColor: ['rgba(38, 163, 117, 0.7)','rgba(255, 163, 40, 0.7)']}]
@@ -27,7 +27,14 @@
         options: {
 				responsive: true,
 				legend: {position: 'top'},
-				title: {display: true,text: 'Kurslara Göre Öğrenci Sayısı Grafiği'}
+				title: {display: true,text: 'Kurslara Göre Öğrenci Sayısı Grafiği'},
+                scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
 		}
     });
 </script>
