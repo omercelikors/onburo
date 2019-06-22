@@ -29,12 +29,12 @@
 				legend: {position: 'top'},
 				title: {display: true,text: 'Kurslara Göre Öğrenci Sayısı Grafiği'},
                 scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero:true
-            }
-        }]
-    }
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
 		}
     });
 </script>
