@@ -95,7 +95,7 @@
             '200px','100px', '100px', '100px','120px', '100px'
         ],
         col_types: [
-            'number', 'string', 'string','string', 'string', 'string', 'string'
+            'number', 'string', 'string','string', 'string', 'string', 'string',
             'string','string', 'string', 'string','string',  'string'
         ],
         extensions: [{
