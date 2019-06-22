@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($recruitments as $recruitment)
                             <tr>
-                                <td class="align-middle">{{ $loop->index }}</td>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $recruitment->name }}</td>
                                 <td class="align-middle">{{ $recruitment->surname }}</td>
                                 <td class="align-middle">{{ $recruitment->telephone }}</td>
