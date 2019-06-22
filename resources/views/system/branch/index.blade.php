@@ -22,7 +22,7 @@
                         <tbody>
                             @foreach ($branches as $branch)
                                 <tr>
-                                    <td class="align-middle">{{ $loop->index }}</td>
+                                    <td class="align-middle">{{ $loop->index + 1 }}</td>
                                     <td class="align-middle">{{ $branch->name }}</td>
                                     <form action="{{ route('university-branch.edit', ['branch' => $branch->id]) }}" method="GET">
                                         <td class="align-middle"><button type="submit" class="btn btn-primary mx-2">Düzenle</button><button type="button"

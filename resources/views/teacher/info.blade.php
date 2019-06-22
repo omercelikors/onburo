@@ -26,7 +26,7 @@
                         <tbody>
                             @foreach ($teachers as $teacher)
                             <tr>
-                                <td class="align-middle">{{ $loop->index }}</td>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $teacher->name }}</td>
                                 <td class="align-middle">{{ $teacher->surname }}</td>
                                 <td class="align-middle">{{ $teacher->e_mail }}</td>

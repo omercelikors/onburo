@@ -19,6 +19,7 @@
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Telefon</th>
                                 <th class="align-middle">E-posta</th>
+                                <th class="align-middle">Note</th>
                                 <th class="align-middle">Üniversite</th>
                                 <th class="align-middle">Bölüm</th>
                                 <th class="align-middle">Öğrenim Dili</th>
@@ -36,6 +37,7 @@
                                 <td class="align-middle">{{ $recruitment->surname }}</td>
                                 <td class="align-middle">{{ $recruitment->telephone }}</td>
                                 <td class="align-middle">{{ $recruitment->e_mail }}</td>
+                                <td class="align-middle">{{ $recruitment->notes }}</td>
                                 <td class="align-middle">{{ $recruitment->university }}</td>
                                 <td class="align-middle">{{ $recruitment->branch }}</td>
                                 <td class="align-middle">{{ $recruitment->learning_language }}</td>
@@ -86,11 +88,11 @@
         col_11:'select',
         col_12:'select',
         col_widths: [
-            '50px', '100px', '100px','150px', '250px', '200px',
+            '50px', '100px', '100px','150px', '200px', '200px', '200px'
             '200px','100px', '100px', '100px','120px', '100px'
         ],
         col_types: [
-            'number', 'string', 'string','string', 'string', 'string',
+            'number', 'string', 'string','string', 'string', 'string', 'string'
             'string','string', 'string', 'string','string',  'string'
         ],
         extensions: [{

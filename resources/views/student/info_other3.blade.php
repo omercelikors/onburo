@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($students as $student)
                             <tr>
-                                <td class="align-middle">{{ $loop->index }}</td>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $student->name }}</td>
                                 <td class="align-middle">{{ $student->surname }}</td>
                                 <td class="align-middle">{{ $student->relative_name }}</td>

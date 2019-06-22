@@ -61,7 +61,7 @@
                         <tbody id="table_body">
                             @foreach ($people as $person)
                             <tr class="info" id="{{ $person->id }}">
-                                <td class="align-middle">{{ $loop->index }}</td>
+                                <td class="align-middle">{{ $loop->index + 1 }}</td>
                                 <td class="align-middle">{{ $person->name }}</td>
                                 <td class="align-middle">{{ $person->surname }}</td>
                                 <td class="align-middle">{{ $person->status }}</td>
