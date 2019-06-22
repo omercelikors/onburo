@@ -80,8 +80,8 @@
         col_11:'select',
         col_12:'select',
         col_widths: [
-            '50px', '100px', '100px', '100px', '120px', '100px',
-            '120px', '200px', '100px'
+            '50px', '150px', '150px', '150px', '150px', '150px',
+            '120px', '200px', '150px'
         ],
         col_types: [
             'number', 'string', 'string', 'string','string', 'string',
