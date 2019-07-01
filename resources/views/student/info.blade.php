@@ -79,10 +79,8 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_2: 'select',
         col_3: 'select',
-        col_6: 'select',
-        col_9: 'select',
+        col_4: 'select',
         col_10: 'select',
         col_widths: [
             '50px','130px', '130px', '80px',
@@ -91,7 +89,7 @@
             '100px', '160px','160px'
         ],
         col_types: [
-            'string', 'number', 'string', 'string',
+            'number', 'string', 'string',
             'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string','string',
             'string', 'string','string'
