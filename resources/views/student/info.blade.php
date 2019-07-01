@@ -91,7 +91,7 @@
             '100px', '160px','160px'
         ],
         col_types: [
-            'number', 'string', 'string',
+            'string', 'number', 'string', 'string',
             'string', { type: 'date', format: ['{dd}.{mm}.{yyyy}'] },
             { type: 'date', format: ['{dd}.{mm}.{yyyy}'] }, 'string','string',
             'string', 'string','string'
