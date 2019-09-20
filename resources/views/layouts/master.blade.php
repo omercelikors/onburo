@@ -69,6 +69,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('agency_info_show') }}">ACENTE</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('candidate_student_info_show') }}">ADAY ÖĞRENCİ</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">TEMİN</a>
                         <div class="dropdown-menu">
