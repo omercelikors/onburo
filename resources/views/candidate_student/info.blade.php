@@ -80,7 +80,7 @@
         rows_counter: true,
         loader: true,
         status_bar: false,
-        col_4:'select',
+        col_8:'select',
         col_widths: [
             '50px','120px', '120px', '150px',
             '120px', '120px', '350px',
