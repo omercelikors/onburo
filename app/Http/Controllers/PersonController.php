@@ -274,6 +274,7 @@ class PersonController extends Controller{
             $candidate_student->note=$note;
             $candidate_student->demanded_education_status=$demanded_education_status;
             $candidate_student->registration_by=$registration_by;
+            $candidate_student->register_status = 'Yok';
             $candidate_student->save();
             return redirect('/candidate-student-info-show');
     }
