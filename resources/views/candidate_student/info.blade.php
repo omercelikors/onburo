@@ -19,7 +19,7 @@
                                 <th class="align-middle">Soyadı</th>
                                 <th class="align-middle">Ülke</th>
                                 <th class="align-middle">Telefon</th>
-                                <th class="align-middle">İstediği Kurs</th>
+                                <th class="align-middle">Son Değişim Tarihi</th>
                                 <th class="align-middle">Not</th>
                                 <th class="align-middle">Kaydı Yapan</th>
                                 <th class="align-middle">Katılım Durumu</th>
@@ -35,7 +35,7 @@
                                 <td class="align-middle">{{ $candidate_student->surname }}</td>
                                 <td class="align-middle">{{ $candidate_student->country }}</td>
                                 <td class="align-middle">{{ $candidate_student->telephone }}</td>
-                                <td class="align-middle">{{ $candidate_student->demanded_education_status }}</td>
+                                <td class="align-middle">{{ $candidate_student->updated_at }}</td>
                                 <td class="align-middle">{{ $candidate_student->note }}</td>
                                 <td class="align-middle">{{ $candidate_student->registration_by }}</td>
                                 <td class="align-middle">{{ $candidate_student->register_status }}</td>
