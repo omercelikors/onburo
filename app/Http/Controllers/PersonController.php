@@ -466,6 +466,7 @@ class PersonController extends Controller{
     public function savePersonFromTSC(Request $request) {
         $person = new Person();
         $person->name = $request->input('name');
+        $person->name = $request->input('-');
         $person->e_mail = $request->input('email');
         $person->telephone = $request->input('phone');
         $person->demanded_education_status = $request->input('course');
