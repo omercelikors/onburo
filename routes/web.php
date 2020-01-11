@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('save-candidate', 'PersonController@savePersonFromTSC')->name('save_candidate');
 
 Route::middleware(['auth'])->group(function() {
     //student pages

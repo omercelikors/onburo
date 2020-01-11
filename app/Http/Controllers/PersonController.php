@@ -462,4 +462,8 @@ class PersonController extends Controller{
         Excel::import(new PersonImport,request()->file('csv'));
         return back();
     }
+
+    public function savePersonFromTSC(Request $request) {
+        return [1, 2, 3];
+    }
 }
