@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/candidate-student-edit-show/{candidate_student_id}', 'PersonController@candidate_student_edit_show')->name('candidate_student_edit_show');
     Route::post('/candidate-student-register', 'PersonController@candidate_student_register')->name('candidate_student_register');
     Route::post('/candidate-student-edit-register', 'PersonController@candidate_student_edit_register')->name('candidate_student_edit_register');
+    Route::post('/candidate-csvfileupload', 'PersonController@candidate_student_import_csv')->name('candidate_student_import_csv');
     //company_employee
     Route::get('/company-employee-info-show', 'PersonController@company_employee_info_show')->name('company_employee_info_show');
     Route::get('/company-employee-register-show', 'PersonController@company_employee_register_show')->name('company_employee_register_show');

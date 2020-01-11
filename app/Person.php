@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
+
+    protected $fillable = ['name', 'status', 'registration_by', 'surname', 'e_mail', 'telephone', 'demanded_education_status', 'platform'];
+
     public function classroom()
     {
         return $this->belongsTo('App\Classroom');

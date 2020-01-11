@@ -31,7 +31,6 @@ class CreatePeopleTable extends Migration
             $table->enum('why_abandon_us_status', ['Hoca Sorunu','Ücret Sorunu','Kişisel Nedenler'])->nullable();
             $table->string('why_abandon_us_note')->nullable();
             $table->string('registration_by')->nullable();
-
             $table->enum('sex_status', ['Erkek','Kız'])->nullable();
             $table->enum('marital_status', ['Evli','Bekar'])->nullable();
             $table->enum('university_status', ['Evet','Hayır'])->nullable();
@@ -50,8 +49,9 @@ class CreatePeopleTable extends Migration
             $table->enum('home_status', ['Evet','Hayır'])->nullable();
             $table->enum('heard_by_status', ['Google','Instagram','Facebook','Tavsiye','Diğer'])->nullable();
             $table->string('heard_by_other')->nullable();
-            $table->enum('demanded_education_status', ['YÖS','Online','Diğer Diller'])->nullable();
+            $table->string('demanded_education_status')->nullable();
             $table->enum('register_status', ['Evet','Hayır', 'Yok'])->nullable();
+            $table->string('platform')->nullable();
             $table->timestamps();
         });
     }

@@ -10,6 +10,10 @@ use App\Agency;
 use App\CourseStudentNumber;
 use Debugbar;
 use Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\PersonImport;
+
+
 class PersonController extends Controller{
 
     public function student_other1_show (){
@@ -452,5 +456,10 @@ class PersonController extends Controller{
         } else {
             return null;
         }
+    }
+
+    public function candidate_student_import_csv(Request $request) {
+        Excel::import(new PersonImport,request()->file('csv'));
+        return back();
     }
 }

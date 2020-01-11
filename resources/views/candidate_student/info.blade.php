@@ -4,6 +4,16 @@
     <div class="card">
         <div class="card-header">Aday Öğrenci Bilgileri</div>
         <div class="card-body">
+        <div class="row pr-0">
+        <form class="col-3 offset-9 " action="{{route('candidate_student_import_csv')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="custom-file">
+                <input type="file" name="csv" class="custom-file-input" id="csv">
+                <label class="custom-file-label" for="customFile">Excel Yükle (97-2004 format)</label>
+            </div>
+            <button type="submit" class="btn btn-primary float-right mt-2 mb-4">Yükle</button>
+        </form>
+        </div>
             <div class="row">
                 <div class="col-12">
                     <a href="{{ route('candidate_student_register_show') }}"><span class="float-right">Yeni Kayıt</span><i class="fas fa-plus-circle float-right pr-2"></i></a>
@@ -160,6 +170,13 @@
                 }
             });
     }
+
+    $('#csv').on('change',function(){
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
 
     function candidate_student_registered(candidate_student_id) {
         swal({
