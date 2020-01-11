@@ -9,7 +9,7 @@
             @csrf
             <div class="custom-file">
                 <input type="file" name="csv" class="custom-file-input" id="csv">
-                <label class="custom-file-label" for="customFile">Excel Yükle (97-2004 format)</label>
+                <label class="custom-file-label" for="customFile">Excel Yükle (xlsx/ Excel çalışma Kitabı)</label>
             </div>
             <button type="submit" class="btn btn-primary float-right mt-2 mb-4">Yükle</button>
         </form>
