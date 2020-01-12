@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
 
-    protected $fillable = ['name', 'status', 'registration_by', 'surname', 'e_mail', 'telephone', 'demanded_education_status', 'platform'];
+    protected $fillable = ['name', 'status', 'registration_by', 'surname', 'e_mail', 'telephone', 'demanded_education_status', 'platform', 'register_status'];
 
     public function classroom()
     {
