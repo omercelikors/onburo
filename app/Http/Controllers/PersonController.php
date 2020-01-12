@@ -467,6 +467,7 @@ class PersonController extends Controller{
         $person = new Person();
         $person->name = $request->input('name');
         $person->surname = '-';
+        $person->status = 'Aday Öğrenci';
         $person->e_mail = $request->input('email');
         $person->telephone = $request->input('phone');
         $person->demanded_education_status = $request->input('course');
