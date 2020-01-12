@@ -430,10 +430,13 @@
                                 </div>
                                 <div class="col-12 col-md-4 col-xl-4">
                                     <div class="form-group">
-                                        <div class="form-group">
-                                            <label for="heard_by">Başka bir kurs istiyor mu?:</label>
-                                            <input type="text" class="form-control" id="demanded_education_status" name="demanded_education_status" value="{{ $student->demanded_education_status }}">
-                                        </div>
+                                        <label for="demanded_education_status">Başka bir kurs istiyor mu?:</label>
+                                        <select class="form-control" id="demanded_education_status" name="demanded_education_status">
+                                            <option></option>
+                                            <option>YÖS</option>
+                                            <option>Online</option>
+                                            <option>Diğer Diller</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

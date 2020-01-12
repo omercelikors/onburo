@@ -22,11 +22,13 @@ class PersonImport implements ToModel
             'name' => $row[14],
             'surname' => '-',
             'status' => 'Aday Öğrenci',
-            'registration_by' => 'import',
+            'registration_by' => 'sistem',
+            'register_status' => 'ara',
             'e_mail'    => $row[13],
             'telephone' => $row[15],
             'demanded_education_status' => $row[12],
             'platform' => $row[11],
+
         ]);
 
     }

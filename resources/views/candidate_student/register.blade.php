@@ -52,13 +52,10 @@
                             <div class="row my-2 d-flex justify-content-center">
                                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                     <div class="form-group">
-                                        <label for="demanded_education_status">Başka bir kurs istiyor mu?:</label>
-                                        <select class="form-control" id="demanded_education_status" name="demanded_education_status">
-                                            <option></option>
-                                            <option>YÖS</option>
-                                            <option>Online</option>
-                                            <option>Diğer Diller</option>
-                                        </select>
+                                        <div class="form-group">
+                                            <label for="heard_by">Başka bir kurs istiyor mu?:</label>
+                                            <input type="text" class="form-control" id="demanded_education_status" name="demanded_education_status">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-6 col-xl-7">

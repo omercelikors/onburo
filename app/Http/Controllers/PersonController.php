@@ -472,6 +472,8 @@ class PersonController extends Controller{
         $person->telephone = $request->input('phone');
         $person->demanded_education_status = $request->input('course');
         $person->platform = 'website';
+        $person->register_status = 'Ara';
+        $person->registration_by = 'Websitesi';
         $person->save();
         return $person;
     }
