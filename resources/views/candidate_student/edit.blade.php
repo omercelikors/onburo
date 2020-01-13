@@ -33,7 +33,7 @@
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">
                                     <div class="form-group">
                                         <label for="telephone">*Telefon:</label>
-                                        <input type="number" class="form-control" id="telephone" value="{{ $candidate_student->telephone }}"name="telephone" required>
+                                        <input type="text" class="form-control" id="telephone" value="{{ $candidate_student->telephone }}"name="telephone" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 col-xl-2">
