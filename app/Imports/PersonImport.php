@@ -26,7 +26,7 @@ class PersonImport implements ToModel
             'register_status' => 'Ara',
             'e_mail'    => $row[13],
             'telephone' => $row[15],
-            'demanded_education_status' => $row[12],
+            'note' => $row[12],
             'platform' => $row[11],
 
         ]);
